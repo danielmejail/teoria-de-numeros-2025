@@ -6,7 +6,7 @@ de 2025 en el CMat.
 [Notas](https://github.com/danielmejail/teoria-de-numeros-2025/blob/main/notas-para-el-curso/notas-para-el-curso.pdf) del curso.
 
 ## Código
-[Código]() para ejemplificar algunos de los temas estudiados en clase.
+[Código](/gp) para ejemplificar algunos de los temas estudiados en clase.
 
 ## Referencias
 Bibliografía consultada.
