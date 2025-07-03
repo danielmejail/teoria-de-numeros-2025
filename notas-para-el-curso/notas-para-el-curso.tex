@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{a4paper}
+\usepackage{graphicx}
+% \usepackage{mathdots}
+% \usepackage{wrapfig}
+\usepackage{makeidx}
+
+\input{./headers/formato.tex}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage[unicode]{hyperref}
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+% \resetcounteronoverlays{saveenumi}
+
+\title{Notas para el curso de Teor\'{\i}a de n\'umueros}
+\author{}
+\date{} % Activate to display a given date or no date (if empcd tety),
+	% otherwise the current date is printed
+
+% \makeindex
+
+\begin{document}
+
+\input{./headers/caratula.tex}
+
+%-------
+
+\input{./headers/cuerpo.tex}
+
+\end{document}
+

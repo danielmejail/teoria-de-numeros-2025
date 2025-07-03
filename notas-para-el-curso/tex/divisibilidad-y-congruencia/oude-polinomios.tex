@@ -1,0 +1,371 @@
+\theoremstyle{plain}
+\newtheorem{teoPolinomios}{\teoname}[section]
+\newtheorem{coroPolinomios}[teoPolinomios]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{defPolinomios}[teoPolinomios]{\defname}
+\newtheorem{obsPolinomios}[teoPolinomios]{\obsname}
+\newtheorem{ejemPolinomios}[teoPolinomios]{\ejemname}
+
+%-------------
+
+% \subsection{Subanillos}%
+	% \label{subsec:subanillos}
+En esta secci\'on, salvo aclaraci\'on, ``anillo'' querr\'a decir
+``anillo conmutativo con unidad''.
+
+\begin{defPolinomios}\label{def:polinomios:subanillo}
+	Si $A$ es un anillo y $B\subset A$ es un subconjunto con las
+	propiedades: $0\in B$, $B+B\subset B$, $B\cdot B\subset B$ y
+	$1\in B$, decimos que $B$ es \emph{subanillo} de $A$.
+\end{defPolinomios}
+
+\begin{ejemPolinomios}\label{ejem:polinomios:subanillo}
+	El subconjunto $\Enteros\subset\Racionales$ es un subanillo del
+	anillo (cuerpo) de n\'umeros racionales; como subconjuntos de los
+	n\'umeros complejos, $\Enteros$, $\Racionales$ y $\Reales$ son
+	subanillos que satisfacen:
+	$\Enteros\subset\Racionales\subset\Reales\subset\Complejos$.
+	Los subconjuntos $\EnterosGauss$, $\EnterosEisenstein$ y
+	$\polinomios\Enteros{\sqrt{-6}}$ tambi\'en son subanillos de
+	$\Complejos$, pero ninguno de ellos est\'a contenido en $\Reales$.
+	El anillo $\polinomios\Enteros{\sqrt 6}$ --definido de manera
+	an\'aloga a $\polinomios\Enteros{\sqrt{-6}}$-- es un subanillo de
+	$\Reales$ (pero no de $\Racionales$).
+\end{ejemPolinomios}
+
+% \subsection{Expresiones polinomiales}%
+	% \label{subsec:expresiones}
+\begin{obsPolinomios}\label{obs:polinomios:expresiones}
+	Si $a\in A$ y $B\subset A$ es un subanillo, entonces
+	$a,\,a^2,\,\dots$ son elementos de $A$ y tambi\'en lo son
+	$ba,\,ba^2,\,\dots$, si $b\in B$. M\'as en general, la expresi\'on
+	\begin{equation}
+		\label{eq:polinomios:expresiones}
+		b_0\,+\,b_1a\,+\,\cdots\,+\,b_ma^m
+		\text{ ,}
+	\end{equation}
+	%
+	donde $m$ es natural o $0$ y $\lista[0] b{m}\in B$,
+	define un elemento de $A$.
+	El elemento $0$ es de este tipo (eligiendo $m=0$ y $b_0=0$,
+	por ejemplo), como tambi\'en lo son $1$ ($m=0$ y $b_0=1$) y
+	$a$ ($m=1$, $b_0=0$ y $b_1=1$).
+	M\'as aun, dados dos elementos del tipo
+	\eqref{eq:polinomios:expresiones}, $p$ y $q$, su suma, $p+q$, y su
+	producto, $p\cdot q$, % (elementos tambi\'en de $A$)
+	son tambi\'en del tipo \eqref{eq:polinomios:expresiones}
+	\quedacomoejercicio.
+	En particular, el subconjunto de $A$,
+	\begin{displaymath}
+		\polinomios B a\,=\,\big\{b_0+b_1a+\,\cdots\,+b_ma^m\,:\,
+			m\text{ natural o } 0\text{ y }
+			\lista[0] b{m}\in B\big\}
+	\end{displaymath}
+	%
+	es un subanillo de $A$.
+\end{obsPolinomios}
+
+\begin{defPolinomios}\label{def:polinomios:expresiones}
+	Sean $A$ un anillo, $a\in A$ un elemento y $B\subset A$ un subanillo.
+	Una \emph{expresi\'on polinomial en $a$ con coeficientes en $B$}
+	es un elemento de $A$ del tipo \eqref{eq:polinomios:expresiones}.
+	El \emph{anillo de expresiones polinomiales en $a$ con coeficientes %
+	en $B$} es el subanillo $\polinomios B a\subset A$.
+\end{defPolinomios}
+
+\begin{ejemPolinomios}\label{ejem:polinomios:expresiones}
+	% Si $\sqrt{-6}\in\Complejos$ es un n\'umero complejo que cumple que
+	% $\sqrt{-6}^2=-6$, entonces $\sqrt{-6}^n=(-6)^{n/2}$, si $n$ es par y
+	% $\sqrt{-6}^n=(-6)^{(n-1)/2}\sqrt{-6}$, si $n$ es impar.
+	% El anillo $\polinomios \Enteros{\sqrt{-6}}$ coincide con el
+	% subanillo de $\Complejos$ de expresiones polinomiales en
+	% $\sqrt{-6}$ con coeficientes en $\Enteros$
+	Si $\sqrt{-6}\in\Complejos$ es un n\'umero complejo que cumple que
+	$\sqrt{-6}^2=-6$, entonces el subanillo de expresiones polinomiales
+	en $\sqrt{-6}$ con coeficientes en $\Enteros$ coincide con el
+	anillo $\polinomios \Enteros{\sqrt{-6}}$
+	\quedacomoejercicio.
+\end{ejemPolinomios}
+
+% \subsection{Elementos trascendentes}%
+	% \label{subsec:trascendentes}
+\begin{obsPolinomios}\label{obs:polinomios:trascendente}
+	En general, no tiene por qu\'e ser cierto \emph{a priori} que
+	\begin{math}
+		b_0+b_1a+\,\cdots\,+b_ma^m= c_0+c_1a+\,\cdots\,+c_na^n
+	\end{math}
+	implique $m=n$ y $b_i=c_i$ para cada $i$.
+	Siguiendo con el \ejemname~\ref{ejem:polinomios:expresiones},
+	la igualdad $\sqrt{-6}^2=-6$ muestra un ejemplo de esto.
+	En particular, podr\'{\i}a ocurrir que
+	\begin{math}
+		b_0+b_1a+\,\cdots\,+b_ma^m=0
+	\end{math},
+	pero que $b_m\neq 0$.
+\end{obsPolinomios}
+
+\begin{defPolinomios}\label{def:polinomios:trascendente}
+	Sean $B$ un anillo, $A$ un anillo del cual $B$ es subanillo y
+	$a\in A$ un elemento.
+	Decimos que \emph{$a$ es trascendente sobre $B$}, si las \'unicas
+	expresiones polinomiales en $a$ con coeficientes en $B$ iguales a cero
+	son las \emph{expresiones triviales}, es decir, aquellas cuyos
+	coeficientes son todos iguales a cero.
+	Expresado de otra manera, $a\in A$ es trascendente sobre $B$, si
+	\begin{displaymath}
+		b_0\,+\,b_1a\,+\,\cdots\,+\,b_ma^m\,=\,0
+		\quad\text{implica}\quad b_0\,=\,b_1\,=\,\cdots\,=\,b_m\,=\,0
+		\text{ .}
+	\end{displaymath}
+	%
+\end{defPolinomios}
+
+% \begin{teoPolinomios}\label{teo:polinomios:trascendente}
+	% Sean $B$ un anillo, $A$ un anillo del cual $B$ es subanillo y
+	% $x,a\in A$ elementos.
+	% % Sean $A$ un anillo, $x,a\in A$ elementos y $B\subset A$ un subanillo.
+	% Si $x$ es trascendente sobre $B$, existe una \'unica funci\'on
+	% $f:\,\polinomios B x\rightarrow A$ tal que
+	% \begin{displaymath}
+		% f(b)\,=\,b \text{ para todo }b\in B
+		% \quad\text{y}\quad f(x)\,=\,a
+	% \end{displaymath}
+	% %
+	% y tal que
+	% \begin{displaymath}
+		% f(u+v)\,=\,f(u)+f(v)\quad\text{y}\quad
+			% f(uv)\,=\,f(u)f(v)
+		% \text{ ,}
+	% \end{displaymath}
+	% %
+	% siempre que $u,v\in\polinomios B x$.%
+	% \footnote{
+		% En este caso, decimos que
+		% $f:\polinomios B x\rightarrow A$
+		% respeta la suma y el producto (de $A$).
+	% }
+	% La imagen de esta funci\'on es igual a $\polinomios B a$.
+% \end{teoPolinomios}
+% 
+% \begin{proof}
+	% Veamos, primero, que puede existir a lo sumo una funci\'on con
+	% estas propiedades. Todo elemento de $\polinomios B x$ se puede
+	% expresar como $b_0+b_1x+\,\cdots\,+b_mx^m$, donde $m$ es natural o
+	% $0$ y $b_i\in B$ para cada $i$. Entonces, si
+	% $f:\,\polinomios B x\rightarrow A$ tiene las
+	% propiedades del enunciado y $p=b_0+b_1x+\,\cdots\,+b_mx^m$ es una
+	% expresi\'on polinomial en $x$ con coeficientes en $B$, $f(p)$ es
+	% igual a
+	% \begin{equation}
+		% \label{eq:polinomios:trascendente}
+		% \begin{aligned}
+			% f\big(b_0+b_1x+\,\cdots\,+b_mx^m\big) & \,=\,
+				% f(b_0)\,+\,f(b_1)\,f(x)\,+\,\cdots\,+\,
+					% f(b_m)\,f(x)^m \\
+			% & \,=\, b_0\,+\,b_1a\,+\,\cdots\,+\,b_ma^m
+			% \text{ .}
+		% \end{aligned}
+		% %
+	% \end{equation}
+	% %
+	% En palabras, una funci\'on
+	% $f:\,\polinomios B x\rightarrow A$ que respeta la
+	% suma y el producto y es la identidad en $B$ est\'a determinada
+	% por su valor en $x$. Aun no hemos usado que $x$ es trascendente.
+	% El hecho de que $x\in A$ sea trascendente sobre $B$ es equivalente
+	% a que cada elemento de $\polinomios B x$ se puede expresar de a lo
+	% sumo una \'unica manera como expresi\'on polinomial en $x$ con
+	% coeficientes en $B$. Con esto y la ecuaci\'on~%
+	% \eqref{eq:polinomios:trascendente} en mente, definimos la siguiente
+	% funci\'on: si $p=b_0+b_1x+\,\cdots\,+b_mx^m\in\polinomios B x$,
+	% \begin{displaymath}
+		% % f\big(b_0+b_1x+\,\cdots\,+b_mx^m\big) \,=\,
+		% f(p)\,:=\,
+			% b_0\,+\,b_1a\,+\,\cdots\,+\,b_ma^m
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% La unicidad de la expresi\'on para $p$ garantiza que la
+	% identidad anterior \emph{define una funci\'on}.
+	% S\'olo resta verificar que esta funci\'on tiene las propiedades
+	% deseadas \quedacomoejercicio.
+% \end{proof}
+
+% % \subsection{El anillo de polinomios}%
+	% % \label{subsec:polinomios}
+% \begin{obsPolinomios}\label{obs:polinomios:anillo}
+	% Sean $A$ un anillo, $x,y\in A$ elementos y $B\subset A$ un subanillo.
+	% Si $x$ e $y$ son trascendentes sobre $B$, existen, por
+	% el \teoname~\ref{teo:polinomios:trascendente},
+	% \'unicas funciones $f:\,\polinomios B x\rightarrow\polinomios B y$ y
+	% $g:\,\polinomios B y\rightarrow\polinomios B x$ que respetan la suma
+	% y el producto de $A$, $f(b)=g(b)=b$ para todo $b\in B$ y
+	% $f(x)=y$ y $g(y)=x$. En particular, $fg=\id[{\polinomios B y}]$ y
+	% $gf=\id[{\polinomios B x}]$. Es decir, desde un punto de vista
+	% algebraico, los anillos $\polinomios B x$ y $\polinomios B y$ son
+	% indistinguibles.
+% \end{obsPolinomios}
+
+\begin{teoPolinomios}\label{teo:polinomios:trascendente}
+	Sean $B$ un anillo, $A,C$ anillos del cual $B$ es subanillo y
+	$x\in A$ y $c\in C$ elementos.
+	Si $x$ es trascendente sobre $B$, existe una \'unica funci\'on
+	$f:\,\polinomios B x\rightarrow C$ tal que
+	\begin{displaymath}
+		f(b)\,=\,b\text{ para todo }b\in B
+			\quad\text{y}\quad f(x)\,=\,c
+	\end{displaymath}
+	%
+	y tal que 
+	\begin{displaymath}
+		f(u+v)\,=\,f(u)+f(v)\quad\text{y}\quad f(uv)\,=\,f(u)f(v)
+		\text{ ,}
+	\end{displaymath}
+	%
+	siempre que $u,v\in\polinomios B x$. La imagen de esta funci\'on
+	es igual a $\polinomios B c$.
+\end{teoPolinomios}
+
+% \begin{proof}
+	% Es an\'aloga a la del \teoname~\ref{teo:polinomios:trascendente}.
+% \end{proof}
+
+\begin{proof}
+	Veamos, primero, que puede existir a lo sumo una funci\'on con
+	estas propiedades. Todo elemento de $\polinomios B x$ se puede
+	expresar como $b_0+b_1x+\,\cdots\,+b_mx^m$, donde $m$ es natural o
+	$0$ y $b_i\in B$ para cada $i$. Entonces, si
+	$f:\,\polinomios B x\rightarrow C$ tiene las
+	propiedades del enunciado y $p=b_0+b_1x+\,\cdots\,+b_mx^m$ es una
+	expresi\'on polinomial en $x$ con coeficientes en $B$, $f(p)$ es
+	igual a
+	\begin{equation}
+		\label{eq:polinomios:trascendente}
+		\begin{aligned}
+			f\big(b_0+b_1x+\,\cdots\,+b_mx^m\big) & \,=\,
+				f(b_0)\,+\,f(b_1)\,f(x)\,+\,\cdots\,+\,
+					f(b_m)\,f(x)^m \\
+			& \,=\, b_0\,+\,b_1c\,+\,\cdots\,+\,b_mc^m
+			\text{ .}
+		\end{aligned}
+		%
+	\end{equation}
+	%
+	En palabras, una funci\'on
+	$f:\,\polinomios B x\rightarrow C$ que respeta la
+	suma y el producto y es la identidad en $B$ est\'a determinada
+	por su valor en $x$. Aun no hemos usado que $x$ es trascendente.
+	El hecho de que $x\in A$ sea trascendente sobre $B$ es equivalente
+	a que cada elemento de $\polinomios B x$ se puede expresar de a lo
+	sumo una \'unica manera como expresi\'on polinomial en $x$ con
+	coeficientes en $B$. Con esto y la ecuaci\'on~%
+	\eqref{eq:polinomios:trascendente} en mente, definimos la siguiente
+	funci\'on: si $p=b_0+b_1x+\,\cdots\,+b_mx^m\in\polinomios B x$,
+	\begin{displaymath}
+		% f\big(b_0+b_1x+\,\cdots\,+b_mx^m\big) \,=\,
+		f(p)\,:=\,
+			b_0\,+\,b_1c\,+\,\cdots\,+\,b_mc^m
+		\text{ .}
+	\end{displaymath}
+	%
+	La unicidad de la expresi\'on para $p$ garantiza que la
+	identidad anterior \emph{define una funci\'on}.
+	S\'olo resta verificar que esta funci\'on tiene las propiedades
+	deseadas \quedacomoejercicio.
+\end{proof}
+
+\begin{obsPolinomios}\label{obs:polinomios:trascendente}
+	Sean $B$ un anillo, $A,C$ anillos del cual $B$ es subanillo y
+	$x\in A$ e $y\in C$ elementos trascendentes. Por
+	% Sean $A$ y $C$ anillos, $x\in A$ e $y\in C$ elementos y
+	% $B\subset A,C$ un anillo que es subanillo de $A$ y de $C$.
+	% Si $x$ e $y$ son trascendentes sobre $B$, existen, por
+	el \teoname~\ref{teo:polinomios:trascendente},
+	existen
+	\'unicas funciones $f:\,\polinomios B x\rightarrow\polinomios B y$ y
+	$g:\,\polinomios B y\rightarrow\polinomios B x$ que respetan la suma
+	y el producto y tales que $f(b)=g(b)=b$ para todo $b\in B$ y
+	$f(x)=y$ y $g(y)=x$. En particular, $fg=\id[{\polinomios B y}]$ y
+	$gf=\id[{\polinomios B x}]$. Es decir, desde un punto de vista
+	algebraico, los anillos $\polinomios B x$ y $\polinomios B y$ son
+	indistinguibles.
+	Esta estructura com\'un es la % del anillo
+	de polinomios en una indeterminada con coeficientes en $B$.
+\end{obsPolinomios}
+
+% \subsection{Polinomios con coefcientes en un anillo}%
+	% \label{subsec:anillo}
+% \begin{defPolinomios}\label{def:polinomios:anillo}
+	% Sea $B$ un anillo. Un 
+	% \emph{anillo de polinomios en una indeterminada con coeficientes %
+	% en $B$} es un anillo $\tilde B$ del cual $B$ es subanillo, junto
+	% con un elemento $x\in\tilde B$, que posee la propiedad siguiente:
+	% \begin{quote}
+		% si $C$ es un anillo del cual $B$ es subanillo y $c\in C$ es
+		% un elemento arbitrario, existe una \'unica funci\'on
+		% $f:\,\tilde B\rightarrow C$ tal que $f(b)=b$ para todo
+		% $b\in B$, que respeta la suma y el producto y cuya imagen
+		% es $\polinomios B c$.
+	% \end{quote}
+% \end{defPolinomios}
+
+\begin{teoPolinomios}\label{teo:polinomios:anillo}
+	Sea $B$ un anillo conmutativo con unidad $1\neq 0$. Existe un
+	anillo $A$ del cual $B$ es subanillo y al cual pertenece un
+	elemento $x\in A$ trascendente sobre $B$.
+\end{teoPolinomios}
+
+\begin{proof}
+	Sea $S$ el conjunto de los enteros no negativos y sea $A$ el
+	conjunto de funciones $S\rightarrow B$ que toman el valor
+	$0\in B$ en todos los elementos de $S$ salvo, talvez, en una
+	cantidad finita de ellos. Sea $X^k$ la funci\'on $l\mapsto 0$,
+	si $l\neq k$ y $l\mapsto 1$, si $k=l$. Todos los elementos de $A$
+	se pueden expresar como combinaci\'on de una cantidad finita de
+	las funciones $X^k$ con coeficientes en $B$: si $p\in A$,
+	\begin{displaymath}
+		p\,=\,b_iX^i\,=\,b_0X^0+b_1X^1+b_2X^2+\,\cdots\,+b_mX^m
+		\text{ ;}
+	\end{displaymath}
+	%
+	dicha escritura es \'unica, si suponemos que los coeficientes
+	son distintos de $0$.
+	Definimos la suma en $A$ como la suma coordenada a coordenada:
+	\begin{displaymath}
+		b_iX^i\,+\,b_j'X^j\,=\,(b_k+b_k')X^k
+	\end{displaymath}
+	%
+	y el producto como el producto de convoluci\'on:
+	\begin{displaymath}
+		\big(b_iX^i\big)\cdot\big(b_j'X^j\big)\,=\,
+			(b_ib_j')X^{i+j}
+		\text{ .}
+	\end{displaymath}
+	%
+	Estas operaciones, juntas con la funci\'on constante cero como cero,
+	la funci\'on $X^0$ como uno y $-(b_iX^i)=(-b_i)X^i$ dan estructura
+	de anillo conmutativo con unidad a $A$. El anillo $B$ se puede ver
+	como subanillo de $A$ identificando $b\in B$ con $bX^0$.
+	El elemento $X^1$ es trascendente sobre $B$.
+\end{proof}
+
+\begin{defPolinomios}\label{def:polinomios:anillo}
+	Sea $B$ un anillo conmutativo con unidad $1\neq 0$. Las
+	expresiones polinomiales en un elemento trascendente,
+	perteneciente a un anillo del cual $B$ es subanillo ser\'an
+	\emph{polinomios en una indetermianda con coeficientes en $B$}.
+\end{defPolinomios}
+
+\begin{obsPolinomios}\label{obs:polinomios:anillo}
+	El \teoname~\ref{teo:polinomios:anillo} exhibe un modelo de polinomios
+	en una indeterminada con coeficientes en $B$. El \teoname~%
+	\ref{teo:polinomios:trascendente} garantiza que,
+	no importa cu\'al sea el anillo $A$ del cual $B$ sea subanillo, ni
+	tampoco el elemento trascendente $x\in A$ elegido,
+	la estructura algebraica es esencialmente la misma.
+\end{obsPolinomios}
+
+\subsection*{Ejercicios}
+\input{./tex/divisibilidad-y-congruencia/ejercicios-polinomios.tex}
+

@@ -1,0 +1,258 @@
+\theoremstyle{plain}
+\newtheorem{teoFermat}{\teoname}[section]
+\newtheorem{lemaFermat}[teoFermat]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{obsFermat}[teoFermat]{\obsname}
+\newtheorem{ejemFermat}[teoFermat]{\ejemname}
+
+%-------------
+
+Usando el lenguaje desarrollado en la \partname~%
+\ref{pt:divisibilidad-y-congruencia}, podemos expresar algunas de las
+conjeturas de Fermat: si $p$ es un primo impar,
+\begin{displaymath}
+	\begin{aligned}
+		p\,=\,x^2+y^2\text{ ,}\quad x,y\in\Enteros\text{ ,}
+			& \quad\text{si y s\'olo si}\quad
+			p\,\equiv\,1\tmodulo[4] \\
+		p\,=\,x^2+2y^2\text{ ,}\quad x,y\in\Enteros\text{ ,}
+			& \quad\text{si y s\'olo si}\quad
+			p\,\equiv\,1\text{ o }3\tmodulo[8] \\
+		p\,=\,x^2+3y^2\text{ ,}\quad x,y\in\Enteros\text{ ,}
+			& \quad\text{si y s\'olo si}\quad
+			p=3\text{ o }p\,\equiv\,1\tmodulo[3]
+		\text{ .}
+	\end{aligned}
+	%
+\end{displaymath}
+%
+Tambi\'en tenemos la siguiente conjetura, un poco distinta de las tres
+anteriores: si $p$ y $q$ son primos impares distintos,
+\begin{displaymath}
+	p\text{ y }q\,\equiv\,3\text{ o }7\tmodulo[20]
+		\quad\text{implica}\quad
+		pq\,=\,x^2+5y^2\text{ ,}\quad x,y\in\Enteros
+	\text{ .}
+\end{displaymath}
+%
+Todas estas afirmaciones est\'an relacionadas con el problema de representar
+un n\'umero en la forma $x^2+ny^2$. La primera demostraci\'on de las primeras
+tres afirmaciones parece haber sido encontrada por Euler alrededor de cien
+a\~nos despu\'es de que Fermat las enunciara. La cuarta fue demostrada m\'as
+tarde por Lagrange. Ver \cite[pp.~7--9]{Cox}.
+
+\begin{ejemFermat}\label{ejem:fermat}
+	Si $p=x^2+y^2$ con $x,y\in\Enteros$, entonces $p\equiv 1\tmodulo[4]$,
+	pues $x^2\equiv 0$ o $x^2\equiv 1$, dependiendo de si $x$ es par o
+	impar y, si $p$ es un primo impar, $x$ e $y$ deben tener distinta
+	paridad.
+	An\'alogamente, si $p=x^2+2y^2$, entonces $p\equiv 1\tmodulo[8]$ o
+	bien $p\equiv 3\tmodulo[8]$. Y, si $p=x^2+3y^2$, entonces
+	$p=3$ o bien $p\equiv 1\tmodulo[3]$. \quedacomoejercicio.
+\end{ejemFermat}
+
+\begin{teoFermat}\label{teo:fermat}
+	Un primo impar $p$ se escribe como $x^2+y^2$ con $x$ e $y$ enteros,
+	si y s\'olo si $p\equiv 1\tmodulo[4]$.
+\end{teoFermat}
+
+\begin{proof}
+	Vamos a probar que, si $p\equiv 1\tmodulo[4]$, entonces existen
+	$x,y\in\Enteros$ tales que $p=x^2+y^2$. La demostraci\'on estar\'a
+	dividida en dos pasos:
+	\begin{itemize}
+		\item[(Descenso)]
+			si $p$ divide a una expresi\'on del tipo $a^2+b^2$
+			donde $a,b\in\Enteros$ y $\mcd{a,b}=1$, entonces
+			existen $x,y\in\Enteros$ tales que $p=x^2+y^2$;
+		\item[(Reciprocidad)]
+			si $p\equiv 1\tmodulo[4]$, entonces $p$ divide a
+			alg\'un natural de la forma $a^2+b^2$ con
+			$a,b\in\Enteros$ y $\mcd{a,b}=1$.
+	\end{itemize}
+	%
+	Probamos cada una de estas afirmaciones, a continuaci\'on.
+\end{proof}
+
+La idea de Fermat era, aparentemente, la siguiente: si $p$ es primo,
+$p\equiv 1\tmodulo[4]$ y $p$ \emph{no} se escribe como suma de dos cuadrados,
+deber\'{\i}a existir un primo $p'<p$ que cumpla que es $p'\equiv 1\tmodulo[4]$
+y que tampoco es suma de dos cuadrados. Eventualmente, llegar\'{\i}amos a $5$
+que s\'{\i} es suma de dos cuadrados. De esta contradicci\'on
+(de que $5$ es y no deber\'{\i}a ser suma de dos cuadrados) se deducir\'{\i}a
+el resultado.
+
+\begin{lemaFermat}\label{lema:fermat:descenso:pre}
+	Sea $N$ un natural que se puede expresar como suma de dos cuadrados
+	\emph{coprimos}. Si $q$ es un divisor primo de $N$ que se puede
+	expresar como suma de dos cuadrados, entonces el cociente tambi\'en
+	se puede expresar como suma de dos cuadrados coprimos.
+\end{lemaFermat}
+
+\begin{proof}
+	Por hip\'otesis, existen $a,b\in\Enteros$ tales que $N=a^2+b^2$ y
+	$\mcd{a,b}=1$ y existen, adem\'as, $x,y\in\Enteros$ tales que
+	$q=x^2+y^2$ ($x$ e $y$ son, necesariamente, coprimos).
+	Como $q\mid N$, se cumple que $q$ divide a $(bx-ay)(bx+ay)$, pues
+	\begin{displaymath}
+		Nx^2-a^2q\,=\,
+		b^2x^2+a^2x^2-a^2x^2-a^2y^2\,=\,(bx)^2-(ay)^2\,=\,
+		(bx-ay)\,(bx+ay)
+		\text{ .}
+	\end{displaymath}
+	%
+	Como $q$ es primo, $q\mid bx-ay$, o bien $q\mid bx+ay$.
+	Cambiando el signo de $a$, podemos suponer que estamos en el primer
+	caso. Esto quiere decir que existe $d\in\Enteros$ tal que
+	\begin{math}
+		bx-ay=dq
+	\end{math}.
+	Ahora bien,
+	\begin{displaymath}
+		bx-dx^2\,=\,
+		bx-dq+dy^2\,=\,ay+dy^2\,=\,
+		(a+dy)\,y
+		\text{ .}
+	\end{displaymath}
+	%
+	Como $x\mid bx-dx^2$, se cumple que $x\mid (a+dy)y$. Pero
+	$\mcd{x,y}=1$, con lo que $x\mid a+dy$. Existe, entonces,
+	$c\in\Enteros$ tal que
+	\begin{math}
+		a+dy=cx
+	\end{math}.
+	O sea,
+	\begin{displaymath}
+		a \,=\,cx-dy\quad\text{y}\quad b \,=\,dx+cy\text{ .}
+		% bx\,=\,dq + ay\,=\,d\,(x^2+y^2)+(cx-dy)\,y\,=\,
+		% dx^2+cxy\,=\,(dx+cy)\,x
+	\end{displaymath}
+	%
+	Pero, entonces,
+	\begin{displaymath}
+		N\,=\,a^2+b^2\,=\,
+		(cx-dy)^2+(dx+cy)^2\,=\,(c^2+d^2)\,(x^2+y^2)\,=\,
+		(c^2+d^2)\,q
+		\text{ .}
+	\end{displaymath}
+	%
+	As\'{\i}, $N/q=c^2+d^2$, pero, adem\'as, $\mcd{a,b}=1$ implica
+	que $\mcd{c,d}=1$
+	\quedacomoejercicio.
+\end{proof}
+
+\begin{obsFermat}\label{obs:fermat:descenso}
+	En la demostraci\'on del \lemaname~\ref{lema:fermat:descenso:pre}
+	hicimos uso de la siguiente identidad \quedacomoejercicio:
+	\begin{equation}
+		\label{eq:fermat:descenso:identidad}
+		(cx-dy)^2+(dx+cy)^2\,=\,(c^2+d^2)\,(x^2+y^2)
+		\text{ .}
+	\end{equation}
+	%
+\end{obsFermat}
+
+Ahora s\'{\i}, probamos el paso de Descenso.
+% La afirmaci\'on es la siguiente:
+% todo primo que aparece como divisor de una suma de cuadrados coprimos es,
+% a su vez, una suma de cuadrados.
+
+\begin{lemaFermat}[Descenso]\label{lema:fermat:descenso}
+	Sea $p$ un primo impar que divide a una expresi\'on del tipo $a^2+b^2$
+	donde $a,b\in\Enteros$ y $\mcd{a,b}=1$. Entonces, existen
+	$x,y\in\Enteros$ tales que $p=x^2+y^2$.
+\end{lemaFermat}
+
+\begin{proof}
+	La hip\'otesis es que $p\mid N=a^2+b^2$ y $\mcd{a,b}=1$.
+	Veamos, en primer lugar, que podemos asumir, adem\'as, que $|a|<p/2$
+	y que $|b|<p/2$.
+	Cambiando $a$ por $a-kp$ con alg\'un $k$ conveniente, conseguimos
+	$|a-kp|<p/2$. Pero, $(a-kp)^2+b^2=a^2+b^2-2kp+k^2p^2$. Como
+	$p\mid a^2+b^2$, deducimos que $p$ divide a $(a-kp)^2+b^2$. Cambiamos
+	$a$ por $a-kp$ y ahora $p$ divide a una expresi\'on $a_1^2+b^2$, donde
+	$|a_1|<p/2$.
+	De la misma manera, conseguimos que $p$ divida una expresi\'on
+	$N_1:=a_1^2+b_1^2$ con $|b_1|<p/2$.
+	Pero, al hacer estos cambios, podemos haber introducido divisores
+	comunes entre $a_1$ y $b_1$. Es decir, puede pasar que
+	$\mcd{a_1,b_1}>1$.
+	Sin embargo, dividiendo por $\mcd{a_1,b_1}$, volvemos al caso
+	coprimo. Veamos esto. Sea $d:=\mcd{a_1,b_1}$. Por c\'omo fueron
+	elegidos $a_1=a-kp$ y $b_1=b-lp$ con $k,l\in\Enteros$. Como
+	$\mcd{a,b}=1$, en particular, $p$ no es un divisor com\'un de $a$ y
+	de $b$. Pero, entonces, $p$ tampoco es un divisor com\'un de $a_1$ y
+	de $b_1$. O sea, $\mcd{p,d}=1$. De esta manera, si $N_2:=N_1/d^2$,
+	$a_2:=a_1/d$ y $b_2:=b_1/d$, entonces $a_2,b_2\in\Enteros$,
+	$|a_2|\leq |a_1|<p/2$ y $|b_2|\leq |b_1|<p/2$, $\mcd{a_2,b_2}=1$ y,
+	finalmente, $p\mid N_2$ (aqu\'{\i} usamos que $\mcd{p,d}=1$).
+
+	Recapitulando, asumimos que $p\mid N$, donde $N=a^2+b^2$,
+	$\mcd{a,b}=1$, $|a|<p/2$ y $|b|<p/2$. Bajo estas suposiciones
+	adicionales, $N<p^2/2$. En particular, si $q\neq p$ es un divisor
+	primo de $N$, debe ser $q<p$. Separamos dos casos: o bien todo tal
+	$q$ es suma de dos cuadrados, o bien existe un divisor primo $q$ de
+	$N$ que no es suma de cuadrados.
+	En el primer caso, por el \lemaname~\ref{lema:fermat:descenso:pre},
+	se deduce, eliminando todos los factores primos distintos de $p$,
+	que $p$ tambi\'en debe ser suma de cuadrados (notar que $p^2\nmid N$).
+	Supongamos, para llegar a una contradicci\'on que $p$ no es suma de
+	cuadrados. Entonces, existir\'{\i}a un divisor primo de $N$, $q<p$,
+	que tampoco es suma de cuadrados. Necesariamente, $q$ debe ser impar
+	($2=1^2+1^2$) y, m\'as aun, $q\equiv 1\tmodulo[4]$ (ver el
+	\ejemname~\ref{ejem:fermat}). Pero, entonces, estar\'{\i}amos en las
+	mismas hip\'otesis del resultado que queremos probar: $q$ es primo
+	impar que divide a $N=a^2+b^2$, con la diferencia de que $q$ es
+	estrictamente m\'as chico que $p$. Eventualmente, deber\'{\i}amos
+	llegar al menor primo con esta propiedad. Para terminar, notamos que
+	el menor primo impar congruente con $1$ m\'odulo $4$ es $5$ que
+	s\'{\i} es suma de cuadrados ($5=2^2+1^2$). Llegamos a la siguiente
+	contradicci\'on $5$ es suma de cuadrados, pero, por el proceso por
+	el que \emph{descendimos} hasta este primo, $5$ no deber\'{\i}a ser
+	suma de cuadrados. Esta contradicci\'on viene de suponer que el primo
+	$p$ del cual partimos no era suma de cuadrados.
+\end{proof}
+
+\begin{lemaFermat}[Reciprocidad]\label{lema:fermat:reciprocidad}
+	Si $p$ es un n\'umero primo impar y $p\equiv 1\tmodulo[4]$,
+	entonces $p$ divide a una expresi\'on del tipo $a^2+b^2$ donde
+	$a,b\in\Enteros$ y $\mcd{a,b}=1$.
+\end{lemaFermat}
+
+\begin{proof}
+	Por hip\'otesis, $p-1=4k$, $k\in\Enteros$, y, entonces por el
+	\teoname~\ref{teo:congruencias:fermatito}, como $\eulerphi(p)=p-1$,
+	$x^{4k}\equiv 1\tmodulo[p]$, para todo $x\in\Enteros$ coprimo con $p$
+	(o sea, para todo $x\not\equiv 0\tmodulo[p]$), o, lo que es lo mismo,
+	$p\mid x^{4k}-1$. Pero $x^{4k}-1=(x^{2k}-1)\,(x^{2k}+1)$. Como $p$ es
+	primo, $p\mid x^{2k}-1$ o bien $p\mid x^{2k}+1$. En t\'erminos de
+	congruencias, para todo $x\in\Enteros$, $\mcd{x,p}=1$,
+	\begin{displaymath}
+		x^{2k}-1\,\equiv\,0\tmodulo[p]
+			\quad\text{o bien}\quad
+			x^{2k}+1\,\equiv\,0\tmodulo[p]
+			\text{ .}
+	\end{displaymath}
+	%
+	Es decir, cada una de las $p-1$ clases de congruencia $\not\equiv 0$
+	m\'odulo $p$ es soluci\'on de alguna de estas dos ecuaciones de
+	congruencia. Pero, como $2k<p$, existe $x\in\Enteros$ tal que
+	$x^{2k}-1\not\equiv 0\tmodulo[p]$ \quedacomoejercicio.%
+	\footnote{
+		Para dar una prueba de esto, se puede usar el resultado del
+		\ejername~\ref{ejer:fermat:soluciones:euler}.
+		Usando los resultados de la \S~\ref{sec:polinomios}, se
+		puede dar una demostraci\'on m\'as algebraica.
+		M\'as adelante, veremos otra demostraci\'on de que la
+		cantidad de soluciones distintas a una ecuaci\'on de
+		congruencia $f(x)\equiv 0\tmodulo[p]$ est\'a acotada por
+		el grado del polinomio $f$ (\lemaname~\ref{lema:}).
+	}
+	Entonces, debe ser $x^{2k}+1\equiv 0\tmodulo[p]$.
+	Obtenemos el resultado eligiendo $a=x^k$ y $b=1$.
+\end{proof}
+
+\subsection*{Ejercicios}
+\input{./tex/reciprocidad-cuadratica/ejercicios-fermat.tex}
+

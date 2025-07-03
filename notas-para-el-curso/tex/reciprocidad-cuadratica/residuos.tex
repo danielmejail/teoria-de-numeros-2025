@@ -1,0 +1,513 @@
+\theoremstyle{plain}
+\newtheorem{lemaResiduos}{\lemaname}[section]
+
+\theoremstyle{definition}
+\newtheorem{ejemResiduos}[lemaResiduos]{\ejemname}
+
+%-------------
+
+En esta secci\'on estudiaremos la resolubilidad de
+$x^2\equiv n\tmodulo[m]$ especialmente en el caso $m=p$ un primo impar.
+Recordemos que $n\in\Enteros$ es un \emph{residuo (cuadr\'atico) m\'odulo $m$},
+si la ecuaci\'on tiene soluci\'on y un \emph{no residuo}, en caso contrario.
+Nuestro objetivo ahora ser\'a demostrar las propiedades del \teoname~%
+\ref{teo:ecuacion:legendre}:
+
+\teoEcuacionLegendre*
+
+La propiedad~\eqref{item:ecuacion:legendre:clases} es casi inmediata:
+si $n\equiv n'\tmodulo[p]$, entonces $\mcd{n,p}=\mcd{n',p}$, con lo que
+$\tlegendre n p=0$, si y s\'olo si $\tlegendre{n'} p=0$, si y s\'olo si $p$
+divide a $n$ y a $n'$; en otro caso, si $x$ es soluci\'on de $x^2\equiv n$,
+entonces $x^2\equiv n'$, y viceversa, con lo que $\tlegendre n p=1$, si y
+s\'olo si $\tlegendre{n'} p=1$. Como el s\'{\i}mbolo de Legendre toma valores
+$0$, $1$ o $-1$ (como $x^2\equiv n$ tiene soluci\'on o no la tiene),
+concluimos que $\tlegendre n p=\tlegendre{n'} p$, si $n\equiv n'\tmodulo[p]$.
+
+Empezamos por el siguiente resultado general acerca de la cantidad de
+soluciones a una ecuaci\'on polinomial m\'odulo un primo.
+
+\begin{lemaResiduos}\label{lema:residuos:polinomios}
+	Sea $p$ un primo y sea $f\in\polinomios\Enteros X$,
+	$f=c_0+c_1X+\,\cdots\,+c_nX^n$, $n\geq 0$ y $p\nmid c_n$.%
+	\footnote{
+		El \lemaname~\ref{lema:residuos:polinomios} se puede omitir,
+		teniendo en cuenta los resultados de la \S~%
+		\ref{sec:polinomios}, espec\'{\i}ficamente, el \coroname~%
+		\ref{coro:polinomios:algoritmo}, \'{\i}tem~%
+		\eqref{item:coro:polinomios:algoritmo:raices:bis}. Es, sin
+		embargo, una versi\'on elemental, en el sentido de que no
+		hace uso de los conceptos desarrollados en la \S~%
+		\ref{sec:polinomios}. Esencialmente, la hip\'otesis sobre $f$
+		es que el polinomio en $\polinomios{\Enterosmod[p]} X$ que se
+		obtiene reduciendo sus coeficientes m\'odulo $p$ tiene grado
+		$n\geq 0$.
+	}
+	Entonces, la congruencia $f(x)\equiv 0\tmodulo[p]$ tiene, a lo sumo,
+	$n$ soluciones distintas.
+\end{lemaResiduos}
+
+\begin{proof}
+	Si $n=0$, $c_0\not\equiv 0$ y $f(x)\equiv 0$ no tiene soluciones.
+	Si $n>0$ y $x_0\in\Enteros$ cumple $f(x_0)\equiv 0$, entonces
+	\begin{displaymath}
+		f(x)\,-\,f(x_0)\,\equiv\,(x-x_0)\,g(x)
+		\text{ ,}
+	\end{displaymath}
+	%
+	para cierto polinomio $g\in\polinomios\Enteros X$,
+	$g=b_0+b_1X+\,\cdots\,+b_{n-1}X^{n-1}$, donde
+	$b_{n-1}=c_n\not\equiv 0$, es decir, no es divisible por $p$
+	\quedacomoejercicio.%
+	\hint{
+		Usar que
+		\begin{math}
+			x^t-x_0^t=(x-x_0)\,
+				(x^{t-1}+x^{t-2}x_0+\,\cdots\,+x_0^{t-1})
+		\end{math}.
+	}
+	Pero, inductivamente, $g$ no posee m\'as de $n-1$ ra\'{\i}ces
+	distintas m\'odulo $p$, con lo que $f$ no puede poseer m\'as de
+	$n$ ra\'{\i}ces distintas m\'odulo $p$.
+\end{proof}
+
+\begin{lemaResiduos}\label{lema:residuos:residuos}
+	Sea $p$ un primo positivo impar. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:residuos:residuos:cantidad}
+			excluyendo $0$, existen exactamente $\frac{p-1} 2$
+			residuos cuadr\'aticos m\'odulo $p$ y, por lo tanto,
+			$\frac{p-1} 2$ no residuos en cualquier sistema
+			reducido de representantes de las clases m\'odulo $p$;
+		\item\label{item:residuos:residuos:cuadrados}
+			las clases m\'odulo $p$ de los enteros $1^2$, $2^2$,
+			\dots, $(\tfrac{p-1} 2)^2$ son distintas;
+		\item\label{item:residuos:residuos:representantes}
+			en particular, exceptuando $0$, los residuos
+			m\'odulo $p$ est\'an representados por las
+			$\frac{p-1} 2$ clases del \'{\i}tem~%
+			\eqref{item:residuos:residuos:cuadrados}.
+	\end{enumerate}
+	%
+\end{lemaResiduos}
+
+\begin{proof}
+	Busquemos soluciones a la ecuaci\'on de congruencia
+	\begin{equation}
+		\label{eq:residuos:residuos:congruencia}
+		x^2\,\equiv\,n\modulo[p]
+		\text{ .}
+	\end{equation}
+	%
+	Si $n\equiv 0$, entonces la \'unica soluci\'on es $x\equiv 0$.
+	Supongamos que $n\not\equiv 0$ y que
+	\eqref{eq:residuos:residuos:congruencia} admite una soluci\'on.
+	Tomando resto de divisi\'on por $p$,
+	% podemos ver que
+	existe al menos una soluci\'on en el rango $0\leq x\leq p-1$;
+	como $n$ no es divisible por $p$, $x=0$ no es una de ellas.
+	Si $x>p/2$, cambiando $x$ por $p-x$,
+	% vemos que
+	existe al menos una soluci\'on en el rango $1\leq x\leq\frac{p-1} 2$.
+	Por lo tanto, \eqref{eq:residuos:residuos:congruencia} admite
+	soluci\'on, si y s\'olo si $n$ es congruente a alguna de las clases
+	\begin{equation}
+		\label{eq:residuos:residuos:cuadrados}
+		1^2\text{ , }2^2\text{ , \dots, }(\tfrac{p-1} 2)^2
+		\text{ .}
+	\end{equation}
+	%
+	En particular, exceptuando $0$, hay a lo sumo $\frac{p-1} 2$ residuos
+	cuadr\'aticos m\'odulo $p$.
+	Pero las clases \eqref{eq:residuos:residuos:cuadrados} son todas
+	distintas \quedacomoejercicio%
+	\hint{
+		Si $x$ e $y$ son soluciones a
+		\eqref{eq:residuos:residuos:congruencia}, entonces
+		$x\equiv y$, o bien $x\equiv -y$, y estas posibilidades
+		se excluyen mutuamente, si $n\not\equiv 0$.
+		Si $1\leq x,y\leq\frac{p-1} 2$ e $y\neq x$, entonces
+		tendr\'{\i}amos cuatro soluciones distintas m\'odulo $p$,
+		contradiciendo el \lemaname~\ref{lema:residuos:polinomios}.
+	}
+	y, en consecuencia, hay $\frac{p-1} 2$ residuos cuadr\'aticos
+	m\'odulo $p$ (exceptuando $0$).
+	% % Tomando restos de divisi\'on por $p$, podemos elegir, como sistema
+	% % de representantes de las clases m\'odulo $p$, los enteros $x$ en el
+	% % rango $0\leq x\leq p-1$ y, como sistema reducido, aquellos $x\neq 0$.
+	% Por el \lemaname~\ref{lema:residuos:polinomios}, la ecuaci\'on de
+	% congruencia
+	% \begin{equation}
+		% \label{eq:residuos:residuos}
+		% x^2\,\equiv\,n\modulo[p]
+	% \end{equation}
+	% %
+	% admite, a lo sumo, dos soluciones en el intervalo $0\leq x\leq p-1$ y,
+	% si $n\not\equiv 0$, $x=0$ no es una de ellas; adem\'as, si
+	% \eqref{eq:residuos:residuos} tiene soluci\'on, podemos garantizar que
+	% existe, al menos, una soluci\'on en el intervalo $0\leq x\leq p-1$,
+	% tomando resto de divisi\'on por $p$.
+% 
+	% Supongamos que $p$ no divide a $n$ y que $1\leq x\leq p-1$.
+	% Si $x$ es soluci\'on de \eqref{eq:residuos:residuos}, $p-x$
+	% tambi\'en lo es, pues $(p-x)^2\equiv (-x)^2=x^2$, y, adem\'as, se
+	% cumple que $1\leq p-x\leq p-1$. Pero, si $x>\frac{p-1} 2$, entonces
+	% $1\leq p-x\leq\frac{p-1} 2$, con lo cual, si
+	% \eqref{eq:residuos:residuos} tiene soluci\'on, podemos garantizar que
+	% existe, al menos, una soluci\'on en el intervalo
+	% $1\leq x\leq\frac{p-1} 2$. En particular, las clases m\'odulo $p$
+	% de los $\frac{p-1} 2$ enteros $1^2$, $2^2$, \dots, $(\tfrac{p-1} 2)^2$
+	% representan todos los posibles residuos cuadr\'aticos m\'odulo $p$,
+	% con lo cual, exceptuando $0$, hay a lo sumo $\frac{p-1} 2$ residuos
+	% cuadr\'aticos m\'odulo $p$.
+	% Pero podr\'{\i}an haber repeticiones. Veamos que no es as\'{\i}, que
+	% las clases son distintas y que, por lo tanto, por ser $\frac{p-1} 2$
+	% clases distintas, hay exactamente $\frac{p-1} 2$ residuos
+	% cuadr\'aticos m\'odulo $p$ (exceptuando $0$).
+% 
+	% Sigamos asumiendo que $p\nmid n$ y que $1\leq x\leq\frac{p-1} 2$
+	% es solu
+	% $\not\equiv 0$, $p-x\not\equiv x$. Es decir,
+	% por cada $x$ en el rango $1\leq x\leq p-1$, tenemos dos soluciones
+	% distintas m\'odulo $p$: $x$ y $p-x$ en el mismo rango.
+	% En particular, si \eqref{eq:residuos:residuos} tiene soluci\'on, debe
+	% tener exactamente una soluci\'on en el rango
+	% $1\leq x\leq \frac{p-1} 2$ \quedacomoejercicio.
+	% En consecuencia, las clases m\'odulo $p$ de los $\frac{p-1} 2$
+	% enteros $1^2$, $2^2$, \dots, $(\tfrac{p-1} 2)^2$ son todas distintas.
+\end{proof}
+
+\begin{lemaResiduos}[Criterio de Euler]\label{lema:residuos:euler}
+	Si $p$ es un primo positivo impar, entonces
+	\begin{displaymath}
+		\legendre n p\,\equiv\,n^{\frac{p-1} 2}\modulo[p]
+		\text{ .}
+	\end{displaymath}
+	%
+\end{lemaResiduos}
+
+\begin{proof}
+	Si $n\equiv 0$, no hay nada que probar. Supongamos que $n\not\equiv 0$.
+	El \teoname~\ref{teo:congruencias:fermatito} implica que
+	$n^{p-1}\equiv 1$. En particular,
+	\begin{displaymath}
+		\big(n^{\frac{p-1} 2}-1\big)\,
+		\big(n^{\frac{p-1} 2}+1\big)\,\equiv\,0
+		\text{ ,}
+	\end{displaymath}
+	%
+	o sea que $n^{\frac{p-1} 2}\equiv\pm 1$. La afirmaci\'on es que este
+	signo coincide con $\tlegendre n p$. Notamos que no pueden darse
+	simult\'aneamente ambas posibilidades.
+
+	Por un lado, si $\tlegendre n p=1$, existe $x\in\Enteros$ tal que
+	$n\equiv x^2$ y, entonces
+	\begin{displaymath}
+		n^{\frac{p-1} 2}\,\equiv\,x^{p-1}\,\equiv\,1
+		\text{ .}
+	\end{displaymath}
+	%
+	Por otro lado, por el \lemaname~\ref{lema:residuos:polinomios}, la
+	congruencia $n^{\frac{p-1} 2}\equiv 1$ tiene, a lo sumo,
+	$\frac{p-1} 2$ soluciones distintas m\'odulo $p$. Pero, por el
+	\lemaname~\ref{lema:residuos:residuos}, los enteros
+	$1^2$, $2^2$, \dots, $(\tfrac{p-1} 2)^2$ representan $\frac{p-1} 2$
+	clases distintas y son, por lo tanto, $\frac{p-1} 2$ soluciones
+	distintas (m\'odulo $p$) a dicha ecuaci\'on.
+	As\'{\i}, si $\tlegendre n p=-1$, $n\not\equiv x^2$ para ning\'un
+	$1\leq x\leq\frac{p-1} 2$ y, en consecuencia,
+	$n^{\frac{p-1} 2}-1\not\equiv 0$. Como $p$ es primo, debe cumplirse,
+	en este caso,
+	\begin{displaymath}
+		n^{\frac{p-1} 2}\,\equiv\,-1
+		\text{ .}
+	\end{displaymath}
+	%
+\end{proof}
+
+Del \lemaname~\ref{lema:residuos:euler}, deducimos, eligiendo $a=-1$ que
+$\tlegendre{-1} p\equiv(-1)^{\frac{p-1} 2}\tmodulo[p]$. Pero, dado que
+ambos lados de esta congruencia son iguales a $\pm 1$ y que $p$ es impar,
+concluimos que, en realidad, $\tlegendre{-1} p=(-1)^{\frac{p-1} 2}$. Esto
+prueba el \'{\i}tem~\eqref{item:ecuacion:legendre:menos-uno}.
+
+De manera similar, usando el \lemaname~\ref{lema:residuos:euler}, tambi\'en
+podemos probar el \'{\i}tem~\eqref{item:ecuacion:legendre:multiplicativo}:
+\begin{displaymath}
+	\legendre{ab} p\,\equiv\,(ab)^{\frac{p-1} 2}\,=\,
+		a^{\frac{p-1} 2}\,b^{\frac{p-1} 2}\,\equiv\,
+		\legendre a p\legendre b p\modulo[p]
+	\text{ ,}
+\end{displaymath}
+%
+o sea que $\tlegendre{ab} p\equiv\tlegendre a p\tlegendre b p\tmodulo[p]$.
+Pero, al igual que antes, ambos lados de la congruencia son iguales a $\pm 1$
+y $p$ es impar, con lo cual, $\tlegendre{ab} p=\tlegendre a p\tlegendre b p$.
+
+Antes de pasar a la demostraci\'on del \teoname~\ref{teo:ecuacion:legendre},
+demostramos un \'ultimo resultado preliminar.
+
+\begin{lemaResiduos}[Lema de Gauss]\label{lema:residuos:gauss}
+	% Sea $p$ un primo positivo impar y sea $n\in\Enteros$,
+	% $\mcd{n,p}=1$. De los restos $0<r<p$ m\'odululo $p$ obtenidos de los
+	% $\frac{p-1} 2$ enteros $n$, $2n$, \dots, $\tfrac{p-1} 2 n$, sea
+	% $m\geq 0$ la cantidad de los mismos que son mayores que $p/2$.
+	Dado un primo positivo impar $p$ y un n\'umero entero $n$ coprimo
+	con $p$, de los $\frac{p-1} 2$ restos de divisi\'on por $p$
+	provenientes de los enteros $n$, $2n$, \dots, $\tfrac{p-1} 2 n$,
+	sea $m\geq 0$ la cantidad de los mismos que pertenecen al rango
+	$p/2<r<p$. Entonces,
+	\begin{displaymath}
+		\legendre n p\,=\,(-1)^m
+		\text{ .}
+	\end{displaymath}
+	%
+\end{lemaResiduos}
+
+\begin{ejemResiduos}\label{ejem:residuos:gauss}
+	Si $p=7$, $n=10\equiv 3\tmodulo[7]$, entonces $3\equiv x^2\tmodulo[7]$
+	no tiene soluci\'on --los cuadrados son $1$, $4$ y $2$. Por otro lado,
+	$10$, $20$ y $30$ tienen restos $3$, $6$ y $2$, respectivamente, al
+	dividir por $7$, con lo que $m=1$ y se verifica que
+	$\tlegendre{10} 7=\tlegendre 3 7=-1=(-1)^m$.
+\end{ejemResiduos}
+
+\begin{ejemResiduos}\label{ejem:residuos:gauss:trivial}
+	Si $n=1$, $m=0$ y, entonces $\tlegendre 1 p=1=(-1)^m$ tambi\'en
+	en este caso.
+\end{ejemResiduos}
+
+\begin{proof}
+	En primer lugar, como $\mcd{n,p}=1$, los enteros
+	$n$, $2n$, \dots, $\tfrac{p-1} 2n$ pertenecen a clases distintas
+	m\'odulo $p$ y, en particular, sus restos de dividir por $p$ son
+	distintos (y son $\frac{p-1} 2$ en cantidad).
+	Sea, ahora, $m\geq 0$ como en el enunciado y sea $l=\frac{p-1} 2-m$.
+	Sea $\resto(k)=\resto[p](k)$ el resto de dividir $k\in\Enteros$ por
+	$p$; si $k\not\equiv 0$, entonces $0<\resto(k)<p$.
+	Sea $\{\lista a{l}\}$ el subconjunto de restos $\resto(nx)<p/2$ y
+	sea $\{\lista b{m}\}$ el subconjunto de restos $\resto(nx)>p/2$
+	con $x$ variando en el rango $1\leq x\leq\frac{p-1} 2$.
+	Multiplicando,
+	\begin{displaymath}
+		\prod_{i=1}^l\,a_i\,\prod_{j=1}^m\,b_j\,\equiv\,
+			\prod_{x=1}^{(p-1)/2}\,nx\,=\,
+			n^{\frac{p-1} 2}\,\Big(\frac{p-1} 2\Big)!
+		\text{ .}
+	\end{displaymath}
+	%
+	Por otro lado, para cada $j$, $p-b_j$ pertenece al intervalo
+	$0<p-b_j<p/2$, pues $p/2<b_j<p$; los $a_i$ tambi\'en pertenecen a
+	dicho intervalo, pero deben ser distintos de los $p-b_j$
+	\quedacomoejercicio%
+	\hint{
+		Una igualdad $a_i=p-b_j$ implicar\'{\i}a $nx=p-ny$ con
+		$1\leq x,y\leq\frac{p-1} 2$, lo que es absurdo, pues
+		ser\'{\i}a $n(x+y)\equiv 0$ y, por lo tanto, $x+y\equiv 0$
+		pero $2\leq x+y\leq p-1$.
+	}
+	As\'{\i}, porque $l+m=\frac{p-1} 2$, vale que los conjuntos siguientes
+	son iguales:
+	\begin{displaymath}
+		\big\{\lista a l\}\,\cup\,\big\{p-b_1,\,\dots,\,p-b_m\big\}
+		\,=\,\Big\{1,\,2,\,\dots,\,\frac{p-1} 2\Big\}
+		\text{ .}
+	\end{displaymath}
+	%
+	Multiplicando,
+	\begin{displaymath}
+		\Big(\frac{p-1} 2\Big)!\,=\,
+			\prod_{i=1}^l\,a_i\,\prod_{j=1}^m\,(p-b_j)\,\equiv\,
+			(-1)^m\,\prod_{i=1}^l\,a_i\,\prod_{j=1}^m\,b_j
+		\text{ .}
+	\end{displaymath}
+	%
+	En definitiva,
+	\begin{displaymath}
+		\Big(\frac{p-1} 2\Big)!\,\equiv\,(-1)^m\,n^{\frac{p-1} 2}\,
+			\Big(\frac{p-1} 2\Big)!
+	\end{displaymath}
+	%
+	y, $1\equiv(-1)^mn^{\frac{p-1} 2}$, o, lo que es lo mismo,
+	$(-1)^m\equiv n^{\frac{p-1} 2}$. Pero, por el Criterio de Euler
+	(\lemaname~\ref{lema:residuos:euler}),
+	$n^{\frac{p-1} 2}\equiv\tlegendre n p$.
+\end{proof}
+
+\begin{proof}[\proofname~del \teoname~\ref{teo:ecuacion:legendre}]
+	S\'olo resta demostrar las partes \eqref{item:ecuacion:legendre:dos}
+	y \eqref{item:ecuacion:legendre:reciprocidad}. Sea $q$ un primo
+	positivo impar distinto de $p$, o bien $q=2$.
+	Primero, probamos una congruencia v\'alida para ambos casos (ver~%
+	\eqref{eq:residuos:legendre}), que luego usamos para deducir los
+	resultados.
+
+	Para cada $x\in\Enteros$ en el rango $1\leq x\leq \frac{p-1} 2$,
+	como en la demostraci\'on del \lemaname~\ref{lema:residuos:gauss},
+	con $n=q$, sea $\resto[p](xq)$ el resto de la divisi\'on por $p$.
+	En particular, se cumple que
+	\begin{displaymath}
+		xq\,=\,\piso{\frac{xq} p}\,p\,+\,\resto[p](xq)
+		\text{ ,}
+	\end{displaymath}
+	%
+	donde $\piso{\cdot}$ denota la parte entera.%
+	\footnote{
+		$\piso z\in\Enteros$ y $\piso z\leq z<\piso z+1$.
+	}
+	Sabemos que estos restos son todos distintos y, como $q\neq p$,
+	% $\mcd{q,p}=1$
+	distintos de cero y que se separan en dos subconjuntos disjuntos
+	$\{\lista a l\}$ y $\{\lista b m\}$, donde $a_i<p/2$, $b_j>p/2$ y
+	$l+m=\frac{p-1} 2$. Adem\'as, sabemos que
+	\begin{displaymath}
+		\big\{\lista a l\big\}\,\cup\,\big\{\lista{p-b} m\big\}\,=\,
+			\Big\{1,\,2,\,\dots,\,\frac{p-1} 2\Big\}
+		\text{ .}
+	\end{displaymath}
+	%
+	De esto, deducimos que
+	\begin{displaymath}
+		\sum_{x=1}^{(p-1)/2}\,x\,=\,\sum_{i=1}^l\,a_i\,+\,
+			\sum_{j=1}^m\,(p-b_j)\,=\,a+mp-b
+		\text{ ,}
+	\end{displaymath}
+	%
+	donde $a:=\sum_{i=1}^l\,a_i$ y $b:=\sum_{j=1}^m\,b_j$.
+	Por otra parte,
+	\begin{displaymath}
+		\sum_{x=1}^{(p-1)/2}\,\resto[p](xq)\,=\,a+b
+		\quad\text{y tambi\'en}\quad
+		\sum_{x=1}^{(p-1)/2}\,x\,=\,
+			\frac{\frac{p-1} 2\frac{p+1} 2} 2
+			\,=\,\frac{p^2-1} 8
+		\text{ .}
+	\end{displaymath}
+	%
+	Con esto,
+	\begin{displaymath}
+		\begin{aligned}
+			\frac{p^2-1} 8\,(q-1) & \,=\,
+				\sum_x\,(xq)\,-\,\sum_x\,x\,=\,
+				\sum_x\,\piso{\frac{xq} p}\,p\,+\,
+					\sum_x\,\resto[p](xq)
+				\,-\,\sum_x\,x \\
+			& \,=\,\Big(\sum_x\,\piso{\frac{xq} p}\Big)\,p+a+b
+				\,-\,\big(a+mp-b\big) \\
+			& \,=\,\Big(\sum_x\,\piso{\frac{xq} p}\,-\,m\Big)\,p
+				\,+\,2b
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	y, en particular,
+	\begin{equation}
+		\label{eq:residuos:legendre}
+		\frac{p^2-1} 8\,(q-1)\,\equiv\,\sum_{x=1}^{(p-1)/2}\,
+			\piso{\frac{xq} p}\,+\,m
+			\modulo[2]
+		\text{ .}
+	\end{equation}
+	%
+
+	Ahora bien, si $q=2$, del lado izquierdo de~%
+	\eqref{eq:residuos:legendre} queda $\frac{p^2-1} 8$ y del lado
+	derecho s\'olo $m$, pues $\piso{\frac{x2} p}=0$ para
+	$1\leq x\leq\frac{p-1} 2$. Usando el \lemaname~%
+	\ref{lema:residuos:gauss} y esta congruencia m\'odulo $2$,
+	se deduce \eqref{item:ecuacion:legendre:dos}:
+	\begin{displaymath}
+		\legendre 2 p\,=\,(-1)^m\,=\,(-1)^{\frac{p^2-1} 8}
+		\text{ .}
+	\end{displaymath}
+	%
+
+	Si, en cambio, $q$ es un primo positivo impar distinto de $p$,
+	el lado izquierdo de~\eqref{eq:residuos:legendre} es par y,
+	de nuevo, usando el \lemaname~\ref{lema:residuos:gauss} y esta
+	congruencia m\'odulo $2$,
+	\begin{displaymath}
+		\legendre q p\,=\,(-1)^m\,=\,(-1)^{\sum_x\,\piso{\frac{xq} p}}
+		\text{ ,}
+	\end{displaymath}
+	%
+	donde $1\leq x\leq\frac{p-1} 2$.
+	An\'alogamente (porque $q$ es primo impar y $p\neq q$), se cumple que
+	\begin{math}
+		\tlegendre p q\,=\,(-1)^{\sum_y\,\piso{\frac{yp} q}}
+	\end{math},
+	donde $1\leq y\leq\frac{q-1} 2$. En particular,
+	\begin{displaymath}
+		\legendre q p\,\legendre p q\,=\,(-1)^{\sum_x+\sum_y}
+		\text{ .}
+	\end{displaymath}
+	%
+	Afirmamos que (y esto es suficiente para probar~%
+	\eqref{item:ecuacion:legendre:reciprocidad})
+	\begin{equation}
+		\label{eq:residuos:legendre:reciprocidad}
+		\sum_{x=1}^{(p-1)/2}\,\piso{\frac{xq} p}\,+\,
+			\sum_{y=1}^{(q-1)/2}\,\piso{\frac{yp} q}\,\equiv\,
+			\frac{p-1} 2\frac{q-1} 2\modulo[2]
+		\text{ .}
+	\end{equation}
+	%
+	De hecho, mostraremos que vale una igualdad.
+
+	Para probar \eqref{eq:residuos:legendre:reciprocidad},
+	recurrimos al siguiente artilugio. Sea $f$ la funci\'on%
+	\footnote{
+		Si $a,b\in\Enteros$, $\iIntervalo a b=\{a,\,a+1,\,\dots,\,b\}$.
+	}
+	\begin{displaymath}
+		f\,:\,\iIntervalo 1{\tfrac{p-1} 2}\,\times\,
+			\iIntervalo 1{\tfrac{q-1} 2}\,\rightarrow\,
+			\Enteros
+		\quad\text{dada por}\quad
+		f(x,y)\,=\,-xq+yp
+		\text{ ;}
+	\end{displaymath}
+	%
+	como $q\neq p$ son primos, $f(x,y)\neq 0$.
+	Ahora, el dominio de $f$ tiene cardinal $\frac{p-1} 2\frac{q-1} 2$.
+	Vamos a expresar el dominio de $f$ como la uni\'on disjunta
+	$\{f<0\}\cup\{f>0\}$ y determinar el cardinal de cada parte.
+	% El truco de contar los elementos de un mismo conjunto de dos
+	% maneras distintas.
+	Notemos, primero, que $\frac{yp} q\not\in\Enteros$, si
+	$1\leq y\leq\frac{q-1} 2$. Por otro lado, $f(x,y)>0$, si y s\'olo
+	si $\frac{yp} q>x$, o sea, teniendo en cuenta la observaci\'on
+	inmediata anterior, $f(x,y)>0$ equivale a
+	$1\leq x\leq \piso{\frac{yp} q}$. Pero, fijado $y$ en el rango
+	$q\leq y\leq\frac{q-1} 2$, todo $x$ en el rango $1\leq x<\frac{yp} q$
+	cumple $1\leq x\leq\frac{p-1} 2$, con lo que $(x,y)$ pertenece al
+	dominio de $f$. Entonces, fijado $y$, hay $\piso{\frac{yp} q}$ pares
+	$(x,y)$ tales que $f(x,y)>0$. As\'{\i},
+	\begin{displaymath}
+		\cardinal{\big\{f>0\big\}}\,=\,\sum_{y=1}^{(q-1)/2}\,
+			\piso{\frac{yp} q}
+		\text{ .}
+	\end{displaymath}
+	%
+	An\'alogamente,
+	\begin{math}
+		\cardinal{\{f<0\}}=\sum_{x=1}^{(p-1)/2}\,\piso{\frac{xq} p}
+	\end{math}.
+	En definitiva,
+	\begin{displaymath}
+		\frac{p-1} 2\frac{q-1} 2\,=\,
+		% \cardinal{\Big(%
+			% \iIntervalo 1{\tfrac{p-1} 2}\times%
+			% \iIntervalo 1{\tfrac{q-1} 2}\Big)}\,=\,
+		\cardinal{\big\{f<0\big\}}\,+\,
+			\cardinal{\big\{f>0\big\}}\,=\,
+			\sum_{x=1}^{(p-1)/2}\,\piso{\frac{xq} p}\,+\,
+			\sum_{y=1}^{(q-1)/2}\,\piso{\frac{yp} q}
+		\text{ .}
+	\end{displaymath}
+	%
+\end{proof}
+
+\subsection*{Ejercicios}
+\input{./tex/reciprocidad-cuadratica/ejercicios-residuos.tex}
+

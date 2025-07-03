@@ -1,0 +1,306 @@
+\theoremstyle{definition}
+\newtheorem{ejerPrimos}{\ejername}[section]
+
+%-------------
+
+\begin{ejerPrimos}\label{ejer:factorizacion:pares}
+	Consideremos el subconjunto $\cal P\subset\Naturales$ conformado por
+	los n\'umeros naturales pares. Dados $a,b\in\cal P$, el producto
+	$ab$ tambi\'en pertenece a $\cal P$. Podemos, entonces, definir una
+	noci\'on de divisibilidad en $\cal P$: decimos que \emph{$a$ divide %
+	a $b$ en $\cal P$}, si existe $c\in\cal P$ talque $ac=b$.
+	Podemos, por lo tanto, hablar de primos en $\cal P$: un elemento
+	$p\in\cal P$ es \emph{primo en $\cal P$}, si no posee
+	\emph{divisores propios en $\cal P$}, es decir, si no existe
+	$d\in\cal P$ tal que $d$ divide a $p$ en $\cal P$ y $d<p$.
+	Con estas definiciones, probar que
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:factorizacion:pares:casos}
+			los elementos $2$, $6$, $10$, $14$, \dots y $30$ son
+			primos en $\cal P$, pero que
+			$4$, $8$, $12$, $16$, \dots y $28$ no lo son, son
+			\emph{compuestos en $\cal P$};
+		\item\label{item:ejer:factorizacion:pares:existe}
+			todo elemento de $\cal P$ se puede escribir como
+			producto de primos en $\cal P$;
+		\item\label{item:ejer:factorizacion:pares:no-es-unica}
+			existe un elemento de $\cal P$ que admite m\'as de
+			una factorizaci\'on en primos de $\cal P$ (exhibir
+			un ejemplo).
+	\end{enumerate}
+	%
+\end{ejerPrimos}
+
+\begin{ejerPrimos}\label{ejer:primos:factorizacion:cuadratico}
+	Sea $A\subset\Complejos$ el siguiente subconjunto de los n\'umeros
+	complejos:
+	\begin{displaymath}
+		A \,=\,\big\{x+y\sqrt{-6}\,:\,x,y\in\Enteros\big\}
+		\text{ .}
+	\end{displaymath}
+	%
+	Probar que
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:primos:cuadratico:enteros}
+			$\Enteros\subset A$;
+		\item\label{item:ejer:primos:cuadratico:anillo}
+			si $\alpha,\beta\in A$, entonces
+			$\alpha+\beta\in A$ y $\alpha\beta\in A$;
+		\item\label{item:ejer:primos:cuadratico:conjugado}
+			si $\alpha\in A$, su conjugado, $\conj\alpha$,
+			tambi\'en pertenece a $A$.
+	\end{enumerate}
+	%
+	Podemos, entonces, hablar de divisibilidad en $A$:
+	\emph{$\alpha$ divide a $\beta$ en $A$}, si existe $\gamma\in A$ tal
+	que $\alpha\gamma=\beta$.
+
+	Dado $\alpha=x+y\sqrt{-6}\in A$, definimos su \emph{norma} como
+	\begin{displaymath}
+		N(\alpha)\,=\,x^2+6y^2
+		\text{ .}
+	\end{displaymath}
+	%
+	Probar que
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:primos:cuadratico:norma:entera}
+			si $\alpha\in A$, entonces $N(\alpha)\in\Enteros$;
+		\item\label{item:ejer:primos:norma:no-negativa-cero-y-unidades}
+			para todo $\alpha\in A$, $N(\alpha)\geq 0$,
+			$N(\alpha)=0$, si y s\'olo si $\alpha=0$ y
+			$N(\alpha)=1$, si y s\'olo si $\alpha=\pm 1$;%
+			\footnote{
+				En cualquier otro caso, $N(\alpha)>1$.
+			}
+		\item\label{item:ejer:primos:cuadratico:norma:bis}
+			si $\alpha\in A$, entonces
+			$N(\alpha)=\alpha\conj\alpha$;
+		\item\label{item:ejer:primos:cuadratico:norma:multiplicativa}
+			si $\alpha,\beta\in A$, entonces
+			$N(\alpha\beta)=N(\alpha)N(\beta)$.
+	\end{enumerate}
+	%
+	Con esto podemos definir una noci\'on de divisor propio $A$:
+	decimos que \emph{$\alpha$ divide propiamente a $\beta$ en $A$},
+	si $\alpha$ divide a $\beta$ en $A$ y $N(\alpha)>1$.
+
+	Un elemento $\gamma\in A$ es \emph{primo en $A$}, si $N(\gamma)>1$ y
+	$\gamma$ no posee divisores propios en $A$. Probar que
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:primos:cuadratico:casos}
+			$2$ y $5$ son primos en $A$;
+		\item\label{item:ejer:primos:cuadratico:factorizacion:existe}
+			todo elemento de $A$ se puede escribir como producto
+			de primos en $A$;
+		\item\label{item:ejer:primos:cuadratico:factorizacion:no-es-unica}
+			existe un elemento de $A$ que admite m\'as de una
+			factorizaci\'on en primos de $A$ (exhibir un ejemplo);
+		\item\label{item:ejer:primos:cuadratico:otros-casos}
+			$2+\sqrt{-6}$ y $2-\sqrt{-6}$ son primos en $A$.
+	\end{enumerate}
+	%
+\end{ejerPrimos}
+
+\begin{ejerPrimos}\label{ejer:primos:fundamental:otra-demo}
+	En este ejercicio veremos otra demostraci\'on del Teorema fundamental
+	de la Aritm\'etica (\teoname~\ref{teo:fundamental}). Supongamos que el
+	resultado es falso y sea $n$ el menor natural para el cual existen dos
+	factorizaciones distintas: $n=p_1\cdots p_r=q_1\cdots q_s$, donde los
+	factores primos $p_i$ no son los mismos que los $q_j$. Mostrar que
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:primos:fundamental:i}
+			$r$ y $s$ son ambos $>1$ y \emph{ning\'un} $p_i$ es
+			igual a un $q_j$;%
+			% (y viceversa);
+			\hint{
+				Para esto \'ultimo, usar la minimalidad de $n$.
+			}
+		\item\label{item:ejer:primos:fundamental:ii}
+			si $p_1<q_1$, entonces $N:=(q_1-p_1)q_2\cdots q_r$
+			es $<n$;
+		\item\label{item:ejer:primos:fundamental:iii}
+			el n\'umero natural $N$ definido en
+			\eqref{item:ejer:primos:fundamental:ii} satisface
+			$N=p_1(p_2\cdots p_r-q_2\cdots q_s)$;
+		\item\label{item:ejer:primos:fundamental:iv}
+			$N$ admite dos factorizaciones distintas,
+			contradiciendo la minimalidad de $n$.
+	\end{enumerate}
+	%
+\end{ejerPrimos}
+
+\begin{ejerPrimos}\label{ejer:primos:euclides}
+	La cantidad de n\'umeros primos es infinita.%
+	\hint{
+		Talvez la demostraci\'on m\'as com\'un de esto sea: asumir
+		que la cantidad de primos es finita, $\lista p{k}$ y
+		considerar $n:=1+p_1\cdots p_k$.
+	}
+\end{ejerPrimos}
+
+\begin{ejerPrimos}
+	Fijado un entero positivo $k$, existen $k$ n\'umeros naturales
+	compuestos consecutivos.%
+	\hint{
+		Si $2\leq j\leq k+1$, entonces $j\mid (k+1)!+j$.
+	}
+\end{ejerPrimos}
+
+\begin{ejerPrimos}\label{ejer:primos:suma-de-reciprocos-diverge}
+	La sumatoria sobre los rec\'{\i}procos de los primos diverge.
+	Espec\'{\i}ficamente, dado $y\geq 2$, la sumatoria
+	\begin{equation}
+		\label{eq:ejer:primos:suma-de-reciprocos}
+		\sum_{p\leq y}\,\frac 1{p}\,>\,\llog\,y\,-\,1
+		\text{ .}
+	\end{equation}
+	%
+	En particular, hay infinitos primos.
+	Separamos la demostraci\'on en distintos pasos:
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:primos:suma-de-reciprocos:i}
+			probar que, si $\cal N$ denota el conjunto de
+			naturales $n$ en cuya factorizaci\'on s\'olo
+			aparecen primos $p\leq y$, entonces%
+			\footnote{
+				La suma de las potencias de $1/p$, $p$ primo
+				converge absolutamente, con lo que no hay
+				problema en la definici\'on del producto
+				(finito) sobre los primos $p\leq y$.
+			}
+			\begin{displaymath}
+				\prod_{p\leq y}\,\bigg(
+					1+\frac 1{p}+\frac 1{p^2}+\cdots
+					\bigg)
+					\,=\,\sum_{n\in\cal N}\,\frac 1{n}
+				\text{ ;}
+			\end{displaymath}
+			%
+		\item\label{item:ejer:primos:suma-de-reciprocos:ii}
+			probar que, si $n\leq y$, entonces $n\in\cal N$ y
+			los sumandos de $\sum_{n\leq y}\frac 1{n}$ son
+			sumandos de $\sum_{n\in\cal N}\frac 1{n}$;
+		\item\label{item:ejer:primos:suma-de-reciprocos:iii}
+			probar que, si $N$ es el mayor entero $\leq y$,
+			entonces
+			\begin{displaymath}
+				\sum_{n=1}^N\,\frac 1{n}\,\geq\,
+					\int_1^{N+1}\,\frac{\de x} x\,=\,
+					\log(N+1)\,>\,\log\,y
+				\text{ ;}
+			\end{displaymath}
+			%
+		\item\label{item:ejer:primos:suma-de-reciprocos:iv}
+			deducir de
+			\eqref{item:ejer:primos:suma-de-reciprocos:iii} que
+			\begin{displaymath}
+				\prod_{p\leq y}\,\bigg(1-\frac 1{p}\bigg)^{-1}
+					\,>\,\log\,y
+				\text{ ;}
+			\end{displaymath}
+			%
+		\item\label{item:ejer:primos:suma-de-reciprocos:v}
+			usando la desigualdad $e^{v+v^2}\geq (1-v)^{-1}$,
+			probar que
+			\begin{displaymath}
+				\sum_{p\leq y}\,\frac 1{p}\,+\,
+					\sum_{p\leq y}\,\frac 1{p^2}\,>\,
+					\llog\,y
+				\text{ ;}
+			\end{displaymath}
+			%
+		\item\label{item:ejer:primos:suma-de-reciprocos:vi}
+			notar que $\sum_{p\leq y}\,\frac 1{p}\,<\,1$;%
+			\hint{
+				Usando el criterio de comparaci\'on
+				($\sum_{n\geq 2}\,\frac 1{n}$) y el criterio
+				integral
+				($\int_1^\infty\,\frac{\de x}{x^2}=1$),
+				por ejemplo.
+			}
+		\item\label{item:ejer:primos:suma-de-reciprocos:vii}
+			deducir la desigualdad
+			\eqref{eq:ejer:primos:suma-de-reciprocos}.
+	\end{enumerate}
+	%
+\end{ejerPrimos}
+
+\begin{ejerPrimos}
+	Probar que
+	\begin{itemize}
+		\item todo entero de la forma $3k+2$ tiene un factor primo
+			del mismo tipo;
+		\item todo entero de la forma $4k+3$ tiene un factor primo
+			del mismo tipo;
+		\item todo entero de la forma $6k+5$ tiene un factor primo
+			del mismo tipo.
+	\end{itemize}
+	%
+\end{ejerPrimos}
+
+\begin{ejerPrimos}
+	Dados $a,b,c,d,m,n,u,v\in\Enteros$ tales que
+	$ad-bc=\pm1$, $u=am+bn$ y $v=cm+dn$, se cumple que
+	$\mcd{m,n}=\mcd{u,v}$.
+\end{ejerPrimos}
+
+\begin{ejerPrimos}
+	Si $n>4$ es compuesto, entonces $n\mid (n-1)!$.
+\end{ejerPrimos}
+
+\begin{ejerPrimos}
+	Supongamos que $u,v\in\Enteros$ son coprimos ($\mcd{u,v}=1$).
+	Para todo $n\in\Enteros$, si $u\mid n$ y $v\mid n$, entonces
+	$uv\mid n$. Esto no es cierto (existe un $n$ para el cual no es
+	cierto), si $\mcd{u,v}>1$.
+\end{ejerPrimos}
+
+\begin{ejerPrimos}
+	Si $\mcd{u,v}=1$, entonces $\mcd{u+v,u-v}\in\{1,2\}$.
+\end{ejerPrimos}
+
+% \begin{ejerPrimos}
+	% $\mcd{a,a+k}\mid k$.
+% \end{ejerPrimos}
+
+% \begin{ejerPrimos}
+	% Supongamos que encastramos varias copias de un pol\'{\i}gono regular
+	% de manera que tengan un v\'ertice en com\'un y que no quede sector
+	% libre alrededor de dicho punto del plano. Entonces, o bien
+	% son seis tri\'angulos, o bien cuatro cuadrados, o bien tres
+	% hex\'agonos.
+% \end{ejerPrimos}
+
+\begin{ejerPrimos}\label{ejer:primos:orden}
+	Sea $p>1$ un primo. Dado $n\in\Enteros$, $n\neq 0$, el
+	\emph{orden de $n$ en $p$} es el n\'umero entero no negativo
+	$\valuacion[p](n)=j$ que cumple $p^j\mid n$ pero $p^{j+1}\nmid n$.
+	Probar que, si $a,b\in\Enteros$,
+	\begin{itemize}
+		\item
+			\begin{math}
+				\valuacion[p](a+b)\geq\min\{
+					\valuacion[p](a),\valuacion[p](b)\}
+			\end{math}
+			y que, si
+			\begin{math}
+				\valuacion[p](a)\neq \valuacion[p](b)
+			\end{math},
+			entonces vale $=$;
+		\item
+			\begin{math}
+				\valuacion[p](ab)=\valuacion[p](a)+
+					\valuacion[p](b)
+			\end{math}
+			y la funci\'on $\valuacion[p]$ se extiende a
+			$\Racionales\setmin\{0\}$ de una \'unica manera
+			posible de forma que esta igualdad valga para
+			$a,b\in\Racionales\setmin\{0\}$.
+	\end{itemize}
+	%
+\end{ejerPrimos}
+
+\begin{ejerPrimos}
+	Sean $a,b,c,d\in\Enteros$ tales que $\mcd{a,b}=\mcd{c,d}=1$.
+	Si $\frac a{b}+\frac c{d}\in\Enteros$, entonces $b=\pm d$.
+\end{ejerPrimos}

@@ -1,0 +1,116 @@
+\theoremstyle{definition}
+\newtheorem{ejerModulares}{\ejername}[section]
+
+%-------------
+
+\begin{ejerModulares}\label{ejer:modulares:lineal}
+	Probar que, si $\mcd{a,m}=1$, entonces $ax=b$ tiene una \'unica
+	soluci\'on en $\Enterosmod[m]$, cualquiera sea $b\in\Enteros$.
+	Describir las soluciones a la ecuaci\'on de congruencia
+	$ax\equiv b\tmodulo[m]$, es decir, el conjunto de $x\in\Enteros$
+	tales que $ax\equiv b\tmodulo[m]$.
+\end{ejerModulares}
+
+\begin{ejerModulares}
+	Hacer una tabla de multiplicaci\'on y suma para los anillos
+	$\Enterosmod[5]$, $\Enterosmod[8]$ y $\Enterosmod[10]$.
+\end{ejerModulares}
+
+\begin{ejerModulares}
+	Sea $p$ un primo impar y sea $k\in\{1,\,\dots,\,p-1\}$. Entonces
+	existe un\'unico $b_k\in\{1,\,\dots,\,p-1\}$ tal que
+	$kb_k\equiv 1\tmodulo[p]$. Adem\'as, $k\neq b_k$, excepto en los
+	casos $k=1$ y $k=p-1$ ?`Son ciertas estas afirmaciones en el caso
+	de un m\'odulo $m$ cualquiera, no necesariamente primo?
+\end{ejerModulares}
+
+\begin{ejerModulares}
+	Si $p$ es primo $(p-1)!\equiv -1\tmodulo[p]$. Si $n=4$, entonces
+	$(4-1)!=3!=6\equiv 2\tmodulo[4]$. Si $n>4$ \emph{no es} primo,
+	entonces $(n-1)!\equiv 0\tmodulo[n]$.
+\end{ejerModulares}
+
+\begin{ejerModulares}
+	Sea $R=\{\lista r{\eulerphi(m)}\}$ un sistema reducido de
+	representantes de las clases m\'odulo $m$ y sea $N\geq 0$ la
+	cantidad de soluciones a la ecuaci\'on de congruencia
+	$x^2\equiv 1\tmodulo[m]$. Probar que%
+	\hint{
+		Si $r\in R$, entonces, por un lado, existe $r'\in R$
+		tal que $rr'\equiv 1$. Por otro, $\mcd{-r,m}=1$ y, si
+		$m>2$, entonces tambi\'en $-r\not\equiv r$.
+	}
+	\begin{displaymath}
+		\prod_{i=1}^{\eulerphi(m)}\,r_i\,\equiv\,(-1)^{N/2}\modulo[m]
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejerModulares}
+
+% \begin{ejerModulares}
+	% Sea $\binomial p{k}=\frac{p!}{k!(p-k)!}$ el coeficiente binomial.
+	% Si $p$ es primo y $1\leq k\leq p-1$, entonces $p$ divide a
+	% $\binomial p{k}$. Deducir que
+	% \begin{displaymath}
+		% (a+b)^p\,\equiv\,a^p+b^p\modulo[p]
+		% \text{ .}
+	% \end{displaymath}
+% \end{ejerModulares}
+
+\begin{ejerModulares}
+	Sean $p$ y $q$ primos impares distintos y supongamos, adem\'as,
+	que $p-1\mid q-1$. Si $\mcd{n,pq}=1$, entonces
+	\begin{math}
+		n^{q-1}\,\equiv\,1\tmodulo[pq]
+	\end{math}.%
+	\hint{
+		% Ver \ejername~\ref{ejer:congruencias:chino}.
+		Probar que $n^{q-1}\equiv 1\tmodulo[p]$ y que
+		$n^{q-1}\equiv 1\tmodulo[q]$.
+	}
+\end{ejerModulares}
+
+\begin{ejerModulares}
+	Probar que, si $p$ es primo, entonces $p$ divide al numerador de
+	$1+\frac 1{2}+\frac 1{3}+\cdots+\frac 1{p-1}$.
+\end{ejerModulares}
+
+\begin{ejerModulares}\label{ejer:modulares:residuos}
+	Probar que
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:modulares:residuos:primo-impar}
+			si $p$ es un primo impar y $a\geq 1$,
+			las \'unicas soluciones $x^2=1$ en $\Enterosmod[p^a]$
+			son $\pm 1$;
+		\item\label{item:ejer:modulares:residuos:dos}
+			$x^2=1$ tiene una \'unica soluci\'on en
+			$\Enterosmod[2]$, dos soluciones en $\Enterosmod[4]$
+			y cuatro soluciones en $\Enterosmod[2^b]$, si
+			$b\geq 3$.
+	\end{enumerate}
+	%
+	Determinar la cantidad de soluciones a $x^2\equiv 1\tmodulo[m]$
+	para $m\in\Enteros$, $m\neq 0$.%
+	\hint{
+		% Ver \ejername~\ref{ejer:congruencias:chino}.
+		Teorema chino del resto.
+	}
+\end{ejerModulares}
+
+\begin{ejerModulares}
+	Si $R=\{\lista r{p-1}\}$ es un sistema reducido m\'odulo $p$, primo,
+	entonces
+	\begin{displaymath}
+		\prod_{i=1}^{p-1}\,r_i\,\equiv\,-1\modulo[p]
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejerModulares}
+
+\begin{ejerModulares}
+	Si $R=\{r_1,\,\dots,\,r_p\}$ y $R'=\{r_1',\,\dots,\,r_p'\}$ son
+	dos sistemas completos de representantes m\'odulo un primo $p>2$,
+	entonces $r_1r_1',\,\dots,\,r_pr_p'$ no pueden formar un sistema
+	completo de representantes m\'odulo $p$.
+\end{ejerModulares}
+

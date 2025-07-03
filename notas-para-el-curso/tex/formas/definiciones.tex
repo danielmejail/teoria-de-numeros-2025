@@ -1,0 +1,369 @@
+\theoremstyle{plain}
+\newtheorem{teoDefiniciones}{\teoname}[section]
+\newtheorem{lemaDefiniciones}[teoDefiniciones]{\lemaname}
+\newtheorem{coroDefiniciones}[teoDefiniciones]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{defDefiniciones}[teoDefiniciones]{\defname}
+\newtheorem{obsDefiniciones}[teoDefiniciones]{\obsname}
+\newtheorem{ejemDefiniciones}[teoDefiniciones]{\ejemname}
+
+%-------------
+
+Empecemos con la definici\'on de forma cuadr\'atica.
+
+% \subsection{Definici\'on de forma cuadr\'atica}
+	% \label{subsec:definicion-de-forma}
+\begin{defDefiniciones}\label{def:definiciones:forma}
+	Por \emph{forma cuadr\'atica binaria} entenderemos un
+	polinomio en dos variables, homog\'eneo de grado $2$:
+	\begin{displaymath}
+		ax^2\,+\,bxy\,+\,cy^2
+		\text{ .}
+	\end{displaymath}
+	%
+	Los coeficientes del polinomio, $a$, $b$ y $c$, son los
+	\emph{coeficientes} de la forma cuadr\'atica binaria.
+	Usaremos la notaci\'on
+	\begin{displaymath}
+		\binaria{a,b,c}\,:=\,ax^2\,+\,bxy\,+\,cy^2
+		\text{ .}
+	\end{displaymath}
+	%
+\end{defDefiniciones}
+
+% El concepto se puede generalizar a una cantidad arbitraria de
+% variables. Dado que s\'olo estudiaremos formas cuadr\'aicas en
+% dos variables, diremos ``forma cuadr\'atica'' en lugar de
+% ``forma cuadr\'atica binaria''.
+
+% \subsection{La funci\'on asociada a una forma cuadr\'atica}%
+	% \label{subsec:la-funcion-asociada-a-una-forma}
+% \begin{obsDefiniciones}\label{obs:definiciones:forma}
+	% Toda forma cuadr\'atica se puede interpretar como una
+	% funci\'on. Para eso, deber\'{\i}amos, por lo menos, especificar
+	% su dominio. Si $a,b,c\in\Reales$, podemos pensar en la funci\'on
+	% $f(x,y)=ax^2+bxy+cy^2$ cuyos argumentos $x$ e $y$ son n\'umeros
+	% reales y obtenemos una funci\'on
+	% $\Reales\times\Reales\rightarrow\Reales$. Sin embargo, la misma
+	% expresi\'on puede interpretarse como una funci\'on
+	% $\Complejos\times\Complejos\rightarrow\Complejos$, si permitimos
+	% que los argumentos sean n\'umeros complejos.
+	% Si $a,b,c\in\Complejos$, podemos pensar en la funci\'on
+	% $\Reales\times\Reales\rightarrow\Complejos$ cuyos argumentos son
+	% reales, o bien en la funci\'on de argumentos complejos.
+	% A pesar de esta ambig\"uedad, nos resultar\'a \'util pensar en
+	% una forma cuadr\'atica como una funci\'on, pero la situaci\'on
+	% m\'as frecuente ser\'a la de una forma con coeficientes en
+	% $\Enteros$ a la que interpretaremos como funci\'on de variables
+	% tambi\'en enteras.
+% \end{obsDefiniciones}
+
+% \subsection{Formas enteras}%
+	% \label{subsec:formas-enteras}
+\begin{defDefiniciones}\label{def:definiciones:entera}
+	Decimos que una forma cuadr\'atica es \emph{entera},
+	si sus coeficientes son n\'umeros enteros.
+	El \emph{contenido} de una forma es el m\'aximo com\'un
+	divisor de sus coeficientes.
+	Una forma \emph{primitiva} es una forma cuadr\'atica
+	entera cuyos coeficientes son coprimos, es decir, si
+	su contenido es igual a $1$.
+\end{defDefiniciones}
+
+% An\'alogamente, una forma es \emph{racional}, si tiene
+% coeficientes racionales, \emph{real}, si sus coeficientes son
+% n\'umeros reales y \emph{compleja}, si son n\'umeros complejos.
+% De ahora en adelante, a menos que se mencione, las formas
+% cuadr\'aticas ser\'an enteras.
+
+\begin{ejemDefiniciones}\label{ejem:definiciones:primitiva}
+	La forma $\binaria{1,0,1}=x^2+y^2$ es primitiva.
+	La forma $\binaria{2,2,3}=2x^2+2xy+3y^2$, tambi\'en.
+\end{ejemDefiniciones}
+
+% \subsection{Representaci\'on por formas cuadr\'aticas}%
+	% \label{subsec:representacion-por-formas-cuadraticas}
+\begin{defDefiniciones}\label{def:definiciones:representacion}
+	Dado $m\in\Enteros$ y una forma $f$, decimos que
+	\emph{$m$ es representado por $f$} (o que \emph{$f$ %
+	representa $m$}), si existen $x,y\in\Enteros$ tales que
+	\begin{displaymath}
+		f(x,y)\,=\,m
+		\text{ ;}
+	\end{displaymath}
+	%
+	el par $(x,y)$ soluci\'on de esta ecuaci\'on, o bien la
+	expresi\'on $f(x,y)=m$ es una \emph{representaci\'on de $m$ %
+	por la forma $f$}. Dicha representaci\'on se dice
+	\emph{propia}, si $x$ e $y$ son coprimos. Decimos que
+	\emph{$f$ representa propiamente a $m$} (o que
+	\emph{$m$ es propiamente representado por $f$}), si
+	existe una representaci\'on propia de $m$ por $f$.
+\end{defDefiniciones}
+
+\begin{ejemDefiniciones}\label{ejem:definiciones:representacion}
+	La forma $f(x,y)=\binaria{1,0,1}$ representa $m=1$, pues
+	$f(1,0)=1$; esta representaci\'on de $1$ es propia. La forma
+	$f$ tambi\'en representa $m=5$: $f(2,1)=5$; la representaci\'on
+	es propia. Tambi\'en representa propiamente a $m=10$, pues
+	$f(1,3)=10$. Pero $f$ no representa a $m=7$. De hecho, si $f$
+	representa $m$, entonces $m\equiv 0,1,2\tmodulo[4]$, y, si $f$
+	representa propiamente a $m$, entonces $m\equiv 1,2\tmodulo[4]$.
+\end{ejemDefiniciones}
+
+% En este contexto, la posibilidad de expresar un primo en la forma
+% $p=x^2+ny^2$ pasa a ser una propiedad de representabilidad de la
+% forma cuadr\'atica entera $\binaria{1,0,n}$. Estas formas son
+% primitivas y, como funci\'on de variable real, toman valores
+% estrictamente positivos, salvo en $(0,0)$. Geom\'etricamente, los
+% puntos $(x,y)$ tales que $f(x,y)=m$ describen una elipse en el plano.
+% Las formas cuadr\'aticas con estas propiedades se denominan
+% ``definidas positivas''. Nuestro objetivo en esta parte ser\'a
+% deducir propiedades de las formas $\binaria{1,0,n}$ a partir de
+% propiedades de las formas cuadr\'aticas (binarias enteras) primitivas
+% y definidas positivas.
+
+% \subsection{Discriminante de una forma cuadr\'atica}%
+	% \label{subsec:discriminante-de-una-forma}
+\begin{defDefiniciones}\label{def:definiciones:discriminante}
+	Dada una forma cuadr\'atica $f(x,y)=\binaria{a,b,c}=ax^2+bxy+cy^2$,
+	llamaremos \emph{discriminante} a
+	\begin{displaymath}
+		\discriminante(f)\,=\,b^2\,-\,4ac
+		\text{ .}
+	\end{displaymath}
+	%
+\end{defDefiniciones}
+
+\begin{obsDefiniciones}\label{obs:definiciones:discriminante}
+	El discriminante de una forma cuadr\'atica entera es un
+	% n\'umero entero, pues es de la forma $D=b^2-4ac$ con
+	% $a,b,c\in\Enteros$.%
+	% \footnote{
+		% M\'as en general, si los coeficientes de
+		% $f=\binaria{a,b,c}$ son racionales, reales,
+		% complejos, su discriminante, $D=b^2-4ac$ tambi\'en
+		% es racional, real, complejo. Bien en general, si
+		% $a$, $b$, $c$ pertenecen a cierto anillo $A$,
+		% $D\in A$, tambi\'en.
+	% }
+	% Adem\'as, como $D\equiv b^2\tmodulo[4]$, debe ser
+	% $D\equiv 0,1\tmodulo[4]$.
+	n\'umero entero y congruente con $0$ 0 $1$ m\'odulo $4$;
+	adem\'as, $D\equiv 0\tmodulo[4]$, si y s\'olo si
+	$b\equiv 0\tmodulo[2]$.
+	Rec\'{\i}procamente, si $D\equiv 0,1\tmodulo[4]$ existe una
+	forma cuadr\'atica entera de discriminante $D$:
+	si $D\equiv 0$, la forma $\binaria{1,0,\frac{-D} 4}$ tiene
+	discriminante $D$, si $D\equiv 1$, la forma
+	$\binaria{1,1,\frac{1-D} 4}$ tiene discriminante $D$.
+	% Notemos que estas formas son, adem\'as, primitivas y que
+	% el ``coeficiente $a$'' es positivo.
+\end{obsDefiniciones}
+
+\begin{lemaDefiniciones}\label{lema:definiciones:discriminante-no-cuadrado}
+	Sea $f=\binaria{a,b,c}$ una forma cuadr\'atica entera
+	y sea $D:=\discriminante(f)$ su discriminante.
+	Si $D\neq 0$ no es un cuadrado perfecto, entonces $a\neq 0$,
+	$c\neq 0$ y la \'unica soluci\'on de $f(x,y)=0$ con
+	$x,y\in\Enteros$ es $x=y=0$.
+\end{lemaDefiniciones}
+
+% \begin{obsDefiniciones}\label{obs:definiciones:valores}
+	% La conclusi\'on del \lemaname~%
+	% \ref{lema:definiciones:discriminante-no-cuadrado} es que, si el
+	% discriminante de una forma cuadr\'atica no es un
+	% cuadrado perfecto, entonces la \'unica representaci\'on
+	% de $0$ es la trivial.
+% \end{obsDefiniciones}
+
+\begin{proof}
+	Si $a=0$ o $c=0$, entonces $D=b^2$ es cuadrado, con lo
+	que asumimos que ni $a$ ni $c$ son nulos. En ese caso,
+	sean $x,y\in\Enteros$ tales que $f(x,y)=0$.
+	Si $x=0$, entonces $cy^2=0$ e $y=0$.
+	An\'alogamente, si $y=0$, entonces $ax^2=0$ y $x=0$.
+	Podemos suponer, entonces, que $x\neq 0$ e $y\neq 0$.
+	Ahora, en general,
+	\begin{equation}
+		\label{eq:definiciones:completar}
+		4af(x,y)\,=\,(2ax+by)^2\,-\,Dy^2
+		\text{ ,}
+	\end{equation}
+	%
+	con lo que, $f(x,y)=0$ implica $(2ax+by)^2=Dy^2$. Pero,
+	como $y\neq 0$, por factorizaci\'on \'unica, $D$ debe
+	ser un cuadrado.
+\end{proof}
+
+% \subsection{Formas de acuerdo a su discriminante}%
+	% \label{subsec:formas-de-acuerdo-a-su-discriminante}
+\begin{defDefiniciones}\label{def:definiciones:valores}
+	Decimos que una forma es \emph{indefinida}, si toma valores
+	tanto positivos como negativos. Si una forma toma valores
+	no negativos decimos que es \emph{semidefinida positiva};
+	si no toma valores positivos, \emph{semidefinida negativa}.
+	Una forma semidefinida que s\'olo toma el valor $0$ en el
+	origen se dice \emph{definida}.
+\end{defDefiniciones}
+
+% Abreviamos ``definida semidefinida positiva'' por ``definida
+% positiva''; similarmente, ``definida negativa'' significa
+% ``definida semidefinida negativa''.
+
+\begin{teoDefiniciones}\label{teo:definiciones:valores}
+	Sea $f$ una forma cuadr\'atica y sea $D:=\discriminante(f)$,
+	su discriminante. Entonces,
+	\begin{enumerate}[(A)]
+		\item\label{item:definiciones:valores:indefinida}
+			si $D>0$, $f$ es indefinida;
+		\item\label{item:definiciones:valores:semidefinida}
+			si $D=0$, $f$ es semidefinida, pero no definida;
+		\item\label{item:definiciones:valores:definida}
+			si $D<0$, $f$ es definida.
+	\end{enumerate}
+	%
+	Adem\'as, si $f=\binaria{a,b,c}$ y $D<0$, entonces $a$ y $c$
+	tienen igual signo y son distintos de cero y $f$ es positiva,
+	si $a>0$, y negativa, si $a<0$.
+\end{teoDefiniciones}
+
+\begin{proof}
+	Supongamos que $D<0$
+	(entonces, $a$ y $c$ deben tener el mismo signo y
+	ser no nulos).
+	Por \eqref{eq:definiciones:completar} y el \lemaname~%
+	\ref{lema:definiciones:discriminante-no-cuadrado},
+	$4af(x,y)>0$ para todo par $x,y\in\Enteros$, excepto
+	$x=y=0$. En particular, $f$ es definida (positiva o
+	negativa). Dado que
+	\begin{displaymath}
+		a\,=\,f(1,0)\quad\text{y}\quad
+			c\,=\,f(0,1)
+		\text{ ,}
+	\end{displaymath}
+	%
+	vemos que $a$ y $c$ tienen igual signo y que este
+	signo concuerda con el ``signo'' de $f$.
+\end{proof}
+
+% \subsection{Equivalencia de formas cuadr\'aticas}%
+	% \label{subsec:equivalencia-de-formas}
+\begin{defDefiniciones}\label{def:definiciones:equivalencia}
+	Dos formas $f$ y $g$ son \emph{equivalentes}, si existen
+	$p,q,r,s\in\Enteros$ tales que
+	\begin{displaymath}
+		f(x,y)\,=\,g(px+qy,rx+sy)
+		\quad\text{y}\quad
+		ps-qr\,=\,\pm 1
+		\text{ ;}
+	\end{displaymath}
+	%
+	si $ps-qr=1$, entonces decimos que son
+	\emph{estrictamente equivalentes}.
+\end{defDefiniciones}
+
+\begin{ejemDefiniciones}\label{ejem:definiciones:equivalencia}
+	Las formas $\binaria{2,-1,3}$ y $\binaria{2,1,3}$ son equivalentes,
+	pero, con los resultados de la \S~\ref{sec:reducidas}, podremos
+	probar que no pueden ser estrictamente equivalentes.
+	En particular, las clases de equivalencia estricta no coinciden,
+	en general, con clases a secas.
+\end{ejemDefiniciones}
+
+\begin{ejemDefiniciones}\label{ejem:definiciones:equivalencia:traslacion}
+	Sea $f=\binaria{1,2,4}$. Su discriminante es
+	$2^2-4\dot 1\dot 4=-12$
+	?`Qu\'e formas son estrictamente equivalentes a $f$?
+	Otra forma de discriminante $-12$ con la que ya nos hemos
+	encontrado es $\binaria{1,0,3}=x^2+3y^2$.
+	Ambas son equivalentes:
+	\begin{displaymath}
+		f(x-y,y)\,=\,(x-y)^2+2(x-y)y+4y^2\,=\,
+			x^2+(-2+2)xy+(1-2+4)y^2\,=\,
+			x^2+3y^2
+		\text{ .}
+	\end{displaymath}
+	%
+	M\'as aun, en este caso, $p=1$, $q=-1$, $r=0$, $s=1$,
+	con lo que $ps-qr=1$ y las formas son estrictamente
+	equivalentes.
+\end{ejemDefiniciones}
+
+\begin{obsDefiniciones}\label{obs:definiciones:equivalencia:invariantes}
+	\quedacomoejercicio.
+	% Formas equivalentes comparten ciertas propiedades.
+	Si $p,q,r,s\in\Enteros$ y $f$ y $f_1$ son formas relacionadas por
+	\begin{equation}
+		\label{eq:definiciones:equivalencia:cambio}
+		f_1(x,y)\,=\,f(px+qy,rx+sy)
+		\text{ ,}
+	\end{equation}
+	%
+	entonces los enteros representados por $f_1$ tambi\'en son
+	representados por $f$.
+	Por otro lado, los coeficientes de $f$ y de $f_1$ est\'an
+	relacionados de la siguiente manera:
+	si $f=\binaria{a,b,c}$ y $f_1=\binaria{a_1,b_1,c_1}$,
+	\begin{equation}
+		\label{eq:definiciones:equivalencia:coeficientes}
+		\begin{aligned}
+			a_1 & \,=\, ap^2\,+\,bpr\,+\,cr^2\,=\,f(p,r)
+				\text{ ,} \\
+			b_1 & \,=\, 2apq\,+\,b\,(ps+qr)\,+\,2crs
+				\quad\text{y} \\
+			c_1 & \,=\, aq^2\,+\,bqs\,+\,cs^2\,=\,f(q,s)
+				\text{ .}
+		\end{aligned}
+		%
+	\end{equation}
+	%
+	En particular, sus discriminantes, $D=\discriminante(f)$ y
+	$D_1=\discriminante(f_1)$, est\'an relacionados por:
+	\begin{equation}
+		\label{eq:definiciones:equivalencia:discriminantes}
+		D_1\,=\,(ps-qr)^2\,D
+		\text{ .}
+	\end{equation}
+	%
+	% Supongamos que $f$ y $f_1$ son equivalentes, que
+	% $p,q,r,s\in\Enteros$ en \eqref{eq:definiciones:equivalencia:cambio}
+	% cumplen $ps-qr=\pm 1$. Entonces, 
+\end{obsDefiniciones}
+
+\begin{teoDefiniciones}\label{teo:definiciones:equivalencia:invariantes}
+	La relaci\'on de equivalencia de formas cuadr\'aticas y la
+	relaci\'on de equivalencia estricta son relaciones de equivalencia
+	en el conjunto de formas cuadr\'aticas.
+	Sean $f$ y $g$ formas cuadr\'aticas equivalentes. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:definiciones:invariantes:representados}
+			un entero es representado por $g$, si y s\'olo si
+			es representado por $f$;
+		\item\label{item:definiciones:invariantes:propiamente}
+			un entero es propiamente representado por $g$,
+			si y s\'olo si es propiamente representado por $f$;
+		\item\label{item:definiciones:invariantes:discriminante}
+			$\discriminante(g)=\discriminante(f)$;
+		\item\label{item:definiciones:invariantes:contenido}
+			el contenido de $g$ es igual al contenido de $f$;
+		% \item\label{item:definiciones:invariantes:primitiva}
+			en particular,
+			% la forma
+			$g$ es primitiva, si y s\'olo si
+			% la forma
+			$f$ es primitiva.
+	\end{enumerate}
+	%
+\end{teoDefiniciones}
+
+\begin{proof}
+	Son consecuencias de la \obsname~%
+	\ref{obs:definiciones:equivalencia:invariantes}
+	\quedacomoejercicio.
+\end{proof}
+
+\subsection*{Ejercicios}
+\input{./tex/formas/ejercicios-definiciones.tex}
+

@@ -1,0 +1,303 @@
+\theoremstyle{definition}
+\newtheorem{ejerDefiniciones}{\ejername}[section]
+
+%-------------
+
+\begin{ejerDefiniciones}\label{ejer:definiciones:propiamente}
+	Si $f(x,y)=m$ es una representaci\'on de $m$ por $f$ y
+	$g=\mcd{x,y}$, entonces $g^2\mid m$ y $f$ representa
+	propiamente a $m/g^2$.
+	En particular, si $m$ es libre de cuadrados (por ejemplo,
+	si $m$ es primo o $m=\pm 1$), s\'olo tiene sentido hablar
+	de representaciones propias de $m$.
+\end{ejerDefiniciones}
+
+	Las partes \eqref{item:definiciones:invariantes:discriminante}
+	y \eqref{item:definiciones:invariantes:contenido} del \teoname~%
+	\ref{teo:definiciones:equivalencia:invariantes}
+	se pueden expresar de la siguiente manera: el discriminante y
+	el contenido de una forma cuadr\'atica son invariantes de la
+	clase de equivalencia de la forma cuadr\'atica (todas las formas
+	en la misma clase tienen igual discriminante e igual contenido).
+	Sea $\Clases(D)$ el conjunto de clases de formas cuadr\'aticas de
+	discriminante $D$ y sea $\Clases[g](D)$ el subconjunto de clases
+	de discriminante $D$ y contenido $g$.
+	En particular, con esta notaci\'on $\Clases[1](D)$ denota el
+	conjunto de clases de formas cuadr\'aticas primitivas de
+	discriminante $D$.
+
+\begin{ejerDefiniciones}\label{ejer:definiciones:clases}
+	Mostrar que, si $f$ es una forma de contenido $g$ y discriminante
+	$D$, entonces $g^2\mid D$. Concluir que
+	\begin{displaymath}
+		\Clases(D)\,=\,
+		\bigsqcup_{\smatrix{g>0 \\ g^2\mid D}}\,\Clases[g](D)
+			\,=\,\bigsqcup_{\smatrix{g>0 \\ g^2\mid D}}\,
+				\Clases[1](D/g^2)
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejerDefiniciones}
+
+	Un \emph{discriminante fundamental} es un entero $D$ que cumple
+	\begin{itemize}
+		\item $D\equiv 1\tmodulo[4]$ y es libre de cuadrados,
+			o bien
+		\item $D=4m$, donde $m\equiv 2,3\tmodulo[4]$ y es libre
+			de cuadrados.
+	\end{itemize}
+	%
+
+\begin{ejerDefiniciones}\label{ejer:definiciones:fundamental}
+	Probar que un entero $D\equiv 0,1\tmodulo[4]$ es un discriminante
+	fundamental, si y s\'olo si toda forma de discriminante $D$ es
+	primitiva.
+\end{ejerDefiniciones}
+
+El producto de formas lineales da lugar a formas cuadr\'aticas:
+\begin{equation}
+	\label{eq:definiciones:descomponible}
+	(kx+ly)\,(mx+ny)\,=\,kmx^2\,+\,(kn+lm)\,xy\,+\,lny^2
+\end{equation}
+%
+es una forma cuadr\'atica. Veremos que \'estas son muy especiales
+dentro del conjunto de todas las formas cuadr\'aticas. Desde el punto
+de vista del problema de representabilidad, determinar si una forma
+como en \eqref{eq:definiciones:descomponible} representa un entero
+$z\in\Enteros$ se reduce a descomponerlo como producto de enteros
+de alguna manera, $z=mn$, $m,n\in\Enteros$, y determinar si es posible
+representar los factores $m$ y $n$ por cada uno de los factores lineales
+de la forma.
+
+\begin{ejerDefiniciones}\label{ejer:definiciones:descomponible}
+	Una forma cuadr\'atica es un producto de formas lineales,
+	si y s\'olo si su discriminante es un cuadrado perfecto.
+	\begin{enumerate}[(i)]
+		\item\label{item:definiciones:descomponible:i}
+			Probar que el discriminante de la forma
+			\eqref{eq:definiciones:descomponible} es igual a
+			$(kn-lm)^2$, o sea, un cuadrado perfecto.
+		\item\label{item:definciones:descomponible:ii}
+			Probar que, si $f=\binaria{a,b,c}$ y
+			$\discriminante(f)=h^2$ es un cuadrado, entonces
+			\begin{displaymath}
+				4af\,=\,\big(2ax+(b+h)\,y\big)\,
+					\big(2ax+(b-h)\,y\big)
+				\text{ ;}
+			\end{displaymath}
+			%
+			en particular,
+			sobre $\Racionales$, $f$ se descompone como
+			producto de factores lineales.
+		\item\label{item:definciones:descomponible:iii}
+			Si $f=\binaria{a,b,c}$ es una forma cuadr\'atica
+			con coeficientes enteros y existe una
+			factorizaci\'on
+			\begin{displaymath}
+				f\,=\,(\kappa x+\lambda y)\,(\mu x+\nu y)
+			\end{displaymath}
+			%
+			con $\kappa,\lambda,\mu,\nu\in\Racionales$, entonces
+			existe una factorizaci\'on
+			\begin{displaymath}
+				f\,=\,(kx+ly)\,(mx+ny)
+			\end{displaymath}
+			%
+			con $k,l,m,n\in\Enteros$.%
+			\hint{
+				Escribir $\tilde nf=(kx+ly)(mx+ny)$ con
+				$k,l,m,n,\tilde n\in\Enteros$; dividir
+				por el m\'aximo com\'un divisor entre
+				$k$, $l$, y $\tilde n$; dividir por el
+				m\'aximo com\'un divisor entre
+				$m$, $n$ y (el nuevo) $\tilde n$;
+				comparar coeficientes:
+				$\tilde na=km$, $\tilde nb=kn+lm$ y
+				$\tilde nc=ln$; concluir que $\tilde n=1$.
+			}
+	\end{enumerate}
+	%
+\end{ejerDefiniciones}
+
+A toda forma cuadr\'atica le podemos asociar una matriz, definida
+a partir de los coeficientes de la forma: si $f=\binaria{a,b,c}$,
+su \emph{matriz asociada} es%
+\footnote{
+	A veces se llama ``matriz asociada'' a la matriz
+	\begin{math}
+		\sbmatrix{a & b \\ b & c}
+	\end{math}.
+}
+\begin{equation}
+	\label{eq:definiciones:matriz-asociada}
+	\begin{bmatrix}
+		a & b/2 \\ b/2 & c
+	\end{bmatrix}
+	\text{ .}
+\end{equation}
+%
+La matriz asociada a una forma cuadr\'atica es una matriz
+sim\'etrica. Si $f$ es entera, los coeficientes de su matriz
+asociada ser\'an enteros en la diagonal y medio enteros fuera de
+la diagonal. Rec\'{\i}procamente, toda matriz sim\'etrica como
+\eqref{eq:definiciones:matriz-asociada}, con $a,b,c\in\Enteros$
+determina un forma cuadr\'atica entera:
+\begin{equation}
+	\label{eq:definiciones:forma-asociada}
+	f(x,y)\,=\,\trnsp{\begin{bmatrix} x \\ y \end{bmatrix}}\,
+		\begin{bmatrix} a & b/2 \\ b/2 & c \end{bmatrix}\,
+		\begin{bmatrix} x \\ y \end{bmatrix}
+	\text{ ,}
+\end{equation}
+%
+donde $\trnsp v$ denota la matriz $v$ transpuesta. En definitiva,
+hay una correspondencia entre formas cuadr\'aticas binarias con
+coeficientes enteros y matrices ``medio enteras''.
+El discriminante de una forma se expresa de manera
+sencilla en t\'erminos del determinante de su matriz asociada:
+dada una forma $f$ con matriz asociada $F$,
+\begin{displaymath}
+	\discriminante(f)\,=\,-4\det(F)
+	\text{ .}
+\end{displaymath}
+%
+
+\begin{ejerDefiniciones}\label{ejer:definiciones:equivalencia}
+	Sea $f=\binaria{a,b,c}$ una forma cuadr\'atica.
+	Probar que la matriz asociada a
+	$f(px+qy,rx+sy)$ es igual a
+	\begin{displaymath}
+		\trnsp{\begin{bmatrix}
+			p & q \\ r & s
+		\end{bmatrix}}\,
+		\begin{bmatrix}
+			a & b/2 \\ b/2 & c
+		\end{bmatrix}\,
+		\begin{bmatrix}
+			p & q \\ r & s
+		\end{bmatrix}
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejerDefiniciones}
+
+\begin{ejerDefiniciones}\label{ejer:definiciones:accion}
+	Probar que el grupo $\GL(2,\Enteros)$ de matrices de taman\~no
+	$2\times 2$ inversibles con coeficientes enteros act\'ua en el
+	conjunto de matrices medio enteras v\'{\i}a
+	$X\mapsto \trnsp AXA$ (la acci\'on es a derecha).
+	Concluir que dos formas cuadr\'aticas, $f$ y $f_1$,
+	son equivalentes, si y s\'olo si sus matrices asociadas, $F$ y
+	$F_1$, cumplen que existe $A\in\GL(2,\Enteros)$ tal que
+	$F_1=\trnsp AFA$. Probar que $f$ y $f_1$ son estrictamente
+	equivalentes si existe $A\in\SL(2,\Enteros)$ tal que
+	$F_1=\trnsp AFA$. Demostrar que las relaciones de equivalencia y
+	de equivalencia estricta entre formas cuadr\'aticas son,
+	efectivamente, relaciones de equivalencia.
+\end{ejerDefiniciones}
+
+Si $f$ es una forma cuadr\'atica y $\gamma=\sbmatrix{ p & q \\ r & s }$,
+$f\cdot\gamma$ denota la forma
+\begin{displaymath}
+	(f\cdot\gamma)(x,y)\,=\,f(px+qy,rx+sy)
+	\text{ .}
+\end{displaymath}
+%
+% Esto define una acci\'on de $\GL(2,\Enteros)$ en el conjunto de formas
+% cuadr\'aticas binarias con coeficientes enteros.
+Dos formas, $f$ y $f_1$, son equivalentes, si y s\'olo si
+existe $A\in\GL(2,\Enteros)$ tal que $f_1=f\cdot A$;
+si $A\in\SL(2,\Enteros)$, entonces son estictamente equivalentes.
+
+Dada una forma $f$, su \emph{grupo de isotrop\'{\i}a} es
+\begin{displaymath}
+	\Stab(f)^+\,=\,\big\{\gamma\in\SL(2,\Enteros)\,:\,
+		f\cdot\gamma=f\big\}
+	\text{ .}
+\end{displaymath}
+%
+
+\begin{ejerDefiniciones}\label{ejer:definiciones:isotropia:conjugado}
+	Probar que $\Stab(f)^+$ es un subgrupo de $\SL(2,\Enteros)$ y que,
+	si $\gamma\in\SL(2,\Enteros)$, entonces
+	\begin{displaymath}
+		\Stab(f\cdot\gamma)^+\,=\,\gamma^{-1}\Stab(f)^+\gamma
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejerDefiniciones}
+
+\begin{ejerDefiniciones}\label{ejer:definiciones:isotropia}
+	Dada una forma cuadr\'atica $f=\binaria{a,b,c}$ de discriminante
+	$D=b^2-4ac$, el grupo $\Stab(f)^+$ contiene todas las matrices
+	de la forma
+	\begin{equation}
+		\label{eq:definiciones:isotropia}
+		\begin{bmatrix}
+			\frac{u-bv} 2 & -cv \\
+			av & \frac{u+bv} 2
+		\end{bmatrix}
+		\text{ ,}
+	\end{equation}
+	%
+	donde el par $u,v\in\Enteros$ satisface
+	\begin{equation}
+		\label{eq:definiciones:isotropia:pell}
+		u^2\,-\,Dv^2\,=\,4
+		\text{ .}
+	\end{equation}
+	%
+	Si $f$ es primitiva, entonces \'estas son todas las matrices
+	$\gamma\in\SL(2,\Enteros)$ tales que $f\cdot\gamma=f$.%
+	\hint{
+		Se puede corroborar que las matrices de la forma
+		\eqref{eq:definiciones:isotropia} preservan $f$,
+		a partir de las f\'ormulas
+		\eqref{eq:definiciones:equivalencia:cambio} para los
+		coeficientes de $f\cdot\gamma$.
+		Sea $\gamma=\sbmatrix{ p & q \\ r & s }\in\Stab(f)^+$.
+		Entonces,
+		\begin{displaymath}
+			\begin{aligned}
+				a & \,=\,ap^2\,+\,bpr\,+\,cr^2
+					\quad\text{y} \\
+				b & \,=\,2apq\,+\,b\,(ps+qr)\,+\,2crs
+					\,=\, 2apq\,+\,b\,(1+2qr)\,+\,2crs
+				\text{ .}
+			\end{aligned}
+			%
+		\end{displaymath}
+		%
+		De estas ecuaciones,
+		\begin{displaymath}
+			0\,=\,apq\,+\,bqr\,+\,crs
+				\text{ ,}\quad
+			aq\,=\,-cr \quad\text{y}\quad
+			as\,=\,ap\,+\,br
+			\text{ .}
+		\end{displaymath}
+		%
+		O sea, $aq=-cr$ y $a\,(s-p)=br$. En particular,
+		$a\mid cr$ y $a\mid br$. \emph{Ahora}, asumiendo
+		$\mcd{a,b,c}=1$, se deduce que $a\mid r$.
+		Si escribimos $r=av$, entonces $q=-cv$ y
+		$s-p=bv$. De esto y de $ps-qr=1$, se puede ver que
+		$(p+s)^2=Dv^2+4$. Elegir, entonces, $u=p+s$.
+	}
+\end{ejerDefiniciones}
+
+% \begin{ejerDefiniciones}
+	% Sea $f$ la forma cuadr\'atica $f=\binaria{2,1,3}$; su discriminante
+	% es $-23$. Notar que
+	% \begin{displaymath}
+		% a\,-\,b\,+\,c\,=\,4
+		% \dispcomma
+		% f(\pm 1,0)\,=\,2\dispand
+		% f(0,\pm 1)\,=\,3
+	% \end{displaymath}
+	% %
+	% y probar que $f(x,y)\geq 4$ en cualquier otro caso.
+	% Deducir que, si $f_1(x,y)=f(px+qy,rx+sy)$ es una forma
+	% equivalente, donde $p,q,r,s\in\Enteros$ y $ps-qr=-1$,
+% \end{ejerDefiniciones}
+

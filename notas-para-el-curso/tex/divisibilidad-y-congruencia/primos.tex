@@ -1,0 +1,136 @@
+\theoremstyle{plain}
+\newtheorem{teoPrimos}{\teoname}[section]
+\newtheorem{coroPrimos}[teoPrimos]{\coroname}
+\newtheorem{lemaPrimos}[teoPrimos]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{defPrimos}[teoPrimos]{\defname}
+\newtheorem{obsPrimos}[teoPrimos]{\obsname}
+
+%-------------
+
+% \subsection{N\'umeros primos}%
+	% \label{subsec:numeros-primos}
+\begin{defPrimos}\label{def:primos}
+	Un n\'umero natural $n>1$ se dice \emph{primo}, si no posee
+	\emph{divisores propios}, es decir, no existe n\'umero natural $d$
+	que cumpla simult\'aneamente que $d\mid n$ y que $1<d<n$.
+\end{defPrimos}
+
+% \subsection{Factorizaci\'on en primos}%
+	% \label{subsec:factorizacion-en-primos}
+\begin{teoPrimos}\label{teo:factorizacion}
+	Todo n\'umero natural $n>1$ es producto de n\'umeros primos.
+\end{teoPrimos}
+
+\begin{proof}
+	No existen naturales entre $1$ y $2$. En particular, $2$ es primo.
+	Si $n>2$, o bien $n$ es primo, o bien posee divisores propios.
+	Si $d\mid n$ y $1<d<n$ es un divisor propio, el natural $m=n/d$
+	satisface $1<m<n$ y $md=n$.
+	% Esto \'ultimo es la \emph{definici\'on} de $m$.
+	Inductivamente, $m$ y $d$ son productos de primos y, por lo tanto,
+	tambi\'en lo es $n$.
+\end{proof}
+
+\begin{defPrimos}\label{def:compuesto}
+	Si $n>1$ no es primo, se dice que es \emph{compuesto} (pues es
+	producto de m\'as de un factor primo).
+	% Incluso sin factorizaci\'on \'unica, no puede un n\'umero ser
+	% primo (irreducible) y compuesto, a la vez.
+\end{defPrimos}
+
+% \subsection{El Teorema fundamental de la Aritm\'etica}%
+	% \labe{subsec:el-teorema-fundamental-de-la-aritmetica}
+\begin{obsPrimos}\label{obs:primos:mcd}
+	Si $a$ y $p$ son n\'umeros naturales y $p$ es primo, entonces,
+	o bien $p\mid a$, o bien $\mcd{a,p}=1$, pues $g=\mcd{a,p}$, siendo
+	un divisor de $p$ (que es primo), es, o bien $g=1$, o bien $g=p$.
+\end{obsPrimos}
+
+\begin{lemaPrimos}\label{lema:primos}
+	Si $a$, $b$ y $p$ son n\'umeros naturales, $p$ es primo y $p\mid ab$,
+	entonces $p\mid a$, o bien $p\mid b$. M\'as en general, si
+	$p\mid a_1\cdots a_k$, entonces $p\mid a_i$ para alg\'un $i$.
+\end{lemaPrimos}
+
+\begin{proof}
+	\quedacomoejercicio.%
+	\hint{
+		Si $p\nmid a$, entonces existen $x,y\in\Enteros$ tales
+		que $ax+py=1$%.
+		% Primero, habr\'{\i}a que extender la noci\'on de
+		% divisibilidad a $\Enteros$.
+		% (ver \ejername~\ref{ejer:divisibilidad:enteros})
+		.
+	}
+\end{proof}
+
+\begin{obsPrimos}\label{obs:primos:irreducibles}
+	Rec\'{\i}procamente, si un n\'umero natural $p>1$ posee la propiedad
+	siguiente:
+	\begin{center}
+		para todo par de n\'umeros naturales $a$ y $b$,
+		$p\mid ab$ imlpica que $p\mid a$ o $p\mid b$,
+	\end{center}
+	%
+	entonces $p$ es primo, pues, si $d\mid p$ es un divisor, se cumple
+	que $1\leq d\leq p$, luego $p=dm$, con lo que, aplicando la propiedad,
+	o bien $p\mid d$, o bien $p\mid m$ y, por lo tanto,
+	\begin{itemize}
+		\item $p\mid d$ y $p=d$, por
+			\eqref{item:teo:divisibilidad:propiedades:iv} del
+			\teoname~\ref{teo:divisibilidad:propiedades}
+			(y, as\'{\i}, $m=1$), o bien
+		\item $p\mid m$ y $m=np$ y, as\'{\i}, $p=dnp$, con lo que,
+			cancelando, $dn=1$ y $d=n=1$.
+	\end{itemize}
+	%
+\end{obsPrimos}
+
+\begin{defPrimos}\label{def:factorizacion}
+	Dado un natural $n>1$, llamamos \emph{factorizaci\'on de $n$ como %
+	producto de primos} a toda escritura de $n$ como producto de factores
+	primos \'unicamente (o, por abuso, primos a potencias).
+\end{defPrimos}
+
+\begin{teoPrimos}[Teorema fundamental de la Aritm\'etica]%
+	\label{teo:fundamental}
+	Si $n>1$ es un n\'umero natural, existe un \'unica factorizaci\'on de
+	$n$ como producto de primos, salvo por el orden de los factores.
+\end{teoPrimos}
+
+\begin{proof}
+	Que todo natural $n>1$ se puede expresar como producto de primos es
+	la conclusi\'on del \teoname~\ref{teo:factorizacion}. Lo que resta
+	probar es que dicha factorizaci\'on es \'unica, a menos de
+	intercambiar el orden de los factores. Precisamente, si
+	\begin{displaymath}
+		% \label{eq:teo:fundamental}
+		n\,=\,p_1\,\cdots\,p_r
+		\quad\text{y}\quad n\,=\,q_1\,\cdots\,q_s
+	\end{displaymath}
+	%
+	% ($r,s\geq 1$)
+	son dos factorizaciones de $n$ como producto de primos,
+	entonces $r=s$ y
+	% existe una permutaci\'on
+	% $\sigma:\,\{1,\,\dots,\,r\}\rightarrow\{1,\,\dots,\,r\}$ tal que
+	% $p_{\sigma i}=q_i$ para todo $i$.
+	los factores primos distintos que aparecen son los mismos y la
+	cantidad de veces que cada uno de ellos aparece es igual en ambas
+	factorizaciones.
+
+	Igualando $p_1\cdots p_r=q_1\cdots q_s$ y cancelando factores que
+	aparecen a ambos lados de la igualdad, podemos suponer que ning\'un
+	$p_i$ est\'a entre los $q_j$ y viceversa.
+	% (pero, ahora, $r,s\geq 0$, es decir, podr\'{\i}an ser iguales a $0$)
+	Pero, si $t$ es un primo que divide a $n$, entonces $t\mid p_{i_0}$
+	para alg\'un $i_0$, con lo que $t=p_{i_0}$. An\'alogamente,
+	$t=q_{j_0}$ para alg\'un $j_0$. Como consecuencia, $p_{i_0}=q_{j_0}$,
+	contradiciendo la suposici\'on.
+\end{proof}
+
+\subsection*{Ejercicios}
+\input{./tex/divisibilidad-y-congruencia/ejercicios-primos.tex}
+

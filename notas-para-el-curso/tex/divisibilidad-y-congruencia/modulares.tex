@@ -1,0 +1,143 @@
+\theoremstyle{plain}
+\newtheorem{teoModulares}{\teoname}[section]
+\newtheorem{coroModulares}[teoModulares]{\coroname}
+\newtheorem{lemaModulares}[teoModulares]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{defModulares}[teoModulares]{\defname}
+\newtheorem{obsModulares}[teoModulares]{\obsname}
+\newtheorem{ejemModulares}[teoModulares]{\ejemname}
+
+%-------------
+
+Denotaremos el conjunto de clases de congruencia m\'odulo $m$
+($m\in\Enteros$, $m\neq 0$) por $\Enterosmod[m]$, $\simEnterosmod[m]$ o por
+$\varEnterosmod[m]$ (talvez): un conjunto finito que podemos representar con
+los enteros $a$ en el rango $0\leq a\leq |m|-1$, o bien $1\leq a\leq |m|$,
+por ejemplo. Estudiando la resolubilidad de una ecuaci\'on m\'odulo $m$,
+obtenemos informaci\'on acerca de su esolubilidad en $\Enteros$; la ventaja
+que esto tiene es que la b\'usqueda de soluciones se lleva a cabo en un
+conjunto finito. En otras ocasiones, ser\'a relevante entender las soluciones
+a una ecuaci\'on de congruencia, sin que esto tenga por objetivo conocer
+las soluciones de la misma ecuaci\'on en $\Enteros$. Por esta raz\'on es
+relevante entender qu\'e estructura tiene el conjunto de clases
+$\Enterosmod[m]$.
+
+% \subsection{El anillo de enteros modulares}%
+	% \label{subsec:el-anillo-de-enteros-modulares}
+\begin{teoModulares}\label{teo:modulares}
+	El conjunto $\Enterosmod[m]$, junto con las clases
+	$\clase 0,\clase 1\in\Enterosmod[m]$ y las operaciones
+	\begin{displaymath}
+		\clase a+\clase c\,:=\,\clase{a+c}
+		\quad\text{y}\quad
+		\clase a\,\clase c\,:=\,\clase{ac}
+		\text{ ,}
+	\end{displaymath}
+	%
+	constituye un anillo conmutativo con unidad; el cero es $\clase 0$ y
+	el uno es $\clase 1$.
+\end{teoModulares}
+
+\begin{proof}
+	\quedacomoejercicio. Que las operaciones est\'an bien definidas,
+	es decir, que no dependen de los representantes elegidos, es
+	consecuencia del \teoname~\ref{teo:congruencias}.
+\end{proof}
+
+Simplificaremos la notaci\'on y escribiremos ``$a$'', en lugar de
+``$\clase a$'' cuando creamos que no hay riesgo de confundir una expresi\'on
+en $\Enterosmod[m]$ por una en $\Enteros$. En ocasiones, hablaremos de
+``buscar soluciones en $\Enterosmod[m]$''. Con esto querremos decir buscar
+soluciones a una ecuaci\'on de congruencia, es decir, buscar soluciones
+m\'odulo $m$.
+
+\begin{ejemModulares}\label{ejem:modulares:motiva:congruencias}
+	La ecuaci\'on $x^2-117x+31=0$ no tiene soluciones en $\Enterosmod[2]$,
+	es decir, no tiene soluciones m\'odulo $2$.
+\end{ejemModulares}
+
+\begin{ejemModulares}\label{ejem:modulares:lineal}
+	Dados $a,m\in\Enteros$, $m\neq 0$, si $\mcd{a,m}=1$, entonces la
+	ecuaci\'on $ax=b$ tiene soluciones en $\Enterosmod[m]$. De hecho,
+	existe una \'unica soluci\'on m\'odulo $m$. Si $b=1$, podemos
+	hacer lo siguiente: por la Identidad de B\'ezout (\teoname~%
+	\ref{teo:mcd:bezout}), existen $x,y\in\Enteros$ tales que $ax+my=1$.
+	Pero, entonces, $ax\equiv 1\tmodulo[m]$, o sea, $ax=1$ en
+	$\Enterosmod[m]$. Todo esto es lo mismo que decir que $m\mid ax-1$.
+\end{ejemModulares}
+
+\begin{coroModulares}\label{coro:modulares:primo}
+	Si $p\in\Enteros$ es primo, entonces $\Enterosmod[p]$ es un dominio
+	\'{\i}ntegro. Rec\'{\i}procamente, si $m\neq 0$ y $\Enterosmod[m]$
+	es un dominio \'{\i}ntegro, entonces $m$ es primo. En particular,
+	$\Enterosmod[m]$ es un cuerpo, si y s\'olo si $m$ es primo.
+\end{coroModulares}
+
+\begin{proof}
+	Supongamos, primero, que $p$ es primo.
+	Sean $\clase a,\clase b\in\Enterosmod[p]$ tales que
+	$\clase a\clase b=0$. Como, por definici\'on,
+	$\clase a\clase b=\clase{ab}$, esta suposici\'on implica que
+	$ab\equiv 0\tmodulo[p]$, o sea, $p\mid ab$. Como $p$ es primo,
+	por el \lemaname~\ref{lema:primos}, o bien $p\mid a$ o bien $p\mid b$.
+	Pero esto implica que $a\equiv 0$ o $b\equiv 0\tmodulo[p]$.
+	En t\'erminos de clases, esto se traduce en que, o bien
+	$\clase a=0$, o bien $\clase b=0$ en $\Enterosmod[p]$. O sea,
+	$\Enterosmod[p]$ es un dominio \'{\i}ntergro.
+	Rec\'{\i}procamente, si $m\neq 0$ es tal que $\Enterosmod[m]$ es
+	dominio \'{\i}ntegro, entonces se verifica que $m$ tiene la propiedad
+	de la \obsname~\ref{obs:primos:irreducibles} y, por lo tanto, que
+	$m$ es primo.
+\end{proof}
+
+% \subsection{Unidades modulares}%
+	% \label{subsec:unidades-modulares}
+\begin{defModulares}\label{def:modulares:unidades:anillo}
+	Si $A$ es un anillo conmutativo y $a\in A$, decimos que $a$ es una
+	\emph{unidad de $A$} (o \emph{en $A$}), si existe $x\in A$ tal que
+	$ax=1$ ($=xa$).
+\end{defModulares}
+
+\begin{coroModulares}\label{coro:modulares:unidades}
+	Dados $a,m\in\Enteros$, $m\neq 0$, la clase $\clase a\in\Enterosmod[m]$
+	es una unidad en $\Enterosmod[m]$, si y s\'olo si $\mcd{a,m}=1$.
+	En particular, las unidades de $\Enterosmod[m]$ est\'an representadas
+	por los elementos de un sistema reducido.
+\end{coroModulares}
+
+\begin{defModulares}\label{def:modulares:unidades}
+	Decimos que \emph{$a$ es una unidad m\'odulo $m$}, si
+	$\clase a\in\Enterosmod[m]$ es una unidad de $\Enterosmod[m]$.
+\end{defModulares}
+
+\begin{obsModulares}\label{obs:modulares:unidades}
+	Si $a\in A$ es una unidad, existe un \'unico $x\in A$ tal que
+	$ax=xa=1$, al que denotamos $a^{-1}$. Las unidades de un anillo
+	forman un grupo, el \emph{grupo de unidades} del anillo.
+	Escribimos $\Unidades A$ o bien $\Unidadesmod[A]$ para referirnos
+	al grupo de unidades de $A$. En el caso de $A=\Enterosmod[m]$,
+	a veces escribiremos $\Unidadesmod[m]$.
+\end{obsModulares}
+
+\begin{coroModulares}\label{coro:modulares:unidades:phi}
+	\begin{math}
+		\indice{\Unidadesmod[m]}=\eulerphi(m)=
+			\cardinal{\{k\in\Enteros\,:\,
+				0\leq k\leq |m|-1,\,\mcd{k,m}=1\}}
+	\end{math}.
+	En particular, si $\mcd{a,m}=1$, entonces $a^{\eulerphi(m)}=1$ en
+	$\Enterosmod[m]$.
+\end{coroModulares}
+
+\begin{proof}
+	Con respecto a la \'ultima afirmaci\'on, $\Unidadesmod[m]$ es un
+	grupo de orden $\eulerphi(m)$. Por lo tanto, $a^{\eulerphi(m)}=1$
+	en $\Unidadesmod[m]$. Pero esto quiere decir que
+	$a^{\eulerphi(m)}\equiv 1\tmodulo[m]$, o sea que
+	$a^{\eulerphi(m)}=1$ en $\Enterosmod[m]$.
+\end{proof}
+
+\subsection*{Ejercicios}
+\input{./tex/divisibilidad-y-congruencia/ejercicios-modulares.tex}
+

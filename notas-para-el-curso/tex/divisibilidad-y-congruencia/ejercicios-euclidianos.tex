@@ -1,0 +1,117 @@
+\theoremstyle{definition}
+\newtheorem{ejerEuclidianos}{\ejername}[section]
+
+%-------------
+
+\begin{ejerEuclidianos}\label{ejer:euclidianos:eisenstein}
+	Sea $\raizcubica\in\Complejos$ tal que $\raizcubica^3=1$, pero
+	$\raizcubica\neq 1$.%
+	\footnote{
+		Por ejemplo, $\raizcubica=e^{2\pi i/3}=\frac{-1+\sqrt{-3}} 2$.
+	}
+	\begin{enumerate}[(i)]
+		\item\label{ejer:euclidianos:eisenstein:pre:i}
+			Probar que $\raizcubica^2+\raizcubica+1=0$.
+		\item\label{ejer:euclidianos:eisenstein:pre:ii}
+			Probar que $\conj\raizcubica\neq\raizcubica$ y que
+			$\conj\raizcubica^2+\conj\raizcubica+1=0$, tambi\'en.
+		\item\label{ejer:euclidianos:eisenstein:pre:iii}
+			Concluir que
+			$X^2+X+1=(X-\raizcubica)\,(X-\conj\raizcubica)$ y,
+			en particular, que $\raizcubica+\conj\raizcubica=-1$
+			y que $\raizcubica\conj\raizcubica=1$.
+	\end{enumerate}
+	%
+	Dados $x,y\in\Racionales$, definimos
+	\begin{displaymath}
+		N(x+y\raizcubica):=x^2-xy+y^2
+		\text{ .}
+	\end{displaymath}
+	%
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:euclidianos:eisenstein:norma:i}
+			Como $\{1,\raizcubica\}$ es un conjunto l.i. sobre
+			$\Racionales$, esta expresi\'on no es ambigua.
+		\item\label{item:ejer:euclidianos:eisenstein:norma:i}
+			Probar que $N(\beta\beta')=N(\beta)N(\beta')$ y
+			que $N(x+y\raizcubica)\in\Enteros$, si
+			$x,y\in\Enteros$.
+	\end{enumerate}
+	%
+	Sea $\EnterosEisenstein\subset\Complejos$ el subconjunto
+	\begin{displaymath}
+		\EnterosEisenstein\,:=\,\big\{
+			a+b\raizcubica\,:\,a,b\in\Enteros\big\}
+		\text{ .}
+	\end{displaymath}
+	%
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:euclidianos:eisenstein:enteros:i}
+			Probar que, si $\alpha,\beta\in\EnterosEisenstein$,
+			entonces $\alpha+\beta$, $\alpha\beta$, $-\alpha$ y
+			$\conj\alpha$ pertenecen a $\EnterosEisenstein$,
+			tambi\'en.
+		\item\label{item:ejer:euclidianos:eisenstein:enteros:ii}
+			Probar que, $\Enteros\subset\EnterosEisenstein$.
+	\end{enumerate}
+	%
+	Emular el argumento del \ejemname~\ref{ejem:euclidianos:gauss} para
+	probar que $\EnterosEisenstein$ es un dominio euclidiano: dados
+	$\alpha=a+b\raizcubica$ y $\beta=c+d\raizcubica$, $\alpha\neq 0$,
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:euclidianos:eisenstein:i}
+			existen $u,v\in\Racionales$ tales que
+			$(u+v\raizcubica)\alpha=\beta$;
+		\item\label{item:ejer:euclidianos:eisenstein:ii}
+			dados $u,v\in\Racionales$, existen $m,n\in\Enteros$
+			tales que $|m-u|\leq 1/2$ y $|n-v|\leq 1/2$;
+		\item\label{item:ejer:euclidianos:eisenstein:iii}
+			si $q:=m+n\raizcubica$ y $r:=\beta-q\alpha$, entonces
+			$N(r)<N(\alpha)$ (o $r=0$).
+	\end{enumerate}
+	%
+	?`En qu\'e punto falla el argumento para el dominio
+	$\polinomios\Enteros{\sqrt{-6}}$?
+\end{ejerEuclidianos}
+
+\begin{ejerEuclidianos}[Unidades de un anillo]\label{ejer:euclidianos:unidades}
+	Dado $a\in A$, si existe $b\in A$ tal que $ab=ba=1$, se dice que
+	$a$ es una \emph{unidad} del anillo o que es \emph{inversible} en el
+	anillo. Por ejemplo, las unidades de $\Enteros$ son $\pm 1$.
+	\begin{itemize}
+		\item En $\EnterosGauss$, probar que
+			$N(\alpha)=\alpha\conj\alpha$ ($=\conj\alpha\alpha$) y
+			concluir que $\alpha\in\EnterosGauss$ es inversible,
+			si y s\'olo si $N(\alpha)=\pm 1$ ?`Puede dar $-1$?
+			Hallar todas las unidades, en este caso.
+		\item En $\EnterosEisenstein$, probar que
+			$N(\alpha)=\alpha\conj\alpha$ ($=\conj\alpha\alpha$) y
+			concluir que $\alpha\in\EnterosEisenstein$ es
+			inversible, si y s\'olo si $N(\alpha)=\pm 1$ ?`Puede
+			dar $-1$? Hallar todas las unidades, en este caso.
+		\item Hacer lo mismo con $\polinomios\Enteros{\sqrt{-6}}$
+			y con $\polinomios\Enteros{\sqrt{-2}}$.%
+			\footnote{
+				Ver \ejername~%
+				\ref{ejer:euclidianos:cuadratico:menos-dos}.
+			}
+	\end{itemize}
+	%
+\end{ejerEuclidianos}
+
+\begin{ejerEuclidianos}\label{ejer:euclidianos:cuadratico:menos-dos}
+	Repetir el argumento del \ejername~\ref{ejer:euclidianos:eisenstein}
+	con $\polinomios\Enteros{\delta}\subset\Complejos$, el subconjunto
+	de los complejos de la forma $a+b\delta$, donde $\delta\in\Complejos$
+	es ra\'{\i}z de $X^2+2$.
+\end{ejerEuclidianos}
+
+\begin{ejerEuclidianos}
+	Probar que $2$ es divisible por $(1+\raizcuarta)^2$ en $\EnterosGauss$.
+\end{ejerEuclidianos}
+
+\begin{ejerEuclidianos}
+	Probar que $3$ es divisible por $(1-\raizcubica)^2$ en
+	$\EnterosEisenstein$.
+\end{ejerEuclidianos}
+

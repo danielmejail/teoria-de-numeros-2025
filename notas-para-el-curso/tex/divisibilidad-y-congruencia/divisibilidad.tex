@@ -1,0 +1,179 @@
+\theoremstyle{plain}
+\newtheorem{teoDivisibilidad}{\teoname}[section]
+\newtheorem{coroDivisibilidad}[teoDivisibilidad]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{defDivisibilidad}[teoDivisibilidad]{\defname}
+\newtheorem{obsDivisibilidad}[teoDivisibilidad]{\obsname}
+\newtheorem{ejemDivisibilidad}[teoDivisibilidad]{\ejemname}
+
+%-------------
+
+En el fondo, Teor\'{\i}a de n\'umeros es el estudio de los n\'umeros naturales
+--los n\'umeros $1$, $2$, $3$, \dots-- y sus propiedades.
+
+% \subsection{La relaci\'on de divisibilidad}%
+	% \label{subsec:la-relacion-de-divisibilidad}
+\begin{defDivisibilidad}\label{def:divisibilidad}
+	Un n\'umero natural $a$ \emph{divide} a un n\'umero natural $b$, si
+	existe un n\'umero natural $c$ tal que $ac=b$; en tal caso,
+	escribimos $a\mid b$.
+\end{defDivisibilidad}
+
+\begin{teoDivisibilidad}[Propiedades b\'asicas de la divisi\'on]%
+	\label{teo:divisibilidad:propiedades}
+	Sean $a$, $b$ y $c$ n\'umeros naturales
+	(en particular $a,b,c>0$). Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:teo:divisibilidad:propiedades:i}
+			$a\mid b$ implica $a\mid bc$;
+		\item\label{item:teo:divisibilidad:propiedades:ii}
+			$a\mid b$ y $b\mid c$ implican $a\mid c$;
+		\item\label{item:teo:divisibilidad:propiedades:iii}
+			$a\mid b$ y $a\mid c$ implican $a\mid bx+cy$,
+			para todo par de n\'umeros naturales $x$ e $y$;
+		\item\label{item:teo:divisibilidad:propiedades:iv}
+			$a\mid b$ y $b\mid a$ implican $a=b$;
+		\item\label{item:teo:divisibilidad:propiedades:v}
+			$a\mid b$ implica $a\leq b$;
+		\item\label{item:teo:divisibilidad:propiedades:vi}
+			$a\mid b$ es equivalente a $ma\mid mb$,
+			para todo natural $m$.
+	\end{enumerate}
+	%
+\end{teoDivisibilidad}
+
+\begin{coroDivisibilidad}\label{coro:divisibilidad:propiedades}
+	Si $b$ es un n\'umero natural ($\neq 0$), existe otro natural $x$ tal
+	que $x\nmid b$; si $a$ es un natural y $a\neq 1$, existe otro natural
+	$x$ tal que $a\nmid x$.
+\end{coroDivisibilidad}
+
+% \subsection{El Algoritmo de divisi\'on}%
+	% \label{subsec:el-algoritmo-de-division}
+\begin{teoDivisibilidad}[Algoritmo de divisi\'on]%
+	\label{teo:divisibilidad:algoritmo}
+	Dados n\'umeros naturales $a$ y $b$, si $b\geq a$, entonces
+	\begin{enumerate}[(A)]
+		\item\label{item:teo:divisibilidad:algoritmo:1}
+			$a\mid b$ y existe un \'unico natural $q$ tal que
+			$b=qa$, o bien
+		\item\label{item:teo:divisibilidad:algoritmo:2}
+			existen \'unicos naturales $q$ y $r$ tales que
+			$b=qa+r$ y $1\leq r<a$.
+	\end{enumerate}
+	%
+\end{teoDivisibilidad}
+
+\begin{proof}
+	El conjunto $\{b-ta\,:\,t\text{ natural, }ta\leq b\}$ es finito.
+	Si $a\nmid b$, este conjunto est\'a contenido en los naturales y, por
+	lo tanto, tiene un primer elemento, $r$ ($\neq 0$). Se cumple
+	$r<a$ y $r=b-qa$ para cierto natural $q$. Si $b=qa+r=q_1a+r_1$
+	con $1\leq r,r_1<a$, asumiendo $r<r_1$, se ve que
+	$1\leq r_1-r<a$ y que $r_1-r=(q_1-q)a$ es divisible por $a$,
+	contradiciendo \eqref{item:teo:divisibilidad:propiedades:v} del
+	\teoname~\ref{teo:divisibilidad:propiedades}.
+\end{proof}
+
+% \subsection{El m\'aximo com\'un divisor}%
+	% \label{subsec:el-maximo-comun-divisor}
+\begin{defDivisibilidad}\label{def:mcd}
+	Dados naturales $a$, $b$ y $c$, decimos que $a$ es un
+	\emph{divisor com\'un} de $b$ y de $c$, si $a\mid b$ y $a\mid c$.
+	El \emph{m\'aximo com\'un divisor} de $b$ y $c$, es el supremo de
+	los divisores comunes de $b$ y de $c$; escribimos $\mcd{b,c}$ para
+	denotar el m\'aximo com\'un divisor de $b$ y $c$.
+\end{defDivisibilidad}
+
+\begin{obsDivisibilidad}\label{obs:mcd}
+	El conjunto de divisores de un natural es un conjunto finito.
+	En particular, es finito el conjunto de divisores comunes de dos
+	naturales y, por lo tanto, debe existir un elemento de valor
+	absoluto m\'aximo dentro de este conjunto; dicho elemento es \'unico
+	y $\geq 1$.
+\end{obsDivisibilidad}
+
+% \subsection{La identidad de B\'ezout}%
+	% \label{subsec:la-identidad-de-bezout}
+\begin{teoDivisibilidad}[Identidad de B\'ezout]\label{teo:mcd:bezout}
+	Si $g=\mcd{b,c}$, existen \emph{enteros} $x$ e $y$ tales que
+	\begin{displaymath}
+		g\,=\,bx+cy
+		\text{ .}
+	\end{displaymath}
+	%
+\end{teoDivisibilidad}
+
+\begin{proof}
+	Sea $\cal C$ el conjunto de n\'umeros enteros de la forma $bx+cy$,
+	donde $x,y\in\Enteros$. Se cumple que $0\in\cal C$ y que existe
+	$l\in\cal C$ \emph{positivo} y m\'{\i}nimo entre los elementos
+	positivos de $\cal C$ \quedacomoejercicio.
+	% \footnote{
+		% Los elementos positivos de $\cal C$ forman un subconjunto no
+		% vac\'{\i}o de los naturales, pues, por ejemplo, con $x=y=1$,
+		% $b+c\in\cal C$ y es positivo, ya que $b$ y $c$ lo son;
+		% $b$ y $c$ tambi\'en sirven.
+	% }
+	Este elemento es un n\'umero natural, se escribe como $l=bx+cy$ para
+	ciertos $x,y\in\Enteros$ y es $l\leq b,c$.
+
+	Veamos que $l\mid b$  que $l\mid c$. Si $l\nmid b$, por Algoritmo de
+	divisi\'on (\teoname~\ref{teo:divisibilidad:algoritmo}),
+	existir\'{\i}an (\'unicos) naturales $q$ y $r$ tales que $b=lq+r$,
+	$1\leq r<l$. Pero, entonces
+	\begin{displaymath}
+		r\,=\,b-lq\,=\,b-(bx+cy)q\,=\,b(1-qx)+c(-yq)
+	\end{displaymath}
+	%
+	pertenecer\'{\i}a a $\cal C$, ser\'{\i}a positivo y estrictamente
+	menor que $l$, lo que es absurdo. Por lo tanto, $l\mid b$.
+	An\'alogamente, $l\mid c$.
+
+	Por otro lado, si $d$ es un divisor com\'un de $b$ y de $c$, entonces
+	$d\mid bx+cy=l$ y $d\leq l$. En consecuencia, el m\'aximo com\'un
+	divisor de $b$ y $c$ debe ser $g=l$.
+\end{proof}
+
+\begin{coroDivisibilidad}\label{coro:mcd:caracterizacion}
+	Sean $b$ y $c$ n\'umeros naturales. Las siguientes propiedades sobre
+	un n\'umero natural $g$ son equivalentes:
+	\begin{enumerate}[(a)]
+		\item\label{item:coro:mcd:caracterizacion:a}
+			$g$ es el menor natural de la forma $bx+cy$ con
+			$x,y\in\Enteros$;
+		\item\label{item:coro:mcd:caracterizacion:b}
+			$g$ es un divisor com\'un de $b$ y de $c$ y es
+			divisible por cualquier otro divisor com\'un;
+		\item\label{item:coro:mcd:caracterizacion:c}
+			$g$ es el m\'aximo com\'un divisor de $b$ y $c$.
+	\end{enumerate}
+	%
+\end{coroDivisibilidad}
+
+% \subsection{Propiedades del m\'aximo com\'un divisor}%
+	% \label{subsec:propiedades-del-maximo-comun-divisor}
+\begin{teoDivisibilidad}[Propiedades del m\'aximo com\'un divior]%
+	\label{teo:mcd:propiedades}
+	Sean $a$, $b$, $c$ y $d$ n\'umeros naturales. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:mcd:propiedades:i}
+			$\mcd{ma,mb}=m\mcd{a,b}$, para todo natural $m$;
+		\item\label{item:mcd:propiedades:ii}
+			si $d\mid a$ y $d\mid b$, entonces
+			$\mcd{a/d,b/d}=\mcd{a,b}/d$;
+		\item\label{item:mcd:propiedades:iii}
+			$\mcd{a,b}=\mcd{a,b-ax}$, para todo entero $x$ tal
+			que $ax<b$;
+		\item\label{item:mcd:propiedades:iv}
+			$\mcd{a,b}=\mcd{b,a}$;
+		\item\label{item:mcd:propiedades:v}
+			si $c\mid ab$ y $\mcd{b,c}=1$, entonces $c\mid a$.
+	\end{enumerate}
+	%
+\end{teoDivisibilidad}
+
+\subsection*{Ejercicios}
+\input{./tex/divisibilidad-y-congruencia/ejercicios-divisibilidad.tex}
+

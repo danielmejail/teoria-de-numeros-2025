@@ -1,0 +1,410 @@
+\theoremstyle{plain}
+\newtheorem{teoReducidas}{\teoname}[section]
+\newtheorem{lemaReducidas}[teoReducidas]{\lemaname}
+\newtheorem{coroReducidas}[teoReducidas]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{defReducidas}[teoReducidas]{\defname}
+\newtheorem{obsReducidas}[teoReducidas]{\obsname}
+\newtheorem{ejemReducidas}[teoReducidas]{\ejemname}
+
+%-------------
+
+El objetivo de esta secci\'on es describir una manera de determinar
+si dos formas cuadr\'aticas definidas positivas son estrictamente
+equivalentes.
+La idea es, en primer lugar, definir una noci\'on de representante
+``can\'onico'' para cada clase de equivalencia estricta; \'estos
+ser\'an las ``formas reducidas''. Cada clase de equivalencia estricta
+contiene exactamente una forma reducida. Luego, necesitamos una manera
+de ``conectar'', de pasar de una forma cuadr\'atica definida positiva
+al representante can\'onico de su clase; diremos que ``reducimos'' la
+forma cuadr\'atica. Finalmente, para poder comparar dos formas, determinar
+si son equivalentes estrictamente, o no, bastar\'a con reducirlas y
+compararlas: la clase ser\'a la misma, si y s\'olo si tienen la misma
+forma reducida.
+
+
+\begin{lemaReducidas}\label{lema:reducidas}
+	Cada clase de equivalencia estricta de formas cuadr\'aticas
+	de discriminante no cuadrado
+	contiene, al menos, un representante $\binaria{a,b,c}$ que cumple
+	$|b|\leq |a|\leq |c|$.
+\end{lemaReducidas}
+
+\begin{proof}
+	Sea $f_0=\binaria{a_0,b_0,c_0}$ una forma cuadr\'atica arbitraria
+	y sea $a\in\Enteros$ tal que:
+	\begin{itemize}
+		\item $a\neq 0$,
+		\item $a$ es representado por $f_0$ y
+		\item $|a|$ es m\'{\i}nimo entre los enteros representados
+			por $f_0$
+	\end{itemize}
+	%
+	Por minimalidad, si $a=f_0(p,r)$, entonces $\mcd{p,r}=1$
+	\quedacomoejercicio~
+	% si no fuese as\'{\i},
+	% \begin{displaymath}
+		% \left|f_0\left(\frac p{\mcd{p,r}},\frac r{\mcd{p,r}}
+			% \right)\right|\,=\,\left|\frac a{\mcd{p,r}^2}\right|
+			% \,<\,|a|
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	y existen $q,s\in\Enteros$ tales que $ps-qr=1$. Sea $f'$ la forma
+	\begin{displaymath}
+		f'(x.y)\,=\,f_0(px+qy,rx+sy)
+		\text{ .}
+	\end{displaymath}
+	%
+	Por las f\'ormulas~\eqref{eq:definiciones:equivalencia:cambio},
+	el primer coeficiente de $f'$ es $a=f_0(p,r)$, es decir,
+	$f'=\binaria{a,b',c'}$ para ciertos $b',c'\in\Enteros$.
+	Si, ahora, dado $h\in\Enteros$, definimos
+	\begin{displaymath}
+		f(x,y)\,=\,f'(x+hy,y)
+		\text{ ,}
+	\end{displaymath}
+	%
+	entonces la forma $f$ cumple:
+	\begin{itemize}
+		\item es estrictamente equivalente a $f'$ y,
+			por lo tanto, a $f_0$,
+		\item su primer coeficiente sigue siendo $a$,
+			es decir, $f=\binaria{a,b,c}$ para ciertos
+			$b,c\in\Enteros$, y
+		\item $b=2ah+b'$.
+	\end{itemize}
+	%
+	Eligiendo $h$ convenientemente, $|b|\leq |a|$. Finalmente,
+	si $c\neq 0$, entonces debe cumplirse $|a|\leq |c|$, por
+	minimalidad de $a$. Pero $c\neq 0$ pues, por~%
+	\eqref{eq:definiciones:equivalencia:cambio}, $c=f'(h,1)$ y,
+	como $\discriminante(f')=\discriminante(f_0)$ no es un cuadrado
+	perfecto, por el \lemaname~%
+	\ref{lema:definiciones:discriminante-no-cuadrado},
+	$f'(x,y)=0$ s\'olo si $x=y=0$.
+\end{proof}
+
+% \begin{teoReducidas}\label{teo:reducidas:numero}
+	% El n\'umero de clases estrictas de formas cuadr\'aticas
+	% de discriminante dado es finito.
+% \end{teoReducidas}
+% 
+% \begin{proof}
+	% \dots
+% \end{proof}
+
+\begin{lemaReducidas}\label{lema:reducidas:definidas}
+	Cada clase de equivalencia estricta de formas cuadr\'aticas
+	definidas positivas contiene, al menos, un representante que
+	cumple
+	\begin{displaymath}
+		-a\,<\,b\,\leq\,a\,<\,c\disporelse
+		0\,\leq\,b\,\leq\,a\,=\,c
+		\dispstop
+	\end{displaymath}
+	%
+\end{lemaReducidas}
+
+\begin{proof}
+	En primer lugar, como el discriminante de una forma definida
+	positiva es negativo, estamos en la situaci\'on del \lemaname~%
+	\ref{lema:reducidas}. Sea $\binaria{a_0,b_0,c_0}$ una forma
+	cuadr\'atica definida postiva. Entonces, $a_0,c_0>0$.
+	Podemos suponer, por el \lemaname~\ref{lema:reducidas}, que
+	$|b_0|\leq a_0\leq c_0$. Ahora, si $a_0=c_0$ pero $b_0<0$,
+	obtenemos una forma estrictamente equivalente con $a=a_0=c=c_0$ y
+	$b=|b_0|\geq 0$ definiendo:
+	\begin{displaymath}
+		f_0(y,-x)\,=\,a_0y^2\,+\,b_0y(-x)\,+\,c_0(-x)^2\,=\,
+			c_0x^2\,+\,(-b_0)\,xy\,+\,a_0\,y^2
+		\dispstop
+	\end{displaymath}
+	%
+	Si $b_0=-a_0$, obtenemos una forma estrictamente equivalente con
+	$a=b=a_0$ y $c=c_0$ definiendo:
+	\begin{displaymath}
+		\begin{aligned}
+			f_0(x+y,y) & \,=\,
+				a_0\,(x+y)^2\,+\,b_0(x+y)y\,+\,c_0y^2 \\
+			& \,=\,a_0x^2\,+\,(2a_0+b_0)xy\,+\,(a_0+b_0+c_0)y^2 \\
+			& \,=\,a_0x^2\,+\,a_0xy\,+\,c_0y^2
+			\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+\end{proof}
+
+\begin{defReducidas}\label{def:reducidas}
+	Una forma cuadr\'atica definida positiva $f=\binaria{a,b,c}$
+	\emph{est\'a reducida} (o \emph{es una forma reducida}), si
+	sus coeficientes cumplen las condiciones del \lemaname~%
+	\ref{lema:reducidas:definidas}
+	% \begin{displaymath}
+		% |b|\,\leq\,a\,\leq\,c\dispandif
+		% |b|\,=\,a\dispor a\,=\,c\dispcomma
+		% \dispthen
+		% b\,\geq\,0
+		% \dispstop
+	% \end{displaymath}
+	% %
+\end{defReducidas}
+
+\begin{obsReducidas}\label{obs:reducidas:definicion}
+	Equivalentemente, $f=\binaria{a,b,c}$ (definida positiva)
+	est\'a reducida, si sus coeficientes cumplen:
+	\begin{displaymath}
+		|b|\,\leq\,a\,\leq\,c\dispandif
+		|b|\,=\,a\dispor a\,=\,c\dispcomma
+		\dispthen
+		b\,\geq\,0
+		\dispstop
+	\end{displaymath}
+	%
+\end{obsReducidas}
+
+\begin{teoReducidas}\label{teo:reducidas}
+	Toda forma cuadr\'atica primitiva definida positiva es
+	estrictamente equivalente a una \'unica forma reducida.
+\end{teoReducidas}
+
+\begin{proof}
+	Lo \'unico que falta probar es que cada clase de equivalencia
+	estricta contiene \emph{a lo sumo} una forma reducida.
+	Sean, entonces, $f=\binaria{a,b,c}$ y $f_1=\binaria{a_1,b_1,c_1}$
+	dos formas cuadr\'aticas de discriminante $D<0$, ambas reducidas
+	en el sentido de la \defname~\ref{def:reducidas}.
+	Probaremos que, si $f$ y $f_1$ son estrictamente equivalentes,
+	entonces deben ser iguales.
+	Sin p\'erdida de generalidad, podemos asumir que $a\geq a_1$.	
+
+	Veamos, primero, que $a=a_1$. Supongamos que $p,q,r,s\in\Enteros$
+	cumplen que
+	\begin{math}
+		f_1(x,y)=f(px+qy,rx+sy)
+	\end{math}.
+	De las f\'ormulas~\eqref{eq:definiciones:equivalencia:cambio},
+	como $a\leq c$ y $|b|\leq a$, vale que
+	\begin{displaymath}
+		a_1\,=\,ap^2\,+\,bpr\,+\,cr^2
+		\,\geq\,ap^2\,-\,a|pr|\,+\,ar^2\,\geq\,a|pr|
+		\dispstop
+	\end{displaymath}
+	%
+	La \'ultima desigualdad es consecuencia de que
+	$x^2+y^2\geq 2|xy|$ para todo par $x$ e $y$. En consecuencia,
+	$|pr|\leq 1$. Asumiendo que $ps-qr=1$, vemos que
+	$p,r\in\{-1,0,1\}$ y no son ambos nulos.
+	% De hecho, para esta conclusi\'on parcial, basta con $\pm 1$
+	Entonces, $p^2-|pr|+r^2=1$ y $a\geq a_1\geq a$, es decir, $a=a_1$.
+
+	Para terminar, distinguimos dos casos: $c=a$ y $c_1=a_1$, o bien
+	se cumple alguna de $c>a$ o $c_1>a_1$. En el primer caso, $c=c_1$
+	y $D=b^2-4ac=b_1^2-4a_1c_1$ muestra que $b=\pm b_1$. Pero, como
+	$f$ y $f_1$ est\'an reducidas, en esta situaci\'on $b,b_1\geq 0$.
+	En particular, $b=b_1$, con lo que $f=f_1$. Supongamos, finalmente,
+	que estamos en el segundo caso y que es $c>a$.
+	Sean $p,q,r,s\in\Enteros$ tales que
+	\begin{math}
+		f_1(x,y)=f(px+qy,rx+sy)
+	\end{math}
+	y que $ps-qr=1$. Como antes, deducimos que $p^2-|pr|+r^2=1$.
+	Si fuese $r\neq 0$, entonces ser\'{\i}a $cr^2>ar^2$ y
+	\begin{displaymath}
+		a\,=\,a_1\,ap^2\,+\,bpr\,+\,cr^2\,>\,
+			a\,(p^2-|pr|+r^2)\,=\,a
+		\dispcomma
+	\end{displaymath}
+	%
+	lo que es absurdo. As\'{\i}, debe ser $r=0$. Pero, ahora,
+	$ps-qr=1$ implica $ps=1$ y, por lo tanto, de
+	\eqref{eq:definiciones:equivalencia:cambio},
+	\begin{displaymath}
+		b_1\,=\,2apq\,+\,b\,(ps+qr)\,+\,2crs\,\equiv\,b\modulo[2a]
+		\dispstop
+	\end{displaymath}
+	%
+	Pero $b$ y $b_1$ est\'an ambos en el rango
+	$-a=-a_1<b,b_1\leq a=a_1$, lo que implica, junto con
+	$b_1\equiv b\tmodulo[2a]$, que $b=b_1$. Por \'ultimo,
+	$D=b^2-4ac=b_1^2-4a_1c_1$ implica que $c=c_1$ tambi\'en.
+\end{proof}
+
+Como consecuencia del \teoname~\ref{teo:reducidas},
+podemos deducir versiones un poco m\'as refinadas de
+los resultados de la \S~\ref{sec:representaciones}.
+
+\begin{teoReducidas}\label{teo:reducidas:representaciones}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D<0$ y sea $p$ un primo positivo
+	impar que no divide a $D$. Entonces, $p$ es representado por
+	una forma \emph{reducida} de discriminante $D$,
+	si y s\'olo si $\chi(p)=1$, donde $\chi$ es la funci\'on
+	del \lemaname~\ref{lema:ecuacion:kronecker}.
+\end{teoReducidas}
+
+\begin{proof}
+	La diferencia con el \teoname~\ref{teo:representaciones}
+	est\'a en que aqu\'{\i} agregamos que la forma que representa
+	$p$ debe ser reducida. Pero si $p$ es representado por
+	una forma definida positiva de discriminante $D$, entonces,
+	cambiando dicha forma por una (la) forma reducida y
+	(estrictamente) equivalente a ella, vemos que $p$ es
+	representado por una forma reducida.
+\end{proof}
+
+El siguiente resultado refina el \coroname~\ref{coro:representaciones}.
+
+\begin{coroReducidas}\label{coro:reducidas:representaciones}
+	Sea $n\in\Enteros$, $n>0$, y sea $p$ un primo positivo impar
+	que no divide a $n$. Entonces, $p$ es representado por una
+	forma \emph{reducida} de discriminante $-4n$, si y s\'olo si
+	$p$ es un divisor de $x^2+ny^2$, $\mcd{x,y}=1$.
+\end{coroReducidas}
+
+\begin{defReducidas}\label{def:reducidas:numero}
+	Denominaremos \emph{clases} de formas cuadr\'aticas a las
+	clases de equivalencia estricta en el conjunto de formas
+	cuadr\'aticas binarias enteras. Dado $D\equiv 0,1\tmodulo[4]$,
+	el \emph{n\'umero de clases} de formas de discriminante $D$
+	es la cantidad de clases de formas cuadr\'aticas
+	\emph{primitivas}%
+	\footnote{
+		Ver el \ejername~\ref{ejer:definiciones:clases}
+		para una justificaci\'on de por qu\'e s\'olo
+		consideramos clases de formas primitivas.
+		% Ver tambi\'en el \ejername~%
+		% \ref{ejer:definiciones:propiamente}.
+	}
+	de discriminante $D$; lo denotamos $\nClases(D)$.
+\end{defReducidas}
+
+\begin{obsReducidas}\label{obs:reducidas}
+	Si $D<0$, el n\'umero de clases $\nClases(D)$ coincide
+	con la cantidad de formas reducidas de discriminante $D$
+	(\teoname~\ref{teo:reducidas}).
+	Las formas primitivas $x^2+ny^2$ con $n>0$ son formas
+	reducidas. Pero eso no quiere decir que cada una sea la
+	\'unica forma primitiva reducida de discriminante $-4n$.
+	Si $\nClases(-4n)=1$, entonces la condici\'on
+	$\tlegendre{-n} p=1$ caracteriza aquellos primos que
+	pueden ser expresados en la forma $p=x^2+ny^2$
+	(\coroname~\ref{coro:reducidas:representaciones})
+	y esta condici\'on puede ser formulada como una serie de
+	condiciones de congruencia sobre $p$, m\'odulo $4n$.
+\end{obsReducidas}
+
+\begin{ejemReducidas}\label{ejem:reducidas}
+	Veamos que $x^2+7y^2$ es la \'unica forma cuadr\'atica
+	reducida de discriminante $-28$. Si $f=\binaria{a,b,c}$
+	tiene discriminante $-28$, entonces $b$ es par. Si est\'a
+	reducida, entonces $|b|\leq a\leq c$. Como $-28=b^2-4ac$,
+	se deduce que $-28\leq-3a^2$ y, por lo tanto, que
+	$a\in\{1,2,3\}$. Por otro lado, debe ser $-a<b\leq a$.
+	Si $a=3$, entonces $b\in\{-2,0,2\}$. Pero
+	$-28\equiv 2\tmodulo[3]$, mientras que
+	$b^2\equiv 0,1\tmodulo[3]$. As\'{\i} que debe ser
+	$a\in\{1,2\}$. Si $a=2$, la \'unica posibilidad ser\'{\i}a
+	$b=0$, pero $-28\equiv 4\tmodulo[8]$, mientras que
+	$b^2\equiv 0\tmodulo[8]$. Finalmente, la \'unica posibilidad
+	restante es $a=1$. Entonces, $b=0$ y $c=7$.
+	As\'{\i}, $\nClases(-28)=1$.
+
+	En particular, como $x^2+7y^2$ es la \'unica forma
+	cuadr\'atica reducida de discriminante $-28$, por el
+	\coroname~\ref{coro:reducidas:representaciones},
+	$\tlegendre{-7} p=1$, si y s\'olo si $p=x^2+7y^2$.
+	Si ahora logramos describir qu\'e primos $p$ satisfacen
+	$\tlegendre{-7} p=1$, habremos encontrado condiciones
+	que garantizan que $p$ se pueda expresar en la forma
+	$p=x^2+7y^2$. Ahora,
+	\begin{math}
+		\tlegendre{-7} p=1
+	\end{math},
+	si y s\'olo si
+	\begin{math}
+		\tlegendre{-1} p\tlegendre 7 p=1
+	\end{math}.
+	Equivalentemente,
+	\begin{math}
+		\tlegendre{-1} p=\tlegendre 7 p=1
+	\end{math},
+	o bien
+	\begin{math}
+		\tlegendre{-1} p=\tlegendre 7 p=-1
+	\end{math}.
+	Es decir,
+	\begin{displaymath}
+		\begin{aligned}
+			p & \,\equiv\,1\tmodulo[4]\dispand
+			p\,\equiv\,1,2,4\tmodulo[7]\dispcomma\disporelse \\
+			p & \,\equiv\,3\tmodulo[4]\dispand
+			p\,\equiv\,1,2,4\tmodulo[7]
+			\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	O sea, un primo impar $p$ se expresa en la forma $p=x^2+7y^2$,
+	si y s\'olo si $p\equiv 1,2,4\tmodulo[7]$.
+\end{ejemReducidas}
+
+\begin{teoReducidas}[Landau]\label{teo:landau}
+	Para $n\in\Enteros$, $n>0$, se cumple
+	$\nClases(-4n)=1$, si y s\'olo si $n\in\{1,2,3,4,7\}$.
+\end{teoReducidas}
+
+\begin{proof}
+	Si $n\in\{1,2,3,4,7\}$, entonces $x^2+ny^2$ es la \'unica
+	forma primitiva reducida de discriminante $-4n$
+	\quedacomoejercicio.%
+	\hint{
+		Argumentar como en el \ejemname~\ref{ejem:reducidas}.
+		% Usar que, si $\binaria{a,b,c}$ es reducida
+		% de discriminante $-4n$, entonces
+		% $0<a\leq\sqrt{(4n)/3}$.
+	}
+	Rec\'{\i}procamente, si $n\not\in\{1,2,3,4,7\}$, encontraremos
+	una segunda forma reducida, primitiva y de discriminante $-4n$.
+
+	Supongamos, primero, que $n$ no es una potencia de un n\'umero
+	primo y que $n=ac$ con $1<a<c$, $\mcd{a,c}=1$. Entonces, la
+	forma $ax^2+cy^2$ es una forma primitiva, reducida y de
+	discriminante $-4ac=-4n$.
+
+	Supongamos, ahora, que $n=2^r$. Si $r\in\{0,1,2\}$, entonces
+	$n\in\{1,2,4\}$. Si $r=3$, entonces $n=8$ y se verifica que
+	$\nClases(-4\cdot 8)=2$ \quedacomoejercicio. Si $r\geq 4$,
+	la forma
+	\begin{displaymath}
+		4x^2\,+\,4xy\,+\,(2^{r-2}+1)\,y^2
+	\end{displaymath}
+	%
+	es primitiva, reducida y de discriminante
+	$4^2-4\cdot 4\cdot(2^{r-2}+1)=-4\cdot 2^r=-4n$.
+
+	Supongamos, por \'ultimo, que $n=p^r$, $p$ primo impar.
+	Si $n+1$ no es potencia de primo, entonces $n+1=ac$, donde
+	$1<a<c$, $\mcd{a,c}=1$ y la forma
+	\begin{math}
+		ax^2+2xy+cy^2
+	\end{math}
+	es primitiva, reducida y de discriminante $4-4ac=-4n$.
+	Si $n+1$ es potencia de primo, entonces, como es par,
+	$n+1=2^s$. Si $s\in\{1,2,3\}$, entonces $n\in\{1,3,7\}$.
+	Si $s=4$, $n=15$ no es potencia de primo. Si $s=5$, entonces
+	$n=31$ y se verifica que $\nClases(-4\cdot 31)=3$
+	\quedacomoejercicio. Si $s\geq 6$, entonces a forma
+	\begin{displaymath}
+		8x^2\,+\,6xy\,+\,(2^{s-3}+1)\,y^2
+	\end{displaymath}
+	%
+	es primitiva, reducida y de discriminante
+	$6^2-4\cdot 8\cdot(2^{s-3}+1)=4-2^{s+2}=-4\cdot(2^s-1)=-4n$.
+\end{proof}
+
+\subsection*{Ejercicios}
+\input{./tex/formas/ejercicios-reducidas.tex}
+

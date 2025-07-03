@@ -1,0 +1,82 @@
+\theoremstyle{plain}
+\newtheorem{teoRepresentaciones}{\teoname}[section]
+\newtheorem{lemaRepresentaciones}[teoRepresentaciones]{\lemaname}
+\newtheorem{coroRepresentaciones}[teoRepresentaciones]{\coroname}
+
+\theoremstyle{definition}
+
+%-------------
+
+\begin{lemaRepresentaciones}\label{lema:representaciones:propiamente}
+	Una forma $f$ representa propiamente un entero $m$, si y s\'olo
+	si $f$ es estrictamente equivalente a una forma del tipo
+	$\binaria{m,B,C}$, $B,C\in\Enteros$.
+\end{lemaRepresentaciones}
+
+\begin{proof}
+	Sean $p,r\in\Enteros$ tales que $f(p,r)=m$ y $\mcd{p,r}=1$. Por
+	la identidad de B\'ezout (\teoname~\ref{teo:mcd:bezout}), existen
+	$q,s\in\Enteros$ tales que $ps-qr=1$. Si $f_1$ es la forma
+	$f_1(x,y):=f(px+qy,rx+sy)$, entonces sus coeficientes est\'an
+	dados por las f\'ormulas~%
+	\eqref{eq:definiciones:equivalencia:cambio}. En particular,
+	$a_1=f(p,r)=m$. Rec\'{\i}procamente, notamos que cualquier
+	forma del tipo $\binaria{m,B,C}$, $B,C\in\Enteros$, representa
+	propiamente a $m$ v\'{\i}a $(1,0)$.
+\end{proof}
+
+\begin{lemaRepresentaciones}\label{lema:representaciones:primitiva}
+	Sea $D\equiv 0,1\tmodulo[4]$ y sea $m\in\Enteros$,
+	$\mcd{m,2D}=1$. Entonces, $m$ es representado propiamente
+	por \emph{alguna} forma primitiva de discriminante $D$,
+	si y s\'olo si $D$ es un residuo cuadr\'atico m\'odulo $m$.
+\end{lemaRepresentaciones}
+
+\begin{proof}
+	Supongamos, primero, que $D$ es residuo cuadr\'atico m\'odulo
+	$m$, o sea, existe $b\in\Enteros$ tal que $D\equiv b^2\tmodulo[m]$.
+	Como $m$ es impar, cambiando $b$ por $b+m$ de ser necesario,
+	podemos suponer que $D\equiv b\tmodulo[2]$. En ese caso,
+	$D\equiv b^2\tmodulo[4]$ (porque $D\equiv 0,1\tmodulo[4]$) y,
+	en particular, $D\equiv b^2\tmodulo[4m]$ (porque $m$ es impar;
+	$\mcd{m,4}=1$). Esto quiere decir que existe $c\in\Enteros$ tal
+	que $D=b^2-4mc$. Ahora, la forma $f=\binaria{m,b,c}$ representa
+	propiamente a $m$ (v\'{\i}a $(1,0)$) y su discriminante es igual a
+	$D$. Rec\'{\i}procamente, si $m$ es representado propiamente por
+	una forma $f$ de discriminante $D$, por el \lemaname~%
+	\ref{lema:representaciones:propiamente}, $f$ es (estrictamente)
+	equivalente a una forma del tipo $f_1=\binaria{m,B,C}$,
+	$B,C\in\Enteros$. Pero, entonces,
+	\begin{math}
+		D=\discriminante(f)=\discriminante(f_1)=B^2-4mC
+	\end{math},
+	con lo que $D$ es residuo cuadr\'atico m\'odulo $m$.
+\end{proof}
+
+\begin{teoRepresentaciones}\label{teo:representaciones}
+	Sea $D\equiv 0,1\tmodulo[4]$ y sea $p$ un primo positivo impar
+	que no divide a $D$. Entonces, $p$ es representado (propiamente)
+	por \emph{alguna} forma cuadr\'atica (primitiva) de discriminante
+	$D$, si y s\'olo si $\chi(p)=1$, donde $\chi$ es la funci\'on del
+	\lemaname~\ref{lema:ecuacion:kronecker}.
+\end{teoRepresentaciones}
+
+\begin{proof}
+	$\chi(p)=1$, si y s\'olo si $\tlegendre D p=1$, si y s\'olo si
+	$D$ es un residuo cuadr\'atico m\'odulo $p$, si y s\'olo si
+	(\lemaname~\ref{lema:representaciones:primitiva}) $p$ es
+	representado por una forma de discriminante $D$.
+\end{proof}
+
+\begin{coroRepresentaciones}\label{coro:representaciones}
+	Sea $n\in\Enteros$, $n\neq 0$, y sea $p$ un primo positivo
+	impar que no divide a $n$. Entonces, $p$ es representado
+	(propiamente) por una forma (primitiva) de discriminante $-4n$,
+	% si y s\'olo si $\tlegendre{-n} p=1$.
+	si y s\'olo si $p$ es un divisor primo de $x^2+ny^2$,
+	$\mcd{x,y}=1$.
+\end{coroRepresentaciones}
+
+% \subsection*{Ejercicios}
+% \input{./tex/formas/ejercicios-representaciones.tex}
+

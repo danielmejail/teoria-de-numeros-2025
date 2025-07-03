@@ -1,0 +1,67 @@
+\theoremstyle{definition}
+\newtheorem{ejerResiduos}{\ejername}[section]
+
+%-------------
+
+\begin{ejerResiduos}\label{ejer:residuos:potencia}
+	Sean $N\in\Enteros$, $p$ un primo que no divide a $N$ y $l\geq 1$.
+	La cantidad de soluciones a la ecuaci\'on de congruencia
+	\begin{equation}
+		\label{eq:ejer:residuos:potencia}
+		x^2\,\equiv\,N\modulo[p^l]
+	\end{equation}
+	%
+	es igual a:
+	\begin{itemize}
+		\item $1$, si $p=2$ y $l=1$,
+		\item $0$, si $p=2$, $l=2$ y $N\equiv 3\tmodulo[4]$,
+		\item $2$, si $p=2$, $l=2$ y $N\equiv 1\tmodulo[4]$,
+		\item $0$, si $p=2$, $l\geq 3$ y $N\not\equiv 1\tmodulo[8]$,
+		\item $4$, si $p=2$, $l\geq 3$ y $N\equiv 1\tmodulo[8]$ y
+		\item $1+\tlegendre N{p}$, si $p$ es impar ($l$ arbitrario).
+	\end{itemize}
+	%
+\end{ejerResiduos}
+
+\begin{ejerResiduos}\label{ejer:residuos:compuesto}
+	Sean $k,d\in\Enteros$, $k\geq 1$ y $\mcd{d,k}=1$. Entonces, la
+	cantidad de soluciones a la ecuaci\'on de congruencia
+	\begin{equation}
+		\label{eq:residuos:compuesto}
+		x^2\,\equiv\,d\modulo[4k]
+	\end{equation}
+	%
+	es igual a
+	\begin{displaymath}
+		2\,\sum_{f\mid k}\,\jacobi d{f}
+		\text{ ,}
+	\end{displaymath}
+	%
+	donde $f$ recorre los divisores positivos libres de cuadrados
+	($f=1$ inclusive) y $\tjacobi d{f}$ denota el s\'{\i}mbolo de
+	Jacobi. Concluir de $(x+2k)^2\equiv x^2\tmodulo[4k]$ que la sumatoria
+	$\sum_{f\mid k}\,\tjacobi d{f}$ es igual a la cantidad de enteros $x$
+	en el rango $0\leq x<2k$ que satisfacen \eqref{eq:residuos:compuesto}.
+\end{ejerResiduos}
+
+\begin{ejerResiduos}
+	Un entero $a$ se dice \emph{residuo bicuadr\'atico m\'odulo $p$},
+	si existe $x\in\Enteros$ tal que $a\equiv x^4\tmodulo[p]$. Probar
+	que $-4$ es residuo bicuadr\'atico m\'odulo $p$, si y s\'olo si
+	$p\equiv 1\tmodulo[4]$.%
+	\hint{
+		$x^4+4=((x+1)^2+1)((x-1)^2+1)$.
+	}
+\end{ejerResiduos}
+
+\begin{ejerResiduos}
+	Probar que, si $m$ y $n$ son enteros coprimos, entonces
+	\begin{displaymath}
+		\frac{m-1} 2\frac{n-1} 2\,=\,
+			\sum_{x=1}^{(m-1)/2}\,\piso{\frac{xn} m}\,+\,
+			\sum_{y=1}^{(n-1)/2}\,\piso{\frac{ym} n}
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejerResiduos}
+

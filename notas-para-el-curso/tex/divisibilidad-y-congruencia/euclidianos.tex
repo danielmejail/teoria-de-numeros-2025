@@ -1,0 +1,260 @@
+\theoremstyle{plain}
+\newtheorem{teoEuclidianos}{\teoname}[section]
+\newtheorem{coroEuclidianos}[teoEuclidianos]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{defEuclidianos}[teoEuclidianos]{\defname}
+\newtheorem{obsEuclidianos}[teoEuclidianos]{\obsname}
+\newtheorem{ejemEuclidianos}[teoEuclidianos]{\ejemname}
+
+%-------------
+
+% \subsection{Anillos}%
+	% \label{subsec:anillos}
+\begin{defEuclidianos}\label{def:anillo}
+	Llamaremos \emph{anillo} a un conjunto $A$ dotado de:
+	\begin{itemize}
+		\item operaciones binarias $+,\cdot:\,A\times A\rightarrow A$,
+			que llamamos \emph{suma} y \emph{producto},
+		\item elementos distinguidos $0,1\in A$, que llamamos
+			\emph{cero} y \emph{uno},
+		\item una funci\'on $-:\,A\rightarrow A$ (operaci\'on
+			unitaria), que escribimos $a\mapsto -a$ y cuya imagen
+			llamamos ``menos $a$''
+	\end{itemize}
+	%
+	que cumplen:
+	\begin{itemize}
+		\item con respecto a la suma,
+			\begin{displaymath}
+				\begin{aligned}
+					(a+b)+c & \,=\,a+(b+c)\text{ ,}\quad
+					0+a \,=\,a+0\,=\,a\text{ ,} \\
+					a+(-a) & \,=\,(-a)+a\,=\,0
+						\quad\text{y}\quad
+					a+b \,=\,b+a
+					\text{ ,}
+				\end{aligned}
+				%
+			\end{displaymath}
+			%
+		\item con respecto al producto,
+			\begin{displaymath}
+				(a\cdot b)\cdot c \,=\, a\cdot (b\cdot c)
+					\quad\text{y}\quad
+					1\cdot a \,=\,a\cdot 1\,=\,a
+				\text{ ,}
+			\end{displaymath}
+			%
+		\item con respecto a ambas,
+			\begin{displaymath}
+				(a+b)\cdot c\,=\,a\cdot c+b\cdot c
+					\quad\text{y}\quad
+					c\cdot (a+b)\,=\,c\cdot a+c\cdot b
+				\text{ .}
+			\end{displaymath}
+			%
+	\end{itemize}
+	%
+\end{defEuclidianos}
+
+\begin{defEuclidianos}\label{def:euclidianos:conmutativo}
+	Si $a\cdot b=b\cdot a$, se dice que \emph{$a$ y $b$ conmutan};
+	si todo par de elementos conmuta, se dice que el anillo es
+	\emph{conmutativo}.
+\end{defEuclidianos}
+
+\begin{obsEuclidianos}\label{obs:euclidianos}
+	En general, esta estructura se denomina \emph{anillo con unidad}
+	(los anillos \emph{sin} un $1$ tambi\'en son importantes).
+\end{obsEuclidianos}
+
+\begin{ejemEuclidianos}\label{ejem:euclidianos}
+	Los n\'umeros enteros $\Enteros$ constituyen un anillo con la suma,
+	el producto, el cero, el uno y el menos usuales. Los n\'umeros
+	racionales $\Racionales$, reales $\Reales$ y complejos $\Complejos$,
+	tambi\'en. Todos \'estos son anillos conmutativos.
+	Los n\'umeros naturales $\Naturales$, en cambio, no forman un anillo
+	con la suma y el producto usuales (dependiendo de la convenci\'on,
+	no hay cero, pero, en general, $-n$ no es natural, si $n\geq 1$ es
+	natural).
+\end{ejemEuclidianos}
+
+% \begin{ejemEuclidianos}\label{ejem:euclidianos:polinomios}
+	% Los polinomios en una indeterminada constituyen anillos:
+	% $\polinomios\Racionales{X}$, $\polinomios\Reales{X}$ y
+	% $\polinomios\Complejos{X}$ son anillos conmutativos con la suma
+	% y el producto usuales. M\'as en general, si $k$ es un cuerpo,
+	% $\polinomios k{X}$ es un anillo conmutativo. M\'as en general aun,
+	% si $A$ es un anillo conmutativo, $\polinomios A{X}$ es un anillo
+	% conmutativo. Un caso particular de esto \'ultimo es
+	% $\polinomios\Enteros{X}$. Los polinomios en varias indeterminadas
+	% tambi\'en son anillos:
+	% $\polinomios\Enteros{X,Y}=\polinomios{\polinomios\Enteros{X}}{Y}$
+	% es un anillo conmutativo.%
+	% \footnote{
+		% T\'ecnicamente, estos $\polinomios\Enteros{X,Y}$ y
+		% $\polinomios{\polinomios\Enteros{X}}{Y}$ no son lo mismo,
+		% pero son iguales en cierto sentido.
+	% }
+% \end{ejemEuclidianos}
+
+\begin{ejemEuclidianos}\label{ejem:euclidianos:cuadratico}
+	El subconjunto $A\subset\Complejos$ del \ejername~%
+	\ref{ejer:primos:factorizacion:cuadratico},
+	\begin{displaymath}
+		A\,=\,\big\{x+y\sqrt{-6}\,:\,x,y\in\Enteros\big\}
+		\text{ ,}
+	\end{displaymath}
+	%
+	es un anillo. La suma, el producto, el cero, el uno y el menos son
+	los heredados de $\Complejos$. En particular, $A$ es un anillo
+	conmutativo (porque $\Complejos$ lo es). Este anillo se suele denotar
+	por $\polinomios\Enteros{\sqrt{-6}}$.
+\end{ejemEuclidianos}
+
+\begin{ejemEuclidianos}\label{ejem:euclidianos:matrices}
+	Si $A$ es un anillo, las matrices \emph{cuadradas} con coeficientes
+	en $A$ constituyen un anillo. Por ejemplo, las matrices de tama\~no
+	$2\times 2$ con coeficientes enteros, $\MM(2\times 2,\Enteros)$,
+	son un anillo con las operaciones usuales. Pero, en general, estos
+	anillos no son conmutativos, aunque $A$ lo sea.
+\end{ejemEuclidianos}
+
+Nos concentraremos en anillos conmutativos (con uno).
+
+% \subsection{Dominios \'{\i}ntegro}%
+	% \label{subsec:dominio}
+\begin{defEuclidianos}\label{def:dominio}
+	Un \emph{dominio \'{\i}ntegro} es un anillo conmutativo (con uno)
+	que tiene la siguiente propiedad:%
+	\footnote{
+		C.f. la propiedad de la \obsname~\ref{obs:primos:irreducibles}.
+	}
+	\begin{center}
+		para todo par de elementos $a$ y $b$, $ab=0$ implica
+			$a=0$ o $b=0$.
+	\end{center}
+	%
+\end{defEuclidianos}
+
+\begin{ejemEuclidianos}\label{ejem:euclidianos:dominio}
+	Los anillos $\Enteros$, $\Racionales$, $\Reales$, $\Complejos$,
+	sus anillos de polinomios y $\polinomios\Enteros{\sqrt{-6}}$ son
+	dominios \'{\i}ntegros.
+\end{ejemEuclidianos}
+
+% \subsection{Dominios euclidianos}%
+	% \label{subsec:dominios-euclidianos}
+\begin{defEuclidianos}\label{def:euclidianos}
+	Un \emph{dominio euclidiano} es un dominio \'{\i}ntegro $D$
+	que admite una funci\'on $N:\,D\rightarrow\Enteros$ con las siguientes
+	propiedades:
+	\begin{itemize}
+		\item $N(x)\geq 0$ para todo $x\in D$ y,
+		\item dados $a,b\in D$, $a\neq 0$, existen $q,r\in D$ tales
+			que $b=qa+r$ y $r=0$ o bien $N(r)<N(a)$.
+			% (decrece).
+	\end{itemize}
+	%
+\end{defEuclidianos}
+
+\begin{ejemEuclidianos}\label{ejem:euclidianos}
+	Los enteros $\Enteros$ son un dominio euclidiano: la funci\'on
+	valor absoluto $N(x)=|x|$ tiene la propiedad que los caracteriza.
+	Los anillos de polinomios $\polinomios\Racionales{X}$,
+	$\polinomios\Reales{X}$ y $\polinomios\Complejos{X}$ (o, m\'as en
+	general, polinomios en una indeterminada, sobre un cuerpo) son
+	dominios euclidianos. Sin embargo, $\polinomios\Enteros{X}$ no lo es.
+	El dominio $\polinomios\Enteros{\sqrt{-6}}$ tampoco es un dominio
+	euclidiano.
+\end{ejemEuclidianos}
+
+\begin{ejemEuclidianos}\label{ejem:euclidianos:gauss}
+	El anillo $\EnterosGauss$ es, como conjunto, el subconjunto
+	de $\Complejos$ de elementos de la forma $x+yi$, $x,y\in\Enteros$.
+	Si $\alpha=a+bi$ y $\beta=c+di$ son elementos de
+	$\EnterosGauss$ ($a,b,c,d\in\Enteros$), entonces
+	\begin{displaymath}
+		\begin{aligned}
+			\alpha+\beta & \,=\,(a+bi)+(c+di)\,=\,(a+c)+(b+d)\,i
+				\,\in\,\EnterosGauss\quad\text{y} \\
+			\alpha\beta & \,=\,(a+bi)\,(c+di)\,=\,
+				(ac-bd)+(ad+bc)\,i
+				\,\in\,\EnterosGauss
+			\text{ .}
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Adem\'as, $0,1\in\EnterosGauss$ (m\'as aun,
+	$\Enteros\subset\EnterosGauss$). Tambi\'en se cumple que
+	$-\alpha\in\EnterosGauss$, si $\alpha\in\EnterosGauss$.
+	De esto se deduce que $\EnterosGauss$ es un dominio \'{\i}ntegro
+	\quedacomoejercicio.%
+	\hint{
+		Todo ocurre dentro de $\Complejos$.
+	}
+
+	Veamos que $\EnterosGauss$ es un dominio euclidiano.%
+	\footnote{
+		Esto s\'{\i} depende de $\EnterosGauss$, no es algo
+		``heredado''.
+	}
+	Dados $x,y\in\Racionales$, definimos la \emph{norma} de $x+yi$
+	como
+	\begin{displaymath}
+		N(x+yi)\,=\,x^2+y^2
+		\text{ .}
+	\end{displaymath}
+	%
+	Esta funci\'on cumple $N(\beta\beta')=N(\beta)N(\beta')$ y
+	$N(x+yi)\in\Enteros$, si $x,y\in\Enteros$.
+	Dados elementos $\alpha=a+bi$ y $\beta=c+di$ de $\EnterosGauss$,
+	$\alpha\neq 0$,
+	\begin{enumerate}[(i)]
+		\item\label{item:ejem:euclidianos:gauss:i}
+			existen $u,v\in\Racionales$ tales que
+			$(u+vi)\alpha=\beta$;
+		\item\label{item:ejem:euclidianos:gauss:ii}
+			dados $u,v\in\Racionales$, existen $m,n\in\Enteros$
+			tales que $|m-u|\leq 1/2$ y $|n-v|\leq 1/2$;
+		\item\label{item:ejem:euclidianos:gauss:iii}
+			si $q:=m+ni$ y $r:=\beta-q\alpha$, entonces
+			$N(r)<N(\alpha)$ (o $r=0$).
+	\end{enumerate}
+	%
+	Con respecto a \eqref{item:ejem:euclidianos:gauss:iii},
+	$N(r)=N((u+vi)-q)N(\alpha)$, pero $N((u+vi)-q)\leq 1/2$. La funci\'on
+	norma tiene la propiedad de la \defname~\ref{def:euclidianos}
+\end{ejemEuclidianos}
+
+% \subsection{Cuerpos}%
+	% \label{subsec:cuerpos}
+\begin{defEuclidianos}\label{def:euclidianos:unidades}
+	Dado $a\in A$, si existe $b\in A$ tal que $ab=ba=1$, se dice que $a$
+	es una \emph{unidad} del anillo o que es \emph{inversible} en el
+	anillo.
+\end{defEuclidianos}
+
+\begin{ejemEuclidianos}\label{ejem:euclidianos:unidades}
+	Las unidades de $\Enteros$ son $\pm 1$.
+\end{ejemEuclidianos}
+
+\begin{defEuclidianos}\label{def:euclidianos:cuerpo}
+	Un anillo (conmutativo, con $1$) con la propiedad de que todos sus
+	elementos distintos de cero son inversibles se denomina \emph{cuerpo}.
+\end{defEuclidianos}
+
+\begin{ejemEuclidianos}\label{ejem:euclidianos:cuerpo}
+	% Los anillos $\Racionales$, $\Reales$, $\Complejos$ y $\Enterosmod[p]$
+	% ($p$ primo) no son cuerpos.
+	% Los anillos $\Enteros$ y $\Enterosmod[m]$ ($m$ compuesto) no son
+	% cuerpos.
+	Los anillos $\Racionales$, $\Reales$ y $\Complejos$ son cuerpos.
+	El anillo $\Enteros$ no es un cuerpo.
+\end{ejemEuclidianos}
+
+\subsection*{Ejercicios}
+\input{./tex/divisibilidad-y-congruencia/ejercicios-euclidianos.tex}
+

@@ -1,0 +1,175 @@
+\theoremstyle{definition}
+\newtheorem{ejerEcuacion}{\ejername}[section]
+
+%-------------
+
+\begin{ejerEcuacion}\label{ejer:ecuacion:kronecker}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D\neq 0$, y sea
+	$\chi:\,\Enteros\rightarrow\cuadratico$ la funci\'on del
+	\lemaname~\ref{lema:ecuacion:kronecker} (o, equivalentemente,
+	el morfismo del \lemaname~\ref{lema:ecuacion:kronecker:bis}).
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:iecuacion:kronecker:menos-uno}
+			Probar que
+			\begin{displaymath}
+				\chi(-1)\,=\,
+					\begin{cases}
+						1 \text{ ,} & \text{si }
+							D>0\quad\text{y} \\
+						-1\text{ ,} & \text{si }
+							D<0\text{ .}
+					\end{cases}
+					%
+			\end{displaymath}
+			%
+		\item\label{item:ejer:ecuacion:kronecker:dos}
+			Probar que, si $D\equiv 1\tmodulo[4]$, entonces
+			\begin{displaymath}
+				\chi(2)\,=\,
+					\begin{cases}
+						1 \text{ ,} & \text{si }
+							D\equiv 1\tmodulo[8]
+							\quad\text{y} \\
+						-1\text{ ,} & \text{si }
+							D\equiv 5\tmodulo[8]
+							\text{ .}
+					\end{cases}
+					%
+			\end{displaymath}
+	\end{enumerate}
+	%
+\end{ejerEcuacion}
+
+\begin{ejerEcuacion}
+	Sea $a\in\Enteros$ no un cuadrado perfecto. Probar que existen
+	infinitos primos para los cuales $a$ no es un residuo cuadr\'atico:
+	\begin{enumerate}[(i)]
+		\item reducir al caso en que $a$ es libre de cuadrados, o
+			sea $a=2^eq_1\cdots q_r$, donde $q_i$ son primos
+			impares distintos, $r\geq 0$ y $e\in\{0,1\}$;
+		\item suponer que $a$ es divisible por alg\'un primo impar
+			(es decir, $a\neq 2$ y $r\geq 1$) y probar que,
+			dado un conjunto finito de primos $\{\lista l{k}\}$
+			que excluye a $2$ y los $q_i$, existe $b\in\Enteros$
+			que satisface:
+			\begin{displaymath}
+				\begin{aligned}
+					b & \,\equiv\,1\tmodulo[l_j]
+						\text{ ,} \\
+					b & \,\equiv\,1\tmodulo[8]
+						\text{ ,} \\
+					b & \,\equiv\,1\tmodulo[q_i]
+					\quad\text{ , si }i\neq r
+					\text{ y} \\
+					b & \,\equiv\,s\tmodulo[q_r]
+					\text{ ,}
+				\end{aligned}
+				%
+			\end{displaymath}
+			%
+			donde $s$ es un no residuo cuadr\'atico m\'odulo
+			$q_r$ y mostrar que $\tjacobi a{b}=-1$ y que,
+			por lo tanto, existe un primo
+			$p\not\in\{2,\,\lista q{r},\,\lista l{k}\}$
+			tal que $\tlegendre a{p}=-1$;
+		\item suponer que $a=2$ y, dado un conjunto finito de
+			primos $\{\lista l{k}\}$ que excluye a $3$, definir
+			$b:=8l_1\cdots l_k+3$ y probar que $\tjacobi 2{b}=-1$
+			y que, por lo tanto, existe un primo
+			$p\not\in\{2,\,3,\,\lista l{k}\}$ tal que
+			$\tlegendre 2{p}=-1$.
+	\end{enumerate}
+	%
+\end{ejerEcuacion}
+
+\begin{ejerEcuacion}
+	Calcular el s\'{\i}mbolo de Jacobi en los siguientes casos:
+	\begin{itemize}
+		\item $\tjacobi{113}{997}$
+		\item $\tjacobi{215}{761}$
+		\item $\tjacobi{514}{1093}$
+		\item $\tjacobi{401}{757}$
+	\end{itemize}
+	%
+\end{ejerEcuacion}
+
+\begin{ejerEcuacion}
+	Determinar las clases en $\Enterosmod[84]$ para las cuales
+	$\tlegendre{-21} p=1$, usando reciprocidad cuadr\'atica.
+\end{ejerEcuacion}
+
+% \begin{solucion}
+	% Sea $p$ un primo positivo, impar, $p\neq 3,7$. Entonces, usando
+	% las propiedades del s\'{\i}mbolo de Legendre,
+	% \begin{displaymath}
+		% \legendre{-21} p\,=\,\legendre{-1} p\,\legendre 3 p\,
+			% \legendre 7 p\,=\,\legendre{-1} p\,
+				% (-1)^{\frac{p-1} 2}\,\legendre p 3\,
+				% (-1)^{\frac{p-1} 2}\,\legendre p 7\,=\,
+			% \legendre{-1} p\,\legendre p 3\,\legendre p 7
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% Sea $f(p)\in\cuadratico^3$ la funci\'on
+	% \begin{displaymath}
+		% f(p)\,=\,\bigg(\legendre{-1} p,\,\legendre p 3,\,\legendre p 7
+			% \bigg)
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% Entonces, $\tlegendre{-21} p=1$, si y s\'olo si
+	% \begin{displaymath}
+		% f(p)\,\in\,\big\{(1,1,1),\,(1,-1,-1),\,(-1,1,-1),\,(-1,-1,1)
+			% \big\}
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% Ahora, $f(p)=(1,1,1)$, si y s\'olo si
+	% \begin{displaymath}
+		% p\,\equiv\,1\tmodulo[4]\text{ ,}\quad
+			% p\,\equiv\,1\tmodulo[3]\quad\text{y}\quad
+			% p\,\equiv\,1,2,4\tmodulo[7]
+		% \text{ ,}
+	% \end{displaymath}
+	% %
+	% lo que da lugar a las clases
+	% \begin{displaymath}
+		% p\,\equiv\,1,25,37\modulo[84]
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% An\'alogamente, $(1,-1,-1)$, $(-1,1,-1)$ y $(-1,-1,1)$ dan lugar a
+	% otras tres clases m\'odulo $84$ cada una. En total son $12$ clases;
+	% notar que $\eulerphi(84)=\indice{\Unidadesmod[84]}=24$, o sea que
+	% $\ker\,\chi$ es un subgrupo de \'{\i}ndice $2$ en $\Unidadesmod[84]$.
+	% % \begin{displaymath}
+		% % p\,\equiv\,1,25,37,17,5,41,31,19,55,59,23,11\modulo[84]
+		% % \text{ .}
+	% % \end{displaymath}
+	% % %
+% \end{solucion}
+
+% \begin{ejerEcuacion}\label{ejer:ecuacion:reciprocidad:kronecker}
+	% En la \S~\ref{sec:ecuacion}, \lemaname~\ref{lema:ecuacion:kronecker},
+	% asumiendo las propiedades del s\'{\i}mbolo de Legendre enunciadas en
+	% el \teoname~\ref{teo:ecuacion:legendre}, vimos c\'omo asociar a cada
+	% $D\equiv 0,1\tmodulo[4]$, $D\neq 0$, una funci\'on $\chi(m)$,
+	% $m\in\Enteros$, con ciertas propiedades que la determinan
+	% un\'{\i}vocamente. En este ejercicio, veremos c\'omo, asumiendo la
+	% existencia de estas funciones $\chi$, podemos demostrar las
+	% propiedades del s\'{\i}mbolo de Legendre. En otras palabras, el
+	% \lemaname~\ref{lema:ecuacion:kronecker} y el \teoname~%
+	% \ref{teo:ecuacion:legendre} son equivalentes.
+	% \begin{itemize}
+		% \item
+			% Sea $q$ un primo positivo e impar y sea
+			% $D:=q^*=(-1)^{\frac{q-1} 2}\,q$; si bien $D$ puede ser
+			% negativo, se cumple $D\equiv 1\tmodulo[4]$.
+		% \item
+			% Sea $D=-4$.
+		% \item
+			% Sea $D=8$.
+	% \end{itemize}
+	% %
+% \end{ejerEcuacion}
+% 

@@ -1,0 +1,347 @@
+\theoremstyle{plain}
+\newtheorem{teoPolinomios}{\teoname}[section]
+\newtheorem{coroPolinomios}[teoPolinomios]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{defPolinomios}[teoPolinomios]{\defname}
+\newtheorem{obsPolinomios}[teoPolinomios]{\obsname}
+\newtheorem{ejemPolinomios}[teoPolinomios]{\ejemname}
+
+%-------------
+
+% \subsection{Subanillos}%
+	% \label{subsec:subanillos}
+En esta secci\'on, salvo aclaraci\'on, ``anillo'' querr\'a decir
+``anillo conmutativo con unidad''.
+
+\begin{defPolinomios}\label{def:polinomios:subanillo}
+	Si $A$ es un anillo y $B\subset A$ es un subconjunto con las
+	propiedades:
+	$0\in B$, $B+B\subset B$, $B\cdot B\subset B$ y $1\in B$, decimos que
+	\emph{$B$ es un subanillo de $A$}.
+\end{defPolinomios}
+
+\begin{ejemPolinomios}\label{ejem:polinomios:subanillo}
+	El subconjunto $\Enteros\subset\Racionales$ es un subanillo del
+	anillo (cuerpo) de n\'umeros racionales; como subconjuntos de los
+	n\'umeros complejos, $\Enteros$, $\Racionales$ y $\Reales$ son
+	subanillos que satisfacen:
+	$\Enteros\subset\Racionales\subset\Reales\subset\Complejos$.
+	Los subconjuntos $\EnterosGauss$, $\EnterosEisenstein$ y
+	$\polinomios\Enteros{\sqrt{-6}}$ tambi\'en son subanillos de
+	$\Complejos$, pero ninguno de ellos est\'a contenido en $\Reales$.
+	El anillo $\polinomios\Enteros{\sqrt 6}$ --definido de manera
+	an\'aloga a $\polinomios\Enteros{\sqrt{-6}}$-- es un subanillo de
+	$\Reales$ (pero no de $\Racionales$).
+\end{ejemPolinomios}
+
+% \subsection{Expresiones polinomiales}%
+	% \label{subsec:expresiones}
+\begin{obsPolinomios}\label{obs:polinomios:expresiones}
+	Si $a\in A$ y $B\subset A$ es un subanillo, entonces
+	$a,\,a^2,\,\dots$ son elementos de $A$ y tambi\'en lo son
+	$ba,\,ba^2,\,\dots$, si $b\in B$. M\'as en general, la expresi\'on
+	\begin{equation}
+		\label{eq:polinomios:expresiones}
+		b_0\,+\,b_1a\,+\,\cdots\,+\,b_ma^m
+		\text{ ,}
+	\end{equation}
+	%
+	donde $m$ es natural o $0$ y $\lista[0] b{m}\in B$,
+	define un elemento de $A$.
+	El elemento $0$ es de este tipo (eligiendo $m=0$ y $b_0=0$,
+	por ejemplo), como tambi\'en lo son $1$ ($m=0$ y $b_0=1$) y
+	$a$ ($m=1$, $b_0=0$ y $b_1=1$).
+	M\'as aun, dados dos elementos del tipo
+	\eqref{eq:polinomios:expresiones}, $p$ y $q$, su suma, $p+q$, y su
+	producto, $p\cdot q$, % (elementos tambi\'en de $A$)
+	son tambi\'en del tipo \eqref{eq:polinomios:expresiones}
+	\quedacomoejercicio.
+	En particular, el subconjunto
+	\begin{displaymath}
+		\polinomios B a\,=\,\big\{b_0+b_1a+\,\cdots\,+b_ma^m\,:\,
+			m\text{ natural o } 0\text{ y }
+			\lista[0] b{m}\in B\big\}
+	\end{displaymath}
+	%
+	de $A$ es un subanillo de $A$.
+\end{obsPolinomios}
+
+\begin{defPolinomios}\label{def:polinomios:expresiones}
+	Sean $A$ un anillo, $a\in A$ un elemento y $B\subset A$ un subanillo.
+	Una \emph{expresi\'on polinomial en $a$ con coeficientes en $B$}
+	es un elemento de $A$ del tipo \eqref{eq:polinomios:expresiones}.
+	El \emph{anillo de expresiones polinomiales en $a$ con coeficientes %
+	en $B$} es el subanillo $\polinomios B a\subset A$.
+\end{defPolinomios}
+
+\begin{ejemPolinomios}\label{ejem:polinomios:expresiones}
+	Si $\sqrt{-6}\in\Complejos$ es un n\'umero complejo que cumple que
+	$\sqrt{-6}^2=-6$, entonces el subanillo de expresiones polinomiales
+	en $\sqrt{-6}$ con coeficientes en $\Enteros$ coincide con el
+	anillo $\polinomios \Enteros{\sqrt{-6}}$
+	\quedacomoejercicio.
+\end{ejemPolinomios}
+
+% \subsection{Elementos trascendentes}%
+	% \label{subsec:trascendentes}
+\begin{obsPolinomios}\label{obs:polinomios:trascendente}
+	En general, no tiene por qu\'e ser cierto \emph{a priori} que
+	\begin{math}
+		b_0+b_1a+\,\cdots\,+b_ma^m= c_0+c_1a+\,\cdots\,+c_na^n
+	\end{math}
+	implique $m=n$ y $b_i=c_i$ para cada $i$.
+	Siguiendo con el \ejemname~\ref{ejem:polinomios:expresiones},
+	la igualdad $\sqrt{-6}^2=-6$ muestra un ejemplo de esto.
+	En particular, podr\'{\i}a ocurrir que
+	\begin{math}
+		b_0+b_1a+\,\cdots\,+b_ma^m=0
+	\end{math},
+	pero que $b_m\neq 0$.
+\end{obsPolinomios}
+
+\begin{defPolinomios}\label{def:polinomios:trascendente}
+	Sean $B$ un anillo, $A$ un anillo del cual $B$ es subanillo
+	% ($A\supset B$)
+	y $a\in A$ un elemento.
+	Decimos que \emph{$a$ es trascendente sobre $B$}, si las \'unicas
+	expresiones polinomiales en $a$ con coeficientes en $B$ iguales a cero
+	son las \emph{expresiones triviales}, es decir, aquellas cuyos
+	coeficientes son todos iguales a cero.
+	Expresado de otra manera, $a\in A$ es trascendente sobre $B$, si
+	\begin{displaymath}
+		b_0\,+\,b_1a\,+\,\cdots\,+\,b_ma^m\,=\,0
+		\quad\text{implica}\quad b_0\,=\,b_1\,=\,\cdots\,=\,b_m\,=\,0
+		\text{ .}
+	\end{displaymath}
+	%
+\end{defPolinomios}
+
+\begin{teoPolinomios}\label{teo:polinomios:trascendente}
+	Sean $B$ un anillo, $A,C$ anillos del cual $B$ es subanillo y
+	$x\in A$ y $c\in C$ elementos.
+	Si $x$ es trascendente sobre $B$, existe una \'unica funci\'on
+	$f:\,\polinomios B x\rightarrow C$ tal que
+	\begin{displaymath}
+		f(b)\,=\,b\text{ para todo }b\in B
+			\quad\text{y}\quad f(x)\,=\,c
+	\end{displaymath}
+	%
+	y tal que 
+	\begin{displaymath}
+		f(u+v)\,=\,f(u)+f(v)\quad\text{y}\quad f(uv)\,=\,f(u)f(v)
+		\text{ ,}
+	\end{displaymath}
+	%
+	siempre que $u,v\in\polinomios B x$. La imagen de esta funci\'on
+	es igual a $\polinomios B c$.
+\end{teoPolinomios}
+
+\begin{proof}
+	Veamos, primero, que puede existir a lo sumo una funci\'on con
+	estas propiedades. Todo elemento de $\polinomios B x$ se puede
+	expresar como $b_0+b_1x+\,\cdots\,+b_mx^m$, donde $m$ es natural o
+	$0$ y $b_i\in B$ para cada $i$. Entonces, si
+	$f:\,\polinomios B x\rightarrow C$ tiene las
+	propiedades del enunciado y $p=b_0+b_1x+\,\cdots\,+b_mx^m$ es una
+	expresi\'on polinomial en $x$ con coeficientes en $B$, $f(p)$ es
+	igual a
+	\begin{equation}
+		\label{eq:polinomios:trascendente}
+		\begin{aligned}
+			f\big(b_0+b_1x+\,\cdots\,+b_mx^m\big) & \,=\,
+				f(b_0)\,+\,f(b_1)\,f(x)\,+\,\cdots\,+\,
+					f(b_m)\,f(x)^m \\
+			& \,=\, b_0\,+\,b_1c\,+\,\cdots\,+\,b_mc^m
+			\text{ .}
+		\end{aligned}
+		%
+	\end{equation}
+	%
+	En palabras, una funci\'on
+	$f:\,\polinomios B x\rightarrow C$ que respeta la
+	suma y el producto y es la identidad en $B$ est\'a determinada
+	por su valor en $x$. Aun no hemos usado que $x$ es trascendente.
+	El hecho de que $x\in A$ sea trascendente sobre $B$ es equivalente
+	a que cada elemento de $\polinomios B x$ se puede expresar de a lo
+	sumo una \'unica manera como expresi\'on polinomial en $x$ con
+	coeficientes en $B$. Con esto y la ecuaci\'on~%
+	\eqref{eq:polinomios:trascendente} en mente, definimos la siguiente
+	funci\'on: si $p=b_0+b_1x+\,\cdots\,+b_mx^m\in\polinomios B x$,
+	\begin{displaymath}
+		% f\big(b_0+b_1x+\,\cdots\,+b_mx^m\big) \,=\,
+		f(p)\,:=\,
+			b_0\,+\,b_1c\,+\,\cdots\,+\,b_mc^m
+		\text{ .}
+	\end{displaymath}
+	%
+	La unicidad de la expresi\'on para $p$ garantiza que la
+	identidad anterior \emph{define una funci\'on}.
+	S\'olo resta verificar que esta funci\'on tiene las propiedades
+	deseadas \quedacomoejercicio.
+\end{proof}
+
+\begin{obsPolinomios}\label{obs:polinomios:trascendente}
+	Sean $B$ un anillo, $A,C$ anillos del cual $B$ es subanillo y
+	$x\in A$ e $y\in C$ elementos trascendentes. Por el \teoname~%
+	\ref{teo:polinomios:trascendente}, existen \'unicas funciones
+	$f:\,\polinomios B x\rightarrow\polinomios B y$ y
+	$g:\,\polinomios B y\rightarrow\polinomios B x$ que respetan la suma
+	y el producto y tales que $f(b)=g(b)=b$ para todo $b\in B$ y
+	$f(x)=y$ y $g(y)=x$. En particular, $fg=\id[{\polinomios B y}]$ y
+	$gf=\id[{\polinomios B x}]$. Es decir, desde un punto de vista
+	algebraico, los anillos $\polinomios B x$ y $\polinomios B y$ son
+	indistinguibles.
+	Esta estructura com\'un es la % del anillo
+	de polinomios en una indeterminada con coeficientes en $B$.
+\end{obsPolinomios}
+
+% \subsection{Polinomios en una indeterminada}%
+	% \label{subsec:indeterminada}
+\begin{defPolinomios}\label{def:polinomios:indeterminada}
+	Sea $B$ un anillo conmutativo con unidad $1\neq 0$. Las
+	expresiones polinomiales en un elemento trascendente,
+	perteneciente a un anillo del cual $B$ es subanillo ser\'an
+	\emph{polinomios en una indetermianda con coeficientes en $B$}.
+\end{defPolinomios}
+
+\begin{obsPolinomios}\label{obs:polinomios:indeterminada}
+	Por el \teoname~\ref{teo:polinomios:trascendente}, no importa
+	cu\'al sea el anillo $A$ del cual $B$ es subanillo, ni tampoco el
+	elemento trascendente $x\in A$ elegido para hacer las veces de
+	variable, la estructura algebraica es esencialmente la misma.%
+	\footnote{
+		?`Es cierto que para cualquier anillo (conmutativo con
+		unidad $1\neq 0$) $B$ existe un anillo $A\supset B$ del
+		cual es subanillo y un elemento $x\in A$ trascendente
+		sobre $B$?
+		En el \ejername~\ref{ejer:polinomios:anillo} mostramos
+		una manera de responder la pregunta.
+	}
+\end{obsPolinomios}
+
+% \subsection{El grado de un polinomio}%
+	% \label{subsec:grado}
+\begin{defPolinomios}\label{def:polinomios:grado}
+	El \emph{grado} de un polinomio $p\in\polinomios B x$, $p\neq 0$,
+	es el m\'aximo $k\geq 0$ tal que $b_k\neq 0$ en la expresi\'on
+	polinomial $p=b_0+b_1x+\,\cdots\,+b_mx^m$.
+	Al polinomio $0\in\polinomios B x$, lo llamamos el
+	\emph{polinomio nulo} y no le asignamos grado.
+\end{defPolinomios}
+
+Si $p=b_0+b_1x+\,\cdots\,+b_mx^m$ y $q=c_0+c_1x+\,\cdots\,+c_nx^n$ son
+polinomios de grados $m$ y $n$ ($b_m\neq 0$, $c_n\neq 0$), respectivamente,
+entonces
+\begin{displaymath}
+	p\,q\,=\,d_0\,+\,d_1\,x\,+\,\cdots\,+\,d_{m+n}x^{m+n}
+		\text{ ,}\quad\text{donde}\quad
+		d_k=\sum_{i+j=k}\,b_ic_j
+	\text{ .}
+\end{displaymath}
+%
+En particular, $d_{m+n}=b_mc_n$ y, si $pq\neq 0$, entonces
+$\grado(pq)\leq\grado(p)+\grado(q)$; podr\'{\i}a ocurrir que $d_{m+n}=0$.
+
+\begin{ejemPolinomios}\label{ejem:polinomios:grado}
+	Sean $p,q\in\polinomios{\Enterosmod[6]} x$ los polinomios
+	$p=2x+1$ y $q=3x+5$, entonces
+	\begin{displaymath}
+		pq\,=\,(2x+1)\,(3x+5)\,=\,(2\cdot 3)\,x^2+
+			(2\cdot 5+1\cdot 3)\,x+1\cdot 5\,=\,
+			6 x^2+13 x+5\,=\,x+5
+		\text{ .}
+	\end{displaymath}
+	%
+	En particular, si bien $p$ y $q$ son polinomios de grado $1$ con
+	coeficientes en $\Enterosmod[6]$, el producto $pq$ tiene grado
+	$1$, menor estricto que la suma de los grados.
+\end{ejemPolinomios}
+
+\begin{defPolinomios}\label{def:polinomios:coeficientes}
+	Si $p\in\polinomios B x$ es un polinomio distinto del polinomio
+	nulo de grado $\grado(p)=m\geq 0$, su \emph{coeficiente principal}
+	es el coeficiente $b_m$ en la expresi\'on
+	$p=b_0+b_1x+\,\cdots\,+b_mx^m$; su \emph{t\'ermino independiente}
+	es $b_0$. Decimos que un polinomio no nulo es \emph{m\'onico},
+	si su coeficiente principal es igual a $1$.
+\end{defPolinomios}
+
+\begin{obsPolinomios}\label{obs:polinomios:coeficientes}
+	El coeficiente principal de un polinomio distinto del polinomio
+	nulo es distinto de cero.
+\end{obsPolinomios}
+
+% \subsection{Divisibilidad}%
+	% \label{subsec:divisibilidad}
+\begin{defPolinomios}\label{def:polinomios:divisibilidad}
+	Un polinomio $g$ \emph{divide} a un polinomio $f$, si existe un
+	polinomio $h$ tal que $gh=f$; en tal caso, escribimos $g\mid f$.
+\end{defPolinomios}
+
+\begin{teoPolinomios}\label{teo:polinomios:algoritmo}
+	Sea $B$ un anillo (conmutativo con unidad $1\neq 0$) y sean
+	$f,g\in\polinomios B x$ polinomios en una indeterminada.
+	Si el coeficiente principal de $g$ es una unidad en $B$, entonces
+	\begin{enumerate}[(A)]
+		\item\label{item:teo:polinomios:algoritmo:1}
+			$g\mid f$ y existe un \'unico polinomio
+			$q\in\polinomios B x$ tal que $f=qg$, o bien
+		\item\label{item:teo:polinomios:algoritmo:2}
+			existen \'unicos polinomios $q,r\in\polinomios B x$
+			tales que $f=qg+r$ y $\grado(r)<\grado(g)$.
+	\end{enumerate}
+	%
+\end{teoPolinomios}
+
+\begin{proof}
+	Como el coeficiente principal de $g$ es inversible, el coeficiente
+	principal de $qg$ es igual al coeficiente principal de $q$
+	(cero, si $q=0$). En particular, si $f=0$, se cumple
+	$g\mid f$ y el \'unico polinomio para el cual se verifica $f=qg$
+	es $q=0$. Asumamos, entonces, que $f$ no es el polinomio nulo. En
+	ese caso, $\grado(f)=m\geq 0$ y, si $f=a_0+a_1x+\,\cdots\,+a_mx^m$,
+	$a_m\neq 0$. Si $m<\grado(g)$, la \'unica posibilidad es
+	$q=0$ y $r=f$. Supongamos que $m\geq \grado(g)$. Si $m=0$, entonces
+	$\grado(g)=0$, con lo que $g=b_0\in B$ es una unidad y $g\mid f$;
+	el polinomio $q$, en este caso, es $q=a_0b_0^{-1}$. Si $m>0$ y
+	$d=\grado(g)\leq m$, entonces el polinomio
+	\begin{displaymath}
+		f_1\,=\,f\,-\,a_mb_d^{-1}x^{m-d}\,g
+	\end{displaymath}
+	%
+	es, o bien el polinomio nulo, o bien $\grado(f_1)<\grado(f)$.
+	Un argumento inductivo muestra que existen $q$ y $r$ tales que
+	$f=qg+r$, donde $r=0$ o bien $\grado(r)<\grado(g)$.
+	Resta probar la unicidad \quedacomoejercicio.
+\end{proof}
+
+\begin{coroPolinomios}\label{coro:polinomios:algoritmo}
+	Sea $k$ un cuerpo. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:coro:polinomios:algoritmo:euclidiano}
+			los polinomios en una indeterminada con
+			coeficientes en $k$ forman un dominio euclidiano;
+		\item\label{item:coro:polinomios:algoritmo:raices}
+			si $f\in\polinomios k x$ es un polinomio no nulo
+			y $a\in k$, entonces $a$ es una ra\'{\i}z de $f$,
+			si y s\'olo si $x-a$ divide a $f$ en $\polinomios k x$;
+		\item\label{item:coro:polinomios:algoritmo:raices:bis}
+			en particular, si $\grado(f)=m\geq 0$, $f$ tiene,
+			a lo sumo, $m$ ra\'{\i}ces distintas en $k$;
+		\item\label{item:coro:polinomios:algoritmo:finito}
+			si $U\subset\Unidades k$ es un subconjunto finito
+			tal que $U\cdot U\subset U$, entonces existe
+			$y\in U$ tal que todo $u\in U$ es de la forma
+			$u=y^r$ para alg\'un entero no negativo $r$.%
+			\footnote{
+				Se dice, entonces, que $U$ es un subgrupo
+				\emph{c\'{\i}clico} de $\Unidades k$
+			}
+	\end{enumerate}
+	%
+\end{coroPolinomios}
+
+\subsection*{Ejercicios}
+\input{./tex/divisibilidad-y-congruencia/ejercicios-polinomios.tex}
+

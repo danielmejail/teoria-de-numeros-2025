@@ -1,0 +1,235 @@
+\theoremstyle{plain}
+\newtheorem{teoGeneros}{\teoname}[section]
+\newtheorem{coroGeneros}[teoGeneros]{\coroname}
+\newtheorem{lemaGeneros}[teoGeneros]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{defGeneros}[teoGeneros]{\defname}
+\newtheorem{ejemGeneros}[teoGeneros]{\ejemname}
+\newtheorem{obsGeneros}[teoGeneros]{\obsname}
+
+%-------------
+
+\begin{ejemGeneros}\label{ejem:generos:menos-veinte}
+	Hay dos clases de formas de discriminante $-20$.
+	El argumento es similar al del \ejemname~\ref{ejem:reducidas}.
+	Si $f=\binaria{a,b,c}$ es una forma cuadr\'atica primitiva,
+	reducida y de discriminante $-20$, entonces
+	$1\leq a\leq\sqrt{20/3}<7$, o sea $a\in\{1,2\}$. Adem\'as,
+	como $D\equiv 0\tmodulo[4]$, debe ser $b\equiv 0\tmodulo[2]$. 
+	Si $a=1$, entonces $b=0$ y $c=5$ es la \'unica posibilidad.
+	Si $a=2$, entonces $b\in\{0,2\}$, pero $-20=b^2-4ac$ con
+	$c\in\Enteros$ fuerza que $b=2$ y, as\'{\i}, $c=3$. O sea,
+	$\nClases(-20)=2$ y las clases est\'an representadas por
+	las formas primitivas reducidas
+	\begin{displaymath}
+		x^2\,+\,5y^2\dispand 2x^2\,+\,2xy\,+\,3y^2
+		\dispstop
+	\end{displaymath}
+	%
+
+	Por el \coroname~\ref{coro:reducidas:representaciones},
+	un primo impar $p\neq 5$ est\'a representado por una
+	forma reducida de discriminante $-20$, si y s\'olo si
+	$\tlegendre{-5} p=1$. Pero
+	\begin{displaymath}
+		\tlegendre{-5} p\,=\,1\dispcomma\dispiff
+		p\,\equiv\,1,9,7,3\tmodulo[20]
+		\dispstop
+	\end{displaymath}
+	%
+	Ahora, $f(x,y)=x^2+5y^2$ representa primos
+	$p\equiv 1,9\tmodulo[20]$: por ejemplo,
+	\begin{displaymath}
+		\begin{aligned}
+			f(6,1) & \,=\,41\dispcomma\quad
+				f(4,3)\,=\,61 \dispcomma \\
+			f(3,2) & \,=\,29\dispand f(3,4)\,=\,89
+			\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Pero $f$ no representa primos $p\equiv 3,7\tmodulo[20]$
+	(pues $f(x,y)\equiv 0,1,4\tmodulo[5]$).
+	Sin embargo, la forma $g=2x^2+2xy+3y^2$ s\'{\i} los
+	representa: por ejemplo,
+	\begin{displaymath}
+		\begin{aligned}
+			g(0,1) & \,=\,3\dispcomma\quad
+				g(1,-3)\,=\,23\dispcomma\quad
+				g(4,1)\,=\,43\dispcomma\quad
+				g(7,-3)\,=\,83\dispcomma \\
+			g(1,1) & \,=\,7\dispcomma\quad
+				g(5,-3)\,=\,47\dispcomma\dispand
+				g(4,-5)\,=\,67
+				\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Pero $g$ no representa primos $p\equiv 1,9\tmodulo[20]$
+	(pues $g(x,y)\equiv 0,2,3\tmodulo[5]$).
+	En definitiva, un primo impar $p\neq 5$ es representado
+	por una forma reducida de discriminante $-20$, si y s\'olo si
+	\begin{displaymath}
+		p\,\equiv\,1,9,7,3\tmodulo[20]
+		\dispiff
+		\left\{
+			\begin{array}{l}
+				p\,=\,x^2+5y^2\dispor \\
+				p\,=\,2x^2+2xy+3y^2
+				\dispstop
+			\end{array}
+		\right.
+	\end{displaymath}
+	%
+	M\'as precisamente, si $p\neq 5$ es un primo impar 
+	\begin{displaymath}
+		\begin{aligned}
+			p & \,\equiv\,1,9\tmodulo[20]\dispiff
+				p\,=\,x^2+5y^2\dispand \\
+			p & \,\equiv\,3,7\tmodulo[20]\dispiff
+				p\,=\,2x^2+2xy+3y^2
+			\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+\end{ejemGeneros}
+
+\begin{ejemGeneros}\label{ejem:generos:menos-cincuenta-y-seis}
+	Hay cuatro clases de formas de discriminante $-56$. Las formas
+	reducidas correspondientes son
+	\begin{displaymath}
+		\binaria{1,0,14} \dispcomma\quad
+		\binaria{2,0,7} \dispcomma\quad
+		\binaria{3,-2,5} \dispand
+		\binaria{3,2,5}
+		\dispstop
+	\end{displaymath}
+	%
+	Por el \coroname~\ref{coro:reducidas:representaciones},
+	un primo impar $p\neq 7$ est\'a representado por alguna de estas
+	formas cuadr\'aticas, si y s\'olo si $\tlegendre{-14} p=1$. Pero
+	\quedacomoejercicio,
+	% % PARA EL EXAMEN
+	% % Explicar o mostrar mediante ejemplos el significado de la
+	% % afirmaci\'on: ``no es posible, conociendo \'unicamente la clase
+	% % de congruencia de $p$ m\'odulo $56$, determinar si $p$ es o no
+	% % de la forma $x^2+14y^2$''.
+	\begin{itemize}
+		\item si $p=x^2+14y^2$ o $p=2x^2+7y^2$, entonces
+			$p\equiv 1,7\tmodulo[8]$ y
+			$p\equiv 1,2,4\tmodulo[7]$, y,
+		\item si $p=3x^2\pm 2xy+5y^2$, entonces debe ser
+			$p\equiv 3,5\tmodulo[8]$ y
+			$p\equiv 3,5,6\tmodulo[7]$.
+	\end{itemize}
+	%
+	La condici\'on m\'odulo $7$ la podemos deducir, por ejemplo, de la
+	condici\'on m\'odulo $8$ y de que, por Reciprocidad cuadr\'atica,
+	\begin{displaymath}
+		\tlegendre{-14} p\,=\,\tlegendre{-7} p\tlegendre 2 p\,=\,
+			\tlegendre p 7\tlegendre 2 p
+		\dispstop
+	\end{displaymath}
+	%
+	Notamos, adem\'as, que $\binaria{1,0,14}$ y $\binaria{2,0,7}$ ambas
+	representan primos en todas las clases
+	$p\equiv 1,25,9,15,39,23\tmodulo[56]$,
+	y que $\binaria{3,\pm 2,5}$ representan exactamente los mismos
+	enteros.
+\end{ejemGeneros}
+
+\begin{obsGeneros}\label{obs:generos:ejemplos}
+	En el \ejemname~\ref{ejem:generos:menos-veinte},
+	podemos ver que la clase de congruencia de un primo $p$ m\'odulo $20$
+	determina, en primer lugar, si $p$ es representado en \emph{alguna}
+	forma cuadr\'atica de discriminante $-20$ y, en segundo lugar,
+	determina tambi\'en la clase que lo representa.
+	En el \ejemname~\ref{ejem:generos:menos-cincuenta-y-seis}, tambi\'en
+	es cierto que la clase de congruencia de $p$ m\'odulo $56$
+	determina si $p$ es representado por alguna forma de discriminante
+	$-56$, pero no es posible distinguir exactamente cu\'al es la clase
+	que lo representa. En particular, no podemos decir, si
+	$p\equiv 1,25,9,15,39,23\tmodulo[56]$, si $p$ es de la forma
+	$x^2+14y^2$. M\'as aun, $p$ podr\'{\i}a estar (y, de hecho, est\'a)
+	representado por m\'as de una clase.
+	En definitiva, hay un l\'{\i}mite a lo que podemos deducir a partir
+	de (estas) congruencias.
+\end{obsGeneros}
+
+En la \defname~\ref{def:definiciones:representacion}, definimos lo que
+significa que una forma cuadr\'atica represente un entero: $f$ representa
+$m\in\Enteros$, si existen $x,y\in\Enteros$ tales que $f(x,y)=m$.
+Teniendo en cuenta la \obsname~\ref{obs:generos:ejemplos}, introducimos
+la siguiente variante de este concepto de representaci\'on.
+
+\begin{defGeneros}\label{def:generos:representacion:mod}
+	Dados $D\in\Enteros$, una clase de congruencia
+	$c\in\Enterosmod[|D|]$ y una forma $f$, decimos que
+	\emph{la clase $c$ es representada por $f$} (o que \emph{$f$ %
+	representa la clase $c$}), si existe $m\in c$, perteneciente a la
+	clase, tal que $m$ es representado por $f$.
+\end{defGeneros}
+
+\begin{ejemGeneros}\label{ejem:generos:representacion:mod}
+	La forma $\binaria{1,0,14}$ representa las clases
+	\begin{displaymath}
+		\clase 1\dispcomma\quad
+		\clase{25}\dispcomma\quad
+		\clase 9\dispcomma\quad
+		\clase{15}\dispcomma\quad
+		\clase{39}\dispand
+		\clase{23}
+	\end{displaymath}
+	%
+	m\'odulo $56$, porque, por ejemplo, representa a \emph{los enteros}
+	$1$, $25$, $9$, $15$, $39$ y $23$. Sin embargo, la forma
+	$\binaria{2,0,7}$ tambi\'en representa estas clases:
+	representa
+	\begin{displaymath}
+		9\,=\,2\cdot 1^2+7\dispcomma\quad
+		15\,=\,2\cdot 2^2+7\dispcomma\quad
+		25\,=\,2\cdot 3^2+7\dispand
+		39\,=\,2\cdot 4^2+7
+		\text{ ;}
+	\end{displaymath}
+	%
+	pero tambi\'en representa
+	\begin{displaymath}
+		57\,=\,2\cdot 5^2+7\,\equiv\,1\modulo[56]
+		\dispand
+		79\,=\,2\cdot 6^2+7\,\equiv\,23\modulo[56]
+		\dispstop
+	\end{displaymath}
+	%
+\end{ejemGeneros}
+
+De la teor\'{\i}a desarrollada en la \S~\ref{sec:representaciones}, sabemos
+que formas equivalentes representan los mismos enteros.
+
+\begin{defGeneros}\label{def:generos}
+	Dos formas cuadr\'aticas % \emph{primitivas} definidas positivas
+	de discriminante $D$ \emph{pertenecen al mismo g\'enero},
+	si representan las mismas clases en $\Unidadesmod[D]$.
+\end{defGeneros}
+
+% \begin{ejemGeneros}\label{ejem:generos:representacion:mod:bis}
+% \end{ejemGeneros}
+
+\begin{defGeneros}\label{def:generos:clases-coprimas}
+	Dados $D\in\Enteros$ y una clase $c\in\Enterosmod[D]$, decimos
+	que \emph{$c$ es coprima con $D$}, si los enteros de la clase
+	$c$ son coprimos con $D$.
+\end{defGeneros}
+
+\begin{obsGeneros}\label{obs:generos:clases-coprimas}
+	Si $m\equiv n\tmodulo[D]$, entonces $\mcd{m,D}=\mcd{n,D}$.
+	En particular, cuandp $m\equiv n$, $m$ es coprimo con $D$, si
+	y s\'olo si $n$ lo es. En consecuencia,
+	si $D\in\Enteros$ y $c\in\Enterosmod[D]$, entonces $c$ es coprima
+	con $D$, si y s\'olo si \emph{al menos uno de los enteros %
+	pertenecientes a $c$} es coprimo con $D$.
+\end{obsGeneros}

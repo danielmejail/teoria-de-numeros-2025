@@ -1,0 +1,128 @@
+\theoremstyle{plain}
+
+\theoremstyle{definition}
+
+%-------------
+
+Volvamos al problema de determinar si un primo impar $p$ se puede,
+o no, expresar en la forma $p=x^2+ny^2$.
+La condici\'on $\tlegendre{-n} p=1$ garantiza que $p$ \emph{divide}
+un entero $N=a^2+nb^2$, $\mcd{a,b}=1$.
+% Usando las propiedades del s\'{\i}mbolo de Legendre, podemos
+% determinar el valor de $\tlegendre{-n} p$ de manera m\'as o
+% menos sencilla.
+Pero no es cierto en general que $\tlegendre{-n} p=1$ implique que
+$p$ sea de esa forma. Por ejemplo, con $n=5$, si $p\neq 5$ es un
+primo impar y existen $x,y\in\Enteros$ tales que $p=x^2+5y^2$,
+entonces $p\equiv 1\tmodulo[4]$ y $p\equiv 1,4\tmodulo[5]$, o sea
+\begin{displaymath}
+	p\,=\,x^2+5y^2\quad\text{implica}\quad
+		p\,\equiv\, 1,9\modulo[20]
+	\text{ .}
+\end{displaymath}
+%
+% M\'as aun, calculando unos cuantos valores primos de la forma
+% $x^2+5y^2$, podemos conjeturar que son equivalentes, es decir,
+% si $p\equiv 1,9\tmodulo[20]$, entonces existen $x,y\in\Enteros$
+% tales que $p=x^2+5y^2$... NO, NO.
+Pero,
+\begin{displaymath}
+	\tlegendre{-5} p\,=\,1\quad\text{si y s\'olo si}\quad
+		p\,\equiv\,1,3,7,9\tmodulo[20]
+	\text{ .}
+\end{displaymath}
+%
+Al respecto, Euler conjetur\'o lo siguiente:
+% las clases de congruencia $1$, $3$, $7$ y $9$ m\'odulo $20$
+% se separan en dos \emph{grupos}
+\begin{displaymath}
+	\begin{aligned}
+		p\,=\,x^2+5y^2\text{ ,} &
+			\quad\text{si y s\'olo si}\quad
+		p\,\equiv\,1,9\tmodulo[20]\quad\text{y} \\
+		2p\,=\,x^2+5y^2\text{ ,} &
+			\quad\text{si y s\'olo si}\quad
+		p\,\equiv\,3,7\tmodulo[20]
+		\text{ .}
+	\end{aligned}
+	%
+\end{displaymath}
+%
+Algo similar, pero, como veremos m\'as adelante, con una
+dificultad adicional, ocurre en el caso $n=14$. Si $p\neq 7$
+es un primo impar, Euler conjetur\'o que:
+\begin{displaymath}
+	\begin{aligned}
+		p\,=\,	\begin{cases}
+				x^2+14y^2 & \text{o} \\
+				2x^2+7y^2 & \text{ ,}
+			\end{cases}
+			& \quad\text{si y s\'olo si}\quad
+		p\,\equiv\,1,9,15,23,25,39\tmodulo[56]
+			\quad\text{y} \\
+		3p\,=\,x^2+14y^2\text{ ,}
+			& \quad\text{si y s\'olo si}\quad
+		p\,\equiv\,3,5,13,19,27,45\tmodulo[56]
+		\text{ .}
+	\end{aligned}
+	%
+\end{displaymath}
+%
+Nuevamente, sabiendo \'unicamente que $\tlegendre{-14} p=1$,
+no podemos determinar si $p$ cae en el primer grupo o en el
+segundo. E incluso si supi\'esemos que $p$ pertenece al primero,
+?`c\'omo podr\'{\i}amos distinguir entre los primos de la forma
+$x^2+14y^2$ y aquellos de la forma $2x^2+7y^2$?
+Saber su clase de congruencia m\'odulo $56$ no es suficiente.
+En definitiva, lo que se puede observar en el caso general es
+que las clases de congruencia para las cuales $\tlegendre{-n} p=1$
+se agrupan en lo que llamaremos ``g\'eneros'', cada uno de los
+cuales tendr\'a distintas propiedades de representabilidad.
+Para precisar y poder explicar este fen\'omeno, introduciremos
+las formas cuadr\'aticas.
+
+
+Por \'ultimo, mencionamos otras dos conjeturas de Euler que
+motivaron a Gauss a estudiar leyes de reciprocidad similares
+a las del s\'{\i}mbolo de Legendre, de las cuales hablaremos
+en la \partname~\ref{pt:reciprocidad-superior}.
+Sea $p$ un primo impar. Entonces,
+\begin{displaymath}
+	\begin{aligned}
+		p\,=\,x^2+27y^2\text{ ,} &
+			\quad\text{si y s\'olo si}\quad
+			\left\{
+			\begin{array}{l}
+				p\equiv 1\tmodulo[3]
+					\text{ y} \\[5pt]
+				2\equiv x^3\tmodulo[p]
+				\text{ tiene soluci\'on, y}
+			\end{array}
+			\right. \\[10pt]
+		p\,=\,x^2+64y^2\text{ ,} &
+			\quad\text{si y s\'olo si}\quad
+			\left\{
+			\begin{array}{l}
+				p\equiv 1\tmodulo[4]
+					\text{ y} \\[5pt]
+				2\equiv x^4\tmodulo[p]
+				\text{ tiene soluci\'on.}
+			\end{array}
+			\right.
+	\end{aligned}
+	%
+\end{displaymath}
+%
+Estas afirmaciones caracterizan los primos $p$ que se pueden
+expresar en la forma $p=x^2+27y^2$ y aquellos que se pueden
+expresar en la forma $p=x^2+64y^2$.
+% El s\'{\i}mbolo de Legendre captura la relaci\'on entre primos
+% v\'{\i}a residuos cuadr\'aticos.
+Sin embargo, adem\'as de una condici\'on de congruencia
+($p\equiv 1\tmodulo[3]$ y $p\equiv 1\tmodulo[4]$, respectivamente),
+estas caracterizaciones involucran los conceptos de residuos
+c\'ubicos y bicuadr\'aticos.
+
+\subsection*{Ejercicios}
+\input{./tex/reciprocidad-cuadratica/ejercicios-limitaciones.tex}
+

@@ -1,0 +1,516 @@
+\theoremstyle{plain}
+\newtheorem{teoCongruencias}{\teoname}[section]
+\newtheorem{coroCongruencias}[teoCongruencias]{\coroname}
+\newtheorem{lemaCongruencias}[teoCongruencias]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{defCongruencias}[teoCongruencias]{\defname}
+\newtheorem{obsCongruencias}[teoCongruencias]{\obsname}
+\newtheorem{ejemCongruencias}[teoCongruencias]{\ejemname}
+\newtheorem{pregCongruencias}[teoCongruencias]{\pregname}
+
+%-------------
+
+% \subsection{La relaci\'on de congruencia}%
+	% \label{subsec:la-relacion-de-congruencia}
+\begin{ejemCongruencias}\label{ejem:congruencias:motiva}
+	La ecuaci\'on $x^2-117x+31=0$ no tiene soluciones enteras.
+	Deben haber varias maneras de probar esto. Una de ellas es notar
+	que $31$ es primo y que, en consecuencia, si $x$ fuese soluci\'on,
+	entonces $x\in\{1,\,31\}$, pero ninguno de estos n\'umeros es una
+	soluci\'on ?`Qu\'e hubiese pasado con $x^2-117x+2^{136.279.841}-1$?
+	?`Es $2^{136.279.841}-1$ primo? Si lo es, parece razonable que la
+	ecuaci\'on no tenga soluci\'on en $\Enteros$ ?`Si no lo fuese?
+	Veamos una prueba alternativa de que no tiene soluci\'on. Calculando
+	algunos valores del polinomio $f(x)=x^2-117x+31$, se puede ver que
+	todos los resultados que se obtienen son impares. Probemos, entonces,
+	que $f(x)$ siempre es impar, si $x\in\Enteros$ (en particular, $f(x)$
+	nunca ser\'a cero, en ese caso). Para que $f(x)$ sea par,
+	$x^2-117x=(x-117)\,x$ deber\'{\i}a ser impar, porque $31$ es impar.
+	En particular, $x$ deber\'{\i}a ser impar y $x-117$ tambi\'en. Pero,
+	si $x$ es impar, $x-117$ es par. Absurdo.
+\end{ejemCongruencias}
+
+\begin{defCongruencias}\label{def:congruencias}
+	Dados enteros $a$, $b$ y $m$, $m\neq 0$, se dice que
+	\emph{$a$ es congruente a $b$ m\'odulo $m$}, si $m$ divide a $b-a$;
+	expresamos esta condici\'on por $a\equiv b\tmodulo[m]$.
+\end{defCongruencias}
+
+\begin{ejemCongruencias}\label{ejem:congruencias}
+	$-17$ y $5$ son congruentes m\'odulo $11$, pues $-17-5=-22$, que
+	es m\'ultiplo de $11$. Es decir, $-17\equiv 5\tmodulo[11]$.
+\end{ejemCongruencias}
+
+\begin{ejemCongruencias}\label{ejem:congruencias:bis}
+	Se cumple que $-117\equiv 1\tmodulo[2]$, $31\equiv 1\tmodulo[2]$ y
+	$-117\equiv 31\tmodulo[2]$. Tambi\'en es cierto que
+	$-117\not\equiv 0\tmodulo[2]$, $31\not\equiv 0\tmodulo[2]$ y que
+	$1\not\equiv 0\tmodulo[2]$. Por otro lado,
+	$-117 + 31\equiv 0\tmodulo[2]$ y $(-117)\,31\equiv 1\tmodulo[2]$.
+\end{ejemCongruencias}
+
+\begin{teoCongruencias}\label{teo:congruencias}
+	La condici\'on $a\equiv b\tmodulo[m]$ determina, fijado $m$, una
+	relaci\'on de equivalencia en $\Enteros$. Esta relaci\'on cumple,
+	adem\'as, que
+	\begin{displaymath}
+		a\equiv c\tmodulo[m]\quad\text{y}\quad
+		b\equiv d\tmodulo[m]
+	\end{displaymath}
+	%
+	implican
+	\begin{displaymath}
+		ab\equiv cd\tmodulo[m] \quad\text{y, tambi\'en,}\quad
+		a+b\equiv c+d\tmodulo[m]
+		\text{ .}
+	\end{displaymath}
+	%
+\end{teoCongruencias}
+
+% \subsection{Clases de congruencia}%
+	% \label{subsec:clases-de-congruencia}
+\begin{defCongruencias}\label{def:congruencias:clases}
+	Dado $m\in\Enteros$, $m\neq 0$, las clases de equivalencia en
+	$\Enteros$ determinadas por $a\equiv b\tmodulo[m]$ se denominan
+	\emph{clases de congruencia m\'odulo $m$} y, a la relaci\'on,
+	\emph{relaci\'on de congruencia (m\'odulo $m$)}.
+\end{defCongruencias}
+
+\begin{ejemCongruencias}\label{ejem:congruencias:clases}
+	Las clases de congruencia m\'odulo $2$ separan a los enteros entre
+	pares, $a\equiv 0\tmodulo[2]$, e impares, $a\equiv 1\tmodulo[2]$.
+	Los enteros $0$ y $1$ representan cada una de las clases de
+	congruencia m\'odulo $2$; los enteros $2$ y $3$, tambi\'en
+	representan ambas clases de congruencia. Mientras que $0$ y $3$
+	representan clases distintas (y, por lo tanto, disjuntas),
+	$0$ y $2$ representan la misma clase.
+\end{ejemCongruencias}
+
+\begin{ejemCongruencias}\label{ejem:congruencias:clases:bis}
+	Las clases de congruencia m\'odulo $3$ separan a los enteros entre
+	aquellos cuyo resto de dividir por $3$ es $0$, $1$ o bien $2$:
+	si $a\equiv b\tmodulo[3]$, entonces $3$ divide a la diferencia
+	$a-b$; si $a=3k+r$ y $b=3l+s$, entonces $a-b=3\,(k-l)+(r-s)$, o sea,
+	$3$ divide a $a-b$, si y s\'olo si $3$ divide a $r-s$. Entonces,
+	las clases est\'an representandas por los enteros
+	$0$, $1$ y $2$, que adem\'as representan clases distintas;
+	tambi\'en est\'an representadas por $-1$, $0$ y $1$, es decir, todo
+	entero es congruente m\'odulo $3$ a alguno de ellos (y, en este caso
+	tambi\'en, a exactamente uno de ellos).
+\end{ejemCongruencias}
+
+\begin{defCongruencias}\label{def:congruencias:sistema-completo}
+	Un \emph{sistema de representantes m\'odulo $m$}
+	(o, tambi\'en, \emph{sistema completo de representantes}) es un
+	subconjunto $R\subset\Enteros$ tal que todo entero sea congruente
+	a un \'unico elemento de $R$, es decir,
+	\begin{enumerate}[(i)]
+		\item\label{item:def:sistema-completo:existe}
+			si $x\in\Enteros$, existe $r\in R$ tal que
+			$x\equiv r\tmodulo[m]$ y
+		\item\label{item:def:sistema-completo:unico}
+			si $r,r'\in R$ y $r\neq r'$, entonces
+			$r\not\equiv r'\tmodulo[m]$.
+	\end{enumerate}
+	%
+\end{defCongruencias}
+
+\begin{ejemCongruencias}\label{ejem:congruencias:sistema-completo}
+	Con $m=7$, un sistema completo de representantes es el de restos
+	de la divisi\'on por $7$: $\{0,1,2,3,4,5,6\}$. Otro sistema completo
+	de representantes es $\{0,1,2,3,-3,-2,-1\}$.
+	Incluso otro puede ser $\{-28,50,16,-4,18,-30,-8\}$. Notemos que
+	en este \'ultimo ejemplo, todos los enteros del sistema de
+	representantes son pares.%
+	\footnote{
+		Ver \ejername~%
+		\ref{ejer:congruencias:chino:representantes}.
+	}
+\end{ejemCongruencias}
+
+\begin{teoCongruencias}\label{teo:congruencias:sistema-completo}
+	Dado $m\in\Enteros$, $m\neq 0$, la relaci\'on de congruencia
+	m\'odulo $m$ divide a $\Enteros$ en $|m|$ clases. Un sistema de
+	representantes est\'a dado por los $|m|$ restos de la divisi\'on
+	por $m$. En particular, todos los sistemas completos de
+	representantes tienen el mismo cardinal, $|m|$.
+\end{teoCongruencias}
+
+\begin{proof}
+	$a\equiv b\tmodulo[m]$, si y s\'olo si $\resto[m](a)=\resto[m](b)$.
+\end{proof}
+
+\begin{ejemCongruencias}\label{ejem:congruencias:motiva:bis}
+	Si $x\in\Enteros$,
+	\begin{displaymath}
+		x^2-117x+31\,\equiv\,x^2+x+1\modulo[2]
+		\text{ ,}
+	\end{displaymath}
+	%
+	que es impar, es decir, congruente con $1$ m\'odulo $2$, tanto si
+	$x$ es par ($x\equiv 0\tmodulo[2]$), como si $x$ es impar
+	($x\equiv 1\tmodulo[2]$). Los polinomios $3x^2+3x+1$ y
+	$3x^3+x^2+3x+4$ tampoco tienen ra\'{\i}ces enteras. En el primer
+	caso, para todo $x$,
+	\begin{displaymath}
+		3x^2+3x+1\,\equiv\,1\modulo[3]
+		\text{ .}
+	\end{displaymath}
+	%
+	En el segundo,
+	\begin{displaymath}
+		3x^3+x^2+3x+4\,\equiv\,x^2+1\modulo[3]
+		\text{ .}
+	\end{displaymath}
+	%
+	Si $x\equiv 0\tmodulo[3]$, entonces $x^2+1\equiv 1\tmodulo[3]$.
+	Si, en cambio, $x\equiv 1\tmodulo[3]$, entonces
+	$x^2+1\equiv 2\tmodulo[3]$. Y, si $x\equiv 2\tmodulo[3]$, entonces
+	$x^2+1\equiv 5\equiv 2\tmodulo[3]$. Con lo que el resultado siempre
+	es congruente a $1$ o a $2$ m\'odulo $3$; nunca es congruente a $0$.
+\end{ejemCongruencias}
+
+% \subsection{Soluciones a una ecuaci\'on de congruencia}%
+	% \label{subsec:soluciones-a-una-congruencia}
+% Si $f$ es un polinomio con coeficientes enteros y $a$ y $b$ son enteros
+% congruentes m\'odulo $m$, entonces $f(a)$ y $f(b)$ son congruentes
+% m\'odulo $m$.%
+% \footnote{
+	% Ver \ejername~\ref{ejer:congruencias:}
+% }
+% Esto dice, en particular, que el resto de dividir al valor de $f(x)$ en un
+% entero $x\in\Enteros$ por $m$ s\'olo depende del resto de dividir $x$ por $m$.
+% En particular, $f(x)$ y $f(\resto[m](x))$ tienen igual resto de dividir por
+% $m$. El siguiente diagrama resume esto:
+% \begin{displaymath}
+	% \begin{tikzcd}
+		% \Enteros \arrow[r] \arrow[d] & \Enteros \arrow[d] \\
+		% % \bigg\{\begin{array}{c} \text{clases} \\
+		% % \text{m\'odulo } m\end{array}\bigg\} \arrow[r] &
+		% \big\{0,\,1,\,\dots,\,m-1\big\} \arrow[r] &
+		% % \bigg\{\begin{array}{c} \text{clases} \\
+		% % \text{m\'odulo } m\end{array}\bigg\}
+		% \big\{0,\,1,\,\dots,\,m-1\big\}
+	% \end{tikzcd}
+	% \quad
+	% \begin{tikzcd}
+		% x \arrow[r,mapsto] \arrow[d,mapsto] & f(x) \arrow[d,mapsto] \\
+		% \resto[m](x) \arrow[r,mapsto] &
+			% \boxed{\resto[m](f(\resto[m](x)))=\resto[m](f(x))}
+	% \end{tikzcd}
+	% \dispstop
+% \end{displaymath}
+% %
+% Si pensamos en t\'erminos de clases de congruencia m\'odulo $m$, esto
+% significa que, a cada clase de congruencia m\'odulo $m$ le podemos asignar
+% un valor bien definido y que tiene que ver con $f$.
+% Si una clase est\'a representada por un entero $x$,
+% este ``valor'' es la clase de congruencia m\'odulo $m$ del valor de $f(x)$.
+% Que este valor est\'e bien definido quiere decir que el ``valor m\'odulo $m$''
+% es el mismo para todo entero en la clase de $x$.
+% Resumimos esto en el siguiente diagrama:
+% \begin{displaymath}
+	% \begin{tikzcd}
+		% \Enteros \arrow[r] \arrow[d] & \Enteros \arrow[d] \\
+		% \bigg\{\begin{array}{c} \text{clases} \\
+		% \text{m\'odulo } m\end{array}\bigg\} \arrow[r, dashed] &
+		% \bigg\{\begin{array}{c} \text{clases} \\
+		% \text{m\'odulo } m\end{array}\bigg\}
+	% \end{tikzcd}
+	% \quad
+	% \begin{tikzcd}
+		% x \arrow[r,mapsto] \arrow[d,mapsto] & f(x) \arrow[d,mapsto] \\
+		% \big(\text{clase de }x\big) \arrow[r,mapsto] &
+			% \big(\text{clase de }f(x)\big)
+			% % \boxed{\resto[m](f(\resto[m](x)))=\resto[m](f(x))}
+	% \end{tikzcd}
+	% \dispstop
+% \end{displaymath}
+% %
+
+\begin{defCongruencias}\label{def:congruencias:soluciones}
+	La \emph{cantidad de soluciones m\'odulo $m$} a una ecuaci\'on es la
+	cantidad de clases de congruencia m\'odulo $m$ que hacen que la
+	ecuaci\'on se verifique m\'odulo $m$.
+\end{defCongruencias}
+
+\begin{ejemCongruencias}\label{ejem:congruencias:soluciones}
+	La ecuaci\'on $f(x):=x^2-117x+31=0$ no tiene soluciones m\'odulo $2$;
+	tampoco tiene soluciones m\'odulo $3$. Pero tiene una soluci\'on
+	m\'odulo $5$: $f(1)=-115\equiv 0\tmodulo[5]$. De hecho,
+	\begin{displaymath}
+		x^2-117x+31\,\equiv\,x^2-2x+1\tmodulo[5]
+		\text{ ,}
+	\end{displaymath}
+	%
+	de donde se puede verificar que $x^2-2x+1\equiv 0\tmodulo[5]$,
+	s\'olo si $x\equiv 1\tmodulo[5]$.%
+	\footnote{
+		$x^2-2x+1=(x-1)^2$.
+	}
+	Esto quiere decir que hay una \'unica soluci\'on m\'odulo $5$.
+\end{ejemCongruencias}
+
+% \subsection{Sistemas reducidos de representantes}%
+	% \label{subsec:sistemas-reducidos}
+\begin{defCongruencias}\label{def:congruencias:sistema-reducido}
+	Un \emph{sistema reducido de representantes m\'odulo $m$} es un
+	subconjunto $R\subset\Enteros$ cuyos elementos son coprimos con $m$
+	y tal que todo entero \emph{coprimo con $m$} sea congruente a un
+	\'unico elemento de $R$, es decir,
+	\begin{enumerate}[(i)]
+		\item\label{item:def:sistema-reducido:coprimo}
+			si $r\in R$, entonces $\mcd{r,m}=1$,
+		\item\label{item:def:sistema-reducido:existe}
+			si $x\in\Enteros$ y $\mcd{x,m}=1$, existe $r\in R$
+			tal que $x\equiv r\tmodulo[m]$ y
+		\item\label{item:def:sistema-reducido:unico}
+			si $r,r'\in R$ y $r\neq r'$, entonces
+			$r\not\equiv r'\tmodulo[m]$.
+	\end{enumerate}
+	%
+\end{defCongruencias}
+
+\begin{ejemCongruencias}\label{ejem:congruencias:sistema-reducido}
+	En el \ejemname~\ref{ejem:congruencias:sistema-completo} vimos que
+	$\{0,1,2,3,4,5,6\}$, $\{0,1,2,3,-3,-2,-1\}$ y
+	$\{-28,50,16,-4,18,-30,-8\}$ son sistemas completos de representantes
+	de las clases m\'odulo $7$. A partir de ellos, podemos conseguir
+	sistemas reducidos de representantes de las clases quitando aquellos
+	elementos divisibles por $7$: los conjuntos
+	$\{1,2,3,4,5,6\}$, $\{1,2,3,-3,-2,-1\}$ y $\{50,16,-4,18,-30,-8\}$
+	son sistemas reducidos de representantes m\'odulo $7$.
+\end{ejemCongruencias}
+
+\begin{ejemCongruencias}\label{ejem:congruencias:sistema-reducido:bis}
+	Con $m=21$, un sistema completo de representantes es el de los
+	restos:
+	\begin{displaymath}
+		\{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20\}
+		\dispstop
+	\end{displaymath}
+	%
+	Un sistema reducido de representantes se obtiene quitando aquellos
+	enteros que no son coprimos con $21$, es decir, divisibles por $3$
+	o por $7$:
+	\begin{displaymath}
+		\{1,2,4,5,8,10,11,13,16,17,19,20\}
+		\dispstop
+	\end{displaymath}
+	%
+	Otro sistema reducido de representantes es:
+	\begin{displaymath}
+		\{1,2,4,5,8,10,-10,-8,-5,-4,-2,-1\}
+		\dispstop
+	\end{displaymath}
+	%
+	El siguiente conjunto tambi\'en es un sistema reducido de
+	representantes y cumple que todos sus elementos son pares:
+	\begin{displaymath}
+		\{22,2,4,26,8,10,-10,-8,16,-4,-2,20\}
+		\dispstop
+	\end{displaymath}
+	%
+	Tambi\'en el conjunto
+	\begin{displaymath}
+		\{1,-19,46,26,-34,31,11,-29,16,-4,61,41\}
+	\end{displaymath}
+	%
+	es un sistema reducido de representantes de las clases m\'odulo $21$
+	y cumple que todos sus elementos son $\equiv 1\tmodulo[5]$.%
+	\footnote{
+		Ver \ejername~\ref{ejer:congruencias:chino:representantes}.
+	}
+\end{ejemCongruencias}
+
+\begin{teoCongruencias}\label{teo:congruencias:sistema-reducido}
+	Todos los sistemas reducidos de representantes tienen el mismo
+	cardinal.
+\end{teoCongruencias}
+
+\begin{proof}
+	Este resultado es consecuencia de las dos propiedades siguientes
+	\quedacomoejercicio:
+	\begin{itemize}
+		\item si $b\equiv c\tmodulo[m]$, entonces
+			$\mcd{b,m}=\mcd{c,m}$ y
+		\item todo sistema reducido se puede completar a un sistema
+			completo de representantes.
+	\end{itemize}
+	%
+\end{proof}
+
+\begin{defCongruencias}\label{def:congruencias:sistema-reducido:phi}
+	El cardinal de un sistema reducido de representantes se denota por
+	$\eulerphi(m)$; la funci\'on
+	$m\in\Enteros\setmin\{0\}\mapsto\eulerphi(m)\in\Naturales$ se llama
+	\emph{funci\'on de Euler}.
+\end{defCongruencias}
+
+\begin{coroCongruencias}\label{coro:congruencias:sistema-reducido}
+	$\eulerphi(m)=\cardinal{\{1\leq t\leq m\,:\,\mcd{t,m}=1\}}$.
+\end{coroCongruencias}
+
+\begin{ejemCongruencias}\label{ejem:congruencias:phi}
+	Seg\'un lo visto en el \ejemname~%
+	\ref{ejem:congruencias:sistema-reducido}, $\eulerphi(7)=6$.
+\end{ejemCongruencias}
+
+\begin{ejemCongruencias}\label{ejem:congruencias:phi:bis}
+	Seg\'un lo visto en el \ejemname~%
+	\ref{ejem:congruencias:sistema-reducido:bis}, $\eulerphi(21)=12$.
+\end{ejemCongruencias}
+
+% \subsection{El Fermatito}%
+	% \label{subsec:el-fermatito}
+\begin{teoCongruencias}\label{teo:congruencias:fermatito}
+	Si $\mcd{a,m}=1$, entonces $a^{\eulerphi(m)}\equiv 1\tmodulo[m]$.
+\end{teoCongruencias}
+
+\begin{proof}
+	Sea $R=\{\lista r{\eulerphi(m)}\}$ un sistema reducido m\'odulo $m$.
+	Entonces, si $\mcd{a,m}=1$, el conjunto
+	$\{ar_1,\,\dots,\,ar_{\eulerphi(m)}\}$ \emph{tambi\'en} es un sistema
+	reducido (*). As\'{\i}, para cada $i$, $1\leq i\leq\eulerphi(m)$,
+	existe un \'unico $j=j(i)$, $1\leq j\leq\eulerphi(m)$, tal que
+	\begin{math}
+		r_i\equiv ar_j\tmodulo[m]
+	\end{math}.
+	Adem\'as, si $i\neq i'$, entonces $j(i)\neq j(i')$ (*).
+	En consecuencia,
+	\begin{equation}
+		\label{eq:congruencias:fermatito:i}
+		\prod_{j=1}^{\eulerphi(m)}\,ar_j\,\equiv\,
+			\prod_{i=1}^{\eulerphi(m)}\,r_i\modulo[m]
+		\text{ .}
+	\end{equation}
+	%
+	Pero
+	\begin{equation}
+		\label{eq:congruencias:fermatito:ii}
+		\prod_{j=1}^{\eulerphi(m)}\,ar_j\,=\,
+			a^{\eulerphi(m)}\,\prod_{j=1}^{\eulerphi(m)}\,r_j
+		\text{ .}
+	\end{equation}
+	%
+	De \eqref{eq:congruencias:fermatito:i} y de
+	\eqref{eq:congruencias:fermatito:ii} se deduce que
+	$a^{\eulerphi(m)}\equiv 1\tmodulo[m]$ (*).
+\end{proof}
+
+En la demostraci\'on del \teoname~\ref{teo:congruencias:fermatito}, las
+afirmaciones marcadas con (*) son consecuencias del siguiente resultado.
+
+\begin{lemaCongruencias}\label{lema:congruencias:cancelable}
+	Si $\mcd{b,m}=1$ y $bx\equiv by\tmodulo[m]$, entonces
+	$x\equiv y\tmodulo[m]$.
+\end{lemaCongruencias}
+
+\begin{proof}
+	\quedacomoejercicio.
+\end{proof}
+
+% \subsection*{\appendixname: El Teorema chino del resto}
+% % \begin{obsCongruencias}[Teorema chino del resto]\label{obs:congruencias:phi}
+	% Un sistema completo para las clases m\'odulo $21$ es, como hemos
+	% mencionado, el conjunto de restos
+	% $\cal R_{21}=\{0,1,2,\,\dots,20\}$
+	% de dividir por $21$.
+	% Si a los enteros de este conjunto les tomamos los restos de dividir
+	% por $7$, obtenemos el conjunto $\cal R_7=\{0,1,2,3,4,5,6\}$, que es el
+	% conjunto de todos los restos posibles de dividir por $7$ y, por lo
+	% tanto, un sistema conmpleto de representantes de las clases m\'odulo
+	% $7$. Lo mismo sucede, si tomamos resto de dividir por $3$: obtenemos
+	% $\cal R_3=\{0,1,2\}$.
+	% Notemos que
+	% \begin{equation}
+		% \label{eq:congruencias:chino:cardinales}
+		% \indice{\cal R_{21}}\,=\,\indice{\cal R_7}\,\indice{\cal R_3}
+		% \dispstop
+	% \end{equation}
+	% %
+	% % Notemos, tambi\'en, que podemos describir el conjunto de restos
+	% % $\cal R_{21}$ de las dos siguientes maneras:
+	% % \begin{displaymath}
+		% % \cal R_{21}\,=\,
+			% % \big\{ r+7\,s\,:\,r\in\cal R_7,\,s\in\cal R_3\big\}
+			% % \,=\,
+			% % \big\{ s+3\,r\,:\,r\in\cal R_7,\,s\in\cal R_3\big\}
+		% % \dispstop
+	% % \end{displaymath}
+	% %
+	% Si $a\in\Enteros$ y conocemos su clase m\'odulo $21$, podemos decir
+	% cu\'al es su clase m\'odulo $3$ y m\'odulo $7$, tambi\'en: si
+	% $a=21k+r$ ($k,r\in\Enteros$), entonces $a\equiv r\tmodulo[3]$ y
+	% $a\equiv r\tmodulo[7]$, tambi\'en, pues $a-r=3\cdot 7k=7\cdot 3k$.
+	% El siguiente diagrama ilustra este fen\'omeno:
+	% \begin{equation}
+		% \label{eq:congruencias:chino}
+		% \begin{tikzcd}% [column sep=small, row sep=small]
+			% & \cal R_3 \\
+			% \cal R_{21} \arrow[ur] \arrow[dr] \arrow[r,dashed] &
+				% \cal R_3\times\cal R_7 \arrow[u] \arrow[d] \\
+			% & \cal R_7
+		% \end{tikzcd}
+		% \dispcomma
+		% \quad
+		% a\,\mapsto\,\big(\resto[3](a),\resto[7](a)\big)
+		% \dispstop
+	% \end{equation}
+	% %
+	% Rec\'{\i}procamente, conociendo las clases de $a$ m\'odulo $3$ y
+	% m\'odulo $7$, podemos determinar su clase m\'odulo $21$: si
+	% $a\equiv u\tmodulo[3]$ y $a\equiv v\tmodulo[7]$, entonces
+	% $u=a-3k$ y $v=a-7l$ ($k,l\in\Enteros$) y
+	% \begin{displaymath}
+		% 7u+15v\,=\,7\,(a-3k)\,+\,15\,(a-7l)\,=\,22a\,-\,21k\,-\,105\,l
+		% \,\equiv\,a\modulo[21]
+		% \dispstop
+	% \end{displaymath}
+	% %
+	% O sea, si $a$ es congruente a $u$ m\'odulo $3$ y a $v$ m\'odulo $7$,
+	% entonces $a$ es congruente a $7+15v$ m\'odulo $21$. 
+	% Esto dice que la flecha punteda de \eqref{eq:congruencias:chino}
+	% tiene una flecha en la direcci\'on opuesta que es su inversa:
+	% \begin{displaymath}
+		% \cal R_3\times\cal R_7\,\rightarrow\,\cal R_{21}
+		% \dispcomma\quad (u,v)\,\mapsto\,\resto[21](7u+15v)
+		% \dispstop
+	% \end{displaymath}
+	% %
+	% En conclusi\'on, el conjunto de restos $\cal R_{21}$ est\'a en
+	% biyecci\'on con el producto cartesiano $\cal R_3\times\cal R_7$.
+	% Esto justifica la observaci\'on acerca de los cardinales de los
+	% conjuntos de restos \eqref{eq:congruencias:chino:cardinales}.
+	% Notamos, adem\'as, que, si $u$ es coprimo con $3$, entonces
+	% $7u+15v$ tambi\'en lo es, y que, si $v$ es coprimo con $7$, entonces
+	% $7u+15v$ tambi\'en lo es. En particular, si
+	% $\tilde{\cal R}_{21}\subset\cal R_{21}$ es el subconjunto
+	% de restos coprimos con $21$ y, an\'alogamente,
+	% $\tilde{\cal R}_3=\{1,2\}$ y $\tilde{\cal R}_7=\{1,2,3,4,5,6\}$,
+	% entonces la biyecci\'on $\cal R_3\times\cal R_7\simeq\cal R_{21}$
+	% se restringe a una biyecci\'on
+	% \begin{displaymath}
+		% \tilde{\cal R}_{21}\,\simeq\,
+			% \tilde{\cal R}_3\times\tilde{\cal R}_7
+		% \dispstop
+	% \end{displaymath}
+	% %
+	% Esto se corresponde con el hecho de que
+	% \begin{displaymath}
+		% \eulerphi(21)\,=\,\eulerphi(3)\,\eulerphi(7)
+		% \dispstop
+	% \end{displaymath}
+	% %
+% % \end{obsCongruencias}
+% \begin{pregCongruencias}\label{preg:congruencias:chino}
+	% Si s\'olo conocemos el resto de $a$ al dividirlo por $21$, podemos
+	% decir cu\'al es el resto de $a$ al dividirlo por $3$ o por $7$
+	% ?`Podemos hacder lo mismo con el resto de $a$ al dividirlo por,
+	% por ejemplo, $2$ (o por cualquier otro entero que no divida a $21$)?
+% \end{pregCongruencias}
+
+\subsection*{Ejercicios}
+\input{./tex/divisibilidad-y-congruencia/ejercicios-congruencias.tex}
+

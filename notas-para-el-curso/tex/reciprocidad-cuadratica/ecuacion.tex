@@ -1,0 +1,813 @@
+\theoremstyle{plain}
+\newtheorem{teoEcuacion}{\teoname}[section]
+\newtheorem{lemaEcuacion}[teoEcuacion]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{defEcuacion}[teoEcuacion]{\defname}
+\newtheorem{obsEcuacion}[teoEcuacion]{\obsname}
+\newtheorem{pregEcuacion}[teoEcuacion]{\pregname}
+
+%-------------
+
+% \subsection{Recapitulaci\'on}%
+	% \label{subsec:recapitulacion}
+El \teoname~\ref{teo:fermat} caracteriza los primos impares que se pueden
+expresar como suma de dos cuadrados enteros. Nuestro objetivo ser\'a entender
+en qu\'e medida es posible adaptar el m\'etodo que nos permiti\'o demostrar
+este resultado para estudiar la ecuaci\'on $p=x^2+ny^2$.
+
+El argumento de la demostraci\'on del \teoname~\ref{teo:fermat} fue dividido
+en tres afirmaciones, agrupadas en dos partes: las dos primeras (\lemaname~%
+\ref{lema:fermat:descenso:pre} y \lemaname~\ref{lema:fermat:descenso})
+constituyen lo que llamamos ``paso de descenso''; a la tercera (\lemaname~%
+\ref{lema:fermat:reciprocidad}) le dimos el nombre de ``paso de reciprocidad''.
+El \lemaname~\ref{lema:fermat:descenso:pre} depende de la identidad
+\eqref{eq:fermat:descenso:identidad}. Esta identidad se generaliza y, con ella,
+el resultado del \lemaname~\ref{lema:fermat:descenso:pre}. Sin embargo, el
+argumento de la demostraci\'on del \lemaname~\ref{lema:fermat:descenso} tiene
+sus limitaciones: depende de una cota que se adapta casi sin cambios a los
+casos $n=2$ y $n=3$, per que falla para $n\geq 4$. M\'as aun, la afirmaci\'on
+misma del \lemaname~\ref{lema:fermat:descenso} puede ser falsa para $n\geq 4$,
+si se traduce literalmente. Por ejemplo,
+\begin{itemize}
+	\item si $n=5$, $3\mid 21=1^2+5\cdot 2^2$, pero $3\neq x^2+5y^2$,
+		pues $3<5$;
+	\item si $n=6$, $5\mid 25=1^2+6\cdot 2^2$, pero $5\neq x^2+6y^2$,
+		pues $5<6$.
+\end{itemize}
+%
+?`Es cierto que si $p$ divide a un natural de la forma $a^2+nb^2$ con
+$\mcd{a,b}=1$ entonces $p$ se puede expresar en la forma $x^2+ny^2$?
+
+?`Qu\'e pasa con $n=4$ o $n=7$? Si bien es cierto que, por ejemplo,
+$3\neq x^2+4y^2$ y que $5\neq x^2+7y^2$ ?`pueden $3$ ser un divisor de un
+natural de la forma $a^2+4b^2$ o $5$ un divisor de un natural de la forma
+$a^2+7b^2$ con $\mcd{a,b}=1$? Deliberadamente estamos mirando $p<n$, pues,
+as\'{\i}, nos asegurar\'{\i}amos de que $p\neq x^2+ny^2$. Pero ?`si
+busc\'aramos $p\geq n$, encontrar\'{\i}amos un $p$ tal que
+$p\mid a^2+4b^2$, pero $p\neq x^2+4y^2$, o tal que $p\mid a^2+7b^2$, pero
+$p\neq x^2+7y^2$? ?`Si $n\geq 8$? ?`Existen contraejemplos?
+\begin{itemize}
+	\item para $n=8$, se cumple $3\mid 12=2^2+8\cdot 1^2$,
+		pero $3\neq x^2+8y^2$
+		(ni $5$ ni $7$ funcionan);
+		% $3\mid 33=1^2+8\cdot 2^2$
+	\item para $n=9$, se cumple $5\mid 10=1^2+9\cdot 1^2$,
+		pero $5\neq x^2+9y^2$
+		($7$ no funciona);
+	\item para $n=10$, se cumple $7\mid 14=2^2+10\cdot 1^2$,
+		pero $7\neq x^2+10y^2$
+		($3$ no funciona);
+		% $7\mid 91=1^2+10\cdot 3^2$
+	\item para $n=11$, se cumple $3,5\mid 15=2^2+11\cdot 1^2$,
+		pero $3,5\neq x^2+11y^2$
+		($7$ no funciona).
+		% $3,5\mid 45=1^2+11\cdot 2^2$
+\end{itemize}
+%
+Vamos a poder decir algo m\'as acerca de estas preguntas, una vez que hablemos
+de formas cuadr\'aticas, reducci\'on, sus clases de equivalencia y los
+n\'umeros de clases.
+
+Ya vemos que nos encontramos con algunas dificultades al querer estudiar el
+problema en general, en relaci\'on con el paso de descenso. Por otro lado,
+con respecto a reciprocidad, el \lemaname~\ref{lema:fermat:reciprocidad}
+nos muestra que una condici\'on de congruencia garantiza que un primo impar
+divida una suma de cuadrados. Si bien la demostraci\'on de este resultado
+puede parecer \emph{ad hoc}, veremos c\'omo rescatar la idea del enunciado.
+Precisamente, vamos a ver que existen condiciones de congruencia sobre un
+primo impar, $\mcd{p,n}=1$, que garantizan que $p\mid a^2+nb^2$, $\mcd{a,b}=1$.
+
+% \subsection{El s\'{\i}mbolo de Legendre}%
+	% \label{subsec:legendre}
+\begin{defEcuacion}\label{def:ecuacion:legendre}
+	Dados un entero $a\in\Enteros$ y un primo impar $p$ ($>0$), decimos
+	que \emph{$a$ es un residuo cuadr\'atico m\'odulo $p$}, si
+	$p\nmid a$ y si la ecuaci\'on $x^2\equiv a\tmodulo[p]$ tiene
+	soluci\'on m\'odulo $p$. El \emph{s\'{\i}mbolo de Legendre}
+	$\tlegendre a{p}$ es:
+	\begin{displaymath}
+		\legendre a{p}\,:=\,
+			\begin{cases}
+				0\text{ ,} & \quad\text{si }
+					p\mid a \text{ ,} \\
+				1\text{ ,} & \quad\text{si }
+					p\nmid a\text{ y }a
+					\text{ es residuo cuadr\'atico,} \\
+				-1\text{ ,} & \quad\text{si }
+					p\nmid a\text{ y }a
+					\text{ no es residuo cuadr\'atico.}
+			\end{cases}
+			%
+	\end{displaymath}
+	%
+\end{defEcuacion}
+
+\begin{obsEcuacion}\label{obs:ecuacion:residuos}
+	Los enteros $0$, $1$ y todos los cuadrados perfectos son residuos
+	cuadr\'aticos m\'odulo cualquier entero. En particular,
+	$\tlegendre{n^2} p=1$ para todo primo impar $p$ y todo entero $n$
+	coprimo con $p$.
+\end{obsEcuacion}
+
+\begin{lemaEcuacion}\label{lema:ecuacion:legendre}
+	Sea $n\in\Enteros$, $n\neq 0$, y sea $p$ un primo impar que no
+	divide a $n$. Entonces, existen $a,b\in\Enteros$ tales que
+	$p\mid a^2+nb^2$ y $\mcd{a,b}=1$, si y s\'olo si $\tlegendre{-n} p=1$.
+\end{lemaEcuacion}
+
+\begin{proof}
+	Supongamos que $a,b\in\Enteros$ son tales que $p\mid a^2+nb^2$.
+	Entonces, $x^2\equiv -ny^2\tmodulo[p]$. Si $p\nmid n$,
+	debe ser $p\mid a$, si y s\'olo si $p\mid b$. Si, adem\'as,
+	$\mcd{a,b}=1$, entonces $p\nmid a$ y $p\nmid b$. En particular,
+	$(b^{-1}a)^2\equiv -n\tmodulo[p]$ y, as\'{\i},
+	$\tlegendre{-n} p=1$. Completar la demostraci\'on \quedacomoejercicio.
+\end{proof}
+
+% \subsection{La ley de reciprocidad cuadr\'atica}%
+	% \label{subsec:la-ley-de-reciprocidad-cuadratica}
+\begin{pregEcuacion}\label{preg:ecuacion}
+	?`Existen condiciones de congruencia sobre un primo impar $p$
+	que garanticen que $\tlegendre{-n} p=1$?
+\end{pregEcuacion}
+
+Veamos con un poco m\'as de cuidado qu\'e podr\'{\i}a querer decir
+``condiciones de congruencia''. En el caso $n=1$, suma de dos cuadrados,
+la condici\'on es $p\equiv 1\tmodulo[4]$. Sea $f(x,y)=x^2+ny^2$. Podemos
+tratar de entender la situaci\'on calculando distintos valores que la
+funci\'on $f$ toma, con $x,y\in\Enteros$ tales que $\mcd{x,y}=1$, y luego
+factorizando cada uno de estos valores obtenidos, para buscar sus factores
+primos.
+La \tablename~\ref{tab:ecuacion:legendre:positivos} y la \tablename~%
+\ref{tab:ecuacion:legendre:negativos} muestran los primos obtenidos
+de esta manera, para distintos valores de $n$, variando $x$ e $y$ en un
+cierto rango, agrupados de acuerdo a su clase de congruencia m\'odulo
+$4|n|$. Dicho de otra manera, la tabla muestra las distintas
+\emph{clases de congruencia m\'odulo $4|n|$ representadas por primos que %
+se obtienen como factores de enteros de la forma $a^2+nb^2$ con $a$ y $b$ %
+coprimos}.
+
+\begin{table}
+	\begin{tabular}{r|l}
+		$n$ & $\tlegendre{-n} p=1$ \\
+		\hline
+		$2$ & $p\equiv 1,3\tmodulo[8]$ \\
+		$3$ & $p\equiv 1,7\tmodulo[12]$ \\
+		$5$ & $p\equiv 1,3,7,9\tmodulo[20]$ \\
+		$7$ & $p\equiv 1,9,11,15,23,25\tmodulo[28]$ \\
+		$11$ & $p\equiv 1,3,5,9,15,23,25,27,31,37\tmodulo[44]$ \\
+		$13$ & $p\equiv 1,7,9,11,15,17,19,25,29,31,47,49
+			\tmodulo[52]$ \\
+		$17$ & $p\equiv 1,3,7,9,11,13,21,23,25,27,31,33,39,49,53,63
+			\tmodulo[68]$ \\
+		\hline
+		$6$ & $p\equiv 1,5,7,11\tmodulo[24]$ \\
+		$10$ & $p\equiv 1,7,9,11,13,19,23,37\tmodulo[40]$ \\
+		$14$ & $p\equiv 1,3,5,9,13,15,19,23,25,27,39,45\tmodulo[56]$ \\
+		$15$ & $p\equiv 1,17,19,23,31,47,49,53\tmodulo[60]$ \\
+		$21$ & $p\equiv 1,5,11,17,19,23,25,31,37,41,55,71
+			\tmodulo[84]$ \\
+		\hline
+		$1$ & $p\equiv 1\tmodulo[4]$ \\
+		$4$ & $p\equiv 1,5,9,13\tmodulo[16]$ 
+	\end{tabular}
+	\caption{
+		Divisores primos de $a^2+nb^2$ con $\mcd{a,b}=1$ y
+		$1\leq a,b\leq 50$.
+	}\label{tab:ecuacion:legendre:positivos}
+\end{table}
+
+\begin{table}
+	\begin{tabular}{r|l}
+		$n$ & $\tlegendre{-n} p=1$ \\
+		\hline
+		$-2$ & $p\equiv 1,7\tmodulo[8]$ \\
+		$-3$ & $p\equiv 1,11\tmodulo[12]$ \\
+		$-5$ & $p\equiv 1,9,11,19\tmodulo[20]$ \\
+		$-7$ & $p\equiv 1,3,9,19,25,27\tmodulo[28]$ \\
+		$-11$ & $p\equiv 1,5,7,9,19,25,35,37,39,43\tmodulo[44]$ \\
+		$-13$ & $p\equiv 1,3,9,17,23,25,27,29,35,43,49,51
+			\tmodulo[52]$ \\
+		$-17$ & $p\equiv 1,9,13,15,19,21,25,33,35,43,47,49,53,55,59,67
+			\tmodulo[68]$ \\
+		\hline
+		$-6$ & $p\equiv 1,5,19,23\tmodulo[24]$ \\
+		$-10$ & $p\equiv 1,3,9,13,27,31,37,39\tmodulo[40]$ \\
+		$-14$ & $p\equiv 1,5,9,11,13,25,31,43,45,47,51,55
+			\tmodulo[56]$ \\
+		$-15$ & $p\equiv 1,7,11,17,43,49,53,59\tmodulo[60]$ \\
+		$-21$ & $p\equiv 1,5,17,25,37,41,43,47,59,67,79,83
+			\tmodulo[84]$ \\
+		\hline
+		$-1$ & $p\equiv 1,3\tmodulo[4]$ \\
+		$-4$ & $p\equiv 1,3,5,7,9,11,13,15\tmodulo[16]$ 
+	\end{tabular}
+	\caption{
+		Divisores primos de $a^2+nb^2$ con $\mcd{a,b}=1$ y
+		$1\leq |a|,|b|\leq 50$.
+	}\label{tab:ecuacion:legendre:negativos}
+\end{table}
+
+Asumiendo que los valores de $p$ que no aparecen son tales que
+$\tlegendre{-n} p=-1$ (lo cual no hemos demostrado), se pueden
+conjeturar algunas propiedades del s\'{\i}mbolo. Por ejemplo,
+de la \tablename~\ref{tab:ecuacion:legendre:negativos}, mirando
+las filas para $n=-2$, $n=-3$ y $n=-6$,
+\begin{displaymath}
+	\legendre 6{p}\,=\,1
+	\quad\text{si y s\'olo si}\quad
+	p\,\equiv\,1,5,19,23\tmodulo[24]
+	\text{ ,}
+\end{displaymath}
+%
+que equivale a
+\begin{displaymath}
+	\left\{
+	\begin{array}{r@{\,\equiv\,}l}
+		p & 1\tmodulo[8] \text{ y} \\[5pt]
+		p & 1\tmodulo[3] \text{ ,}
+	\end{array}\right.%\quad\text{o}\quad
+	\left\{
+	\begin{array}{r@{\,\equiv\,}l}
+		p & 5\tmodulo[8] \text{ y} \\[5pt]
+		p & 2\tmodulo[3] \text{ ,}
+	\end{array}\right.%\quad\text{o}\quad
+	\left\{
+	\begin{array}{r@{\,\equiv\,}l}
+		p & 3\tmodulo[8] \text{ y} \\[5pt]
+		p & 1\tmodulo[3] \text{ ,}
+	\end{array}\right.\quad\text{o}\quad
+	\left\{
+	\begin{array}{r@{\,\equiv\,}l}
+		p & 7\tmodulo[8] \text{ y} \\[5pt]
+		p & 2\tmodulo[3] \text{ .}
+	\end{array}\right.
+\end{displaymath}
+%
+Pero esto es lo mismo que
+\begin{displaymath}
+	\left\{
+	\begin{array}{r@{\,\equiv\,}l}
+		p & 1\tmodulo[8] \text{ y} \\[5pt]
+		p & 1\tmodulo[12] \text{ ,}
+	\end{array}\right.%\quad\text{o}\quad
+	\left\{
+	\begin{array}{r@{\,\equiv\,}l}
+		p & 5\tmodulo[8] \text{ y} \\[5pt]
+		p & 5\tmodulo[12] \text{ ,}
+	\end{array}\right.%\quad\text{o}\quad
+	\left\{
+	\begin{array}{r@{\,\equiv\,}l}
+		p & 3\tmodulo[8] \text{ y} \\[5pt]
+		p & 7\tmodulo[12] \text{ ,}
+	\end{array}\right.\quad\text{o}\quad
+	\left\{
+	\begin{array}{r@{\,\equiv\,}l}
+		p & 7\tmodulo[8] \text{ y} \\[5pt]
+		p & 11\tmodulo[12] \text{ ,}
+	\end{array}\right.
+\end{displaymath}
+%
+que equivale a
+\begin{displaymath}
+	\left\{
+		\begin{array}{r@{\,=\,}l}
+			\tlegendre 2{p} & 1 \quad\text{y} \\[5pt]
+			\tlegendre 3{p} & 1 \text{ ,}
+		\end{array}
+	\right.
+	\quad\text{o}\quad
+	\left\{
+		\begin{array}{r@{\,=\,}l}
+			\tlegendre 2{p} & -1 \quad\text{y} \\[5pt]
+			\tlegendre 3{p} & -1 \text{ .}
+		\end{array}
+	\right.
+\end{displaymath}
+%
+Expresado de otra manera,
+\begin{displaymath}
+	\legendre 6{p}\,=\,\legendre 2{p}\,\legendre 3{p}
+	\text{ .}
+\end{displaymath}
+%
+Otra cosa que se puede observar es que, en la \tablename~%
+\ref{tab:ecuacion:legendre:negativos}, en los casos en que $n=-q$ con
+$q$ primo, las clases representadas son equivalentes a $\pm\beta^2$ con
+$\beta$ impar, $\beta<q$. Sin embargo, esta observaci\'on deja de ser
+v\'alida si $n$ es compuesto. Por ejemplo, si $n=-6$, las clases m\'odulo
+$24$ representadas por factores primos $p$ tales que $\tlegendre 6{p}=1$
+son, de acuerdo con la tabla, $1$, $5$, $19$ y $23$. Por otro lado, los
+cuadrados m\'odulo $24$ son $1$, $4$, $9$, $12$ y $16$.
+% , de los cuales s\'olo la clase de $1$ es coprima con $24$.
+En particular, s\'olo $1$ y $23$ son de la forma $\pm\beta^2$ con
+$\beta$ impar (y coprimo con $24$).
+
+\begin{teoEcuacion}\label{teo:ecuacion:reciprocidad}
+	Si $p,q>0$ son primos impares distintos, entonces
+	\begin{displaymath}
+		\legendre q{p}\,=\,1
+		\text{ , si y s\'olo si }
+		p\,\equiv\,\pm\beta^2\tmodulo[4q]
+		\text{ ,}
+	\end{displaymath}
+	%
+	para cierto $\beta\in\Enteros$ impar.
+\end{teoEcuacion}
+
+El \teoname~\ref{teo:ecuacion:reciprocidad} relaciona residuos cuadr\'aticos
+m\'odulo $p$ con residuos m\'odulo $4q$, si $p$ y $q$ son primos positivos,
+impares y distintos: $q$ es cuadrado m\'odulo $p$, si y s\'olo si $\pm p$ es
+cuadrado m\'odulo $4q$
+?`Qu\'e se puede decir si $n$ es compuesto? ?`Qu\'e pasa si $n>0$?
+?`Hay relaci\'on entre $\tlegendre{-n} p$ y $\tlegendre n{p}$?
+En la \S~\ref{sec:congruencias}, vimos que las ecuaciones de congruencia
+$ax\equiv b\tmodulo[m]$ tienen soluci\'on exactamente cuando $\mcd{a,m}\mid b$
+?`Hay alguna manera de saber si $x^2\equiv D\tmodulo[4k]$ tiene soluciones?
+%
+% Para dar respuesta a estas preguntas --y, en particular, para
+% demostrar el \teoname~\ref{teo:ecuacion:reciprocidad}-- necesitaremos
+% estudiar el s\'{\i}mbolo de Legendre $\tlegendre a{p}$ con m\'as cuidado.
+Antes de pasar a estudiar el s\'{\i}mbolo de Legendre, veamos c\'omo podemos
+usarlo para dar respuesta a la \pregname~\ref{preg:ecuacion}.
+
+En primer lugar, con respecto al \teoname~\ref{teo:ecuacion:reciprocidad},
+?`podemos precisar, en la congruencia $p\equiv\pm\beta^2$, en qu\'e casos
+el signo deber\'{\i}a ser $+$ y en qu\'e casos deber\'{\i}a ser $-$?
+De la \tablename~\ref{tab:ecuacion:legendre:negativos}, a partir de la
+cual formulamos el \teoname~\ref{teo:ecuacion:reciprocidad}, vemos que
+$p\equiv+\beta^2\tmodulo[4q]$, si $p\equiv 1\tmodulo[4]$, y que
+$p\equiv-\beta^2\tmodulo[4q]$, si $p\equiv 3\tmodulo[4]$. Esto tiene
+sentido: los \'unicos cuadrados m\'odulo $4$ son los $\equiv 1\tmodulo[4]$.
+Pero, entonces, el signo deber\'{\i}a ser
+\begin{displaymath}
+	\pm\,=\,(-1)^{\frac{p-1} 2}
+	\text{ .}
+\end{displaymath}
+%
+En definitiva, $p\equiv\pm\beta^2\tmodulo[4q]$ quiere decir
+\begin{displaymath}
+	p\,\equiv\,(-1)^{\frac{p-1} 2}\,\beta^2\modulo[4q]
+	\text{ ;}
+\end{displaymath}
+%
+no hay ambig\"uedad en el signo. Si escribimos $p^*:=(-1)^{\frac{p-1} 2}p$,
+entonces $p^*\equiv 1\tmodulo[4]$ y, en particular \quedacomoejercicio,
+las siguientes afirmaciones son equivalentes:
+\begin{itemize}
+	\item $p\equiv\pm\beta^2\tmodulo[4q]$,
+	\item $p^*\equiv\beta^2\tmodulo[4q]$,
+	\item $p^*\equiv\beta^2\tmodulo[q]$,
+	\item $\tlegendre{p^*} q=1$.
+\end{itemize}
+%
+
+\begin{lemaEcuacion}\label{lema:ecuacion:reciprocidad}
+	El \teoname~\ref{teo:ecuacion:reciprocidad} es equivalente a la
+	afirmaci\'on: para todo par de primos positivos, impares y distintos,
+	$p$ y $q$,
+	\begin{displaymath}
+		\legendre q{p}\,=\,\legendre{p^*} q
+		\text{ .}
+	\end{displaymath}
+	%
+\end{lemaEcuacion}
+
+\begin{proof}
+	De lo anterior, $p\equiv\pm\beta^2\tmodulo[4q]$, si y s\'olo si
+	$\tlegendre{p^*} q=1$. Por lo tanto, el \teoname~%
+	\ref{teo:ecuacion:reciprocidad} es equivalente a
+	$\tlegendre q{p}=1$, si y s\'olo si $\tlegendre{p^*} q=1$,
+	para todo par de primos positivos, impares y distintos.
+	Pero $\tlegendre q{p}$ y $\tlegendre{p^*} q$ son $\pm1$, con lo que
+	la afirmaci\'on
+	``$\tlegendre q{p}=1$, si y s\'olo si $\tlegendre{p^*} q=1$''
+	equivale a $\tlegendre q{p}=\tlegendre{p^*} q$.
+\end{proof}
+
+% \subsection{Propiedades del s\'{\i}mbolo de Legendre}%
+	% \label{subsec:propiedades-del-simbolo-de-legendre}
+El \teoname~\ref{teo:ecuacion:legendre} resume algunas de las propiedades del
+s\'{\i}mbolo de Legendre; su demostraci\'on la dejamos para la
+\S~\ref{sec:residuos}.
+
+\begin{restatable}{teoEcuacion}{teoEcuacionLegendre}%
+% \begin{teoEcuacion}%
+	\label{teo:ecuacion:legendre}
+	Sea $p>0$ un primo impar. Entonces, se cumple
+	\begin{enumerate}[(i)]
+		\item\label{item:ecuacion:legendre:clases}
+			$\tlegendre n{p}=\tlegendre{n'} p$,
+			si $n\equiv n'\tmodulo[p]$;
+		\item\label{item:ecuacion:legendre:multiplicativo}
+			$\tlegendre{ab} p=\tlegendre a{p}\tlegendre b{p}$,
+			para todo par $a,b\in\Enteros$;
+		\item\label{item:ecuacion:legendre:menos-uno}
+			$\tlegendre{-1} p=(-1)^{\frac{p-1} 2}$ y,
+			m\'as en general,
+			$\tlegendre n{p}\equiv n^{\frac{p-1} 2}\tmodulo[p]$,
+			para todo $n\in\Enteros$:
+		\item\label{item:ecuacion:legendre:dos}
+			$\tlegendre 2{p}=(-1)^{\frac{p^2-1} 8}$;
+		\item\label{item:ecuacion:legendre:reciprocidad}
+			$\tlegendre q{p}=\tlegendre{p^*} q$,
+			si $q$ es un primo positivo, impar y distinto de $p$.
+	\end{enumerate}
+	%
+% \end{teoEcuacion}
+\end{restatable}
+
+\begin{obsEcuacion}\label{obs:ecuacion:legendre}
+	El \'{\i}tem~\eqref{item:ecuacion:legendre:menos-uno} es equivalente
+	a
+	\begin{displaymath}
+		\legendre{-1} p\,=\,\begin{cases}
+				1 \text{ ,} & \text{si }p\equiv 1\tmodulo[4]
+					\quad\text{y} \\
+				-1\text{ ,} & \text{si }p\equiv 3\tmodulo[4]
+					\text{ .}
+			\end{cases}
+			%
+	\end{displaymath}
+	%
+	El \'{\i}tem~\eqref{item:ecuacion:legendre:dos} equivale a
+	\begin{displaymath}
+		\legendre 2{p}\,=\,\begin{cases}
+				1 \text{ ,} & \text{si }p\equiv 1,7\tmodulo[8]
+					\quad\text{y} \\
+				-1\text{ ,} & \text{si }p\equiv 3,5\tmodulo[8]
+					\text{ .}
+			\end{cases}
+			%
+	\end{displaymath}
+	%
+	El \'{\i}tem~\eqref{item:ecuacion:legendre:reciprocidad} lo podemos
+	reescribir como
+	\begin{displaymath}
+		\legendre q{p}\,=\,(-1)^{\frac{p-1} 2\frac{q-1} 2}\,
+			\legendre p{q}
+		\text{ ,}
+	\end{displaymath}
+	%
+	o bien como
+	\begin{displaymath}
+		\legendre q{p}\,\legendre p{q}\,=\,
+			(-1)^{\frac{p-1} 2\frac{q-1} 2}
+		\text{ .}
+	\end{displaymath}
+	%
+	Este \'ultimo es, de acuerdo con el \lemaname~%
+	\ref{lema:ecuacion:reciprocidad}, equivalente al
+	\teoname~\ref{teo:ecuacion:reciprocidad}.
+\end{obsEcuacion}
+
+% \subsection{El s\'{\i}mbolo de Kronecker}%
+	% \label{subsec:kronecker}
+El \lemaname~\ref{lema:ecuacion:reciprocidad} nos permiti\'o reinterpretar el
+problema de encontrar condiciones de congruencia que garanticen que un
+primo impar divida a una expresi\'on de la forma $a^2+nb^2$ con $\mcd{a,b}=1$
+en t\'erminos del s\'{\i}mbolo de Legendre. El \lemaname~%
+\ref{lema:ecuacion:kronecker} nos permitir\'a reinterpretar el problema en
+t\'erminos m\'as algebraicos (\teoname~\ref{teo:ecuacion:kronecker}).
+
+\begin{lemaEcuacion}\label{lema:ecuacion:kronecker}
+	Si $D\equiv 0,1\tmodulo[4]$, $D\neq 0$, existe una \'unica
+	funci\'on $\chi(m)$, $m\in\Enteros$, que cumple que:
+	\begin{enumerate}[(1)]
+		\item\label{item:ecuacion:kronecker:clases}
+			$\chi(m)=\chi(m')$, si $m\equiv m'\tmodulo[D]$,
+		\item\label{item:ecuacion:kronecker:multiplicativo}
+			$\chi(mn)=\chi(m)\chi(n)$, para todo par
+			$m,n\in\Enteros$,
+		\item\label{item:ecuacion:kronecker:legendre}
+			$\chi(p)=\tlegendre D{p}$, si $p$ es un primo
+			(positivo) impar que no divide a $D$ y
+		\item\label{item:ecuacion:kronecker:cero}
+			$\chi(m)=0$, si $\mcd{m,D}>1$.
+			% \footnote{
+				% Esta condici\'on se puede omitir, si,
+				% en el \'{\i}tem
+				% \eqref{item:ecuacion:kronecker:legendre}
+				% no asumimos que $p\nmid D$.
+			% }
+	\end{enumerate}
+	%
+\end{lemaEcuacion}
+
+Juntando el \lemaname~\ref{lema:ecuacion:kronecker} con el \lemaname~%
+\ref{lema:ecuacion:legendre} obtenemos la siguiente consecuencia.
+
+\begin{teoEcuacion}\label{teo:ecuacion:kronecker}
+	Sean $n\in\Enteros$, $n\neq 0$, y $\chi$ la funci\'on del
+	\lemaname~\ref{lema:ecuacion:kronecker} ($D=-4n$). Entonces,
+	si $p$ es un primo positivo impar que no divide a $n$, las siguientes
+	afirmaciones son equivalentes:
+	\begin{enumerate}[(a)]
+		\item\label{item:ecuacion:kronecker:equivalencias:divide}
+			existen $a,b\in\Enteros$ tales que
+			$p\mid a^2+nb^2$ y $\mcd{a,b}=1$;
+		\item\label{item:ecuacion:kronecker:equivalencias:legendre}
+			$\tlegendre{-n} p=1$;
+		\item\label{item:ecuacion:kronecker:equivalencias:nucleo}
+			$\chi(p)=1$.
+	\end{enumerate}
+	%
+\end{teoEcuacion}
+
+De esta manera, obtenemos lo que busc\'abamos (o, por lo menos, en
+teor\'{\i}a). Si $p$ es un primo impar que no divide a $n$, existen
+$a,b\in\Enteros$ tales que $p\mid a^2+nb^2$ y $\mcd{a,b}=1$, si y s\'olo si
+$p$ pertenece a determinadas clases de congruencia: aquellas clases m\'odulo
+$4|n|$ en las que $\chi$ toma el valor $1$.%
+\footnote{
+	Para hacer las cosas expl\'{\i}citas deber\'{\i}amos poder
+	calcular esta funci\'on $\chi$.
+}
+
+A continuaci\'on, demostramos el \lemaname~\ref{lema:ecuacion:kronecker}
+asumiendo las propiedades del s\'{\i}mbolo de Legendre enunciadas en el
+\teoname~\ref{teo:ecuacion:legendre}.
+
+\begin{proof}[\proofname~del \lemaname~\ref{lema:ecuacion:kronecker}]
+	Esencialmente, tanto existencia, como unicidad de la funci\'on $\chi$,
+	dependen del hecho de que todo n\'umero entero coprimo con $D$
+	es congruente, m\'odulo $D$, a un entero positivo, impar y coprimo
+	con $D$.%
+	\footnote{
+		M\'as aun, el teorema de Dirichlet sobre primos en
+		progresiones aritm\'eticas garantiza que toda clase de
+		congruencia m\'odulo $D$ coprima con $D$ contiene alg\'un
+		n\'umero primo positivo impar.
+	}
+
+	Con respecto a la unicidad, supongamos que $\chi$ posee las
+	propiedades deseadas. Entonces, cuando $m\in\Enteros$,
+	\begin{itemize}
+		\item si $\mcd{m,D}>1$, $\chi(m)=0$;
+		\item si $\mcd{m,D}=1$,
+			\begin{itemize}
+				\item si $m<0$, se cumple que $m+kD>0$
+					para alg\'un $k\in\Enteros$,
+					$m+kD\equiv m\tmodulo[D]$ y
+					$\chi(m+kD)=\chi(m)$;
+				\item si $m$ es par, deb\'{\i}a ser
+					$D\equiv 1\tmodulo[4]$ y, en
+					consecuencia, $m+|D|$ es impar,
+					$m+|D|\equiv m\tmodulo[D]$ y
+					$\chi(m+|D|)=\chi(m)$;
+				\item si $m$ es impar y positivo, se escribe
+					como producto de primos positivos
+					impares, $m=p_1\cdots p_r$
+					(posiblemente, con repeticiones), con
+					lo que
+					\begin{displaymath}
+						\chi(m)\,=\,\chi(p_1)\,\cdots\,
+							\chi(p_r)\,=\,
+							\legendre D{p_1}\,
+							\cdots\,
+							\legendre D{p_r}
+						\text{ .}
+					\end{displaymath}
+					%
+			\end{itemize}
+			%
+	\end{itemize}
+	%
+	En cualquier caso, al ser $\chi(mn)=\chi(m)\chi(n)$, $\chi$ queda
+	determinada por su valor en los primos impares que no dividen a $D$
+	y por la condici\'on $\chi(m)=0$, si $\mcd{m,D}>1$.
+
+	Para probar la existencia, introducimos el s\'{\i}mbolo de Jacobi,
+	que se puede interpretar como una extensi\'on del s\'{\i}mbolo de
+	Legendre. Dados $M,m\in\Enteros$, $m>0$,
+	% y $\mcd{M,m}=1$,
+	si $m=p_1\cdots p_r$ es la factorizaci\'on de $m$ en producto de
+	primos (posiblemente, con repeticiones), el \emph{s\'{\i}mbolo de %
+	Jacobi} $\jacobi M{m}$ es
+	\begin{displaymath}
+		\jacobi M{m}\,=\,\legendre M{p_1}\,\cdots\,
+			\legendre M{p_r}
+		\text{ ,}
+	\end{displaymath}
+	%
+	donde, del lado derecho, $\tlegendre M{p_i}$ denota el s\'{\i}mbolo
+	de Legendre.
+	% \footnote{
+		% $\tjacobi M{m}=0$, si y s\'olo si $\tlegendre M{p_i}$ para
+		% alg\'un $p_i$.
+	% }
+	El s\'{\i}mbolo de Jacobi tiene propiedades an\'alogas
+	a las del s\'{\i}mbolo de Legendre % y que son consecuencia de ellas
+	\quedacomoejercicio:
+	\begin{enumerate}[(I)]
+		\item\label{item:ecuacion:jacobi:clases}
+			$\tjacobi N{m}=\tjacobi{N'} m$, si
+			$N\equiv N'\tmodulo[m]$,
+		\item\label{item:ecuacion:jacobi:multiplicativo}
+			$\tjacobi{AB} m=\tjacobi A{m}\tjacobi B{m}$,
+			para todo par $A,B\in\Enteros$,
+		\item\label{item:ecuacion:jacobi:menos-uno}
+			$\tjacobi{-1} m=(-1)^{\frac{m-1} 2}$,
+		\item\label{item:ecuacion:jacobi:dos}
+			$\tjacobi 2{m}=(-1)^{\frac{m^2-1} 8}$,
+		\item\label{item:ecuacion:jacobi:reciprocidad}
+			$\tjacobi M{m}=\tjacobi{m^*} M$, si $M$ es positivo,
+			impar y $\mcd{M,m}=1$, donde
+			$m^*=(-1)^{\frac{m-1} 2}m$.
+	\end{enumerate}
+	%
+	En particular, en \eqref{item:ecuacion:jacobi:reciprocidad}, si
+	$M\equiv 1\tmodulo[4]$, entonces $\tjacobi M{m}=\tjacobi{m} M$.
+
+	El s\'{\i}mbolo de Jacobi tiene tambi\'en la propiedad multiplicativa:
+	\begin{equation}
+		\label{eq:ecuacion:kronecker:multiplicativa}
+		\jacobi M{mn}\,=\,\jacobi M{m}\,\jacobi M{n}
+		\text{ ,}
+	\end{equation}
+	%
+	si $m,n>0$.
+	% y $\mcd{M,mn}=1$.
+	Pero, adem\'as, el s\'{\i}mbolo de Jacobi tiene la siguiente
+	propiedad adicional: si $D\in\Enteros$, $D\neq 0$ y
+	$D\equiv 0,1\tmodulo[4]$, entonces
+	\begin{equation}
+		\label{eq:ecuacion:kronecker:clases}
+		\jacobi D{m}\,=\,\jacobi D{n}
+		\text{ ,}
+	\end{equation}
+	%
+	si $m,n\in\Enteros$, $m,n>0$, impares y $m\equiv n\tmodulo[D]$.
+	Aceptando las propiedades \eqref{eq:ecuacion:kronecker:multiplicativa}
+	y \eqref{eq:ecuacion:kronecker:clases}, definimos la siguiente
+	funci\'on $\chi(m)$, dado $m\in\Enteros$:
+	\begin{itemize}
+		\item si $\mcd{m,D}>1$, $\chi(m):=0$;
+		\item si $\mcd{m,D}=1$,
+			\begin{itemize}
+				\item si $m<0$, se cumple que $m+kD>0$
+					para alg\'un $k\in\Enteros$,
+					$m+kD\equiv m\tmodulo[D]$ y
+					$\chi(m+kD):=\chi(m)$;
+				\item si $m$ es par, deb\'{\i}a ser
+					$D\equiv 1\tmodulo[4]$ y, en
+					consecuencia, $m+|D|$ es impar,
+					$m+|D|\equiv m\tmodulo[D]$ y
+					$\chi(m+|D|):=\chi(m)$;
+				\item si $m$ es impar y positivo,
+					$\chi(m):=\tjacobi D{m}$.
+			\end{itemize}
+			%
+	\end{itemize}
+	%
+	La propiedad \eqref{eq:ecuacion:kronecker:clases} muestra que $\chi$
+	est\'a bien definida y, junto con
+	\eqref{eq:ecuacion:kronecker:multiplicativa} y las propiedades del
+	s\'{\i}mbolo de Jacobi, se deducen las propiedades mencionadas en el
+	enunciado.
+\end{proof}
+
+\begin{lemaEcuacion}\label{lema:ecuacion:jacobi}
+	El s\'{\i}mbolo de Jacobi tiene las propiedades
+	\eqref{eq:ecuacion:kronecker:multiplicativa} y
+	\eqref{eq:ecuacion:kronecker:clases}.
+\end{lemaEcuacion}
+
+\begin{proof}
+	En cuanto a \eqref{eq:ecuacion:kronecker:multiplicativa}, si
+	$m=p_1\cdots p_r$ y $n=q_1\cdots q_s$, entonces
+	$mn=p_1\cdots p_rq_1\cdots q_s$ es la factorizaci\'on de $mn$ y
+	\begin{displaymath}
+		\jacobi M{mn}\,=\,
+			\legendre M{p_1}\,\cdots\,\legendre M{p_r}\,
+			\legendre M{q_1}\,\cdots\,\legendre M{q_s}\,=\,
+			\jacobi M{m}\,\jacobi M{n}
+		\text{ .}
+	\end{displaymath}
+	%
+	En cuanto a \eqref{eq:ecuacion:kronecker:clases}, sean
+	$D\equiv 0,1\tmodulo[4]$, $D\neq 0$ y sean $m,n>0$ impares tales
+	que $m\equiv n\tmodulo[D]$. Queremos ver que
+	$\tjacobi D{m}=\tjacobi D{n}$. Notemos que $\mcd{m,D}=\mcd{n,D}$,
+	con lo cual $\tjacobi D{m}=0$, si y s\'olo si $\tjacobi D{n}=0$.
+	En particular, si $m$ y $n$ no son coprimos con $D$,
+	$\tjacobi D{m}=\tjacobi D{n}$ (ambos siendo iguales a $0$).
+	En lo que queda, asumiremos que $\mcd{m,D}=\mcd{n,D}=1$.
+
+	Supongamos, en primer lugar, que $D\equiv 1\tmodulo[4]$ y $D>0$.
+	Entonces, por \eqref{item:ecuacion:jacobi:reciprocidad},
+	\begin{displaymath}
+		\jacobi D{m}\,=\,\jacobi{m^*} D\,=\,\jacobi{m} D\,=\,
+		\jacobi{n} D\,=\,\jacobi{n^*} D\,=\,\jacobi D{n}
+		\text{ .}
+	\end{displaymath}
+	%
+	Manteniendo la hip\'otesis $D\equiv 1\tmodulo[4]$, supongamos, en
+	segundo lugar, que $D<0$. Entonces, $|D|\equiv 3\tmodulo[4]$,
+	con lo cual,
+	\begin{displaymath}
+		\jacobi D{m}\,=\,\jacobi{|D|} m\,\jacobi{-1} m\,=\,
+		\jacobi{m^*}{|D|}\,\jacobi{-1}{|D|}\,=\,
+		\jacobi m{|D|}
+		\text{ .}
+	\end{displaymath}
+	%
+	Como lo mismo es cierto para $n$, y $\tjacobi n{|D|}=\tjacobi m{|D|}$,
+	se deduce que $\tjacobi D{m}=\jacobi D{n}$, en este caso.
+
+	Supongamos, ahora, que $D\equiv 0\tmodulo[4]$ y que
+	$D=2^{2k+\delta}D_0$, donde $k\geq 1$, $\delta\in\{0,1\}$ y $D_0$ es
+	impar. Entonces, vale que
+	\begin{displaymath}
+		\jacobi D{m}\,=\,\jacobi 2{m}^\delta\,\jacobi{D_0} m
+	\end{displaymath}
+	%
+	y lo mismo para $n$ en lugar de $m$. Adem\'as, como $4\mid D$,
+	debe ser $m\equiv n\tmodulo[4]$ y, por lo tanto,
+	\begin{displaymath}
+		\jacobi{-1} m\,=\,(-1)^{\frac{m-1} 2}\,=\,
+			(-1)^{\frac{n-1} 2}\,=\,\jacobi{-1} n
+		\text{ .}
+	\end{displaymath}
+	%
+	Para terminar, vamos a ver que $\tjacobi 2{m}=\tjacobi 2{n}$, si
+	$\delta\neq 0$, y que $\tjacobi{D_0} m=\tjacobi{D_0} n$.
+	Primero, si $\delta\neq 0$, en particular vale que $8\mid D$ y,
+	en consecuencia, $m\equiv n\tmodulo[8]$. Pero, entonces,
+	\begin{displaymath}
+		\jacobi 2{m}\,=\,(-1)^{\frac{m^2-1} 8}\,=\,
+			(-1)^{\frac{n^2-1} 8}\,=\,\jacobi 2{n}
+		\text{ .}
+	\end{displaymath}
+	%
+	Por \'ultimo, $D_0\equiv 1,3\tmodulo[4]$. En el caso en que
+	$D_0\equiv 1\tmodulo[4]$ (sea positivo o negativo), por el caso
+	anterior (el caso $D\equiv 1\tmodulo[4]$), sabemos que
+	$\tjacobi{D_0} m=\tjacobi{D_0} n$. Si, en el otro caso,
+	$D_0\equiv 3\tmodulo[4]$, entonces, para $D_0>0$,
+	\begin{displaymath}
+		\jacobi{D_0} m\,=\,\jacobi{m^*}{D_0}\,=\,
+		\jacobi m{D_0}\,\jacobi{(-1)^{\frac{m-1} 2}}{D_0}\,=\,
+		\jacobi n{D_0}\,\jacobi{(-1)^{\frac{n-1} 2}}{D_0}\,=\,
+		\jacobi{n^*}{D_0}\,=\,\jacobi{D_0} n
+		\text{ ,}
+	\end{displaymath}
+	%
+	y, para $D_0<0$, $|D_0|\equiv 1\tmodulo[4]$, con lo que,
+	\begin{displaymath}
+		\jacobi{D_0} m\,=\,\jacobi{|D_0|} m\,\jacobi{-1} m\,=\,
+		\jacobi{|D_0|} n\,\jacobi{-1} n\,=\,\jacobi{D_0} n
+		\text{ .}
+	\end{displaymath}
+	%
+\end{proof}
+
+\begin{obsEcuacion}\label{obs:ecuacion:kronecker}
+	Tanto en la demostraci\'on del \lemaname~\ref{lema:ecuacion:kronecker},
+	como en la demostraci\'on del \lemaname~\ref{lema:ecuacion:jacobi},
+	hicimos uso de las propiedades
+	\eqref{item:ecuacion:jacobi:clases},
+	\eqref{item:ecuacion:jacobi:multiplicativo},
+	\eqref{item:ecuacion:jacobi:menos-uno},
+	\eqref{item:ecuacion:jacobi:dos} y
+	\eqref{item:ecuacion:jacobi:reciprocidad},
+	que, a su vez, dependen de las propiedades an\'alogas del s\'{\i}mbolo
+	de Legendre.
+	Por otro lado, la funci\'on $\chi$ del \lemaname~%
+	\ref{lema:ecuacion:kronecker} \emph{no es} el s\'{\i}mbolo de Jacobi:
+	el s\'{\i}mbolo de Jacobi $\tjacobi M{m}$ s\'olo est\'a definido para
+	valores impares y positivos de $m$. Sin embargo, $\chi$ est\'a
+	definida en todo $\Enteros$.
+\end{obsEcuacion}
+
+\subsection*{\appendixname}
+El \lemaname~\ref{lema:ecuacion:kronecker} tiene una versi\'on equivalente
+expresada en el lenguaje de grupos:
+\begin{lemaEcuacion}\label{lema:ecuacion:kronecker:bis}
+	Si $D\equiv 0,1\tmodulo[4]$, $D\neq 0$, existe un \'unico morfismo
+	de grupos $\chi:\,\Unidadesmod[D]\rightarrow\cuadratico$
+	tal que $\chi\clase p=\tlegendre D{p}$, si $p$ es un primo (positivo)
+	impar que no divide a $D$.
+\end{lemaEcuacion}
+\noindent
+De la misma manera, el \'{\i}tem~%
+\eqref{item:ecuacion:kronecker:equivalencias:nucleo} del
+\teoname~\ref{teo:ecuacion:kronecker} se traduce en que la clase del primo
+pertenezca al n\'ucleo del morfismo:
+$\clase p\in\ker\,\chi\leq\Unidadesmod[4|n|]$.
+
+\begin{obsEcuacion}\label{obs:ecuacion:kronecker:bis}
+	Se puede probar, conociendo la estructura de los grupos abelianos
+	finitos $\Unidadesmod[q]$ ($q$ primo impar), $\Unidadesmod[4]$ y
+	$\Unidadesmod[8]$, que el \lemaname~\ref{lema:ecuacion:kronecker:bis}
+	(o, equivalentemente, el \lemaname~\ref{lema:ecuacion:kronecker}) y
+	el \teoname~\ref{teo:ecuacion:legendre} son equivalentes: asumiendo
+	la existencia de los morfismos
+	$\chi:\,\Unidadesmod[D]\rightarrow\cuadratico$, se pueden deducir
+	las propiedades del s\'{\i}mbolo de Legendre.
+\end{obsEcuacion}
+
+\subsection*{Ejercicios}
+\input{./tex/reciprocidad-cuadratica/ejercicios-ecuacion.tex}
+

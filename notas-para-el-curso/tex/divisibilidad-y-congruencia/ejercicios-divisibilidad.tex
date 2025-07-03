@@ -1,0 +1,197 @@
+\theoremstyle{definition}
+\newtheorem{ejerDivisibilidad}{\ejername}[section]
+
+%-------------
+
+\begin{ejerDivisibilidad}\label{ejer:divisibilidad:enteros}
+	Extender la relaci\'on de divisibilidad a los enteros y demostrar
+	propiedades an\'alogas. En particular, mostrar que existe un
+	algoritmo de divisi\'on correspondiente;
+	probar que $a\mid b$, si y s\'olo si $r=0$.%
+	\hint{
+		Si $a,b\in\Enteros$ y $a\neq 0$, existe un \'unico par
+		$q,r\in\Enteros$ tal que $b=qa+r$ y $0\leq r<|a|$.
+		% Describir un algoritmo para dividir dos enteros, a partir
+		% de esta propiedad.
+	}
+\end{ejerDivisibilidad}
+
+\begin{ejerDivisibilidad}\label{ejer:divisibilidad:resto}
+	Dados naturales $a$ y $b$, sea $\resto[a](b)$ el resto de la
+	divisi\'on de $b$ por $a$, es decir, $a$ divide a $b-\resto[a](b)$ y
+	$0\leq \resto[a](b)<a$. Probar las siguientes propiedades de
+	$\resto=\resto[a]$:
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:resto:i}
+			para todo natural $b$,
+			$\resto(\resto(b))=\resto(b)$;
+		\item\label{item:ejer:resto:ii}
+			para todo par de naturales $b$ y $c$,
+			$\resto(b+c)=\resto(\resto(b)+\resto(c))$;
+		\item\label{item:ejer:resto:iii}
+			para todo par de naturales $b$ y $c$,
+			$\resto(bc)=\resto(\resto(b)\resto(c))$.
+	\end{enumerate}
+	%
+\end{ejerDivisibilidad}
+
+\begin{ejerDivisibilidad}\label{ejer:divisibilidad:mcd}
+	Extender la noci\'on de m\'aximo com\'un divisor a los enteros
+	?`Es cierto que todo par de enteros admite un m\'aximo divisor
+	com\'un? Probar propiedades an\'alogas. En particular, demostrar
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:mcd:bezout}
+			que, si $b,c\in\Enteros$ y $g=\mcd{b,c}$ denota el
+			m\'aximo com\'un divisor, existen
+			$x,y\in\Enteros$ tales que $g=bx+cy$;
+		\item\label{item:ejer:mcd:caracterizacion}
+			que las caracterizaciones del \coroname~%
+			\ref{coro:mcd:caracterizacion} siguen siendo
+			v\'alidas;
+		\item\label{item:ejer:mcd:propiedades}
+			que, dados $b,c\in\Enteros$, siempre que exista,
+			\begin{math}
+				\mcd{b,c}=\mcd{b,-c}=\mcd{b,c+bx}
+			\end{math},
+			para todo $x\in\Enteros$.
+	\end{enumerate}
+	%
+\end{ejerDivisibilidad}
+
+% \begin{ejerDivisibilidad}
+	% Hallar $q,r\in\Enteros$ tales que $963=q428+r$ y $0\leq r<428$.
+% \end{ejerDivisibilidad}
+% 
+% \begin{ejerDivisibilidad}
+	% Hallar $\mcd{963,657}$.
+% \end{ejerDivisibilidad}
+% 
+\begin{ejerDivisibilidad}
+	Hallar el m\'aximo com\'un divisor de los siguientes pares de
+	enteros y expresarlo como combinaci\'on lineal entera de ellos:
+	\begin{itemize}
+		\item $7469$ y $2464$,
+		\item $2689$ y $4001$,
+		\item $2947$ y $3997$,
+		\item $1109$ y $4999$,
+		\item $1819$ y $3587$.
+	\end{itemize}
+	%
+\end{ejerDivisibilidad}
+
+\begin{ejerDivisibilidad}[Algoritmo de Euclides para hallar el m\'aximo %
+	com\'un divisor]\label{ejer:divisibilidad:euclides}
+	Dados $b,c\in\Enteros$, $c>0$, se definen las sucesiones siguientes:
+	\begin{displaymath}
+		r_{-1}\,=\,b\text{ ,}\quad r_0\,=\,c\text{ ,}\quad
+			r_i\,=\,r_{i-2}\,-\,q_ir_{i-1}\text{ ,}
+	\end{displaymath}
+	%
+	si $i\geq 1$, de manera que $r_{i-1}=0$ o bien $0\leq r_i<r_{i-1}$,
+	y, luego,
+	\begin{displaymath}
+		\begin{aligned}
+			x_{-1} & \,=\,1\text{ ,}\quad
+				x_0\,=\,0\text{ ,}\quad
+				x_i\,=\,x_{i-2}\,-\,q_ix_{i-1}
+				\quad\text{(\phantom)}i\geq 1
+					\text{\phantom(),} \\
+			y_{-1} & \,=\,0\text{ ,}\quad
+				y_0\,=\,1\text{ ,}\quad
+				y_i\,=\,y_{i-2}\,-\,q_iy_{i-1}
+				\quad\text{(\phantom)}i\geq 1
+					\text{\phantom().}
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Entonces, si $j$ es tal que $r_{j+1}=0$ y $r_j\neq 0$ (\'utimo
+	resto no nulo), se cumple que
+	\begin{displaymath}
+		\mcd{b,c}\,=\,r_j\,=\,bx_j+cy_j
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejerDivisibilidad}
+
+\begin{ejerDivisibilidad}
+	Hallar, si existen, $x,y\in\Enteros$ tales que
+	\begin{itemize}
+		\item $423x+198y=9$,
+		\item $71x-50y=1$,
+		\item $43x+64y=1$,
+		\item $93x-81y=3$,
+		\item $6x+10y+15z=1$.
+	\end{itemize}
+	%
+\end{ejerDivisibilidad}
+
+\begin{ejerDivisibilidad}
+	Probar que, dados $b,c\in\Enteros$, no ambos nulos, la ecuaci\'on
+	$bx+cy=k$ tiene soluci\'on, si y s\'olo si $\mcd{b,c}\mid k$.
+	Describir el conjunto soluci\'on.%
+	\hint{
+		si $(x,y)$ y $(x_1,y_1)$ son soluciones, entonces
+		$b'(x-x_1)+c'(y-y_1)=0$, donde
+		$b'=b/\mcd{b,c}$ y $c'=c/\mcd{b,c}$; notar que $b'$ y $c'$
+		son coprimos.
+	}
+	Generalizar a una cantidad arbitraria de enteros
+	(ver el \ejername~\ref{ejer:divisibilidad:mcd:iterado}).
+\end{ejerDivisibilidad}
+
+\begin{ejerDivisibilidad}\label{ejer:divisibilidad:mcd:iterado}
+	Extender la noci\'on de m\'aximo com\'un divisor a enteros
+	$\lista b{n}$, $n\geq 1$. Probar:
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:mcd:bezout:bis}
+			el an\'alogo del \teoname~\ref{teo:mcd:bezout};
+		\item\label{item:ejer:mcd:propiedades:bis}
+			propiedades an\'alogas a las del \teoname~%
+			\ref{teo:mcd:propiedades} (en particular, probar que
+			\begin{math}
+				\mcd{\lista b{n}}=\mcd{b_{\sigma 1},%
+					\,\dots,\,b_{\sigma n}}
+			\end{math},
+			para toda permutaci\'on $\sigma$ de
+			$\{1,\,\dots,\,n\}$);
+		\item\label{item:ejer:mcd:iterado}
+			que
+			\begin{math}
+				\mcd{\lista b{n}}=\mcd{%
+					\mcd{\lista b{n-1}},b_n}=
+				\mcd{\mcd{\lista b{j}},\mcd{\lista[j+1] b{n}}}
+			\end{math}.
+	\end{enumerate}
+	%
+\end{ejerDivisibilidad}
+
+\begin{ejerDivisibilidad}
+	En el Algoritmo de Euclides (\ejername~%
+	\ref{ejer:divisibilidad:euclides}), si $j\geq 0$ es tal que
+	$r_{j+1}=0$ y $r_j\neq 0$, probar que
+	\begin{enumerate}[(i)]
+		\item\label{ejer:euclides:propiedades:i}
+			si $-1\leq i\leq j+1$, entonces
+			$(-1)^ix_i\leq 0$ y $(-1)^iy_i\geq 0$;
+		\item\label{ejer:euclides:propiedades:ii}
+			si $0\leq i\leq j$, entonces
+			$|x_{i+1}|=|x_{i-1}|+q_{i+1}|x_i|$ y que
+			$|y_{i+1}|=|y_{i-1}|+q_{i+1}|y_i|$;
+		\item\label{ejer:euclides:propiedades:iii}
+			si $0\leq i\leq j+1$, entonces
+			$x_{i-1}y_i-x_iy_{i-1}=(-1)^i$;
+		\item\label{ejer:euclides:propiedades:iv}
+			si $-1\leq i\leq j+1$, entonces
+			$\mcd{x_i,y_i}=1$;
+		\item\label{ejer:euclides:propiedades:v}
+			si $g=\mcd{b,g}$, entonces
+			$|x_{j+1}|=c/g$ y $|y_{j+1}|=b/g$;
+		\item\label{ejer:euclides:propiedades:vi}
+			$|x_j|\leq c/(2g)$ y que se cumple
+			$|x_j|=c/(2g)$, si y s\'olo si $q_{j+1}=2$ y
+			$x_{j-1}=0$; de manera similar,
+			$|y_j|\leq b/(2g)$.
+	\end{enumerate}
+	%
+\end{ejerDivisibilidad}

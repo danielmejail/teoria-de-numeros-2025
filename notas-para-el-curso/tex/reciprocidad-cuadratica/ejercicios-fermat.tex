@@ -1,0 +1,286 @@
+\theoremstyle{definition}
+\newtheorem{ejerFermat}{\ejername}[section]
+
+%-------------
+
+\begin{ejerFermat}\label{ejer:fermat:identidades}
+	Verificar las siguientes identidades:
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:fermat:identidades:cuadrados}
+			\begin{math}
+				(x^2+y^2)\,(z^2+w^2)=
+					(xz\pm yw)^2+(xw\mp yz)^2
+			\end{math};
+		\item\label{item:ejer:fermat:identidades}
+			\begin{math}
+				(x^2+ny^2)\,(z^2+nw^2)=
+					(xz\pm nyw)^2+n\,(xw\mp yz)^2
+			\end{math}.
+	\end{enumerate}
+	%
+	Generalizar y hallar una identidad del estilo
+	\begin{displaymath}
+		(ax^2+cy^2)\,(az^2+cw^2)\,=\,(\text{?`?})^2+ac\,(\text{?`?})^2
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejerFermat}
+
+\begin{ejerFermat}\label{ejer:fermat:soluciones:euler}
+	Sean $p$ un n\'umero primo y
+	\begin{displaymath}
+		f\,=\,a_0\,+\,a_1\,X\,+\,\cdots\,+\,a_{d-1}\,X^{d-1}\,+\,X^d
+	\end{displaymath}
+	%
+	un polinomio m\'onico (coeficiente principal $=1$) de grado $d<p$.
+	Una de las conclusiones de este ejercicio ser\'a que
+	$f(x)\not\equiv 0\tmodulo[p]$ tiene soluci\'on, es decir, existe
+	$x\in\Enteros$ tal que $f(x)\not\equiv 0\tmodulo[p]$. Dicho de otra
+	manera, $f(x)\equiv 0\tmodulo[p]$, con $f$ de grado $d<p$, no puede
+	tener $p$ soluciones disitintas m\'odulo $p$.
+	Con este objetivo, definimos $\Delta f$ como el polinomio
+	\begin{displaymath}
+		\Delta f\,=\,f(X+1)\,-\,f(X)
+		\text{ ;}
+	\end{displaymath}
+	%
+	podemos iterar y definir $\Delta^{k+1}f=\Delta(\Delta^k f)$.
+	Probar las siguientes afirmaciones:
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:fermat:soluciones:euler:i}
+			si $k\geq 1$, entonces $\Delta^k f$ es una
+			combinaci\'on lineal de $f(X)$, $f(X+1)$, \dots,
+			$f(X+k)$ con coeficientes enteros;
+		\item\label{item:ejer:fermat:soluciones:euler:ii}
+			si $k=d$, el polinomio $\Delta^d f$ es constante:
+			$\Delta^d f(X)=d!$;
+		\item\label{item:ejer:fermat:soluciones:euler:iii}
+			existe $x\in\Enteros$ tal que
+			$f(x)\not\equiv 0\tmodulo[p]$.%
+			\hint{
+				si $f(x)\not\equiv 0\tmodulo[p]$
+				\emph{no admitiera soluciones}, entonces
+				por
+				\eqref{item:ejer:fermat:soluciones:euler:i},
+				$p\mid\Delta^d f$ y, por
+				\eqref{item:ejer:fermat:soluciones:euler:ii}
+				(y $d<p$) esto es imposible.
+			}
+	\end{enumerate}
+	%
+\end{ejerFermat}
+
+\begin{ejerFermat}\label{ejer:fermat:descenso:pre}
+	Probar la siguiente versi\'on an\'aloga del \lemaname~%
+	\ref{lema:fermat:descenso:pre}:
+	\begin{quote}
+		\itshape
+		Sea $n>0$ un n\'umero entero positivo y sea $N$ un natural
+		que se puede expresar como $N=a^2+nb^2$ con $a,b\in\Enteros$
+		y $\mcd{a,b}=1$. Si $q$ es un divisor primo de $N$ que no
+		divide a $n$ y se puede expresar como $q=x^2+ny^2$,
+		entonces el cociente $N/q$ tambi\'en se puede expresar como
+		$c^2+nd^2$ con $c,d\in\Enteros$ y $\mcd{c,d}=1$.
+	\end{quote}
+	Probar, adem\'as, que esto es cierto tambi\'en si $n=3$ y $q=4$.%
+	% \hint{
+		% Emular el argumento del \lemaname~%
+		% \ref{lema:fermat:descenso:pre}
+	% }
+\end{ejerFermat}
+
+% \begin{solucion}
+	% Si $N=a^2+nb^2$, $\mcd{a,b}=1$, y $q=x^2+ny^2$, entonces
+	% \begin{displaymath}
+		% Nx^2-a^2q\,=\,(a^2+nb^2)\,x^2-a^2\,(x^2+ny^2)\,=\,
+			% n\,(bx-ay)\,(bx+ay)
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% Como $q$ es primo, $q\mid N$ y $q\nmid n$, se deduce que
+	% $q\mid (bx-ay)$, o bien $q\mid (bx+ay)$. Cambiando el signo de $a$,
+	% podemos asumir que estamos en el primer caso. Esto quiere decir que
+	% existe $d\in\Enteros$ tal que $bx-ay=dq$. Ahora bien,
+	% \begin{displaymath}
+		% bx-dx^2\,=\,bx-dq+ndy^2\,=\,ay+ndy^2\,=\,(a+ndy)\,y
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% Como $x\mid bx-dx^2$, se cumple que $x\mid (a+ndy)\,y$. Pero
+	% $\mcd{x,y}=1$, con lo que $x\mid a+ndy$. Existe, entonces,
+	% $c\in\Enteros$ tal que $a+ndy=cx$. O sea,
+	% \begin{displaymath}
+		% a\,=\,cx-ndy\quad\text{y}\quad b\,=\,dx+cy
+		% \text{ .}
+		% % bx\,=\,dq + ay\,=\,d\,(x^2+ny^2)+(cx-ndy)\,y\,=\,
+		% % dx^2+cxy\,=\,(dx+cy)\,x
+	% \end{displaymath}
+	% %
+	% Pero, entonces,
+	% \begin{displaymath}
+		% N\,=\,a^2+nb^2\,=\,(cx-ndy)^2+(dx+cy)^2
+		% \,=\,(c^2+nd^2)\,(x^2+ny^2)\,=\,(c^2+nd^2)\,q
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% As\'{\i}, $N/q=c^2+nd^2$, pero, adem\'as, $\mcd{a,b}=1$ implica
+	% que $\mcd{c,d}=1$.
+% 
+	% Si $n=3$ y $q=4$, entonces la situaci\'on es la siguiente:
+	% $x=y=1$, $N=a^2+3b^2$, $a,b\in\Enteros$, $\mcd{a,b}=1$ y $4\mid N$
+	% (y $\mcd{q,n}=1$).
+	% Si $4\mid b-a$, entonces $b=a+4d$. En ese caso, definimos
+	% $c=a+3d$ y, as\'{\i},
+	% \begin{displaymath}
+		% a\,=\,c-3d\quad\text{y}\quad b\,=\,c+d
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% Pero, entonces,
+	% \begin{displaymath}
+		% N\,=\,a^2+3b^2\,=\,(c-3d)^2+3\,(d+c)^2\,=\,
+			% 4\,(c^2+3d^2)
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% Si $4\nmid b+a$, entonces $2\mid b-a$; si, adem\'as, $4\nmid b-a$,
+	% entonces
+	% \begin{displaymath}
+		% b\,\equiv\,a+2\tmodulo[4]\quad\text{y}\quad
+			% b+a\,\equiv\,2\,(a+1)\tmodulo[4]
+		% \text{ .}
+	% \end{displaymath}
+	% %
+	% Como $2\mid a$ implica $2\mid b$, lo que contradir\'{\i}a
+	% $\mcd{a,b}=1$, debe ser $2\nmid a$. Pero, entonces ser\'{\i}a
+	% $a+b\equiv 0\tmodulo[4]$. Otra contradicci\'on. Debe ser entonces
+	% $4\mid b+a$. Cambiando el signo de $a$, podemos asumir $4\mid b-a$.
+	% En definitiva, si $N=a^2+3b^2$, $\mcd{a,b}=1$ y $4\mid N$, entonces
+	% $N=4\,(c^2+3d^2)$ para ciertos $c,d\in\Enteros$, $\mcd{c,d}=1$.
+% \end{solucion}
+% 
+
+\begin{ejerFermat}\label{ejer:fermat:descenso:caso}
+	Sea $q$ un primo y sea $N=a^2+mqb^2$ un natural ($n=mq$) donde
+	$a,b,m\in\Enteros$.
+	Probar que, si $q$ divide a $N$, entonces $N/q=mc^2+qd^2$ donde
+	$c,d\in\Enteros$.
+	Probar, adem\'as, que, si $\mcd{a,b}=1$, entonces $\mcd{c,d}=1$.
+\end{ejerFermat}
+
+\begin{ejerFermat}\label{ejer:fermat:descenso}
+	Probar las siguientes versiones an\'alogas del \lemaname~%
+	\ref{lema:fermat:descenso} para $n=2,3$:%
+	% \hint{
+		% Emular el argumento del \lemaname~\ref{lema:fermat:descenso}
+	% }
+	\begin{quote}
+		\itshape
+		Sea $p$ un primo que divide a una expresi\'on
+		del tipo $a^2+2b^2$ donde $a,b\in\Enteros$ y
+		$\mcd{a,b}=1$. Entonces, existen
+		$x,y\in\Enteros$ tales que $p=x^2+2y^2$.
+	\end{quote}
+	\begin{quote}
+		\itshape
+		Sea $p$ un primo impar que divide a una
+		expresi\'on del tipo $a^2+3b^2$ donde
+		$a,b\in\Enteros$ y $\mcd{a,b}=1$. Entonces,
+		existen $x,y\in\Enteros$ tales que
+		$p=x^2+3y^2$.
+	\end{quote}
+\end{ejerFermat}
+
+\begin{ejerFermat}
+	Probar la siguiente versi\'on an\'aloga del \lemaname~%
+	\ref{lema:fermat:reciprocidad}:
+	\begin{quote}
+		\itshape
+		Si $p$ es primo y $p\equiv 1\tmodulo[3]$, entonces $p$ divide
+		a una expresi\'on del tipo $a^2+3b^2$ donde $a,b\in\Enteros$
+		y $\mcd{a,b}=1$,
+	\end{quote}
+	usando, por ejemplo, la siguiente identidad:
+	\begin{displaymath}
+		4\,(x^{3k}-1)\,=\,4\,(x^{2k}+x^k+1)\,(x^k-1)\,=\,
+			((2x^k+1)^2+3)\,(x^k-1)
+		\text{ .}
+	\end{displaymath}
+	%
+\end{ejerFermat}
+
+\begin{ejerFermat}
+	Probar que si $p\equiv 1\tmodulo[8]$ es primo, entonces $p$ divide a
+	una expresi\'on del tipo $a^2+2b^2$ donde $a,b\in\Enteros$ y
+	$\mcd{a,b}=1$, usando la siguiente identidad:
+	\begin{displaymath}
+		x^{8k}-1\,=\, ((x^{2k}-1)^2+2x^{2k})\,(x^{4k}-1)
+		\text{ .}
+	\end{displaymath}
+	%
+	Mostrar que existen primos $p\equiv 3\tmodulo[8]$ que dividen a
+	n\'umeros de la forma $a^2+2b^2$.
+	% con $a,b\in\Enteros$ y $\mcd{a,b}=1$.
+\end{ejerFermat}
+
+\begin{ejerFermat}
+	Para cada primo $p\equiv 1\tmodulo[3]$, $p\leq 50$, buscar todos los
+	valores $x,y\in\Enteros$ tales que $p=x^2+3y^2$.
+\end{ejerFermat}
+
+\begin{ejerFermat}\label{ejer:fermat:cinco}
+	En este ejercicio investigaremos condiciones que sirvan para
+	determinar si un primo divide a una expresi\'on de la forma
+	$a^2+5b^2$ donde $a,b\in\Enteros$ y $\mcd{a,b}=1$.
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:fermat:cinco:i}
+			Calcular que, si $p$ es un primo que divide a un
+			natural de la forma $a^2+5b^2$ con $a,b\leq 40$
+			y $\mcd{a,b}=1$, entonces $p$ puede ser
+			$\equiv 1,3,2,4\tmodulo[5]$.
+			O sea, en este caso, mirar congruencia m\'odulo $5$
+			no parece dar informaci\'on acerca de si un primo
+			divide o no a un natural de la forma $a^2+5b^2$.
+		\item\label{item:ejer:fermat:cinco:ii}
+			Hallar primos $p\equiv 2,4\tmodulo[5]$ que no
+			dividen a ning\'un natural de la forma $a^2+5b^2$
+			con $a,b\leq 40$ y $\mcd{a,b}=1$
+			(dicho de otra manera, que no aparecen entre los
+			divisores de ninguno de estos n\'umeros).
+		\item\label{item:ejer:fermat:cinco:iii}
+			Calcular que, si $p$ es un primo que divide a un
+			natural de la forma $a^2+5b^2$ con $a,b\leq 40$
+			y $\mcd{a,b}=1$, entonces
+			$p\equiv 1,3,7,9\tmodulo[20]$.
+	\end{enumerate}
+	%
+\end{ejerFermat}
+
+\begin{ejerFermat}\label{ejer:fermat:otras}
+	En este ejercicio investigamos otras formas de representar.
+	En las siguientes afirmaciones, $a,b\in\Enteros$, $\mcd{a,b}=1$
+	y $|a|,|b|\leq 40$.
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:fermat:siete}
+			Determinar las posibles clases de congruencia
+			m\'odulo $28$ de los primos $p$ que dividen a
+			los enteros $a^2+7b^2$.
+		\item\label{item:ejer:fermat:menos-tres}
+			Determinar las posibles clases de congruencia
+			m\'odulo $12$ de los primos $p$ que dividen a
+			los enteros $a^2-3b^2$.
+		\item\label{item:ejer:fermat:menos-cinco}
+			Determinar las posibles clases de congruencia
+			m\'odulo $20$ de los primos $p$ que dividen a
+			los enteros $a^2-5b^2$.
+		\item\label{item:ejer:fermat:menos-siete}
+			Determinar las posibles clases de congruencia
+			m\'odulo $28$ de los primos $p$ que dividen a
+			los enteros $a^2-7b^2$.
+	\end{enumerate}
+	%
+	Notar que en los casos \eqref{item:ejer:fermat:menos-tres},
+	\eqref{item:ejer:fermat:menos-cinco} y
+	\eqref{item:ejer:fermat:menos-siete} las clases obtenidas se pueden
+	representar como $\pm\beta^2$ donde $\beta$ es un n\'umero impar.
+\end{ejerFermat}
