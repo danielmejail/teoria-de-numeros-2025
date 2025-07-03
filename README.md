@@ -3,8 +3,18 @@ Material del curso Teoría de números dictado durante el segundo cuatrimestre
 de 2025 en el CMat.
 
 ## Notas
-Notas del curso.
+[Notas](https://github.com/danielmejail/teoria-de-numeros-2025/blob/main/notas-para-el-curso/notas-para-el-curso.pdf) del curso.
 
 ## Código
-Código para ejemplificar algunos de los temas estudiados en clase.
+[Código]() para ejemplificar algunos de los temas estudiados en clase.
+
+## Referencias
+Bibliografía consultada.
+
+### Referencias principales
+
+### Referencias complementarias
+
+## Legales
+[Programa oficial]() de la materia.
 
