@@ -1,5 +1,25 @@
 \r formas-cuadraticas.gp
 
+clases_representadas(B, f, as_set = 1, D = discriminante(f)) = {
+	local ( L = List([]) );
+	for ( x = -B, B, for ( y = -B, B, \
+		if ( ( gcd(x,y) == 1 ), \
+			listput( L, Mod(evaluar(x,y,f), D) )
+		) ) );
+	if ( as_set, return ( Set(L) ) );
+	return ( L );
+}
+
+clases_coprimas_representadas(B, f, m = discriminante(f), as_set = 1, D = discriminante(f)) = {
+	local ( L = List([]) );
+	for ( x = -B, B, for ( y = -B, B, \
+		if ( ( gcd(x,y) == 1 ) && ( gcd( (p=evaluar(x, y, f)), m ) == 1 ), \
+			listput( L, Mod(p, D) )
+		) ) );
+	if ( as_set, return ( Set(L) ) );
+	return ( L );
+}
+
 clases_de_primos_representados(B, f, as_set = 1, D = discriminante(f)) = {
 	/* Devuelve una lista con las clases de congruencia módulo
 	 * discriminante(f) a las cuales pertenecen los primos

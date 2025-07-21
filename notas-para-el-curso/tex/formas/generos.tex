@@ -154,7 +154,7 @@
 	$-56$, pero no es posible distinguir exactamente cu\'al es la clase
 	que lo representa. En particular, no podemos decir, si
 	$p\equiv 1,25,9,15,39,23\tmodulo[56]$, si $p$ es de la forma
-	$x^2+14y^2$. M\'as aun, $p$ podr\'{\i}a estar (y, de hecho, est\'a)
+	$x^2+14y^2$. M\'as aun, $p$ podr\'{\i}a estar % (y, de hecho, est\'a)
 	representado por m\'as de una clase.
 	En definitiva, hay un l\'{\i}mite a lo que podemos deducir a partir
 	de (estas) congruencias.
@@ -210,14 +210,6 @@ la siguiente variante de este concepto de representaci\'on.
 De la teor\'{\i}a desarrollada en la \S~\ref{sec:representaciones}, sabemos
 que formas equivalentes representan los mismos enteros.
 
-\begin{defGeneros}\label{def:generos}
-	Dos formas cuadr\'aticas % \emph{primitivas} definidas positivas
-	de discriminante $D$ \emph{pertenecen al mismo g\'enero},
-	si representan las mismas clases en $\Unidadesmod[D]$.
-\end{defGeneros}
-
-% \begin{ejemGeneros}\label{ejem:generos:representacion:mod:bis}
-% \end{ejemGeneros}
 
 \begin{defGeneros}\label{def:generos:clases-coprimas}
 	Dados $D\in\Enteros$ y una clase $c\in\Enterosmod[D]$, decimos
@@ -227,9 +219,36 @@ que formas equivalentes representan los mismos enteros.
 
 \begin{obsGeneros}\label{obs:generos:clases-coprimas}
 	Si $m\equiv n\tmodulo[D]$, entonces $\mcd{m,D}=\mcd{n,D}$.
-	En particular, cuandp $m\equiv n$, $m$ es coprimo con $D$, si
+	En particular, cuando $m\equiv n$, $m$ es coprimo con $D$, si
 	y s\'olo si $n$ lo es. En consecuencia,
 	si $D\in\Enteros$ y $c\in\Enterosmod[D]$, entonces $c$ es coprima
 	con $D$, si y s\'olo si \emph{al menos uno de los enteros %
 	pertenecientes a $c$} es coprimo con $D$.
 \end{obsGeneros}
+
+\begin{defGeneros}\label{def:generos}
+	Dos formas cuadr\'aticas % \emph{primitivas} definidas positivas
+	de discriminante $D$ \emph{pertenecen al mismo g\'enero},
+	si representan las mismas clases coprimas con $D$.
+	% es decir, las mismas clases en $\Unidadesmod[D]$.
+\end{defGeneros}
+
+\begin{ejemGeneros}\label{ejem:generos:representacion:mod:bis}
+	Las formas $\binaria{1,0,14}$ y $\binaria{2,0,7}$ pertenecen al
+	mismo g\'enero. Las formas $\binaria{3,\pm 2,5}$ pertenecen a
+	un mismo g\'enero, pero no pertenecen al mismo g\'enero que
+	las dos formas anteriores. Decimos entonces que las formas
+	(o, tambi\'en, las clases de formas) de discriminante $-56$
+	se dividen en dos g\'eneros:
+	\begin{displaymath}
+		\big\{
+			\binaria{1,0,14},\,\binaria{2,0,7}
+		\big\}\dispand
+		\big\{
+			\binaria{3,-2,5},\,\binaria{3,2,5}
+		\big\}
+		\dispstop
+	\end{displaymath}
+	%
+\end{ejemGeneros}
+
