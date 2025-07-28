@@ -1,0 +1,107 @@
+\theoremstyle{plain}
+\newtheorem{teoDirichlet}{\teoname}[section]
+
+\theoremstyle{definition}
+
+%-------------
+
+En esta secci\'on hacemos una disgresi\'on por el
+Teorema de Dirichlet sobre primos en progresiones aritm\'eticas y
+lo relacionaremos con el estudio de la representabilidad por formas
+cuadr\'aticas. Esto nos ser\'a \'util en la \S~\ref{sec:generos},
+cuando hablemos de \emph{g\'enero} de una forma cuadr\'atica.
+
+% Por el \lemaname~\ref{lema:representaciones:primitiva}, sabemos que
+% una condici\'on necesaria y suficiente para que un entero impar $m$
+% sea representado por una forma de discriminante $D$ (coprimo con $m$)
+% es que $D$ sea un cuadrado m\'odulo $m$.
+% Fijado $m$ podemos decidir f\'acilmente qu\'e discriminantes lo representan,
+% si entendemos qu\'e clases de congruencia m\'odulo $m$ son cuadrados
+% m\'odulo $m$.
+% Dicho de otra manera, fijado $m$, necesitamos entender el subgrupo
+% \begin{displaymath}
+	% \big\{x^2 \,:\,x\in\Unidadesmod[m]\big\}\,\leq\,\Unidadesmod[m]
+	% \dispstop
+% \end{displaymath}
+% %
+Por el \lemaname~\ref{lema:representaciones:primitiva}, fijado un entero
+$m$ (impar), podemos decidir f\'acilmente qu\'e discriminantes (coprimos
+con $m$) lo representan:
+son aquellos que pertenecen al subgrupo de cuadrados,
+\begin{displaymath}
+	\big\{ x^2\,:\,x\in\Unidadesmod[m] \big\}\,\leq\,\Unidadesmod[m]
+	\dispstop
+\end{displaymath}
+%
+Si $m=p$ es primo (impar), entonces
+\begin{displaymath}
+	\big\{ x^2\,:\,x\in\Unidadesmod[p] \big\}\,=\,
+		\big\{ y\in\Unidadesmod[p]\,:\,\tlegendre y p=1\big\}
+	\dispstop
+\end{displaymath}
+%
+
+\emph{Rec\'{\i}procamente}, fijado un discriminante $D$,
+?`existen condiciones sobre las clases de congruencia m\'odulo $D$
+para determinar qu\'e enteros $m$ se pueden representar por formas de
+discriminante $D$?
+% El \teoname~\ref{teo:representaciones} nos da un criterio sencillo
+% para determinar qu\'e \emph{primos} podemos representar por formas de
+% discriminante $D$.
+% Dicha condici\'on involucra la funci\'on $\chi$ del \lemaname~%
+% \ref{lema:ecuacion:kronecker} y, en definitiva, se reduce a una condici\'on
+% sobre la clase de congruencia del primo m\'odulo $D$.
+% La funci\'on $\chi$ permite pasar de la condici\'on $\tlegendre D{p}=1$,
+% que $D$ sea un cuadrado m\'odulo $p$, a $\chi(p)=1$, que es una condici\'on
+% sobre la clase de congruencia de $p$ m\'odulo $D$.
+% En particular, si $p$ y $q$ son primos (impares) que no dividen a $D$,
+% y si $p\equiv q\tmodulo[D]$, entonces la condici\'on para que $p$ est\'e
+% representado por una forma de discriminante $D$ es la misma que para $q$.
+% Dicho de otra manera, si nos interesa saber si podemos representar un
+% primo particular $p$ por una forma de discriminante $D$, nos bastar\'a
+% con decidir si podemos representar \emph{alg\'un} primo perteneciente a
+% la clase de congruencia de $p$ m\'odulo $D$.
+El \teoname~\ref{teo:representaciones} nos da un criterio sencillo
+para determinar qu\'e \emph{primos} podemos representar por formas
+de discriminante $D$:
+son aquellos que pertenecen al n\'ucleo de la funci\'on $\chi$ del
+\lemaname~\ref{lema:ecuacion:kronecker},
+\begin{displaymath}
+	\ker(\chi)\,=\,\big\{c\in\Unidadesmod[D]\,:\,\chi(c)=1\big\}
+		\,\leq\,\Unidadesmod[D]
+	\dispstop
+\end{displaymath}
+%
+En particular, si $p$ y $q$ son primos (impares) que no dividen a $D$,
+y si $p\equiv q\tmodulo[D]$, entonces la condici\'on para que $p$ est\'e
+representado por una forma de discriminante $D$ es la misma que para $q$.
+Dicho de otra manera, si nos interesa saber si podemos representar un
+primo particular $p$ por una forma de discriminante $D$, nos bastar\'a
+con decidir si podemos representar \emph{alg\'un} primo perteneciente a
+la clase de congruencia de $p$ m\'odulo $D$.
+Cuando restringimos el problema de representaci\'on de representar
+enteros a representar primos, lo que importa es la clase de congruencia
+del primo.
+
+Ahora, si, en lugar de un entero, empezamos por una clase de congruencia
+
+Para aplicar el \teoname~\ref{teo:representaciones}, lo que importa
+entonces es saber qu\'e clases 
+
+% La noci\'on de g\'enero de una forma cuadr\'atica tiene que ver con
+% \emph{qu\'e clases de congruencia} son representadas por la forma en
+% cuesti\'on; precisamente, qu\'e clases de congruencia m\'odulo el
+% discriminante de la forma. Si $D\equiv 0,1\tmodulo[4]$ es un discriminante
+% y $m\in\Entero$ 
+
+\begin{teoDirichlet}[Dirichlet]\label{teo:dirichlet}
+	Dados n\'umeros enteros coprimos $m$ y $D$, la sucesi\'on
+	\begin{displaymath}
+		m\dispcomma\quad
+		m+D\dispcomma\quad
+		m+2 D\dispcomma\quad\dots
+	\end{displaymath}
+	%
+	contiene infinitos n\'umeros primos.
+\end{teoDirichlet}
+

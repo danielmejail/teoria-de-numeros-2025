@@ -10,9 +10,9 @@
 
 %-------------
 
-La relaci\'on de equivalencia refleja, talvez, un aspecto m\'as
+La relaci\'on de equivalencia refleja, talvez, un aspecto m\'as bien
 algebraico de las formas cuadr\'aticas.
-En la \S~\ref{sec:generos}, introduciremos la noci\'on de \emph{g\'enero}
+En esta secci\'on, introduciremos la noci\'on de \emph{g\'enero}
 de una forma cuadr\'atica (binaria, definida positiva y primitiva),
 que se conecta m\'as con la idea de representar un entero por una forma
 cuadr\'atica y que nos permitir\'a subdividir las formas cuadr\'aticas
@@ -167,7 +167,7 @@ estricta.
 	es cierto que la clase de congruencia de $p$ m\'odulo $56$
 	determina si $p$ es representado por alguna forma de discriminante
 	$-56$, pero no es posible distinguir exactamente cu\'al es la clase
-	que lo representa. En particular, no podemos decir, si
+	que lo representa. En particular, no podemos decir, dado
 	$p\equiv 1,25,9,15,39,23\tmodulo[56]$, si $p$ es de la forma
 	$x^2+14y^2$. M\'as aun, $p$ podr\'{\i}a estar % (y, de hecho, est\'a)
 	representado por m\'as de una clase.
@@ -175,52 +175,52 @@ estricta.
 	de (estas) congruencias.
 \end{obsGeneros}
 
-En la \defname~\ref{def:definiciones:representacion}, definimos lo que
-significa que una forma cuadr\'atica represente un entero: $f$ representa
-$m\in\Enteros$, si existen $x,y\in\Enteros$ tales que $f(x,y)=m$.
-Teniendo en cuenta la \obsname~\ref{obs:generos:ejemplos}, introducimos
-la siguiente variante de este concepto de representaci\'on.
+% En la \defname~\ref{def:definiciones:representacion}, definimos lo que
+% significa que una forma cuadr\'atica represente un entero: $f$ representa
+% $m\in\Enteros$, si existen $x,y\in\Enteros$ tales que $f(x,y)=m$.
+% Teniendo en cuenta la \obsname~\ref{obs:generos:ejemplos}, introducimos
+% la siguiente variante de este concepto de representaci\'on.
+% 
+% \begin{defGeneros}\label{def:generos:representacion:mod}
+	% Dados $D\in\Enteros$, una clase de congruencia
+	% $c\in\Enterosmod[|D|]$ y una forma $f$, decimos que
+	% \emph{la clase $c$ es representada por $f$} (o que \emph{$f$ %
+	% representa la clase $c$}), si existe $m\in c$, perteneciente a la
+	% clase, tal que $m$ es representado por $f$.
+% \end{defGeneros}
 
-\begin{defGeneros}\label{def:generos:representacion:mod}
-	Dados $D\in\Enteros$, una clase de congruencia
-	$c\in\Enterosmod[|D|]$ y una forma $f$, decimos que
-	\emph{la clase $c$ es representada por $f$} (o que \emph{$f$ %
-	representa la clase $c$}), si existe $m\in c$, perteneciente a la
-	clase, tal que $m$ es representado por $f$.
-\end{defGeneros}
-
-\begin{ejemGeneros}\label{ejem:generos:representacion:mod}
-	La forma $\binaria{1,0,14}$ representa las clases
-	\begin{displaymath}
-		\clase 1\dispcomma\quad
-		\clase{25}\dispcomma\quad
-		\clase 9\dispcomma\quad
-		\clase{15}\dispcomma\quad
-		\clase{39}\dispand
-		\clase{23}
-	\end{displaymath}
-	%
-	m\'odulo $56$, porque, por ejemplo, representa a \emph{los enteros}
-	$1$, $25$, $9$, $15$, $39$ y $23$. Sin embargo, la forma
-	$\binaria{2,0,7}$ tambi\'en representa estas clases:
-	representa
-	\begin{displaymath}
-		9\,=\,2\cdot 1^2+7\dispcomma\quad
-		15\,=\,2\cdot 2^2+7\dispcomma\quad
-		25\,=\,2\cdot 3^2+7\dispand
-		39\,=\,2\cdot 4^2+7
-		\text{ ;}
-	\end{displaymath}
-	%
-	pero tambi\'en representa
-	\begin{displaymath}
-		57\,=\,2\cdot 5^2+7\,\equiv\,1\modulo[56]
-		\dispand
-		79\,=\,2\cdot 6^2+7\,\equiv\,23\modulo[56]
-		\dispstop
-	\end{displaymath}
-	%
-\end{ejemGeneros}
+% \begin{ejemGeneros}\label{ejem:generos:representacion:mod}
+	% La forma $\binaria{1,0,14}$ representa las clases
+	% \begin{displaymath}
+		% \clase 1\dispcomma\quad
+		% \clase{25}\dispcomma\quad
+		% \clase 9\dispcomma\quad
+		% \clase{15}\dispcomma\quad
+		% \clase{39}\dispand
+		% \clase{23}
+	% \end{displaymath}
+	% %
+	% m\'odulo $56$, porque, por ejemplo, representa a \emph{los enteros}
+	% $1$, $25$, $9$, $15$, $39$ y $23$. Sin embargo, la forma
+	% $\binaria{2,0,7}$ tambi\'en representa estas clases:
+	% representa
+	% \begin{displaymath}
+		% 9\,=\,2\cdot 1^2+7\dispcomma\quad
+		% 15\,=\,2\cdot 2^2+7\dispcomma\quad
+		% 25\,=\,2\cdot 3^2+7\dispand
+		% 39\,=\,2\cdot 4^2+7
+		% \text{ ;}
+	% \end{displaymath}
+	% %
+	% pero tambi\'en representa
+	% \begin{displaymath}
+		% 57\,=\,2\cdot 5^2+7\,\equiv\,1\modulo[56]
+		% \dispand
+		% 79\,=\,2\cdot 6^2+7\,\equiv\,23\modulo[56]
+		% \dispstop
+	% \end{displaymath}
+	% %
+% \end{ejemGeneros}
 
 De la teor\'{\i}a desarrollada en la \S~\ref{sec:representaciones}, sabemos
 que formas equivalentes representan los mismos enteros.

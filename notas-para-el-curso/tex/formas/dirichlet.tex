@@ -1,25 +1,349 @@
+\theoremstyle{plain}
+\newtheorem{teoDirichlet}{\teoname}[section]
+\newtheorem{coroDirichlet}[teoDirichlet]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{defDirichlet}[teoDirichlet]{\defname}
+\newtheorem{ejemDirichlet}[teoDirichlet]{\ejemname}
+
+%-------------
+
 En esta secci\'on hacemos una disgresi\'on por el
 Teorema de Dirichlet sobre primos en progresiones aritm\'eticas y
 lo relacionaremos con el estudio de la representabilidad por formas
 cuadr\'aticas. Esto nos ser\'a \'util en la \S~\ref{sec:generos},
 cuando hablemos de \emph{g\'enero} de una forma cuadr\'atica.
 
-Por el \lemaname~\ref{lema:representaciones:primitiva}, sabemos que una
-condici\'on necesaria y suficiente para que un entero $m$ sea representado
-por una forma de discriminante $D$ es que $D$ sea un cuadrado m\'odulo $m$.
-Fijado $m$ podemos decidir f\'acilmente qu\'e discriminantes lo representan.
-Por otro lado, el \teoname~\ref{teo:representaciones} nos da,
-\emph{rec\'{\i}procamente}, un criterio sencillo para determinar, fijado $D$,
-qu\'e \emph{primos} podemos representar por formas de discriminante $D$.
-Dicha condici\'on involucra la funci\'on $\chi$ del \lemaname~%
-\ref{lema:ecuacion:kronecker} y, en definitiva, se reduce a una condici\'on
-sobre la clase de congruencia del primo m\'odulo $D$:
-los primos representables son aquellos cuyas clases de congruencia m\'odulo
-$D$ cumplen $\chi(\clase p)=1$.
+\begin{teoDirichlet}[Dirichlet]\label{teo:dirichlet}
+	Dados n\'umeros enteros coprimos $m$ y $D$, la sucesi\'on
+	\begin{displaymath}
+		m\dispcomma\quad
+		m+D\dispcomma\quad
+		m+2 D\dispcomma\quad\dots
+	\end{displaymath}
+	%
+	contiene infinitos n\'umeros primos.
+\end{teoDirichlet}
 
-% La noci\'on de g\'enero de una forma cuadr\'atica tiene que ver con
-% \emph{qu\'e clases de congruencia} son representadas por la forma en
-% cuesti\'on; precisamente, qu\'e clases de congruencia m\'odulo el
-% discriminante de la forma. Si $D\equiv 0,1\tmodulo[4]$ es un discriminante
-% y $m\in\Entero$ 
+Una consecuencia del \teoname~\ref{teo:dirichlet} es que toda clase
+de congruencia m\'odulo $D$ contiene alg\'un n\'umero primo.
+Veamos c\'omo se relaciona esto con el problema de representabilidad
+por formas cuadr\'aticas.
+
+Por el \lemaname~\ref{lema:representaciones:primitiva}, fijado un entero
+$m$ (impar), podemos decidir f\'acilmente qu\'e discriminantes (coprimos
+con $m$) lo representan:
+son aquellos que pertenecen al subgrupo de cuadrados,
+\begin{displaymath}
+	\big\{ x^2\,:\,x\in\Unidadesmod[m] \big\}\,\leq\,\Unidadesmod[m]
+	\dispstop
+\end{displaymath}
+%
+Si $m=p$ es primo (impar), entonces
+\begin{displaymath}
+	\big\{ x^2\,:\,x\in\Unidadesmod[p] \big\}\,=\,
+		\big\{ y\in\Unidadesmod[p]\,:\,\tlegendre y p=1\big\}
+	\dispstop
+\end{displaymath}
+%
+\emph{Rec\'{\i}procamente}, fijado un discriminante $D$,
+?`existen condiciones sobre las clases de congruencia m\'odulo $D$
+para determinar qu\'e enteros $m$ se pueden representar por formas de
+discriminante $D$?
+El \teoname~\ref{teo:representaciones} nos da un criterio sencillo
+para determinar qu\'e \emph{primos} podemos representar por formas
+de discriminante $D$:
+son aquellos que pertenecen al n\'ucleo de la funci\'on $\chi$ del
+\lemaname~\ref{lema:ecuacion:kronecker},
+\begin{displaymath}
+	\ker(\chi)\,=\,\big\{c\in\Unidadesmod[D]\,:\,\chi(c)=1\big\}
+		\,\leq\,\Unidadesmod[D]
+	\dispstop
+\end{displaymath}
+%
+% En particular, si $p$ y $q$ son primos (impares) que no dividen a $D$,
+% y si $p\equiv q\tmodulo[D]$, entonces la condici\'on para que $p$ est\'e
+% representado por una forma de discriminante $D$ es la misma que para $q$.
+% Dicho de otra manera, si nos interesa saber si podemos representar un
+% primo particular $p$ por una forma de discriminante $D$, nos bastar\'a
+% con decidir si podemos representar \emph{alg\'un} primo perteneciente a
+% la clase de congruencia de $p$ m\'odulo $D$.
+% Cuando restringimos el problema de representaci\'on de representar
+% enteros a representar primos, lo que importa es la clase de congruencia
+% del primo.
+% 
+
+Si $D\equiv 0,1\tmodulo[4]$, $D<0$, es un discriminante y
+$c\in\Unidadesmod[D]$, existe, por el \teoname~\ref{teo:dirichlet},
+al menos un primo $p\in c$ ($\clase p=c$).
+Ahora, por el \teoname~\ref{teo:representaciones}, si $c\in\ker(\chi)$,
+entonces $\chi(p)=1$ y $p$ est\'a representado por alguna forma
+de discriminante $D$. En particular, deducimos lo siguiente:
+si $c\in\ker(\chi)$, entonces alg\'un elemento $m\in c$ de la clase
+es representado (propiamente) por alguna forma (primitiva) de
+discriminante $D$.
+% Para que sea m\'as claro, introducimos la siguiente definici\'on
+% (que tambi\'en ser\'a utilizada en la \S~\ref{sec:generos}).
+
+\begin{defDirichlet}\label{def:dirichlet:representacion:mod}
+	Dados un discriminante $D\equiv 0,1\tmodulo[4]$, una clase de
+	congruencia $c\in\Enterosmod[|D|]$ y una forma $f$, decimos que
+	\emph{la clase $c$ es representada por $f$} (o que \emph{$f$ %
+	representa la clase $c$}), si existe $m\in c$, perteneciente a la
+	clase, tal que $m$ es representado por $f$.
+	% Si existe $m\in c$ propiamente representado por $f$, decimos
+	% que la clase $c$ es \emph{propiamente representada} por $f$.
+\end{defDirichlet}
+
+\begin{ejemDirichlet}\label{ejem:dirichlet:representacion:mod}
+	La forma $\binaria{1,0,14}$ representa las clases
+	\begin{displaymath}
+		\clase 1\dispcomma\quad
+		\clase{25}\dispcomma\quad
+		\clase 9\dispcomma\quad
+		\clase{15}\dispcomma\quad
+		\clase{39}\dispand
+		\clase{23}
+	\end{displaymath}
+	%
+	m\'odulo $56$, porque, por ejemplo, representa \emph{los enteros}
+	$1$, $25$, $9$, $15$, $39$ y $23$.
+	Sin embargo, la forma $\binaria{2,0,7}$ tambi\'en representa
+	estas clases: representa
+	\begin{displaymath}
+		9\,=\,2\cdot 1^2+7\dispcomma\quad
+		15\,=\,2\cdot 2^2+7\dispcomma\quad
+		25\,=\,2\cdot 3^2+7\dispand
+		39\,=\,2\cdot 4^2+7
+		\text{ ;}
+	\end{displaymath}
+	%
+	pero tambi\'en representa
+	\begin{displaymath}
+		57\,=\,2\cdot 5^2+7\,\equiv\,1\modulo[56]
+		\dispand
+		79\,=\,2\cdot 6^2+7\,\equiv\,23\modulo[56]
+		\dispstop
+	\end{displaymath}
+	%
+\end{ejemDirichlet}
+
+\begin{coroDirichlet}\label{coro:dirichlet}
+	Sea $D\equiv 0,1\tmodulo[4]$ y sea $c\in\Unidadesmod[D]$.
+	Entonces, la clase $c$ es representada (propiamente) por
+	alguna forma (primitiva) de discriminante $D$, si $c\in\ker(\chi)$.
+\end{coroDirichlet}
+
+Rec\'{\i}procamente, el \lemaname~\ref{lema:generos} muestra, entre
+otras cosas, que, si $c$ es representada por una forma de discriminante
+$D$, \emph{entonces} $c\in\ker(\chi)$.
+
+En definitiva, tenemos una condici\'on necesaria (y suficiente)
+para determinar qu\'e \emph{clases de congruencia} son representadas
+por \emph{alguna} forma de discriminante $D$.
+En la \S~\ref{sec:generos}, veremos que no es posible, en general,
+representar cualquier clase de congruencia (detro de las clases
+representables) por cualquier forma cuadr\'atica.
+El \emph{g\'enero} agrupa formas de acuerdo con las clases de
+congruencia que cada una puede representar y clases de congruencia
+de acuerdo con las formas que las representan.
+% El \emph{g\'enero} servir\'a de herramienta para estudiar si una
+% clase de congruencia espec\'{\i}fica es representada por una forma
+% cuadr\'atica particular. En consecuencia, podremos precisar un poco
+% m\'as qu\'e formas cuadr\'aticas --dentro de todas las formas de
+% discriminante $D$-- podr\'{\i}an representar un primo dado.
+
+Terminamos esta secci\'on con algunos ejemplos que ilustran
+el uso del \teoname~\ref{teo:dirichlet} en este contexto.
+Dado que formas equivalentes representan los mismos enteros,
+cuando decimos que una clase es representada, o que un entero
+es representado, por alguna forma de discriminante $D<0$ y
+queremos encontrar dicha forma, podemos restringirnos a buscar
+entre las formas reducidas.
+
+\begin{ejemDirichlet}\label{ejem:dirichlet:representacion:tres}
+	El grupo $\Unidadesmod[3]$ consta de dos clases de congruencia:
+	\begin{displaymath}
+		\clase 1\dispand\clase 2
+		\dispstop
+	\end{displaymath}
+	%
+	La clase $\clase 1$ contiene al primo $7$ y la clase
+	$\clase 2$ contiene a $5$. Para decidir qu\'e clases
+	se pueden representar por formas de discriminante $-3$,
+	necesitamos conocer el valor de $\chi$ en ellas.
+	Ahora,
+	\begin{displaymath}
+		\chi(1)\,=\,\chi(7)\,=\,\legendre{-3} 7\,=\,1
+		\dispcomma
+	\end{displaymath}
+	%
+	mientras que
+	\begin{displaymath}
+		\chi(2)\,=\,\chi(5)\,=\,\legendre{-3} 5\,=\,-1
+		\dispstop
+	\end{displaymath}
+	%
+	De hecho, podr\'{\i}amos deducir, usando las propiedades del
+	s\'{\i}mbolo de Legendre, que $\tlegendre{-3} p=1$, si s\'olo si
+	$p\equiv 1\tmodulo[3]$.
+	Hay, por otro lado, s\'olo una forma reducida de discriminante
+	$-3$:
+	\begin{displaymath}
+		x^2\,+\,xy\,+\,y^2
+		\dispstop
+	\end{displaymath}
+	%
+	Por el \coroname~\ref{coro:dirichlet}, la clase de congruencia
+	m\'odulo $3$ $\clase 1$ es representable por esta forma
+	cuadr\'atica. Efectivamente,
+	\begin{displaymath}
+		7\,=\,1^2+1\cdot (-3)+(-3)^2
+		\dispstop
+	\end{displaymath}
+	%
+	Ahora bien, nuevamente por el \coroname~\ref{coro:dirichlet},
+	los primos pertenecientes a la clase $\clase 2$ no pueden
+	ser representados por la forma $\binaria{1,1,1}$
+	(y, por lo tanto, por ninguna forma de discriminante $-3$).
+	Pero cabe, aun, la posibilidad de que la clase s\'{\i} sea
+	representable, es decir, que exista alg\'un entero
+	$m\equiv 2\tmodulo 3$ (no primo) que s\'{\i} sea representado
+	en la forma $\binaria{1,1,1}$. La rec\'{\i}proca del
+	\coroname~\ref{coro:dirichlet} garantiza que esto no puede
+	pasar en general. De hecho, si no nos olvidamos de que la
+	forma es $x^2+xy+y^2$, podemos ver que, si $\mcd{x,y}=1$, entonces
+	\begin{displaymath}
+		x^2+xy+y^2\,\equiv\,0,1\modulo[3]
+		\dispcomma
+	\end{displaymath}
+	%
+	con lo cual, la clase $\clase 2$ no es representable por
+	formas de discriminante $-3$.
+\end{ejemDirichlet}
+
+\begin{ejemDirichlet}\label{ejem:dirichlet:representacion:quince}
+	Las clases de congruencia m\'odulo $15$ en
+	$\Unidadesmod[15]$ son:
+	\begin{displaymath}
+		\clase 1\dispcomma\quad
+		\clase 2\dispcomma\quad
+		\clase 4\dispcomma\quad
+		\clase 7\dispcomma\quad
+		\clase 8\dispcomma\quad
+		\clase{11}\dispcomma\quad
+		\clase{13}\dispand
+		\clase{14}\dispstop
+	\end{displaymath}
+	%
+	Queremos decidir cu\'ales de estas clases son representadas
+	por alguna forma de discriminante $-15$ y, dentro de lo posible,
+	determinar, dada una clase representable, cu\'al de las dos formas
+	la representa. Empezamos calculando la funci\'on $\chi$.
+	Para eso necesitamos evaluarla en cada una de las clases en
+	$\Unidadesmod[15]$ (en las clases m\'odulo $15$ que no
+	pertenecen a $\Unidadesmod[15]$, su valor es $0$).
+	Pero, seg\'un el \lemaname~\ref{lema:ecuacion:kronecker},
+	los \'unicos enteros en los que conocemos (m\'as o menos)
+	expl\'{\i}citamente la funci\'on $\chi$ es en los primos (que,
+	en este caso, no dividen a $15$).
+	Dada una clase $c\in\Unidadesmod[15]$, si $p\in c$
+	es primo perteneciente a la clase, entonces,
+	\begin{displaymath}
+		\chi(c)\,=\,\chi(p)\,=\,\legendre{-15} p
+		\dispstop
+	\end{displaymath}
+	%
+	Pero, por propiedades del s\'{\i}mbolo de Legendre,
+	\begin{displaymath}
+		\legendre{-15} p\,=\,\legendre{-3} p\,\legendre 5 p
+		\dispstop
+	\end{displaymath}
+	%
+	Entonces,
+	\begin{displaymath}
+		\legendre{-15} p\,=\,1
+		\dispiff
+		\left\{
+			\begin{array}{l}
+				p\,\equiv\,1\tmodulo[3]\dispand
+					p\,\equiv\,\pm 1\tmodulo[5]
+					\dispor \\
+				p\,\equiv\,2\tmodulo[3]\dispand
+					p\,\equiv\,\pm 3\tmodulo[5]
+					\dispstop
+			\end{array}
+		\right.
+	\end{displaymath}
+	%
+	O sea, $\chi(p)=1$, si y s\'olo si
+	$p\equiv 1,4,2,8\tmodulo[15]$.
+	La \tablename~\ref{tab:ejem:dirichlet:representacion:quince}
+	muestra, para cada clase $c\in\Unidadesmod[15]$, un primo $p$
+	perteneciente a $c$ y el valor de $\chi(p)$.
+	\begin{table}
+		\centering
+		\begin{tabular}{r|cccccccc}
+			$c$ & $1$ & $2$ & $4$ & $7$
+				& $8$ & $11$ & $13$ & $14$ \\
+			\hline
+			$p\in c$ & $31$ & $17$ & $19$ & $37$
+				& $23$ & $41$ & $43$ & $29$ \\
+			\hline
+			$\chi(p)$ & $1$ & $1$ & $1$ & $-1$
+				& $1$ & $-1$ & $-1$ & $-1$ \\
+			\hline
+			$p=f(x,y)$ & $\binaria{1,1,4}$ & $\binaria{2,1,2}$
+				& $\binaria{1,1,4}$ &
+				& $\binaria{2,1,2}$ & & &
+		\end{tabular}
+		\caption{
+			Valores de $\chi$ correspondientes a $D=-15$
+			y la forma reducida $f$ que representa cada
+			clase.
+		}\label{tab:ejem:dirichlet:representacion:quince}
+	\end{table}
+	%
+	Por otro lado, hay dos formas reducidas de discriminante $D=-15$;
+	ellas son:
+	\begin{displaymath}
+		x^2\,+\,xy\,+4y^2
+		\dispand
+		2x^2\,+\,xy\,+\,2y^2
+		\dispstop
+	\end{displaymath}
+	%
+	Notamos que, si $\mcd{x,y}=1$, entonces
+	\begin{displaymath}
+		x^2\,+\,xy\,+\,4y^2\,\equiv\,1\tmodulo[3]
+		\dispand
+		2x^2\,+\,xy\,+\,2y^2\,\equiv\,2\tmodulo[3]
+		\dispstop
+	\end{displaymath}
+	%
+	En particular, no hay posibilidad de que ambas formas
+	representen las mismas clases m\'odulo $15$.
+	Complementando esta \'ultima observaci\'on,
+	si $\mcd{x,y}=1$,
+	\begin{displaymath}
+		x^2\,+\,xy\,+\,4y^2\,\equiv\,1,4\tmodulo[5]
+		\dispand
+		2x^2\,+\,xy\,+\,2y^2\,\equiv\,2,3\tmodulo[5]
+		\dispstop
+	\end{displaymath}
+	%
+	De hecho, para los primos de la \tablename~%
+	\ref{tab:ejem:dirichlet:representacion:quince},
+	\begin{displaymath}
+		\begin{aligned}
+			31 & \,=\, 3^2+3\cdot 2+4\cdot 2^2 \\
+			17 & \,=\, 2\cdot 1^2+1\cdot (-3)+2\cdot (-3)^2 \\
+			19 & \,=\, 1^2+1\cdot 2+4\cdot 2^2 \\
+			23 & \,=\,2\cdot 1^2+1\cdot 3+2\cdot 3^2
+			\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+\end{ejemDirichlet}
 
