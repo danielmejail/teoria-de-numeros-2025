@@ -10,12 +10,11 @@
 
 %-------------
 
-La relaci\'on de equivalencia refleja, talvez, un aspecto m\'as bien
-algebraico de las formas cuadr\'aticas.
+% La relaci\'on de equivalencia refleja, talvez, un aspecto m\'as bien
+% algebraico de las formas cuadr\'aticas.
 En esta secci\'on, introduciremos la noci\'on de \emph{g\'enero}
 de una forma cuadr\'atica (binaria, definida positiva y primitiva),
-que se conecta m\'as con la idea de representar un entero por una forma
-cuadr\'atica y que nos permitir\'a subdividir las formas cuadr\'aticas
+que nos permitir\'a subdividir las formas cuadr\'aticas
 teniendo en cuenta sus propiedades de representaci\'on.
 Sabemos que formas equivalentes representan los mismos enteros
 (el conjunto de enteros representados es un invariante de la
@@ -23,7 +22,24 @@ clase de equivalencia de una forma).
 Con lo cual, la subdivisi\'on del conjunto de formas de acuerdo con su
 g\'enero terminar\'a siendo una subdivisi\'on m\'as gruesa que la
 subdivisi\'on por clases de equivalencia o clases de equivalencia
-estricta.
+estricta; cada g\'enero de formas cuadr\'aticas estar\'a conformado por
+(posiblemente) varias clases de equivalencia.
+
+El \teoname~\ref{teo:landau} nos muestra que, salvo muy pocos casos,
+si queremos caracterizar los primos representados en la forma
+$p=x^2+ny^2$, las ideas introducidas hasta esta parte no son suficientes.
+Dado un discriminante $D$, el \teoname~\ref{teo:representaciones} nos
+permite decidir si un primo $p$ es representado por \emph{alguna} forma de
+discriminante $D$. M\'as aun, como toda forma es equivalente a una forma
+reducida, podemos decidir si $p$ es representado por alguna forma reducida
+de discriminante $D$.
+Si el n\'umero de clases $\nClases(D)=1$, entonces la condici\'on
+$\chi(p)=1$ es suficiente para saber cu\'al es dicha forma, pues hay,
+en ese caso, una \'unica forma reducida; si $D=-4n$, dicha forma es
+$\binaria{1,0,n}$.
+Pero, cuando el n\'umero de clases $\nClases(D)>1$,
+la condici\'on $\chi(p)=1$ no da informaci\'on acerca de cu\'al de todas
+las formas reducidas (o cu\'ales) representan $p$.
 
 \begin{ejemGeneros}\label{ejem:generos:menos-veinte}
 	Hay dos clases de formas de discriminante $-20$.
@@ -42,7 +58,6 @@ estricta.
 		\dispstop
 	\end{displaymath}
 	%
-
 	Por el \coroname~\ref{coro:reducidas:representaciones},
 	un primo impar $p\neq 5$ est\'a representado por una
 	forma reducida de discriminante $-20$, si y s\'olo si
@@ -53,38 +68,6 @@ estricta.
 		\dispstop
 	\end{displaymath}
 	%
-	Ahora, $f(x,y)=x^2+5y^2$ representa primos
-	$p\equiv 1,9\tmodulo[20]$: por ejemplo,
-	\begin{displaymath}
-		\begin{aligned}
-			f(6,1) & \,=\,41\dispcomma\quad
-				f(4,3)\,=\,61 \dispcomma \\
-			f(3,2) & \,=\,29\dispand f(3,4)\,=\,89
-			\dispstop
-		\end{aligned}
-		%
-	\end{displaymath}
-	%
-	Pero $f$ no representa primos $p\equiv 3,7\tmodulo[20]$
-	(pues $f(x,y)\equiv 0,1,4\tmodulo[5]$).
-	Sin embargo, la forma $g=2x^2+2xy+3y^2$ s\'{\i} los
-	representa: por ejemplo,
-	\begin{displaymath}
-		\begin{aligned}
-			g(0,1) & \,=\,3\dispcomma\quad
-				g(1,-3)\,=\,23\dispcomma\quad
-				g(4,1)\,=\,43\dispcomma\quad
-				g(7,-3)\,=\,83\dispcomma \\
-			g(1,1) & \,=\,7\dispcomma\quad
-				g(5,-3)\,=\,47\dispcomma\dispand
-				g(4,-5)\,=\,67
-				\dispstop
-		\end{aligned}
-		%
-	\end{displaymath}
-	%
-	Pero $g$ no representa primos $p\equiv 1,9\tmodulo[20]$
-	(pues $g(x,y)\equiv 0,2,3\tmodulo[5]$).
 	En definitiva, un primo impar $p\neq 5$ es representado
 	por una forma reducida de discriminante $-20$, si y s\'olo si
 	\begin{displaymath}
@@ -99,16 +82,22 @@ estricta.
 		\right.
 	\end{displaymath}
 	%
-	M\'as precisamente, si $p\neq 5$ es un primo impar 
+	Hasta este punto, la teor\'{\i}a general no nos permite
+	decidir si $p=x^2+5y^2$ o no.
+	Ahora, si $p=x^2+5y^2$, entonces $p\equiv 1,4\tmodulo[5]$ y,
+	en particular,
 	\begin{displaymath}
-		\begin{aligned}
-			p & \,\equiv\,1,9\tmodulo[20]\dispiff
-				p\,=\,x^2+5y^2\dispand \\
-			p & \,\equiv\,3,7\tmodulo[20]\dispiff
-				p\,=\,2x^2+2xy+3y^2
-			\dispstop
-		\end{aligned}
-		%
+		p \,\equiv\, 1,9\tmodulo[20]
+			\dispiff p\,=\,x^2+5y^2
+		\dispstop
+	\end{displaymath}
+	%
+	An\'alogamente, si $\mcd{x,y}=1$, entonces
+	$2x^2+2xy+3y^2\equiv 2,3\tmodulo[5]$, con lo que
+	\begin{displaymath}
+		p\,\equiv\,7,3\tmodulo[20]
+			\dispiff p\,=\,2x^2+2xy+3y^2
+		\dispstop
 	\end{displaymath}
 	%
 \end{ejemGeneros}
@@ -158,19 +147,24 @@ estricta.
 \end{ejemGeneros}
 
 \begin{obsGeneros}\label{obs:generos:ejemplos}
+	Fijado un discriminante $D$, la clase de congruencia de un primo
+	$p$ m\'odulo $D$ nos permite decir, en primera instancia,
+	si $p$ es representable por alguna forma de discriminante $D$.
+	Como se ve en el \ejemname~\ref{ejem:generos:menos-veinte} y en
+	el \ejemname~\ref{ejem:generos:menos-cincuenta-y-seis},
+	por la clase de congruencia de $p$ tambi\'en podemos precisar
+	mejor las formas que posiblemente lo representen; podemos eliminar
+	formas que no lo pueden representar, de acuerdo con la clase
+	de congruencia.
 	En el \ejemname~\ref{ejem:generos:menos-veinte},
 	podemos ver que la clase de congruencia de un primo $p$ m\'odulo $20$
-	determina, en primer lugar, si $p$ es representado en \emph{alguna}
-	forma cuadr\'atica de discriminante $-20$ y, en segundo lugar,
-	determina tambi\'en la clase que lo representa.
-	En el \ejemname~\ref{ejem:generos:menos-cincuenta-y-seis}, tambi\'en
-	es cierto que la clase de congruencia de $p$ m\'odulo $56$
-	determina si $p$ es representado por alguna forma de discriminante
-	$-56$, pero no es posible distinguir exactamente cu\'al es la clase
+	determina la forma reducida que lo representa.
+	En el \ejemname~\ref{ejem:generos:menos-cincuenta-y-seis},
+	no es posible distinguir exactamente cu\'al es la clase
 	que lo representa. En particular, no podemos decir, dado
 	$p\equiv 1,25,9,15,39,23\tmodulo[56]$, si $p$ es de la forma
 	$x^2+14y^2$. M\'as aun, $p$ podr\'{\i}a estar % (y, de hecho, est\'a)
-	representado por m\'as de una clase.
+	representado por m\'as de una forma reducida.
 	En definitiva, hay un l\'{\i}mite a lo que podemos deducir a partir
 	de (estas) congruencias.
 \end{obsGeneros}
@@ -180,113 +174,169 @@ estricta.
 % $m\in\Enteros$, si existen $x,y\in\Enteros$ tales que $f(x,y)=m$.
 % Teniendo en cuenta la \obsname~\ref{obs:generos:ejemplos}, introducimos
 % la siguiente variante de este concepto de representaci\'on.
-% 
-% \begin{defGeneros}\label{def:generos:representacion:mod}
-	% Dados $D\in\Enteros$, una clase de congruencia
-	% $c\in\Enterosmod[|D|]$ y una forma $f$, decimos que
-	% \emph{la clase $c$ es representada por $f$} (o que \emph{$f$ %
-	% representa la clase $c$}), si existe $m\in c$, perteneciente a la
-	% clase, tal que $m$ es representado por $f$.
-% \end{defGeneros}
 
-% \begin{ejemGeneros}\label{ejem:generos:representacion:mod}
-	% La forma $\binaria{1,0,14}$ representa las clases
-	% \begin{displaymath}
-		% \clase 1\dispcomma\quad
-		% \clase{25}\dispcomma\quad
-		% \clase 9\dispcomma\quad
-		% \clase{15}\dispcomma\quad
-		% \clase{39}\dispand
-		% \clase{23}
-	% \end{displaymath}
-	% %
-	% m\'odulo $56$, porque, por ejemplo, representa a \emph{los enteros}
-	% $1$, $25$, $9$, $15$, $39$ y $23$. Sin embargo, la forma
-	% $\binaria{2,0,7}$ tambi\'en representa estas clases:
-	% representa
-	% \begin{displaymath}
-		% 9\,=\,2\cdot 1^2+7\dispcomma\quad
-		% 15\,=\,2\cdot 2^2+7\dispcomma\quad
-		% 25\,=\,2\cdot 3^2+7\dispand
-		% 39\,=\,2\cdot 4^2+7
-		% \text{ ;}
-	% \end{displaymath}
-	% %
-	% pero tambi\'en representa
-	% \begin{displaymath}
-		% 57\,=\,2\cdot 5^2+7\,\equiv\,1\modulo[56]
-		% \dispand
-		% 79\,=\,2\cdot 6^2+7\,\equiv\,23\modulo[56]
-		% \dispstop
-	% \end{displaymath}
-	% %
-% \end{ejemGeneros}
-
-De la teor\'{\i}a desarrollada en la \S~\ref{sec:representaciones}, sabemos
-que formas equivalentes representan los mismos enteros.
-
-\begin{defGeneros}\label{def:generos:clases-coprimas}
-	Dados $D\in\Enteros$ y una clase $c\in\Enterosmod[D]$, decimos
-	que \emph{$c$ es coprima con $D$}, si los enteros de la clase
-	$c$ son coprimos con $D$.
+\begin{defGeneros}\label{def:generos:representacion:mod}
+	Dados $D\in\Enteros$, una clase de congruencia
+	$c\in\Enterosmod[D]$ y una forma $f$, decimos que
+	\emph{la clase $c$ es representada por $f$} (o que \emph{$f$ %
+	representa la clase $c$}), si existe $m\in c$, perteneciente a la
+	clase, tal que $m$ es representado por $f$.
 \end{defGeneros}
 
-\begin{obsGeneros}\label{obs:generos:clases-coprimas}
-	Si $m\equiv n\tmodulo[D]$, entonces $\mcd{m,D}=\mcd{n,D}$.
-	En particular, cuando $m\equiv n$, $m$ es coprimo con $D$, si
-	y s\'olo si $n$ lo es. En consecuencia,
-	si $D\in\Enteros$ y $c\in\Enterosmod[D]$, entonces $c$ es coprima
-	con $D$, si y s\'olo si \emph{al menos uno de los enteros %
-	pertenecientes a $c$} es coprimo con $D$.
-\end{obsGeneros}
-
-\begin{defGeneros}\label{def:generos}
-	Dos formas cuadr\'aticas % \emph{primitivas} definidas positivas
-	de discriminante $D$ \emph{pertenecen al mismo g\'enero},
-	si representan las mismas clases coprimas con $D$.
-	% es decir, las mismas clases en $\Unidadesmod[D]$.
-\end{defGeneros}
-
-\begin{ejemGeneros}\label{ejem:generos:representacion:mod:bis}
-	Las clases coprimas con $-56$ son:
+\begin{ejemGeneros}\label{ejem:generos:representacion:mod}
+	La forma $\binaria{1,0,14}$ representa las clases
 	\begin{displaymath}
-		1,\,3,\,5,\,9,\,
-		11,\,13,\,15,\,17,\,
-		19,\,23,\,25,\,27,\,
-		29,\,31,\,33,\,37,\,
-		39,\,41,\,43,\,45,\,
-		47,\,51,\,53,\,55
-		\dispstop
+		\clase 1\dispcomma\quad
+		\clase{25}\dispcomma\quad
+		\clase 9\dispcomma\quad
+		\clase{15}\dispcomma\quad
+		\clase{39}\dispand
+		\clase{23}
 	\end{displaymath}
 	%
-	De ellas, las formas $\binaria{1,0,14}$ y $\binaria{2,0,7}$
-	representan
+	m\'odulo $56$, porque, por ejemplo, representa \emph{los enteros}
+	$1$, $25$, $9$, $15$, $39$ y $23$. Sin embargo, la forma
+	$\binaria{2,0,7}$ tambi\'en representa estas clases:
+	representa
 	\begin{displaymath}
-		\dots
-		\dispcomma
+		9\,=\,2\cdot 1^2+7\dispcomma\quad
+		15\,=\,2\cdot 2^2+7\dispcomma\quad
+		25\,=\,2\cdot 3^2+7\dispand
+		39\,=\,2\cdot 4^2+7
+		\text{ ;}
 	\end{displaymath}
 	%
-	mientras que las formas $\binaria{3,\pm 2,5}$ representan
+	pero tambi\'en representa
 	\begin{displaymath}
-		\dots
-		\dispstop
-	\end{displaymath}
-	%
-	Las formas $\binaria{1,0,14}$ y $\binaria{2,0,7}$ pertenecen al
-	mismo g\'enero. Las formas $\binaria{3,\pm 2,5}$ pertenecen a
-	un mismo g\'enero, pero no pertenecen al mismo g\'enero que
-	las dos formas anteriores. Decimos entonces que las formas
-	(o, tambi\'en, las clases de formas) de discriminante $-56$
-	se dividen en dos g\'eneros:
-	\begin{displaymath}
-		\big\{
-			\binaria{1,0,14},\,\binaria{2,0,7}
-		\big\}\dispand
-		\big\{
-			\binaria{3,-2,5},\,\binaria{3,2,5}
-		\big\}
+		57\,=\,2\cdot 5^2+7\,\equiv\,1\modulo[56]
+		\dispand
+		79\,=\,2\cdot 6^2+7\,\equiv\,23\modulo[56]
 		\dispstop
 	\end{displaymath}
 	%
 \end{ejemGeneros}
+
+% De la teor\'{\i}a desarrollada en la \S~\ref{sec:representaciones}, sabemos
+% que formas equivalentes representan los mismos enteros.
+
+% \begin{defGeneros}\label{def:generos:clases-coprimas}
+	% Dados $D\in\Enteros$ y una clase $c\in\Enterosmod[D]$, decimos
+	% que \emph{$c$ es coprima con $D$}, si los enteros de la clase
+	% $c$ son coprimos con $D$.
+% \end{defGeneros}
+% 
+% \begin{obsGeneros}\label{obs:generos:clases-coprimas}
+	% Si $m\equiv n\tmodulo[D]$, entonces $\mcd{m,D}=\mcd{n,D}$.
+	% En particular, cuando $m\equiv n$, $m$ es coprimo con $D$, si
+	% y s\'olo si $n$ lo es. En consecuencia,
+	% si $D\in\Enteros$ y $c\in\Enterosmod[D]$, entonces $c$ es coprima
+	% con $D$, si y s\'olo si \emph{al menos uno de los enteros %
+	% pertenecientes a $c$} es coprimo con $D$.
+% \end{obsGeneros}
+% 
+% Las clases de congruencia coprimas con $D$ son aquellas
+% pertenecientes a $\Unidadesmod[D]$.
+
+\begin{defGeneros}\label{def:generos}
+	Dos formas cuadr\'aticas % \emph{primitivas} definidas positivas
+	de discriminante $D$ \emph{pertenecen al mismo g\'enero},
+	si representan las mismas clases
+	% coprimas con $D$.
+	% % es decir, las mismas clases
+	en $\Unidadesmod[D]$.
+\end{defGeneros}
+
+\begin{ejemGeneros}\label{ejem:generos}
+	Para $D=-20$, hay dos formas reducidas y, por lo tanto, dos
+	clases de formas de discriminante $-20$. De acuerdo con el
+	\ejemname~\ref{ejem:generos:menos-veinte},
+	las dos formas reducidas no pertenecen al mismo g\'enero.
+	En particular, en este caso, el g\'enero de una forma coincide
+	con su clase de equivalencia (estricta).
+	Las clases de congruencia m\'odulo $20$ tambi\'en se dividen
+	en dos, aquellas representadas por $\binaria{1,0,5}$ y aquellas
+	representadas por $\binaria{2,2,3}$:
+	\begin{displaymath}
+		\big\{1,\,9\big\}\dispand
+		\big\{7,3\big\}
+		\dispstop
+	\end{displaymath}
+	%
+
+	Para $D=-56$, sin embargo, encontramos cuatro clases de formas
+	cuadr\'aticas de discriminante $-56$;
+	hay cuatro formas reducidas. De acuerdo con el
+	\ejemname~\ref{ejem:generos:menos-cincuenta-y-seis},
+	las formas se agrupan en dos g\'eneros:
+	\begin{displaymath}
+		\big\{
+			\binaria{1,0,14},\,
+			\binaria{2,0,7}
+		\big\}\dispand
+		\big\{
+			\binaria{3,-2,5},\,
+			\binaria{3,2,5}
+		\big\}
+		\dispstop
+	\end{displaymath}
+	%
+	Las clases de congruencia m\'odulo $56$ se dividen en dos,
+	aquellas representadas por uno y otro g\'enero:
+	\begin{displaymath}
+		\big\{1,\,25,\,9,\,15,\,39,\,23\big\}\dispand
+		\big\{3,\,19,\,27,\,45,\,5,\,13\big\}
+		\dispstop
+	\end{displaymath}
+	%
+\end{ejemGeneros}
+
+\begin{obsGeneros}\label{obs:generos}
+	Con la \defname~\ref{def:generos}, parece que estamos
+	dejando de lado el problema de representar primos por formas
+	cuadr\'aticas, porque, en lugar de responder qu\'e primos
+	representa cada una de las formas reducidas, el g\'enero de una
+	forma parece responder qu\'e clases de congruencia m\'odulo
+	el discriminante representa dicha forma;
+	en particular, pareciera que nos hemos 	olvidado del problema
+	de clasificar primos de la forma $p=x^2+ny^2$.
+	%% HACER EL ESQUEMA COMPARANDO LAS DISTINTAS SUBDIVISIONES EN
+	%% EL CONJUNTO DE FORMAS
+	El siguiente diagrama muestra distintos criterios para
+	subdividir el conjunto de formas cuadr\'aticas (primitivas)
+	de discriminante $D$:
+	\begin{center}
+		\begin{tikzcd}
+			\left\{
+				\text{formas cuadr\'aticas}
+			\right\} \arrow[d] & \\
+			\left\{\begin{matrix}
+				\text{clases de} \\
+				\text{equivalencia estricta}
+			\end{matrix}\right\} \arrow[d] & \\
+			\left\{\begin{matrix}
+				\text{clases de} \\
+				\text{equivalencia}
+			\end{matrix}\right\} \arrow[d] & \\
+			\left\{\begin{matrix}
+				\text{enteros} \\
+				\text{representados}
+			\end{matrix}\right\} \arrow[d] \arrow[r] &
+			\left\{\begin{matrix}
+				\text{clases de congruencia m\'odulo } D \\
+				\text{de enteros representados}
+			\end{matrix}\right\} \arrow[d, equals] \\
+			\left\{\begin{matrix}
+				\text{primos} \\
+				\text{representados}
+			\end{matrix}\right\} \arrow[r] &
+			\left\{\begin{matrix}
+				\text{clases de congruencia m\'odulo } D \\
+				\text{de primos representados}
+			\end{matrix}\right\}
+		\end{tikzcd}
+		%
+		\dispstop
+	\end{center}
+	%
+\end{obsGeneros}
 
