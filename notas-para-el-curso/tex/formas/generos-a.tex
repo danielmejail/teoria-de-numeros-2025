@@ -290,53 +290,91 @@ las formas reducidas (o cu\'ales) representan $p$.
 	%
 \end{ejemGeneros}
 
-\begin{obsGeneros}\label{obs:generos}
-	Con la \defname~\ref{def:generos}, parece que estamos
-	dejando de lado el problema de representar primos por formas
-	cuadr\'aticas, porque, en lugar de responder qu\'e primos
-	representa cada una de las formas reducidas, el g\'enero de una
-	forma parece responder qu\'e clases de congruencia m\'odulo
-	el discriminante representa dicha forma;
-	en particular, pareciera que nos hemos 	olvidado del problema
-	de clasificar primos de la forma $p=x^2+ny^2$.
-	%% HACER EL ESQUEMA COMPARANDO LAS DISTINTAS SUBDIVISIONES EN
-	%% EL CONJUNTO DE FORMAS
-	El siguiente diagrama muestra distintos criterios para
-	subdividir el conjunto de formas cuadr\'aticas (primitivas)
-	de discriminante $D$:
-	\begin{center}
-		\begin{tikzcd}
-			\left\{
-				\text{formas cuadr\'aticas}
-			\right\} \arrow[d] & \\
-			\left\{\begin{matrix}
-				\text{clases de} \\
-				\text{equivalencia estricta}
-			\end{matrix}\right\} \arrow[d] & \\
-			\left\{\begin{matrix}
-				\text{clases de} \\
-				\text{equivalencia}
-			\end{matrix}\right\} \arrow[d] & \\
-			\left\{\begin{matrix}
-				\text{enteros} \\
-				\text{representados}
-			\end{matrix}\right\} \arrow[d] \arrow[r] &
-			\left\{\begin{matrix}
-				\text{clases de congruencia m\'odulo } D \\
-				\text{de enteros representados}
-			\end{matrix}\right\} \arrow[d, equals] \\
-			\left\{\begin{matrix}
-				\text{primos} \\
-				\text{representados}
-			\end{matrix}\right\} \arrow[r] &
-			\left\{\begin{matrix}
-				\text{clases de congruencia m\'odulo } D \\
-				\text{de primos representados}
-			\end{matrix}\right\}
-		\end{tikzcd}
-		%
-		\dispstop
-	\end{center}
-	%
-\end{obsGeneros}
-
+% \begin{obsGeneros}\label{obs:generos}
+	% Con la \defname~\ref{def:generos}, parece que estamos
+	% dejando de lado el problema de representar primos por formas
+	% cuadr\'aticas, porque, en lugar de responder qu\'e primos
+	% representa cada una de las formas reducidas, el g\'enero de una
+	% forma parece responder qu\'e clases de congruencia m\'odulo
+	% el discriminante representa dicha forma;
+	% en particular, pareciera que nos hemos 	olvidado del problema
+	% de clasificar primos de la forma $p=x^2+ny^2$.
+	% Sin embargo, en los ejemplos, nos hemos restringido a n\'umeros
+	% primos y sus clases de congruencia m\'odulo el discriminante
+	% para, en primer lugar, saber si la clase distinguir los g\'eneros.
+	% %% HACER EL ESQUEMA COMPARANDO LAS DISTINTAS SUBDIVISIONES EN
+	% %% EL CONJUNTO DE FORMAS
+	% El siguiente diagrama muestra distintos criterios para
+	% subdividir el conjunto de formas cuadr\'aticas (primitivas)
+	% de discriminante $D$:
+	% \begin{center}
+		% \begin{tikzcd}[column sep=small]%-3ex]
+			% % &
+			% \left\{
+				% \text{formas cuadr\'aticas}
+			% \right\} \arrow[d] & \\
+			% % &
+			% \left\{\begin{matrix}
+				% \text{clases de} \\
+				% \text{equivalencia estricta}
+			% \end{matrix}\right\} \arrow[d]
+				% \arrow[u, bend right=40, %
+					% end anchor={[xshift=1ex]}, dashed] & \\
+			% % &
+			% \left\{\begin{matrix}
+				% \text{clases de} \\
+				% \text{equivalencia}
+			% \end{matrix}\right\} \arrow[d] & \\
+			% % \big\{m=f(x,y)\,:\,x,y\in\Enteros\big\} &
+			% \left\{\begin{matrix}
+				% \text{(enteros\phantom)} \\
+				% \text{\phantom(representados)}
+			% \end{matrix}\right\} \arrow[d] \arrow[r] &
+			% \left\{\begin{matrix}
+				% \text{(primos\phantom)} \\
+				% \text{\phantom(representados)}
+			% \end{matrix}\right\} \arrow[d] \\
+			% % \big\{p=f(x,y)\,:\,x,y\in\Enteros\big\} &
+			% \left\{\begin{matrix}
+				% \text{(clases de\phantom)} \\
+				% \text{congruencia m\'odulo } D \\
+				% \text{\phantom(de enteros representados)}
+			% \end{matrix}\right\} \arrow[r, equals] &
+			% \left\{\begin{matrix}
+				% \text{(clases de\phantom)} \\
+				% \text{congruencia m\'odulo } D \\
+				% \text{\phantom(de primos representados)}
+			% \end{matrix}\right\}
+		% \end{tikzcd}
+		% %
+		% \dispstop
+	% \end{center}
+	% %
+	% La direcci\'on de las flechas indica criterios cada vez menos
+	% restrictivos (salvo por la flecha punteada). Podemos agrupar
+	% formas usando la relaci\'on de equivalencia estricta.
+	% A cada forma le corresponde una \'unica forma reducida.
+	% Y, en cada clase, podemos elegir la forma reducida como
+	% representante can\'onico de la misma.
+	% Formas equivalentes representan los mismos enteros;
+	% esencialmente, dos formas son equivalentes, si una se obtiene
+	% a partir de la otra mediante un cambio de variables (sobre
+	% $\Enteros$).
+	% El criterio de agrupar formas de acuerdo a clases de congruencia
+	% de enteros representados es, precisamente, la noci\'on de g\'enero.
+% 
+	% Ahora, dado que nuestro inter\'es en formas cuadr\'aticas
+	% ven\'{\i}a del problema de la representabilidad de primos
+	% por formas cuadr\'aticas (precisamente por las formas
+	% $x^2+ny^2$), tiene sentido mirar \'unicamente qu\'e primos
+	% representa cada forma y juntar aquellas que representan los
+	% mismos primos.
+	% Pero la representabilidad de un primo por alguna forma de
+	% discriminante $D$ est\'a determinada por su clase de congruencia
+	% m\'odulo $D$.
+	% Si, siguiendo con la idea de los ejemplos de determinar, para
+	% cada forma $f$ de discriminante $D$ y cada representaci\'on
+	% $p=f(x,y)$ de un n\'umero primo (impar y que no divida a $D$),
+	% la posible clase de congruencia de $p$ m\'odulo $D$,
+% \end{obsGeneros}
+% 

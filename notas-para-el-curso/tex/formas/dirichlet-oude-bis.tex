@@ -5,25 +5,14 @@
 \theoremstyle{definition}
 \newtheorem{defDirichlet}[teoDirichlet]{\defname}
 \newtheorem{ejemDirichlet}[teoDirichlet]{\ejemname}
-\newtheorem{obsDirichlet}[teoDirichlet]{\obsname}
 
 %-------------
-
-Con la \defname~\ref{def:generos}, parece que estamos
-dejando de lado el problema de representar primos por formas
-cuadr\'aticas, porque, en lugar de responder qu\'e primos
-representa cada una de las formas reducidas, el g\'enero de una
-forma parece responder qu\'e clases de congruencia m\'odulo
-el discriminante representa dicha forma;
-en particular, pareciera que nos hemos olvidado del problema
-de clasificar primos de la forma $p=x^2+ny^2$
-?`C\'omo podemos determinar si una clase de congruencia m\'odulo $D$
-es representada por alguna forma de discriminante $D$?
 
 En esta secci\'on hacemos una disgresi\'on por el
 Teorema de Dirichlet sobre primos en progresiones aritm\'eticas y
 lo relacionaremos con el estudio de la representabilidad por formas
-cuadr\'aticas.
+cuadr\'aticas. Esto nos ser\'a \'util en la \S~\ref{sec:generos},
+cuando hablemos de \emph{g\'enero} de una forma cuadr\'atica.
 
 \begin{teoDirichlet}[Dirichlet]\label{teo:dirichlet}
 	Dados n\'umeros enteros coprimos $m$ y $D$, la sucesi\'on
@@ -72,6 +61,17 @@ son aquellos que pertenecen al n\'ucleo de la funci\'on $\chi$ del
 	\dispstop
 \end{displaymath}
 %
+% En particular, si $p$ y $q$ son primos (impares) que no dividen a $D$,
+% y si $p\equiv q\tmodulo[D]$, entonces la condici\'on para que $p$ est\'e
+% representado por una forma de discriminante $D$ es la misma que para $q$.
+% Dicho de otra manera, si nos interesa saber si podemos representar un
+% primo particular $p$ por una forma de discriminante $D$, nos bastar\'a
+% con decidir si podemos representar \emph{alg\'un} primo perteneciente a
+% la clase de congruencia de $p$ m\'odulo $D$.
+% Cuando restringimos el problema de representaci\'on de representar
+% enteros a representar primos, lo que importa es la clase de congruencia
+% del primo.
+% 
 
 Si $D\equiv 0,1\tmodulo[4]$, $D<0$, es un discriminante y
 $c\in\Unidadesmod[D]$, existe, por el \teoname~\ref{teo:dirichlet},
@@ -82,6 +82,51 @@ de discriminante $D$. En particular, deducimos lo siguiente:
 si $c\in\ker(\chi)$, entonces alg\'un elemento $m\in c$ de la clase
 es representado (propiamente) por alguna forma (primitiva) de
 discriminante $D$.
+% Para que sea m\'as claro, introducimos la siguiente definici\'on
+% (que tambi\'en ser\'a utilizada en la \S~\ref{sec:generos}).
+
+\begin{defDirichlet}\label{def:dirichlet:representacion:mod}
+	Dados un discriminante $D\equiv 0,1\tmodulo[4]$, una clase de
+	congruencia $c\in\Enterosmod[|D|]$ y una forma $f$, decimos que
+	\emph{la clase $c$ es representada por $f$} (o que \emph{$f$ %
+	representa la clase $c$}), si existe $m\in c$, perteneciente a la
+	clase, tal que $m$ es representado por $f$.
+	% Si existe $m\in c$ propiamente representado por $f$, decimos
+	% que la clase $c$ es \emph{propiamente representada} por $f$.
+\end{defDirichlet}
+
+\begin{ejemDirichlet}\label{ejem:dirichlet:representacion:mod}
+	La forma $\binaria{1,0,14}$ representa las clases
+	\begin{displaymath}
+		\clase 1\dispcomma\quad
+		\clase{25}\dispcomma\quad
+		\clase 9\dispcomma\quad
+		\clase{15}\dispcomma\quad
+		\clase{39}\dispand
+		\clase{23}
+	\end{displaymath}
+	%
+	m\'odulo $56$, porque, por ejemplo, representa \emph{los enteros}
+	$1$, $25$, $9$, $15$, $39$ y $23$.
+	Sin embargo, la forma $\binaria{2,0,7}$ tambi\'en representa
+	estas clases: representa
+	\begin{displaymath}
+		9\,=\,2\cdot 1^2+7\dispcomma\quad
+		15\,=\,2\cdot 2^2+7\dispcomma\quad
+		25\,=\,2\cdot 3^2+7\dispand
+		39\,=\,2\cdot 4^2+7
+		\text{ ;}
+	\end{displaymath}
+	%
+	pero tambi\'en representa
+	\begin{displaymath}
+		57\,=\,2\cdot 5^2+7\,\equiv\,1\modulo[56]
+		\dispand
+		79\,=\,2\cdot 6^2+7\,\equiv\,23\modulo[56]
+		\dispstop
+	\end{displaymath}
+	%
+\end{ejemDirichlet}
 
 \begin{coroDirichlet}\label{coro:dirichlet}
 	Sea $D\equiv 0,1\tmodulo[4]$ y sea $c\in\Unidadesmod[D]$.
@@ -89,29 +134,32 @@ discriminante $D$.
 	alguna forma (primitiva) de discriminante $D$, si $c\in\ker(\chi)$.
 \end{coroDirichlet}
 
-\begin{obsDirichlet}\label{obs:dirichlet:generos}
-	Rec\'{\i}procamente, el \lemaname~\ref{lema:generos} muestra,
-	entre otras cosas, que, si $c$ es representada por una forma
-	de discriminante $D$, \emph{entonces} $c\in\ker(\chi)$.
-\end{obsDirichlet}
+Rec\'{\i}procamente, el \lemaname~\ref{lema:generos} muestra, entre
+otras cosas, que, si $c$ es representada por una forma de discriminante
+$D$, \emph{entonces} $c\in\ker(\chi)$.
 
 En definitiva, tenemos una condici\'on necesaria (y suficiente)
 para determinar qu\'e \emph{clases de congruencia} son representadas
 por \emph{alguna} forma de discriminante $D$.
-Como vimos en la \S~\ref{sec:generos}, no es posible, en general,
+En la \S~\ref{sec:generos}, veremos que no es posible, en general,
 representar cualquier clase de congruencia (detro de las clases
 representables) por cualquier forma cuadr\'atica.
-El g\'enero agrupa formas de acuerdo con las clases de
+El \emph{g\'enero} agrupa formas de acuerdo con las clases de
 congruencia que cada una puede representar y clases de congruencia
 de acuerdo con las formas que las representan.
+% El \emph{g\'enero} servir\'a de herramienta para estudiar si una
+% clase de congruencia espec\'{\i}fica es representada por una forma
+% cuadr\'atica particular. En consecuencia, podremos precisar un poco
+% m\'as qu\'e formas cuadr\'aticas --dentro de todas las formas de
+% discriminante $D$-- podr\'{\i}an representar un primo dado.
 
 Terminamos esta secci\'on con algunos ejemplos que ilustran
 el uso del \teoname~\ref{teo:dirichlet} en este contexto.
-% Dado que formas equivalentes representan los mismos enteros,
-% cuando decimos que una clase es representada, o que un entero
-% es representado, por alguna forma de discriminante $D<0$ y
-% queremos encontrar dicha forma, podemos restringirnos a buscar
-% entre las formas reducidas.
+Dado que formas equivalentes representan los mismos enteros,
+cuando decimos que una clase es representada, o que un entero
+es representado, por alguna forma de discriminante $D<0$ y
+queremos encontrar dicha forma, podemos restringirnos a buscar
+entre las formas reducidas.
 
 \begin{ejemDirichlet}\label{ejem:dirichlet:representacion:tres}
 	El grupo $\Unidadesmod[3]$ consta de dos clases de congruencia:
