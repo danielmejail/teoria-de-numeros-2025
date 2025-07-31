@@ -1,0 +1,102 @@
+\theoremstyle{plain}
+\newtheorem{teoGenerosB}{\teoname}[section]
+\newtheorem{lemaGenerosB}[teoGenerosB]{\lemaname}
+\newtheorem{coroGenerosB}[teoGenerosB]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{obsGenerosB}[teoGenerosB]{\obsname}
+\newtheorem{defGenerosB}[teoGenerosB]{\defname}
+
+%-------------
+
+\begin{obsGenerosB}\label{obs:generos:representacion}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D<0$, y sean $f,g$ formas
+	de discriminante $D$ pertenecientes al mismo g\'enero.
+	Si $c\in\Unidadesmod[D]$ es representada por $f$, entonces
+	es representada por $g$. Dicho de otra manera, si
+	$m\in c$ y $m=f(x,y)$ para ciertos $x,y\in\Enteros$, entonces
+	existen $n\in c$ y $x',y'\in\Enteros$ tales que
+	$n=g(x',y')$.
+\end{obsGenerosB}
+
+\begin{defGenerosB}\label{def:generos:representacion}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D<0$, y sea $f$ una forma
+	de discriminante $D$. Si $c\in\Unidadesmod[D]$ es
+	representada por $f$, decimos tambi\'en que
+	\emph{la clase $c$ es representada por el g\'enero de $f$}.
+\end{defGenerosB}
+
+\begin{defGenerosB}\label{def:generos:principal}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D<0$. Llamamos
+	\emph{forma principal (de discriminante $D$)} a la forma
+	\begin{itemize}
+		\item $\binaria{1,0,-D/4}$, si $D\equiv 0$, y a la forma
+		\item $\binaria{1,1,(1-D)/4}$, si $D\equiv 1$.
+	\end{itemize}
+	%
+	El \emph{g\'enero principal (de discriminante $D$)} es el
+	g\'enero al que pertenece la forma principal.
+\end{defGenerosB}
+
+\begin{obsGenerosB}\label{obs:generos:principal}
+	Dado un discriminante, la forma principal de dicho discriminante
+	es una forma primitiva reducida.
+\end{obsGenerosB}
+
+\begin{lemaGenerosB}\label{lema:generos}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D<0$, y sea $f$ una forma
+	de discriminante $D$. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:lema:generos:principal}
+			los valores en $\Unidadesmod[D]$ representados por
+			el g\'enero principal constituyen un subgrupo
+			$H\subgrpeq\ker(\chi)$;
+		\item\label{item:lema:generos:coclases}
+			los valores en $\Unidadesmod[D]$ representados por
+			el g\'enero de $f$ constituyen una coclase de $H$
+			en $\ker(\chi)$.
+	\end{enumerate}
+	%
+\end{lemaGenerosB}
+
+\begin{teoGenerosB}\label{teo:generos}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D<0$, y sea $H\subgrpeq\ker(\chi)$
+	como en el \lemaname~\ref{lema:generos}. Si $H'\subset\ker(\chi)$
+	es una coclase de $H$ en $\ker(\chi)$ y $p$ es un primo impar
+	que no divide a $D$, entonces su clase de congruencia
+	$\clase p\in H'$, si y s\'olo si $p$ es representado por una forma
+	de discriminante $D$ perteneciente al g\'enero correspondiente a $H'$.
+\end{teoGenerosB}
+
+\begin{obsGenerosB}\label{obs:generos:correspondencia}
+	Dada una coclase $H'$ de $H$ en $\ker(\chi)$, las clases de
+	congruencia contenidas en $H'$ son representadas por formas
+	de discriminante $D$ (pues $H'\subset\ker(\chi)$; ver el
+	\coroname~\ref{coro:dirichlet}).
+	Dada una forma (primitiva) de discriminante $D$, $f$,
+	las clases en $\Unidadesmod[D]$ representadas por $f$
+	constituyen una coclase de $H$ en $\ker(\chi)$
+	(\lemaname~\ref{lema:generos}~\eqref{item:lema:generos:coclases}).
+	Existe, entonces, una biyecci\'on
+	\begin{displaymath}
+		\big(
+			\text{coclases de }
+			H\text{ en }\ker(\chi)
+		\big)\,\simeq\,
+		\big(
+			\text{g\'eneros de formas primitivas %
+				de discriminante } D
+		\big)
+	\end{displaymath}
+	%
+	dada por asignar, a una forma (primitiva de discriminante $D$) $f$,
+	el conjunto de enteros que ella representa
+	% y, luego, las clases de congruencia m\'odulo $D$
+	y, a cada entero $m$ coprimo con $D$, el conjunto de formas
+	(primitivas de discriminante $D$) que lo representan.
+	% y, luego, el g\'enero al cual estas formas pertenecen
+\end{obsGenerosB}
+
+\subsection*{Ejercicios}
+\input{./tex/formas/ejercicios-generos-b.tex}
+
