@@ -97,6 +97,65 @@
 	% y, luego, el g\'enero al cual estas formas pertenecen
 \end{obsGenerosB}
 
+\begin{proof}[\proofname~del \lemaname~\ref{lema:generos}]
+	\dots
+\end{proof}
+
+\begin{coroGenerosB}\label{coro:generos:cero}
+	Sea $n\in\Enteros$, $n>0$, y sea $p$ un primo impar que no
+	divide a $n$. Entonces, $p$ es representado en una forma de
+	discriminante $-4n$ perteneciente al g\'enero principal, si
+	y s\'olo si existe $\beta\in\Enteros$ tal que
+	\begin{displaymath}
+		p\,\equiv\,\beta^2\dispor\beta^2+n\modulo[4n]
+		\dispstop
+	\end{displaymath}
+	%
+\end{coroGenerosB}
+
+\begin{proof}
+	Si $p$ es representada en una forma perteneciente al g\'enero
+	principal, entonces
+	\begin{displaymath}
+		p\,\equiv\,x^2+ny^2\tmodulo[4n]
+		\dispcomma
+	\end{displaymath}
+	%
+	para ciertos $x,y\in\Enteros$.
+	Si $y\equiv 0\tmodulo[2]$, entonces $p\equiv x^2\tmodulo[4n]$;
+	si $y\equiv 1\tmodulo[2]$, entonces $p\equiv x^2+n\tmodulo[4n]$.
+	Rec\'{\i}procamente, si $p$ es de esta forma, entonces $p$,
+	su clase de congruencia, pertenece al subconjunto (subgrupo)
+	de $\Unidadesmod[4n]$ de valores representados en la forma
+	principal y, por lo tanto, en el g\'enero principal.
+\end{proof}
+
+El \coroname~\ref{coro:generos:cero} tiene una versi\'on para $D\equiv 1$.
+
+\begin{coroGenerosB}\label{coro:generos:uno}
+	Sea $D\equiv 1\tmodulo[4]$, $D<0$, y sea $p$ un primo impar
+	que no divide a $D$. Entonces, $p$ es representado en una
+	forma de discriminante $D$ perteneciente al g\'enero principal,
+	si y s\'olo si $p$ es un cuadrado m\'odulo $|D|$.
+\end{coroGenerosB}
+
+\begin{proof}
+	Si $p$ es representado en una forma del g\'enero principal,
+	entonces
+	\begin{displaymath}
+		p\,\equiv\,x^2+xy+\frac{1-D} 4\,y^2
+			\,\equiv\,\big(\clase 2^{-1}\,(2x+y)\big)^2
+			\tmodulo[|D|]
+		\dispstop
+	\end{displaymath}
+	%
+	Rec\'{\i}procamente, si $p\equiv\beta^2\tmodulo[|D|]$,
+	entonces $p$, su clase de congruencia,
+	pertenece al subconjunto (subgrupo) de $\Unidadesmod[D]$
+	de valores representados por la forma principal
+	($x=\beta$, $y=0$) y, por lo tanto, por el g\'enero principal.
+\end{proof}
+
 \subsection*{Ejercicios}
 \input{./tex/formas/ejercicios-generos-b.tex}
 
