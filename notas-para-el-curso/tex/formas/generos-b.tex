@@ -98,7 +98,34 @@
 \end{obsGenerosB}
 
 \begin{proof}[\proofname~del \lemaname~\ref{lema:generos}]
-	\dots
+	La demostraci\'on estar\'a dividida en cuatro partes:
+	\begin{enumerate}[1]
+		\item\label{item:lema:generos:nucleo}
+			si $m\in\Enteros$, $\mcd{m,D}=1$, es tal que
+			$m=f(x,y)$ para alguna forma $f$ dediscriminante $D$,
+			entonces $\clase m\in\ker(\chi)$;
+			% no asumimos que $m$ sea propiamente representado,
+			% ni que $f$ sea primitiva
+		\item\label{item:lema:generos:subgrupo}
+			si $H\subset\ker(\chi)$ denota el subconjunto de
+			clases de congruencia m\'odulo $D$ representadas
+			en el g\'enero principal,
+			entonces $H$ es un subgrupo de $\ker(\chi)$;
+			% no asumimos que los elementos de $H$ sean
+			% propiamente representados en el g\'enero
+			% principal
+		\item\label{item:lema:generos:primitivas}
+			si $f$ es una forma \emph{primitiva} de discriminante
+			$D$ y $M\in\Enteros$, entonces existe, al menos,
+			un $k\in\Enteros$, $\mcd{k,M}=1$, propiamente
+			representado por $f$;
+		\item\label{item:lema:generos:coclases}
+			si $f$ es una forma primitiva de discriminante $D$,
+			entonces los valores en $\Unidadesmod[D]$
+			representados por $f$ constituyen una coclase de
+			$H$ en $\ker(\chi)$.
+	\end{enumerate}
+	%
 \end{proof}
 
 \begin{coroGenerosB}\label{coro:generos:cero}
