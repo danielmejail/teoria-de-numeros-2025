@@ -102,8 +102,8 @@
 	\begin{enumerate}[1]
 		\item\label{item:lema:generos:nucleo}
 			si $m\in\Enteros$, $\mcd{m,D}=1$, es tal que
-			$m=f(x,y)$ para alguna forma $f$ dediscriminante $D$,
-			entonces $\clase m\in\ker(\chi)$;
+			$m=f(x,y)$ para alguna forma $f$ de discriminante
+			$D$, entonces $\clase m\in\ker(\chi)$;
 			% no asumimos que $m$ sea propiamente representado,
 			% ni que $f$ sea primitiva
 		\item\label{item:lema:generos:subgrupo}
@@ -126,6 +126,164 @@
 			$H$ en $\ker(\chi)$.
 	\end{enumerate}
 	%
+
+	\begin{proof}[\proofname~de~\ref{item:lema:generos:nucleo}]
+		Si $m=f(x,y)$ y $g=\mcd{x,y}$, entonces $g^2\mid m$ y
+		\begin{displaymath}
+			f(x/g,y/g)\,=\,m/g^2
+		\end{displaymath}
+		%
+		es una representaci\'on propia de $m'=m/g^2$ por $f$.
+		Dado que $\chi$ es \emph{multiplicativo} y
+		\emph{cuadr\'atico},%
+		\footnote{
+			``Multiplicativo'' quiere decir
+			$\chi(x\,y)=\chi(x)\,\chi(y)$, para todo par
+			$x,y\in\Enteros$,
+			``cuadr\'atico'' quiere decir que
+			$\chi(x)^2=1$ para todo $x\in\Enteros$.
+		}
+		\begin{displaymath}
+			\chi(m')\,=\,\chi(m)
+			\dispcomma
+		\end{displaymath}
+		%
+		as\'{\i} que podemos suponer que $m$ es representado
+		propiamente por $f$. Ahora, separamos en dos casos.
+
+		Si $m$ es impar, por el \lemaname~%
+		\ref{lema:representaciones:primitiva}, existe
+		$\beta\in\Enteros$ tal que $D\equiv\beta^2\tmodulo[m]$.
+		Entonces, en este caso,
+		\begin{displaymath}
+			\chi(m)\,=\,\legendre D m\,=\,
+				\legendre{\beta^2} m\,=\,
+				\legendre \beta m^2\,=\,1
+			\dispstop
+		\end{displaymath}
+		%
+
+		Si, en cambio, $m$ es par, entonces afirmamos:
+		\begin{enumerate}[.1]
+			\item\label{item:lema:generos:nucleo:i}
+				el discriminante es $D\equiv 1\tmodulo[8]$;
+			\item\label{item:lema:generos:nucleo:ii}
+				la clase $\clase m\in\ker(\chi)$.
+		\end{enumerate}
+		%
+		En cuanto a \label{item:lema:generos:nucleo:i},
+		si una forma $f$ de discriminante $D$ representa un
+		n\'umero par $m$, entonces $f$ es equivalente a
+		$mx^2+Bxy+Cy^2$ y $D=B^2-4mC\equiv B^2\tmodulo[8]$.
+		Como $D\equiv 1\tmodulo[4]$, se deduce que
+		$D\equiv 1\tmodulo[8]$ (es impar).
+		En cuanto a \label{item:lema:generos:nucleo:ii},
+		como $D\equiv 1\tmodulo[8]$, se cumple que
+		\begin{displaymath}
+			\chi(2)\,=\,1
+			\dispstop
+		\end{displaymath}
+		%
+		Entonces, si $m=2^r m'$ con $m'$ impar, vale que
+		\begin{displaymath}
+			\chi(m)\,=\,\chi(m')
+			\dispstop
+		\end{displaymath}
+		%
+		Pero $D\equiv\beta^2\tmodulo[m]$ implica
+		$D\equiv\beta^2\tmodulo[m']$. Como $m'$ es impar,
+		\begin{displaymath}
+			\chi(m')\,=\,\legendre D{m'}\,=\,
+				\legendre \beta{m'}^2\,=\,1
+			\dispstop
+		\end{displaymath}
+		%
+		% podemos concluir de esto que $m'$ es representado
+		% (propiamente) por una forma (primitiva) de
+		% discriminante $D$, pero no lo necesitamos
+	\end{proof}
+
+	\begin{proof}[\proofname~de~\ref{item:lema:generos:subgrupo}]
+		Por la parte~\ref{item:lema:generos:nucleo}, sabemos que
+		$H\subset\ker(\chi)$. Veamos que es subgrupo. Si $D=-4n$,
+		la forma principal es $\binaria{1,0,n}$ y, por el
+		\ejername~\ref{ejer:fermat:identidades}~%
+		\eqref{ejer:fermat:identidades:identidades},
+		el subconjunto $H$ es cerrado por multiplicaci\'on:
+		si $m,m'\in H$, entonces $mm'\in H$. Ahora, como
+		$\ker(\chi)$ ($\Unidadesmod[D]$) es un grupo finito
+		(de torsi\'on), $H$ es un subgrupo.
+		Si $D\equiv 1\tmodulo[4]$, la forma principal es
+		$f_0:=\binaria{1,1,(1-D)/4}$, entonces
+		\begin{displaymath}
+			4\,f_0(x,y)\,=\,(2x+y)^2-Dy^2\,\equiv\,
+				(2x+y)^2\tmodulo[D]
+			\dispstop
+		\end{displaymath}
+		%
+		En consecuencia, en este caso, $H$ est\'a contenido en
+		el \emph{subgrupo} de cuadrados m\'odulo $D$
+		(pues $D$ es impar y $2\in\Unidadesmod[D]$).
+		Rec\'{\i}procamente, si $\beta\in\Enteros$,
+		\begin{displaymath}
+			4\,f(\beta,0)\,=\,4\,f(0,2\beta)\,\equiv\,
+				4\,\beta^2\tmodulo[D]
+			\dispstop
+		\end{displaymath}
+		%
+		Dado que $\mcd{4,D}=1$, $f_0$ representa la clase de
+		$\beta$ en $\Unidadesmod[D]$. Entonces, en este caso
+		tambi\'en, $H$ es un subgrupo de $\Unidadesmod[D]$ y,
+		m\'as precisamente, es el subgurpo de cuadrados
+		en $\Unidadesmod[D]$.
+	\end{proof}
+
+	\begin{proof}[\proofname~de~\ref{item:lema:generos:primitivas}]
+		Sea $f=\binaria{a,b,c}$ una forma \emph{primitiva}
+		y sea $p$ un n\'umero primo. Podemos recuperar los
+		coeficientes de la forma evaluando en ciertos puntos:
+		\begin{displaymath}
+			f(1,0)\,=\,a\dispcomma\quad
+			f(0,1)\,=\,c\dispand
+			f(1,1)\,=\,a+b+c
+			\dispstop
+		\end{displaymath}
+		%
+		Como estamos asumiendo que $f$ es primitiva, el primo
+		escogido $p$ no puede dividir estos tres valores
+		simult\'aneamente. Obtenemos, de esta manera,
+		\emph{alg\'un} entero no divisible por $p$ y propiamente
+		representado por $f$.
+		Si, ahora, $M\in\Enteros$ (arbitrario), podemos elegir,
+		para cada primo $p\mid M$, un $k_p\in\Enteros$ no divisible
+		por $p$ y propiamente representado por $f$, es decir,
+		existen $k_p$, $x_p$, $y_p$ tales que
+		\begin{displaymath}
+			k_p\,=\,f(x_p,y_p)\dispcomma\quad
+			p\nmid k_p\dispand
+			\mcd{x_p,y_p}\,=\,1
+			\dispstop
+		\end{displaymath}
+		%
+		Por el Teorema chino del resto, existen $x,y\in\Enteros$
+		tales que
+		\begin{displaymath}
+			x\,\equiv\,x_p\tmodulo[p]
+			\dispand
+			y\,\equiv\,y_p\tmodulo[p]
+		\end{displaymath}
+		%
+		para cada primo $p\mid M$. Si $k:=f(x,y)$, entonces
+		$k\equiv k_p\tmodulo[p]$ y, por lo tanto,
+		$p$ no divide a $k$ y $\mcd{k,M}=1$.
+		Si $g:=\mcd{x,y}\geq 1$, dividiendo por $g^2$ a $x$ y a $y$,
+		el entero $k/g^2$ es coprimo con $M$ y propiamente
+		representado por $f$.
+	\end{proof}
+
+	\begin{proof}[\proofname~de~\ref{item:lema:generos:coclases}]
+		\dots
+	\end{proof}
 \end{proof}
 
 \begin{coroGenerosB}\label{coro:generos:cero}
