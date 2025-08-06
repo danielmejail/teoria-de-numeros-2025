@@ -43,7 +43,8 @@
 	es una forma primitiva reducida.
 \end{obsGenerosB}
 
-\begin{lemaGenerosB}\label{lema:generos}
+\begin{restatable}{lemaGenerosB}{lemaGenerosBCoclases}
+	\label{lema:generos}
 	Sea $D\equiv 0,1\tmodulo[4]$, $D<0$, y sea $f$ una forma
 	de discriminante $D$. Entonces,
 	\begin{enumerate}[(i)]
@@ -57,7 +58,7 @@
 			en $\ker(\chi)$.
 	\end{enumerate}
 	%
-\end{lemaGenerosB}
+\end{restatable}
 
 \begin{teoGenerosB}\label{teo:generos}
 	Sea $D\equiv 0,1\tmodulo[4]$, $D<0$, y sea $H\subgrpeq\ker(\chi)$
@@ -141,7 +142,8 @@
 			$\chi(x\,y)=\chi(x)\,\chi(y)$, para todo par
 			$x,y\in\Enteros$,
 			``cuadr\'atico'' quiere decir que
-			$\chi(x)^2=1$ para todo $x\in\Enteros$.
+			$\chi(x)^2=1$ para todo $x\in\Enteros$,
+			o sea, $\chi(x)\in\{\pm 1\}$.
 		}
 		\begin{displaymath}
 			\chi(m')\,=\,\chi(m)
@@ -150,7 +152,6 @@
 		%
 		as\'{\i} que podemos suponer que $m$ es representado
 		propiamente por $f$. Ahora, separamos en dos casos.
-
 		Si $m$ es impar, por el \lemaname~%
 		\ref{lema:representaciones:primitiva}, existe
 		$\beta\in\Enteros$ tal que $D\equiv\beta^2\tmodulo[m]$.
@@ -162,16 +163,16 @@
 			\dispstop
 		\end{displaymath}
 		%
-
+		Es decir, $\clase m\in\ker(\chi)$.
 		Si, en cambio, $m$ es par, entonces afirmamos:
-		\begin{enumerate}[.1]
+		\begin{enumerate}[{.}1]
 			\item\label{item:lema:generos:nucleo:i}
 				el discriminante es $D\equiv 1\tmodulo[8]$;
 			\item\label{item:lema:generos:nucleo:ii}
 				la clase $\clase m\in\ker(\chi)$.
 		\end{enumerate}
 		%
-		En cuanto a \label{item:lema:generos:nucleo:i},
+		En cuanto a {.\ref{item:lema:generos:nucleo:i}},
 		si una forma $f$ de discriminante $D$ representa un
 		n\'umero par $m$, entonces $f$ es equivalente a
 		$mx^2+Bxy+Cy^2$ y $D=B^2-4mC\equiv B^2\tmodulo[8]$.
@@ -208,7 +209,7 @@
 		$H\subset\ker(\chi)$. Veamos que es subgrupo. Si $D=-4n$,
 		la forma principal es $\binaria{1,0,n}$ y, por el
 		\ejername~\ref{ejer:fermat:identidades}~%
-		\eqref{ejer:fermat:identidades:identidades},
+		\eqref{item:ejer:fermat:identidades},
 		el subconjunto $H$ es cerrado por multiplicaci\'on:
 		si $m,m'\in H$, entonces $mm'\in H$. Ahora, como
 		$\ker(\chi)$ ($\Unidadesmod[D]$) es un grupo finito
@@ -282,11 +283,93 @@
 	\end{proof}
 
 	\begin{proof}[\proofname~de~\ref{item:lema:generos:coclases}]
-		\dots
+		Supongamos, en primer lugar, que $D\equiv 0\tmodulo[4]$,
+		$D=-4n$, $n>0$. Elegimos $M=4n$. Si $f$ es una forma
+		primitiva discriminante $D$, podemos, por la parte
+		\ref{item:lema:generos:primitivas}, encontrar $a\in\Enteros$,
+		$\mcd{a,M}=1$, propiamente representado por $f$.
+		Por el \lemaname~\ref{lema:representaciones:propiamente},
+		la forma $f$ es estrictamente equivalente a una forma
+		$f_1=\binaria{a,b,c}$ (con $a$ como primer coeficiente).
+		Dado que $f$ y $f_1$ representan los mismos enteros,
+		podemos asumir que la forma $f$ es $f=\binaria{a,b,c}$,
+		con $\mcd{a,4n}=1$. Asumiendo esto, vemos que
+		\begin{displaymath}
+			\begin{aligned}
+				-4n & \,=\,b^2-4ac \dispcomma \\
+				b & \,=\,2b' \quad\text{es par y} \\
+				af(x,y) & \,=\,(ax+b'y)^2+ny^2
+				% a^2x^2+2ab'xy+acy^2
+					% \,=\,(ax)^2+2(ax)(b'y)+({b'}^2+n)y^2
+				\,\in\,H
+				\dispstop
+			\end{aligned}
+			%
+		\end{displaymath}
+		%
+		En particular, los valores en $\Unidadesmod[D]$ representados
+		por $f$ pertenecen a la coclase $\clase a^{-1}H$.
+		Rec\'{\i}procamente, dada $\clase c\in\clase a^{-1}H$,
+		para ciertos $z,w\in\Enteros$, se cumple
+		\begin{displaymath}
+			ac\,\equiv\,z^2+nw^2\modulo[4n]
+		\end{displaymath}
+		%
+		\quedacomoejercicio.
+		Sean $x,y\in\Enteros$ tales que
+		\begin{displaymath}
+			ax+b'y\,\equiv\,z\tmodulo[4n]
+			\dispand
+			y\,\equiv\,w\tmodulo[4n]
+		\end{displaymath}
+		%
+		\quedacomoejercicio.
+		% \hint{
+			% $a$ es inversible m\'odulo $D=4n$.
+		% }
+		Entonces, $af(x,y)\equiv z^2+nw^2\equiv ac$ y
+		$f(x,y)\equiv c\tmodulo[4n]$.
+
+		Si $D\equiv 1\tmodulo[4]$, al igual que antes, podemos
+		encontrar $a$ coprimo con $|D|$ propiamente representado
+		por $f$ y cambiar $f$ por una forma estrictamente
+		equivalente $\binaria{a,b,c}$. Asumiendo que
+		$f=\binaria{a,b,c}$ con $\mcd{a,D}=1$,
+		\begin{displaymath}
+			4af(x,y)\,=\,(2ax+by)^2-Dy^2\,\equiv\,
+				(2ax+by)^2\modulo[D]
+			\dispstop
+		\end{displaymath}
+		%
+		Dado que $\mcd{4,D}=1$ y tambi\'en $\mcd{a,D}=1$,
+		\begin{displaymath}
+			f(x,y)\,\equiv\,\clase a^{-1}\big(
+				\clase 2^{-1}(2ax+by)\big)^2
+				\,\in\,\clase a^{-1}H
+			\dispstop
+		\end{displaymath}
+		%
+		Rec\'{\i}procamente, dada $\clase c\in\clase a^{-1}H$,
+		\begin{displaymath}
+			4ac\,\equiv\,4\beta^2\,\equiv\,
+				4\bigg(z^2+zw+\frac{1-D} 4\,w^2\bigg)
+				\,\equiv\,(2z+w)^2\modulo[D]
+		\end{displaymath}
+		%
+		\quedacomoejercicio.
+		Eligiendo $x,y\in\Enteros$, tales que
+		\begin{displaymath}
+			2ax+by\,\equiv\,2z+w\modulo[D]
+		\end{displaymath}
+		%
+		\quedacomoejercicio,
+		vemos que $4af(x,y)\,\equiv\,4ac\tmodulo[D]$ y
+		$f(x,y)\equiv c\tmodulo[D]$.
 	\end{proof}
 \end{proof}
 
-\begin{coroGenerosB}\label{coro:generos:cero}
+\begin{restatable}{coroGenerosB}{coroGenerosBDescenso}
+	\label{coro:generos:cero}
 	Sea $n\in\Enteros$, $n>0$, y sea $p$ un primo impar que no
 	divide a $n$. Entonces, $p$ es representado en una forma de
 	discriminante $-4n$ perteneciente al g\'enero principal, si
@@ -296,7 +379,7 @@
 		\dispstop
 	\end{displaymath}
 	%
-\end{coroGenerosB}
+\end{restatable}
 
 \begin{proof}
 	Si $p$ es representada en una forma perteneciente al g\'enero
