@@ -48,6 +48,35 @@ evaluar(x, y, f) = {
 	return ( f[1] * x ^ 2 + f[2] * x * y + f[3] * y ^ 2 );
 }
 
+actuar(f,M) = {
+	/* Si M = [r,s;t,u], f = [a,b,c], devuelve la forma
+	 * (fM)(x,y) = f(rx+sy,tx+uy)
+	 */
+	local ( A, B, C );
+	A = evaluar(M[1,1], M[2,1], f);
+	C = evaluar(M[1,2], M[2,2], f);
+	B = evaluar(M[1,1] + M[1,2], M[2,1] + M[2,2], f) - A - C;
+	return ( [A,B,C] );
+}
+
+vecino(f) = {
+	/* Si f = [a,b,c] de discriminante b^2-4ac > 0 (no cuadrado),
+	 * devuelve la forma ``vecina a la derecha'' de f.
+	 */
+	local ( A, B, C, D );
+	D = discriminante(f);
+	A = f[3];
+	B = lift ( Mod(-f[2],2*A) );
+	while ( B^2 >= D, \
+		B -= abs(2*A);
+	);
+	while ( (B + abs(2*A))^2 < D, \
+		B += abs(2*A);
+	);
+	C = (B^2 - D) / 4 / A;
+	return ( [A,B,C] );
+}
+
 formas(D) = {
 	/* returns the complete list of reduced primitive
 	 * positive definite binary quadratic forms of
@@ -85,3 +114,13 @@ formas(D) = {
 clases(D) = {
 	return ( length(formas(D)) );
 }
+
+
+print_vecinos_up_to(f,N) = {
+	local ( g = f );
+	printp(g);
+	for ( i = 1, N, g = vecino(g); printp(g) );
+}
+
+f = [1,1,-4];
+print_vecinos_up_to(f,9);
