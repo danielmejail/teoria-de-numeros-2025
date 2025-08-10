@@ -17,3 +17,90 @@
 	$p=x^2+ny^2$, para $n\in\{6,10,13,15,21,22,30\}$.
 \end{ejerGenerosB}
 
+\begin{ejerGenerosB}\label{ejer:generos:b:congruencias}
+	Sea $D\equiv 0,1\tmodulo[4]$ un discriminante y sea
+	$\tilde H\subset\Unidadesmod[D]$ el subconjunto de clases
+	$x$ que verifican las siguientes condiciones:
+	\begin{enumerate}[(i)]
+		\item\label{item:generos:b:congruencias:condiciones:i}
+			para todo primo impar $q\mid D$,
+			$\tlegendre x q=1$, y
+		\item\label{item:generos:b:congruencias:condiciones:ii}
+			la clase es
+			\begin{displaymath}
+				x\,\equiv\,
+				\left\{
+					\begin{array}{ll}
+						x\equiv 1\tmodulo[4] \dispcomma
+							& \text{si }D\equiv 12 \tmodulo[16] \dispcomma \\
+						x\equiv 1\tmodulo[4] \dispcomma
+							& \text{si }D\equiv 16 \tmodulo[32] \dispcomma \\
+						x\equiv 1\tmodulo[8] \dispcomma
+							& \text{si }D\equiv 0 \tmodulo[32] \dispcomma \\
+						x\equiv 1,7\tmodulo[8]\dispcomma
+							& \text{si }D\equiv 8 \tmodulo[32] \quad\text{y} \\
+						x\equiv 1,3\tmodulo[8]\dispcomma
+							& \text{si }D\equiv 24 \tmodulo[32]
+				\dispstop
+
+					\end{array}
+				\right.
+			\end{displaymath}
+			%
+	\end{enumerate}
+	%
+	Notar que la condici\'on
+	\eqref{item:generos:b:congruencias:condiciones:ii}
+	es vac\'{\i}a, si $D\equiv 1\tmodulo[4]$ o si $D=-4n$ con
+	$n\equiv 3\tmodulo[4]$.
+	\begin{enumerate}[(i)]
+		\item\label{item:generos:b:congruencias:i}
+			Probar que $\tilde H$ es subgrupo de
+			$\Unidadesmod[D]$ y
+			que $\tilde H\subset\ker(\chi)$.
+		\item\label{item:generos:b:congruencias:ii}
+			Probar que $\tilde H=H$,%
+			\hint{
+				En el caso $D=-4n$,
+				traducir la condici\'on sobre $D$ a $n$ y
+				mostrar que, si $n'$ es la parte impar
+				de $n$, entonces la condici\'on
+				$\tlegendre x q=1$ para todo primo impar
+				$q\mid n$ equivale a que $x$ sea
+				cuadrado m\'odulo $n'$.
+			}
+			donde $H\subset\Unidadesmod[D]$ es el subconjunto
+			\begin{displaymath}
+				H\,=\,\left\{
+				\begin{array}{ll}
+					\big\{
+						x\equiv\beta^2\text{ o }
+						\beta^2+n\tmodulo[4n]\,:\,
+						\beta\in\Enteros\big\}
+						\dispcomma &
+						\text{si }D=-4n\dispcomma
+						\\[5pt]
+					\big\{
+						x\equiv\beta^2\tmodulo[D]\,:\,
+						\beta\in\Enteros\big\}
+						\dispcomma &
+						\text{si }D\equiv 1
+							\tmodulo[4]
+						\dispstop
+				\end{array}
+				%
+				\right.
+			\end{displaymath}
+			%
+			\dispstop
+	\end{enumerate}
+	%
+	% (Notar que, por el \coroname~\ref{coro:generos:cero} y el
+	% \coroname~\ref{coro:generos:uno}, $H\subgrpeq\ker(\chi)$,
+	% con lo que \eqref{item:generos:b:congruencias:ii} implica
+	% \eqref{item:generos:b:congruencias:i}
+	% pero que tambi\'en
+	% \eqref{item:generos:b:congruencias:i}
+	% se puede demostrar de manera independiente).
+\end{ejerGenerosB}
+
