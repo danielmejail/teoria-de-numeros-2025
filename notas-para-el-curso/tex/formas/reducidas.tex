@@ -10,7 +10,28 @@
 
 %-------------
 
-El objetivo de esta secci\'on es describir una manera de
+En esta secci\'on estudiaremos la relaci\'on de equivalencia
+entre formas definidas. Las formas definidas se pueden separar,
+en una primera instancia, en dos grandes partes: las definidas
+positivas y las definidas negativas; las que representan enteros
+positivos y las que representan enteros negativos.
+Estos dos subconjuntos son disjuntos y la subdivisi\'on
+respeta la relaci\'on de equivalencia de formas cuadr\'aticas binarias
+(los conjuntos de enteros representados por formas equivalentes son
+iguales). Por otro lado, la funci\'on
+\begin{displaymath}
+	f\,=\,\binaria{a,b,c}\,\mapsto\,-f\,:=\,\binaria{-a,-b-c}
+\end{displaymath}
+%
+determina una biyecci\'on entre el conjunto de formas definidas positivas
+y el conjunto de formas definidas negativas. Adem\'as, esta
+correspondencia tambi\'en respeta la relaci\'on de equivalencia
+(estricta): si dos formas $f$ y $g$ son (estrictamente) equivalentes,
+entonces las formas $-f$ y $-g$ tambi\'en lo son.
+De esta manera, podemos concentrarnos en una de las dos partes;
+elegimos concentrarnos en las formas definidas positivas.
+
+El objetivo de esta secci\'on, entonces, es describir una manera de
 determinar si dos formas cuadr\'aticas \emph{definidas positivas}
 son estrictamente equivalentes.
 La idea es, en primer lugar, definir una noci\'on de representante
@@ -246,7 +267,7 @@ los resultados de la \S~\ref{sec:representaciones}.
 \begin{teoReducidas}\label{teo:reducidas:representaciones}
 	Sea $D\equiv 0,1\tmodulo[4]$, $D<0$ y sea $p$ un primo positivo
 	impar que no divide a $D$. Entonces, $p$ es representado por
-	una forma \emph{reducida} de discriminante $D$,
+	una forma primitiva \emph{reducida} de discriminante $D$,
 	si y s\'olo si $\chi(p)=1$, donde $\chi$ es la funci\'on
 	del \lemaname~\ref{lema:ecuacion:kronecker}.
 \end{teoReducidas}
@@ -267,26 +288,26 @@ El siguiente resultado refina el \coroname~\ref{coro:representaciones}.
 	\label{coro:reducidas:representaciones}
 	Sea $n\in\Enteros$, $n>0$, y sea $p$ un primo positivo impar
 	que no divide a $n$. Entonces, $p$ es representado por una
-	forma \emph{reducida} de discriminante $-4n$, si y s\'olo si
-	$p$ es un divisor de $x^2+ny^2$, $\mcd{x,y}=1$.
+	forma primitiva \emph{reducida} de discriminante $-4n$,
+	si y s\'olo si $p$ es un divisor de $x^2+ny^2$, $\mcd{x,y}=1$.
 \end{restatable}
 
-\begin{defReducidas}\label{def:reducidas:numero}
-	Denominaremos \emph{clases} de formas cuadr\'aticas a las
-	clases de equivalencia estricta en el conjunto de formas
-	cuadr\'aticas binarias enteras. Dado $D\equiv 0,1\tmodulo[4]$,
-	el \emph{n\'umero de clases} de formas de discriminante $D$
-	es la cantidad de clases de formas cuadr\'aticas
-	\emph{primitivas}%
-	\footnote{
-		Ver el \ejername~\ref{ejer:definiciones:clases}
-		para una justificaci\'on de por qu\'e s\'olo
-		consideramos clases de formas primitivas.
-		% Ver tambi\'en el \ejername~%
-		% \ref{ejer:definiciones:propiamente}.
-	}
-	de discriminante $D$; lo denotamos $\nClases(D)$.
-\end{defReducidas}
+% \begin{defReducidas}\label{def:reducidas:numero}
+	% Denominaremos \emph{clases} de formas cuadr\'aticas a las
+	% clases de equivalencia estricta en el conjunto de formas
+	% cuadr\'aticas binarias enteras. Dado $D\equiv 0,1\tmodulo[4]$,
+	% el \emph{n\'umero de clases} de formas de discriminante $D$
+	% es la cantidad de clases de formas cuadr\'aticas
+	% \emph{primitivas}%
+	% \footnote{
+		% Ver el \ejername~\ref{ejer:definiciones:clases}
+		% para una justificaci\'on de por qu\'e s\'olo
+		% consideramos clases de formas primitivas.
+		% % Ver tambi\'en el \ejername~%
+		% % \ref{ejer:definiciones:propiamente}.
+	% }
+	% de discriminante $D$; lo denotamos $\nClases(D)$.
+% \end{defReducidas}
 
 \begin{obsReducidas}\label{obs:reducidas}
 	Si $D<0$, el n\'umero de clases $\nClases(D)$ coincide

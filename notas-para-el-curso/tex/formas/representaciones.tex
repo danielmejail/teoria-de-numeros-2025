@@ -4,6 +4,8 @@
 \newtheorem{coroRepresentaciones}[teoRepresentaciones]{\coroname}
 
 \theoremstyle{definition}
+\newtheorem{defRepresentaciones}[teoRepresentaciones]{\defname}
+\newtheorem{obsRepresentaciones}[teoRepresentaciones]{\obsname}
 
 %-------------
 
@@ -56,8 +58,9 @@
 
 \begin{teoRepresentaciones}\label{teo:representaciones}
 	Sea $D\equiv 0,1\tmodulo[4]$ y sea $p$ un primo positivo impar
-	que no divide a $D$. Entonces, $p$ es representado (propiamente)
-	por \emph{alguna} forma cuadr\'atica (primitiva) de discriminante
+	que no divide a $D$. Entonces, $p$ es representado
+	% (propiamente)
+	por \emph{alguna} forma cuadr\'atica primitiva de discriminante
 	$D$, si y s\'olo si $\chi(p)=1$, donde $\chi$ es la funci\'on del
 	\lemaname~\ref{lema:ecuacion:kronecker}.
 \end{teoRepresentaciones}
@@ -73,11 +76,55 @@
 	\label{coro:representaciones}
 	Sea $n\in\Enteros$, $n\neq 0$, y sea $p$ un primo positivo
 	impar que no divide a $n$. Entonces, $p$ es representado
-	(propiamente) por una forma (primitiva) de discriminante $-4n$,
+	% (propiamente)
+	por una forma primitiva de discriminante $-4n$,
 	% si y s\'olo si $\tlegendre{-n} p=1$.
 	si y s\'olo si $p$ es un divisor primo de $x^2+ny^2$,
 	$\mcd{x,y}=1$.
 \end{restatable}
+
+Las formas cuya existencia est\'a garantizada por el \teoname~%
+\ref{teo:representaciones} son, en el caso $D<0$, definidas
+\emph{positivas}. Adem\'as, en cualquier caso, podemos suponer
+que son primitivas. Por esta raz\'on,
+introducimos la siguiente definici\'on y,
+de ahora en adelante,
+nos concentraremos en formas con dichas caracter\'{\i}sticas.
+
+\begin{defRepresentaciones}\label{def:representaciones:gaussianas}
+	Llamaremos \emph{forma gaussiana} a toda forma cuadr\'atica
+	binaria que es
+	\begin{enumerate}[(A)]
+		\item primitiva e indefinida, o bien
+		\item primitiva y definida \emph{positiva}.
+	\end{enumerate}
+	%
+\end{defRepresentaciones}
+
+Introducimos, adem\'as, la siguiente notaci\'on:%
+\footnote{
+	En la notaci\'on del \ejername~\ref{ejer:definiciones:clases},
+	$\Clases(D)=\varClases[1](D)$.
+}
+\begin{itemize}
+	\item $\Clases(D)$ denota el conjunto de clases de
+		equivalencia estricta de formas gaussianas de
+		discriminante $D$ y
+	\item $\nClases(D)$ denota el cardinal del conjunto
+		$\Clases(D)$.
+\end{itemize}
+%
+En ocasiones, diremos, simplemente,
+``clases de formas de discriminante $D$'' en lugar de
+``clases de formas gaussianas de discriminante $D$''.
+
+\begin{obsRepresentaciones}\label{obs:representaciones:gaussianas}
+	El n\'umero de clases $\nClases(D)$ es siempre positivo:
+	si $D\equiv 0\tmodulo[4]$, la forma
+	$\binaria{1,0,-D/4}$ es gaussiana de discriminante $D$;
+	si $D\equiv 1\tmodulo[4]$, la forma
+	$\binaria{1,1,(1-D)/4}$ es gaussiana de discriminante $D$.
+\end{obsRepresentaciones}
 
 % \subsection*{Ejercicios}
 % \input{./tex/formas/ejercicios-representaciones.tex}

@@ -19,27 +19,32 @@
 	el contenido de una forma cuadr\'atica son invariantes de la
 	clase de equivalencia de la forma cuadr\'atica (todas las formas
 	en la misma clase tienen igual discriminante e igual contenido).
-	Sea $\Clases(D)$ el conjunto de clases de formas cuadr\'aticas de
-	discriminante $D$ y sea $\Clases[g](D)$ el subconjunto de clases
-	de discriminante $D$ y contenido $g$.
-	En particular, con esta notaci\'on $\Clases[1](D)$ denota el
+	Sea $\varClases(D)$ el conjunto de clases de formas cuadr\'aticas
+	de discriminante $D$, positivas, si $D<0$,
+	y sea $\varClases[g](D)$ el subconjunto de
+	clases de discriminante $D$ y contenido $g$.
+	En particular, con esta notaci\'on $\varClases[1](D)$ denota el
 	conjunto de clases de formas cuadr\'aticas primitivas de
-	discriminante $D$.
+	discriminante $D$ (positivas, si $D<0$).%
+	\footnote{
+		Comparar con la \defname~%
+		\ref{def:representaciones:gaussianas}.
+	}
 
 \begin{ejerDefiniciones}\label{ejer:definiciones:clases}
 	Mostrar que, si $f$ es una forma de contenido $g$ y discriminante
 	$D$, entonces $g^2\mid D$. Concluir que
 	\begin{displaymath}
-		\Clases(D)\,=\,
-		\bigsqcup_{\smatrix{g>0 \\ g^2\mid D}}\,\Clases[g](D)
+		\varClases(D)\,=\,
+		\bigsqcup_{\smatrix{g>0 \\ g^2\mid D}}\,\varClases[g](D)
 			\,=\,\bigsqcup_{\smatrix{g>0 \\ g^2\mid D}}\,
-				\Clases[1](D/g^2)
+				\varClases[1](D/g^2)
 		\text{ .}
 	\end{displaymath}
 	%
 \end{ejerDefiniciones}
 
-	Un \emph{discriminante fundamental} es un entero $D$ que cumple
+	Un \emph{discriminante fundamental} es un entero $D\neq 0$ que cumple
 	\begin{itemize}
 		\item $D\equiv 1\tmodulo[4]$ y es libre de cuadrados,
 			o bien
@@ -47,11 +52,15 @@
 			de cuadrados.
 	\end{itemize}
 	%
+	Equivalentemente, un discriminante fundamental es un discriminante
+	\emph{minimal}, es decir,
+	$D\equiv 0,1\tmodulo[4]$, $D\neq 0$, y no existen enteros
+	$D_0\equiv 0,1\tmodulo[4]$ y $f>1$ tales que $D=D_0f^2$.
 
 \begin{ejerDefiniciones}\label{ejer:definiciones:fundamental}
-	Probar que un entero $D\equiv 0,1\tmodulo[4]$ es un discriminante
-	fundamental, si y s\'olo si toda forma de discriminante $D$ es
-	primitiva.
+	Probar que un entero $D\equiv 0,1\tmodulo[4]$, $D\neq 0$,
+	es un discriminante fundamental, si y s\'olo si toda forma
+	de discriminante $D$ es primitiva.
 \end{ejerDefiniciones}
 
 El producto de formas lineales da lugar a formas cuadr\'aticas:
