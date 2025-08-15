@@ -16,5 +16,5 @@ Bibliografía consultada.
 ### Referencias complementarias
 
 ## Legales
-[Programa oficial]() de la materia.
+[Programa oficial](https://github.com/danielmejail/teoria-de-numeros-2025/blob/main/programa-teoria-de-numeros-2025.pdf) de la materia.
 
