@@ -1,0 +1,158 @@
+\theoremstyle{plain}
+\newtheorem{teoChino}{\teoname}[section]
+\newtheorem{coroChino}[teoChino]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{obsChino}[teoChino]{\obsname}
+
+%-------------
+
+De la secci\'on \S~\ref{sec:congruencias}, sabemos que una ecuaci\'on
+$ax\equiv b\tmodulo[m]$ tiene soluci\'on, si y s\'olo si
+$\mcd{a,m}\div b$. Tales ecuaciones imponen una restricci\'on a la clase
+de congruencia de $x$ m\'odulo $m$ ?`Qu\'e podemos decir si tenemos varias
+de tales restricciones en simult\'aneo?
+
+\begin{teoChino}[Teorema chino del resto]
+	\label{teo:chino}
+	Sean $m_1,m_2\in\Enteros$ tales que $\mcd{m_1,m_2}=1$.
+	Entonces, para todo par $a_1,a_2\in\Enteros$, existe una
+	soluci\'on com\'un $x$ al sistema de ecuaciones de congruencia
+	\begin{displaymath}
+		\begin{aligned}
+			x & \,\equiv\,a_1\modulo[m_1] \dispand \\
+			x & \,\equiv\,a_2\modulo[m_2] \dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Adem\'as, el conjunto de todas las soluciones comunes a ambas
+	ecuaciones es igual a una clase de congruencia m\'odulo el
+	producto $m_1m_2$.
+\end{teoChino}
+
+En el \ejername~\ref{ejer:chino} se puede encontrar una variante de
+este enunciado.
+
+\begin{obsChino}\label{obs:chino}
+	Dicho de otra manera, seg\'un el \teoname~\ref{teo:chino},
+	si $\mcd{m_1,m_2}=1$, entonces:
+	\begin{itemize}
+		\item existe $x\in\Enteros$ que cumple
+			$x\equiv a_1\tmodulo[m_1]$ y
+			$x\equiv a_2\tmodulo[m_2]$,
+		\item toda la clase de congruencia de $x$ m\'odulo
+			$m_1m_2$ es soluci\'on:
+			si $y\equiv x\tmodulo[m_1m_2]$, entonces
+			$y$ tambi\'en es soluci\'on (satisface ambas
+			condiciones) y
+		\item dicho entero es \'unico m\'odulo $m_1m_2$:
+			si $y$ es soluci\'on, entonces
+			$y\equiv x\tmodulo[m_1m_2]$.
+	\end{itemize}
+	%
+\end{obsChino}
+
+\begin{proof}
+	\dots
+\end{proof}
+
+\begin{coroChino}\label{coro:chino}
+	Sea $f\in\polinomios\Enteros$ y sea $m\in\Enteros$.
+	Si $m=m_1m_2$ es una factorizaci\'on de $m$ con $\mcd{m_1,m_2}=1$,
+	entonces la ecuaci\'on de congruencia
+	\begin{equation}
+		\label{eq:chino:una}
+		f(x)\,\equiv\,a\modulo[m]
+	\end{equation}
+	%
+	es equivalente al sistema de ecuaciones
+	\begin{equation}
+		\label{eq:chino:dos}
+		\begin{aligned}
+			f(x) & \,\equiv\,a\modulo[m_1]\dispand \\
+			f(x) & \,\equiv\,a\modulo[m_2]\dispstop
+		\end{aligned}
+		%
+	\end{equation}
+	%
+	Adem\'as, si $\cal R$, $\cal R_1$ y $\cal R_2$ son, respectivamente,
+	sistemas completos de representantes de las clases m\'odulo $m$,
+	$m_1$ y $m_2$, entonces hay una biyecci\'on
+	\begin{displaymath}
+		\big\{x\in\cal R\,:\,f(x)\equiv a\tmodulo[m]\big\}
+			\,\simeq\,
+		\big\{x_1\in\cal R_1\,:\,f(x_1)\equiv a\tmodulo[m_1]\big\}
+		\,\times\,
+		\big\{x_2\in\cal R_2\,:\,f(x_2)\equiv a\tmodulo[m_2]\big\}
+	\end{displaymath}
+	%
+	dada por $x\mapsto (x_1,x_2)$, donde $x_1$ y $x_2$ est\'an
+	determinados por:
+	\begin{displaymath}
+		\begin{aligned}
+			x & \,\equiv\,x_1\modulo[m_1]\dispand \\
+			x & \,\equiv\,x_2\modulo[m_2]\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+\end{coroChino}
+
+\begin{obsChino}\label{obs:chino:coro}
+	Dado que, en un sistema de representantes, los representantes se
+	corresponden con las clases que representan, podemos expresar el
+	resultado del \coroname~\ref{coro:chino} diciendo que
+	las soluciones m\'odulo $m$ est\'an en biyecci\'on
+	con el producto cartesiano de las soluciones m\'odulo $m_1$ por
+	las soluciones m\'odulo $m_2$.
+\end{obsChino}
+
+\begin{proof}
+	\dots
+\end{proof}
+
+\begin{coroChino}\label{coro:chino:varios}
+	Sean $\lista m r\in\Enteros$ tales que $\mcd{m_i,m_j}=1$
+	para todo par $1\leq i<j\leq r$. Entonces, para
+	$\lista a r\in\Enteros$, el sistema de congruencias
+	\begin{displaymath}
+		\begin{aligned}
+			x & \,\equiv\,a_1\modulo[m_1] \dispcomma \\
+			& \vdots
+			x & \,\equiv\,a_r\modulo[m_r]
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	admite una \'unica soluci\'on m\'odulo el producto
+	$m_1\cdots m_r$.
+\end{coroChino}
+
+\begin{coroChino}\label{coro:chino:varios:coro}
+	Sea $f\in\polinomios\Enteros$ y sea $m\in\Enteros$.
+	Si $m=m_1\cdots m_r$ es una factorizaci\'on de $m$ con
+	$\mcd{m_i,m_j}=1$ para todo par $1\leq i<j\leq r$, entonces
+	la ecuaci\'on de congruencia
+	\begin{displaymath}
+		f(x)\,\equiv\, a\modulo[m]
+	\end{displaymath}
+	%
+	es equivalente al sistema de ecuaciones
+	\begin{displaymath}
+		\begin{aligned}
+			f(x) & \,\equiv\, a\modulo[m_1] \dispcomma \\
+			& \vdots \\
+			f(x) & \,\equiv\, a\modulo[m_r] \dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Adem\'as, las soluciones m\'odulo $m$ est\'an en biyecci\'on
+	con el producto cartesiano de las soluciones m\'odulo $m_i$,
+	para cada $1\leq i\leq r$.
+\end{coroChino}
+
+\subsection*{Ejercicios}
+\input{./tex/divisibilidad-y-congruencia/ejercicios-chino.tex}
+
