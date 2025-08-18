@@ -1,0 +1,201 @@
+\theoremstyle{definition}
+\newtheorem{ejerChino}{\ejername}[section]
+
+%-------------
+
+\begin{ejerChino}\label{ejer:chino}
+	El sistema de congruencias
+	\begin{displaymath}
+		x\,\equiv\,a_1\tmodulo[m_1]\dispand
+		x\,\equiv\,a_2\tmodulo[m_2]
+	\end{displaymath}
+	%
+	admite una soluci\'on, si y s\'olo si
+	$\mcd{m_1,m_2}\mid a_1-a_2$.
+	En ese caso, si $x\in\Enteros$ es una soluci\'on, entonces
+	$y\in\Enteros$ es soluci\'on, si y s\'olo si
+	$y\equiv x\tmodulo[m]$, donde $m=\mcm{m_1,m_2}$ es el
+	m\'{\i}nimo com\'un m\'ultiplo de $m_1$ y $m_2$.
+\end{ejerChino}
+
+\begin{ejerChino}\label{ejer:chino:varios}
+	Si $\lista m r\in\Enteros$ son coprimos de a pares y
+	$\lista a r\in\Enteros$, entonces existe una soluci\'on
+	com\'un a las congruencias
+	\begin{displaymath}
+		x\,\equiv\, a_i\modulo[m_i]
+	\end{displaymath}
+	%
+	y, dada una soluci\'on $x\in\Enteros$, un $y\in\Enteros$
+	es soluci\'on, si y s\'olo si
+	$y\equiv x\tmodulo[m]$, donde $m=m_1\cdots m_r$.
+	Este resultado se puede demostrar aplicando inductivamente
+	el \teoname~\ref{teo:chino}.
+	La siguiente es una demostraci\'on alternativa.
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:chino:varios:i}
+			Probar esta afirmaci\'on en los casos
+			con $a_1=1,a_2=0,\,\dots,\,a_r=0$, etc.
+			(considerar $x_1=(m/m_1)\,b_1$, donde
+			$b_1$ es soluci\'on de la ecuaci\'on
+			$(m/m_1)\,b_1\equiv 1\tmodulo[m_1]$).
+		\item\label{item:ejer:chino:varios:ii}
+			Probar que, si $x_j$ es soluci\'on
+			del sistema con $a_j=1$ como en
+			\eqref{item:ejer:chino:varios:i}, entonces,
+			en el sistema con $a_j$ arbitrarios,
+			$x=\sum_j\,x_ja_j$ es soluci\'on.
+		\item\label{item:ejer:chino:varios:iii}
+			Probar que, $y$ es otra soluci\'on,
+			entonces $y\equiv x\tmodulo[m_i]$ para cada $i$
+			(o sea, $m_i\mid y-x$)
+			y concluir que $y\equiv x\tmodulo[m]$.
+	\end{enumerate}
+	%
+\end{ejerChino}
+
+\begin{ejerChino}\label{ejer:chino:varios:coro}
+	Si $f\in\polinomios\Enteros$, $\lista m r\in\Enteros$ son
+	coprimos de a pares y $m=m_1\cdots m_r$,
+	entonces la ecuaci\'on de congruencia
+	\begin{displaymath}
+		f(x)\,\equiv\,a\modulo[m]
+	\end{displaymath}
+	es equivalente al sistema de ecuaciones
+	\begin{displaymath}
+		f(x)\,\equiv\,a\modulo[m_i]
+		\dispstop
+	\end{displaymath}
+	%
+	Adem\'as, las soluciones m\'odulo $m$ est\'an en biyecci\'on
+	con el producto cartesiano de las soluciones m\'odulo
+	$m_i$, para cada $1\leq i\leq r$.
+\end{ejerChino}
+
+\begin{ejerChino}\label{ejer:chino:euler}
+	Si $p$ es un n\'umero primo, entonces
+	$\eulerphi(p^r)=p^{r-1}\,(p-1)=p^r\,(1-1/p)$.
+	Dar una f\'ormula para $\eulerphi(m)$, conociendo la
+	factorizaci\'on de $m$ como potencia de primos.
+\end{ejerChino}
+
+\begin{ejerChino}
+	Hallar el menor entero positivo $\neq 1$ que es soluci\'on de
+	\begin{displaymath}
+		x\,\equiv\,1\tmodulo[3]\dispcomma\quad
+		x\,\equiv\,1\tmodulo[5]\dispand
+		x\,\equiv\,1\tmodulo[7]
+		\dispstop
+	\end{displaymath}
+	%
+\end{ejerChino}
+
+\begin{ejerChino}
+	Hallar todos los enteros que satisfacen los siguientes sistemas:
+	\begin{enumerate}[(i)]
+		\item
+			\begin{displaymath}
+				x\,\equiv\,2\tmodulo[3]\dispcomma\quad
+				x\,\equiv\,3\tmodulo[5]\dispand
+				x\,\equiv\,5\tmodulo[2]
+				\text{ ;}
+			\end{displaymath}
+			%
+		\item
+			\begin{displaymath}
+				x\,\equiv\,1\tmodulo[4]\dispcomma\quad
+				x\,\equiv\,0\tmodulo[3]\dispand
+				x\,\equiv\,5\tmodulo[7]
+				\text{ ;}
+			\end{displaymath}
+			%
+		\item
+			\begin{displaymath}
+				5x\,\equiv\,1\tmodulo[6]\dispcomma\quad
+				4x\,\equiv\,13\tmodulo[15]
+				\dispstop
+			\end{displaymath}
+		%
+	\end{enumerate}
+	%
+\end{ejerChino}
+
+\begin{ejerChino}
+	Resolver las siguientes ecuaciones de congruencia:
+	\begin{enumerate}[(i)]
+		\item $x^3+2x-3\equiv 0\tmodulo[9]$;
+		\item $x^3+2x-3\equiv 0\tmodulo[5]$;
+		\item $x^3+2x-3\equiv 0\tmodulo[45]$;
+		\item $x^3+4x+8\equiv 0\tmodulo[15]$;
+		\item $x^3-9x^2+23x-15\equiv 0\tmodulo[503]$;%
+			\hint{
+				$503$ es primo y
+				$x^3-9x^2+23-15=(x-1)\,(x-3)\,(x-5)$.
+			}
+		\item $x^3-9x^2+23x-15\equiv 0\tmodulo[143]$.
+	\end{enumerate}
+	%
+\end{ejerChino}
+
+\begin{ejerChino}\label{ejer:chino:idempotentes}
+	Si $N(m)$ es la cantidad de soluciones a $x^2\equiv x\tmodulo[m]$,
+	hallar una f\'ormula para $N(p^r)$, con $p$ primo.%
+	\hint{
+		Hacer el caso $r=1$.
+	}
+	Deducir una f\'ormula para $N(m)$, $m$ arbitrario.
+\end{ejerChino}
+
+\begin{ejerChino}\label{ejer:chino:idempotentes:bis}
+	Para $m\geq 1$, entero, sea
+	\begin{math}
+		\psi(m)=\cardinal{%
+			\{1\leq t\leq m\,:\,
+				\mcd{t,m}=1,\,\mcd{t+1,m}=1\}
+			}
+	\end{math}.
+	Probar las siguientes afirmaciones:
+	\begin{enumerate}[(i)]
+		\item si $p$ es primo, $\psi(p)=p-2$;
+		\item si $p$ es primo y $r\geq 1$,
+			$\psi(p^r)=p^{r-1}\,(p-2)=p^r\,(1-2/p)$;
+		\item si $\mcd{m,n}=1$, entonces $\psi(mn)=\psi(m)\psi(n)$.
+	\end{enumerate}
+	%
+	Deducir una f\'ormula para $\psi(m)$.
+\end{ejerChino}
+
+\begin{ejerChino}\label{ejer:chino:polinomial}
+	Sea $f\in\polinomios\Enteros$ y sean
+	\begin{itemize}
+		\item $N(m)$ la cantidad de soluciones de
+			$f(x)\equiv 0\tmodulo[m]$ y
+		\item
+			\begin{math}
+				\phi_f(m)=\cardinal{
+					\{1\leq t\leq m\,:\,\mcd{f(t),m}=1\}
+					}
+			\end{math}.
+	\end{itemize}
+	%
+	Probar las siguientes afirmaciones:
+	\begin{enumerate}[(i)]
+		\item si $p$ es primo, $\phi_f(p)=p-N(p)$;
+		\item si $p$ es primo y $r\geq 1$,
+			$\phi_f(p^r)=p^{r-1}\phi_f(p)=p^r\,(1-N(p)/p)$;
+		\item si $\mcd{m,n}=1$, entonces
+			$\phi_f(mn)=\phi_f(m)\phi_f(n)$.
+	\end{enumerate}
+	%
+	Concluir que, si $m\in\Enteros$, vale
+	\begin{displaymath}
+		\phi_f(m)\,=\,m\,\prod_{p\mid m}\,\big(1-N(p)/p\big)
+		\dispstop
+	\end{displaymath}
+	%
+	Comparar con la f\'ormula para $\eulerphi$ y la f\'ormula para
+	la funci\'on $\psi$ del \ejername~\ref{ejer:chino:idempotentes}.
+	Deducir nuevamente las f\'ormulas para estas funciones con el
+	esquema de este ejercicio ?`Cu\'ales son los polinomios en cada
+	caso?
+\end{ejerChino}

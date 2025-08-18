@@ -4,7 +4,7 @@
 %-------------
 
 \begin{ejerCongruencias}
-	Si $f\in\polinomios\Enteros{X}$ y $f(0)\equiv f(1)\equiv 1\tmodulo[2]$,
+	Si $f\in\polinomios\Enteros$ y $f(0)\equiv f(1)\equiv 1\tmodulo[2]$,
 	entonces $f$ no tiene ra\'{\i}ces enteras. Generalizar.
 \end{ejerCongruencias}
 
@@ -28,7 +28,42 @@
 \end{ejerCongruencias}
 
 \begin{ejerCongruencias}
-	Si $f\in\polinomios\Enteros{X}$ y $a\equiv b\tmodulo[m]$, entonces
+	?`Existen $x\in\Enteros$ tales que $x^2\equiv -1\tmodulo[17]$?
+	?`$x^3\equiv 2\tmodulo[17]$? Hallar un sistema reducido m\'odulo $17$
+	cuyos elementos sean m\'ultiplos de $3$.
+\end{ejerCongruencias}
+
+\begin{ejerCongruencias}
+	Determinar $\eulerphi(26)$. Para cada $x$ en el rango
+	$0\leq x\leq 25$ (un sistema completo), determinar el menor
+	natural $k$ ($k\geq 1$) tal que $x^k\equiv 1\tmodulo[26]$.
+	Repetir con $36$ en lugar de $26$ (y $35$ en lugar de $25$)
+	?`Qu\'e relaci\'on hay entre estos exponentes y los valores de
+	$\eulerphi(26)$ y de $\eulerphi(36)$, respectivamente?
+\end{ejerCongruencias}
+
+\begin{ejerCongruencias}
+	Probar que $19\nmid 4n^2+4$ para ning\'un $n$ natural.
+\end{ejerCongruencias}
+
+\begin{ejerCongruencias}\label{ejer:congruencias:chino:representantes}
+	Hallar sistemas de representantes de las clases m\'odulo $26$
+	cuyos elementos sean:
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:chino:representantes:i}
+			todos divisibles por $7$;
+		\item\label{item:ejer:chino:representantes:ii}
+			congruentes con $1$ m\'odulo $3$ y congruentes con $1$
+			m\'odulo $5$
+	\end{enumerate}
+	%
+	?`Es posible hallar un sistema de representantes que cumpla
+	simult\'aneamente \eqref{item:ejer:chino:representantes:i} y
+	\eqref{item:ejer:chino:representantes:ii}?
+\end{ejerCongruencias}
+
+\begin{ejerCongruencias}
+	Si $f\in\polinomios\Enteros$ y $a\equiv b\tmodulo[m]$, entonces
 	$f(a)\equiv f(b)\tmodulo[m]$.
 \end{ejerCongruencias}
 
@@ -59,104 +94,21 @@
 	Si $p$ es primo, $\mcd{a,p}=1$ equivale a $a\not\equiv 0\tmodulo[p]$.
 \end{ejerCongruencias}
 
-\begin{ejerCongruencias}
-	?`Existen $x\in\Enteros$ tales que $x^2\equiv -1\tmodulo[17]$?
-	?`$x^3\equiv 2\tmodulo[17]$? Hallar un sistema reducido m\'odulo $17$
-	cuyos elementos sean m\'ultiplos de $3$.
-\end{ejerCongruencias}
-
-\begin{ejerCongruencias}
-	Determinar $\eulerphi(26)$. Para cada $x$ en el rango
-	$0\leq x\leq 25$ (un sistema completo), determinar el menor
-	natural $k$ ($k\geq 1$) tal que $x^k\equiv 1\tmodulo[26]$.
-	Repetir con $36$ en lugar de $26$ (y $35$ en lugar de $25$)
-	?`Qu\'e relaci\'on hay entre estos exponentes y los valores de
-	$\eulerphi(26)$ y de $\eulerphi(36)$, respectivamente?
-\end{ejerCongruencias}
-
-\begin{ejerCongruencias}
-	Probar que $19\nmid 4n^2+4$ para ning\'un $n$ natural.
-\end{ejerCongruencias}
-
-% \begin{ejerCongruencias}[Teorema chino del resto]%
-	% \label{ejer:congruencias:chino}
-	% Este ejercicio trata la resolubilidad de ciertos sistemas de
-	% ecuaciones de congruencia.
-	% \begin{enumerate}[(i)]
-		% \item\label{item:ejer:chino:i}
-			% Sean $a_1,a_2,m_1,m_2\in\Enteros$, $m_1m_2\neq 0$.
-			% Las ecuaciones de congruencia
-			% \begin{displaymath}
-				% \begin{aligned}
-					% x & \,\equiv\,a_1\modulo[m_1]
-						% \quad\text{y} \\
-					% x & \,\equiv\,a_2\modulo[m_2]
-				% \end{aligned}
-				% %
-			% \end{displaymath}
-			% %
-			% admiten una soluci\'on com\'un, si y s\'olo si
-			% $\mcd{m_1,m_2}\mid a_1-a_2$. En tal caso, si $m$
-			% denota el menor m\'ultiplo com\'un positivo de $m_1$
-			% y $m_2$, entonces las soluciones pertenecen a una
-			% misma clase m\'odulo $m$.
-		% \item\label{item:ejer:chino:ii}
-			% Si $\lista m{r}\in\Enteros$ son distintos de cero y
-			% coprimos de a pares, entonces las ecuaciones
-			% \begin{displaymath}
-				% x\,\equiv\,a_i\modulo[m_i]
-				% \text{ ,}
-			% \end{displaymath}
-			% %
-			% $1\leq i\leq r$, son consistentes y las soluciones en
-			% com\'un pertenecen a una misma clase m\'odulo el
-			% producto $m_1\cdots m_r$.
-		% \item\label{item:ejer:chino:iii}
-			% Dado $f\in\polinomios\Enteros{X}$ y dados enteros
-			% $\lista m{r}\neq 0$ coprimos de a pares, la cantidad
-			% de soluciones a la ecuaci\'on
-			% \begin{displaymath}
-				% f(x)\,\equiv\,0\modulo[m_1\cdots m_r]
-			% \end{displaymath}
-			% %
-			% es igual al producto de las cantidades de soluciones
-			% a las ecuaciones
-			% \begin{displaymath}
-				% f(x)\,\equiv\,0\modulo[m_i]
-				% \text{ ,}
-			% \end{displaymath}
-			% %
-			% para cada $i$.
-	% \end{enumerate}
-	% %
+% \begin{ejerCongruencias}\label{ejer:congruencias:mcd}
+	% Si $a\equiv b\tmodulo[m]$, entonces $\mcd{a,m}=\mcd{b,m}$.
 % \end{ejerCongruencias}
 
-\begin{ejerCongruencias}\label{ejer:congruencias:chino:representantes}
-	Hallar sistemas de representantes de las clases m\'odulo $26$
-	cuyos elementos sean:
-	\begin{enumerate}[(i)]
-		\item\label{item:ejer:chino:representantes:i}
-			todos divisibles por $7$;
-		\item\label{item:ejer:chino:representantes:ii}
-			congruentes con $1$ m\'odulo $3$ y congruentes con $1$
-			m\'odulo $5$
-	\end{enumerate}
-	%
-	?`Es posible hallar un sistema de representantes que cumpla con las
-	condiciones \eqref{item:ejer:chino:representantes:i} y
-	\eqref{item:ejer:chino:representantes:ii}?
-\end{ejerCongruencias}
+% \begin{ejerCongruencias}
+	% Sean $a$ y $b$ enteros positivos coprimos y sean $A$ y $B$ sistemas
+	% completos de representantes m\'odulo $a$ y m\'odulo $b$,
+	% respectivamente. Probar que el conjunto
+	% \begin{displaymath}
+		% R\,:=\,\big\{ax+by\,:\,x\in B,\,y\in A\big\}
+	% \end{displaymath}
+	% %
+	% es un sistema completo de representates de las clases m\'odulo $ab$.
+	% Probar que, si $A$ y $B$ son, en cambio, sistemas reducidos,
+	% entonces el conjunto $R$ an\'alogo es un sistema reducido de
+	% representantes m\'odulo $ab$.
+% \end{ejerCongruencias}
 
-\begin{ejerCongruencias}
-	Sean $a$ y $b$ enteros positivos coprimos y sean $A$ y $B$ sistemas
-	completos de representantes m\'odulo $a$ y m\'odulo $b$,
-	respectivamente. Probar que el conjunto
-	\begin{displaymath}
-		R\,:=\,\big\{ax+by\,:\,x\in B,\,y\in A\big\}
-	\end{displaymath}
-	%
-	es un sistema completo de representates de las clases m\'odulo $ab$.
-	Probar que, si $A$ y $B$ son, en cambio, sistemas reducidos,
-	entonces el conjunto $R$ an\'alogo es un sistema reducido de
-	representantes m\'odulo $ab$.
-\end{ejerCongruencias}

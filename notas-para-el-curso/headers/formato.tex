@@ -18,9 +18,10 @@
 	giveninits=true,
 	isbn=false,
 	doi=false,
-	related=false
-	%idemtracker=context
-	%opcittracker=true
+	related=false,
+	%idemtracker=context,
+	%opcittracker=true,
+	% titleaddon=false,
 ]{biblatex}
 \renewbibmacro{in:}{%
 	\ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}

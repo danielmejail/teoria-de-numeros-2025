@@ -170,9 +170,17 @@ En el fondo, Teor\'{\i}a de n\'umeros es el estudio de los n\'umeros naturales
 			$\mcd{a,b}=\mcd{b,a}$;
 		\item\label{item:mcd:propiedades:v}
 			si $c\mid ab$ y $\mcd{b,c}=1$, entonces $c\mid a$.
+		% \item\label{item:mcd:propiedades:vi}
+			% $\mcd{x,mn}\,\mcd{m,n}=\mcd{x,m}\,\mcd{x,n}$.
 	\end{enumerate}
 	%
 \end{teoDivisibilidad}
+
+\begin{obsDivisibilidad}\label{obs:divisibilidad:propiedades:mcd}
+	La propiedad \eqref{item:mcd:propiedades:v} del \teoname~%
+	\ref{teo:mcd:propiedades} es equivalente a:
+	si $b\mid A$, $c\mid A$ y $\mcd{b,c}=1$, entonces $bc\mid A$.
+\end{obsDivisibilidad}
 
 \subsection*{Ejercicios}
 \input{./tex/divisibilidad-y-congruencia/ejercicios-divisibilidad.tex}

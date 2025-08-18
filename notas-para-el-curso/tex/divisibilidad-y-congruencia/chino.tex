@@ -4,26 +4,138 @@
 
 \theoremstyle{definition}
 \newtheorem{obsChino}[teoChino]{\obsname}
+\newtheorem{ejemChino}[teoChino]{\ejemname}
 
 %-------------
 
 De la secci\'on \S~\ref{sec:congruencias}, sabemos que una ecuaci\'on
 $ax\equiv b\tmodulo[m]$ tiene soluci\'on, si y s\'olo si
-$\mcd{a,m}\div b$. Tales ecuaciones imponen una restricci\'on a la clase
+$\mcd{a,m}\mid b$. Tales ecuaciones imponen una restricci\'on a la clase
 de congruencia de $x$ m\'odulo $m$ ?`Qu\'e podemos decir si tenemos varias
 de tales restricciones en simult\'aneo?
 
+\begin{ejemChino}\label{ejem:chino:setenta-y-siete}
+	?`Existe alg\'un $x\in\Enteros$ tal que
+	$x\equiv 5\tmodulo[7]$ y $x\equiv 7\tmodulo[11]$?
+	El conjunto de enteros que son soluciones a ambas ecuaciones
+	de manera simult\'anea el de enteros de resto $5$ al dividir por
+	$7$ y de resto $7$ al dividir por $11$.
+	Para encontrar una soluci\'on, podemos empezar por las
+	soluciones a una de las dos ecuaciones, $x\equiv 5\tmodulo[7]$,
+	por ejemplo, y buscar, dentro de este conjunto, un entero
+	que tambi\'en satisfaga la otra ecuaci\'on, $x\equiv 7\tmodulo[11]$:
+	\begin{displaymath}
+		\big\{x\in\Enteros\,:\,x\equiv 5\tmodulo[7]\big\}
+			\,\supset\,
+			\big\{x\in\Enteros\,:\,
+				x\equiv 5\tmodulo[7]\text{ y }
+				x\equiv 7\tmodulo[11]\big\}
+		\dispstop
+	\end{displaymath}
+	%
+	Las soluciones a la ecuaci\'on m\'odulo $7$ son exactamente
+	los enteros que tienen resto $5$ al dividir por $7$:
+	$x=5+7u$, $u\in\Enteros$. Calculemos los primeros con $u\geq 0$
+	y su resto al dividir por $11$. Podemos ver los resultados
+	en la \tablename~\ref{tab:ejem:chino:setenta-y-siete}.
+	\begin{table}
+		\centering
+		\begin{tabular}{c|cccccccccccc}
+			$u$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$
+				& $6$ & $7$ & $8$ & $9$ & $10$ & $11$ \\
+			\hline
+			$x=5+7u$ & $5$ & $12$ & $19$ & $26$ & $33$ & $40$
+				& $47$ & $54$ & $61$ & $68$ & $75$ & $82$ \\
+			\hline
+			$\resto[11](x)$ & $5$ & $1$ & $8$ & $4$ & $0$ & $7$
+				& $3$ & $10$ & $6$ & $2$ & $9$ & $5$
+		\end{tabular}
+		%
+		\caption{
+			Algunos enteros $5+7u$, $u\in\Enteros$, y sus
+			restos de dividir por $11$.
+		}\label{tab:ejem:chino:setenta-y-siete}
+	\end{table}
+	%
+	A partir de $u=11$, los restos se empezar\'an a repetir.
+	El menor entero positivo que es soluci\'on es $x=40$.
+	Toda otra soluci\'on es congruente con $40$ m\'odulo $77$.
+\end{ejemChino}
+
+\begin{ejemChino}\label{ejem:chino:setenta-y-siete:bis}
+	Veamos otra manera de llegar a la soluci\'on del
+	\ejemname~\ref{ejem:chino:setenta-y-siete}.
+	Sabemos que todo $x\in\Enteros$ que cumpla simult\'aneamente
+	$x\equiv 5\tmodulo[7]$ y $x\equiv 7\tmodulo[11]$ debe ser,
+	por la primera condici\'on, de la forma
+	$x=5+7u$, $u\in\Enteros$. Reemplazando esta expresi\'on en la
+	segunda congruencia, obtenemos una condici\'on para $u$:
+	\begin{displaymath}
+		5+7u\,\equiv\,7\modulo[11]
+		\dispstop
+	\end{displaymath}
+	%
+	Podemos intentar despejar $u$, o, mejor, su clase de congruencia.
+	Por un lado, la congruencia anterior es equivalente a
+	\begin{displaymath}
+		7u\,\equiv\,2\modulo[11]
+		\dispstop
+	\end{displaymath}
+	%
+	Falta despejar el $7$. Ahora,
+	\begin{displaymath}
+		7\cdot 3\,=\,21\,\equiv\,-1\tmodulo[11]\dispand
+		7\,(-3)\,\equiv\,1\tmodulo[11]
+		\dispstop
+	\end{displaymath}
+	%
+	Pero entonces,
+	\begin{displaymath}
+		u\,\equiv\,(-3)\,2\,=\,-6
+		% \,\equiv\,5
+		\modulo[11]
+		\dispstop
+	\end{displaymath}
+	%
+	En definitiva, las soluciones simult\'aneas a las congruencias
+	m\'odulo $7$ y m\'odulo $11$ son
+	$x=5+7u$ con $u\equiv -6\tmodulo[11]$, o sea, $u=-6+11k$,
+	$k\in\Enteros$. Es decir, el conjunto soluci\'on es:
+	\begin{displaymath}
+		\big\{x=5+77k\,:\,k\in\Enteros\big\}
+		\dispstop
+	\end{displaymath}
+	%
+	Notamos que $-6\equiv 5\tmodulo[11]$, con lo cual, esto
+	coincide con lo que dedujimos de la \tablename~%
+	\ref{tab:ejem:chino:setenta-y-siete}.
+\end{ejemChino}
+
+\begin{obsChino}\label{obs:chino:setenta-y-siete}
+	Para poder resolver el sistema de congruencias con el
+	m\'etodo del \ejemname~\ref{ejem:chino:setenta-y-siete:bis},
+	usamos el hecho de que $7\,(-3)\equiv 1\tmodulo[11]$,
+	es decir, que la ecuaci\'on $7b\equiv 1\tmodulo[11]$ admite
+	soluci\'on. Esto es coherente con que $\mcd{7,11}=1$.
+	Por otro lado, podr\'{\i}amos preguntarnos qu\'e nos
+	garantizaba que, con el m\'etodo del \ejemname~%
+	\ref{ejem:chino:setenta-y-siete}, \'{\i}bamos a encontrar
+	una soluci\'on
+	(?`Y qu\'e nos garantiza que los posibles restos que
+	aparecieron en la tabla iban a ser una cantidad finita?)
+\end{obsChino}
+
 \begin{teoChino}[Teorema chino del resto]
 	\label{teo:chino}
-	Sean $m_1,m_2\in\Enteros$ tales que $\mcd{m_1,m_2}=1$.
-	Entonces, para todo par $a_1,a_2\in\Enteros$, existe una
+	Sean $m_1,\,m_2\in\Enteros$ tales que $\mcd{m_1,m_2}=1$.
+	Entonces, para todo par $a_1,\,a_2\in\Enteros$, existe una
 	soluci\'on com\'un $x$ al sistema de ecuaciones de congruencia
 	\begin{displaymath}
-		\begin{aligned}
-			x & \,\equiv\,a_1\modulo[m_1] \dispand \\
-			x & \,\equiv\,a_2\modulo[m_2] \dispstop
-		\end{aligned}
-		%
+		% \begin{aligned}
+			x \,\equiv\,a_1\tmodulo[m_1] \dispand
+			x \,\equiv\,a_2\tmodulo[m_2] \dispstop
+		% \end{aligned}
+		% %
 	\end{displaymath}
 	%
 	Adem\'as, el conjunto de todas las soluciones comunes a ambas
@@ -51,53 +163,216 @@ este enunciado.
 			$y\equiv x\tmodulo[m_1m_2]$.
 	\end{itemize}
 	%
+	En una sola frase, existe una soluci\'on y dicha
+	soluci\'on es \'unica m\'odulo $m=m_1m_2$.
 \end{obsChino}
 
 \begin{proof}
-	\dots
+	Las soluciones a la congruencia $x\equiv a_1\tmodulo[m_1]$
+	son los enteros de la forma $x=a_1+m_1u$, $u\in\Enteros$.
+	Reemplazando esta expresi\'on en la congruencia
+	$x\equiv a_2\tmodulo[m_2]$ obtenemos que $x$ es una soluci\'on
+	simult\'anea, si y s\'olo si
+	\begin{itemize}
+		\item $x$ es de la forma $x=a_1+m_1u$, $u\in\Enteros$, y
+		\item $a_1+m_1u\equiv a_2\tmodulo[m_2]$.
+	\end{itemize}
+	%
+	Ahora, la congruencia $a_1+m_1u\equiv a_2\tmodulo[m_2]$ admite
+	soluci\'on $u$; las soluciones son exactamente los enteros $u$
+	que cumplen
+	\begin{displaymath}
+		m_1u\,\equiv\,a_2-a_1\modulo[m_2]
+		\dispstop
+	\end{displaymath}
+	%
+	Pero esta congruencia admite soluci\'on, dado que estamos
+	asumiendo $\mcd{m_1,m_2}=1$. Para describir las soluciones,
+	notamos que, si $b\in\Enteros$ es tal que
+	$bm_1\equiv 1\tmodulo[m_2]$ --que tal entero exista est\'a
+	garantizado justamente por la condic\'on de coprimalidad--,
+	entonces la condici\'on sobre $u$ es equivalente a:
+	\begin{displaymath}
+		u\,\equiv\,b\,(a_2-a_1)\modulo[m_2]
+		\dispcomma
+	\end{displaymath}
+	%
+	o sea, $u=b\,(a_2-a_1)+m_2k$, $k\in\Enteros$.
+	En definitiva, las soluciones simult\'aneas a ambas congruencias
+	son los enteros de la forma
+	\begin{displaymath}
+		x\,=\,a_1+m_1b\,(a_2-a_1)+m_1m_2k
+	\end{displaymath}
+	%
+	con $k\in\Enteros$. En particular, $x=a_1+m_1b\,(a_2-a_1)$ es
+	soluci\'on simult\'anea.
+
+	Si $y\equiv x\tmodulo[m]$, entonces $y\equiv x\tmodulo[m_1]$ y
+	tambi\'en $y\equiv x\tmodulo[m_2]$. Con lo cual, toda
+	la clase de congruencia de $x$ m\'odulo $m=m_1m_2$ es soluci\'on
+	simult\'anea. Si, por otro lado, $y\in\Enteros$ es soluci\'on
+	simult\'anea, entonces
+	\begin{displaymath}
+		y\,\equiv\,a_1\,\equiv\, x\tmodulo[m_1]
+		\quad\text{e}\quad
+		y\,\equiv\,a_2\,\equiv\, x\tmodulo[m_2]
+		\dispcomma
+	\end{displaymath}
+	%
+	es decir, $m_1\mid y-x$ y tambi\'en $m_2\mid y-x$. Como
+	$\mcd{m_1,m_2}=1$, se deduce que $m=m_1m_2\mid y-x$ y que
+	$y\equiv x\tmodulo[m]$. O sea que toda soluci\'on debe pertenecer
+	a la clase de $x$ m\'odulo $m$.
 \end{proof}
 
-\begin{coroChino}\label{coro:chino}
-	Sea $f\in\polinomios\Enteros$ y sea $m\in\Enteros$.
-	Si $m=m_1m_2$ es una factorizaci\'on de $m$ con $\mcd{m_1,m_2}=1$,
-	entonces la ecuaci\'on de congruencia
-	\begin{equation}
-		\label{eq:chino:una}
-		f(x)\,\equiv\,a\modulo[m]
-	\end{equation}
-	%
-	es equivalente al sistema de ecuaciones
-	\begin{equation}
-		\label{eq:chino:dos}
-		\begin{aligned}
-			f(x) & \,\equiv\,a\modulo[m_1]\dispand \\
-			f(x) & \,\equiv\,a\modulo[m_2]\dispstop
-		\end{aligned}
-		%
-	\end{equation}
-	%
-	Adem\'as, si $\cal R$, $\cal R_1$ y $\cal R_2$ son, respectivamente,
-	sistemas completos de representantes de las clases m\'odulo $m$,
-	$m_1$ y $m_2$, entonces hay una biyecci\'on
+Si los m\'odulos no son coprimos \emph{podr\'{\i}a no} existir soluci\'on.
+
+\begin{ejemChino}\label{ejem:chino:no}
+	Las congruencias $x\equiv 29\tmodulo[52]$ y
+	$x\equiv 19\tmodulo[72]$ no tienen soluciones en com\'un.
+	En este caso, $\mcd{52,72}=4$ y las toda soluci\'on com\'un
+	a estas congruencias debe satisfacer
 	\begin{displaymath}
-		\big\{x\in\cal R\,:\,f(x)\equiv a\tmodulo[m]\big\}
-			\,\simeq\,
-		\big\{x_1\in\cal R_1\,:\,f(x_1)\equiv a\tmodulo[m_1]\big\}
-		\,\times\,
-		\big\{x_2\in\cal R_2\,:\,f(x_2)\equiv a\tmodulo[m_2]\big\}
+		x\,\equiv\,29\tmodulo[4]\dispand
+		x\,\equiv\,19\tmodulo[4]
+		\dispstop
 	\end{displaymath}
 	%
-	dada por $x\mapsto (x_1,x_2)$, donde $x_1$ y $x_2$ est\'an
-	determinados por:
-	\begin{displaymath}
-		\begin{aligned}
-			x & \,\equiv\,x_1\modulo[m_1]\dispand \\
-			x & \,\equiv\,x_2\modulo[m_2]\dispstop
-		\end{aligned}
-		%
-	\end{displaymath}
-	%
+	Pero $29\equiv 1\tmodulo[4]$, mientras que $19\equiv 3\tmodulo[4]$.
+	En particular, las condiciones sobre $x$ son inconsistentes.
+\end{ejemChino}
+
+\begin{coroChino}\label{coro:chino:euler}
+	Sean $m$ y $n$ enteros coprimos. Entonces,
+	$\eulerphi(mn)=\eulerphi(m)\eulerphi(n)$.
 \end{coroChino}
+
+\begin{proof}
+	Sean $R$, $S$ y $T$ sistemas completos de representantes de las
+	clases m\'odulo $m$, $n$ y $mn$, respectivamente.
+	Podemos tomar, por ejemplo, los conjuntos $R=\{1,\,2,\,\dots,\,m\}$,
+	etc.
+	Por el \teoname~\ref{teo:chino}, hay una biyecci\'on
+	\begin{equation}
+		\label{eq:chino:euler}
+		T\,\simeq\,R\,\times\,S
+	\end{equation}
+	%
+	dada por $t\mapsto (r,s)$, donde $r\in R$ y $s\in S$ son los
+	representantes tales que $t\equiv r\tmodulo[m]$ y
+	$t\equiv s\tmodulo[n]$: la sobreyectividad se deduce de que,
+	como $\mcd{m,n}=1$, las congruencias
+	$x\equiv r\tmodulo[m]$ y $x\equiv s\tmodulo[n]$ admiten una
+	soluci\'on com\'un, mientras que la inyectividad se deduce de
+	que toda soluci\'on simult\'anea pertenece a la misma clase
+	m\'odulo $mn$.
+
+	Ahora, sean $R'$, $S'$ y $T'$ los sistemas reducidos de
+	representantes obtenidos a partir de $R$, de $S$ y de $T$,
+	respectivamente.
+	Vamos a ver que la biyecci\'on \eqref{eq:chino:euler} determina
+	una biyecci\'on
+	\begin{displaymath}
+		T'\,\simeq\,R'\,\times\,S'
+		\dispstop
+	\end{displaymath}
+	%
+	Como $\mcd{m,n}=1$, se cumple que
+	\begin{equation}
+		\label{eq:chino:euler:mcd}
+		\mcd{x,mn}\,=\,\mcd{x,m}\,\mcd{x,n}
+	\end{equation}
+	%
+	para todo $x\in\Enteros$.
+	En particular, $\mcd{x,mn}=1$, si y s\'olo si
+	$\mcd{x,m}=\mcd{x,n}=1$.
+	Sea, ahora, $t\in T$ y sea $(r,s)\in R\times S$ el par
+	determinado por $t$ seg\'un \eqref{eq:chino:euler}.
+	Dado que $t\equiv r\tmodulo[m]$, deducimos que
+	$\mcd{t,m}=\mcd{r,m}$. An\'alogamente,
+	$\mcd{t,n}=\mcd{s,n}$. As\'{\i}, si $t\in T'$, entonces
+	$\mcd{t,mn}=1$ y concluimos que $r\in R'$ y que $s\in S'$.
+	Rec\'{\i}procamente, si $r\in R'$ y $s\in S'$, entonces
+	$\mcd{r,m}=1$ y $\mcd{s,n}=1$, de lo que deducimos que
+	$\mcd{t,mn}=1$ y concluimos que $t\in T'$.
+
+	La igualdad $\eulerphi(mn)=\eulerphi(m)\eulerphi(n)$ es
+	consecuencia de que el valor de $\eulerphi$ es igual
+	al cardinal de cualquier sistema reducido de representantes.
+\end{proof}
+
+En particular, si tuvi\'esemos una f\'ormula para $\eulerphi(p^r)$,
+$p$ primo, podr\'{\i}amos obtener una f\'ormula para $\eulerphi(m)$
+en funci\'on de la factorizaci\'on de $m$ como producto de primos
+a potencias.%
+\footnote{
+	Ver el \ejername~\ref{ejer:chino:euler}.
+}
+
+\begin{coroChino}\label{coro:chino:polinomial}
+	Sea $f\in\polinomios\Enteros$ y, para cada $m\in\Enteros$,
+	sea $N(m)$ la cantidad de soluciones a $f(x)\equiv 0\tmodulo[m]$.
+	Si $m=m_1m_2$ es una factorizaci\'on de $m$ con $\mcd{m_1,m_2}=1$,
+	entonces $N(m)=N(m_1)N(m_2)$.
+	% la ecuaci\'on de congruencia
+	% \begin{equation}
+		% \label{eq:chino:una}
+		% f(x)\,\equiv\,a\modulo[m]
+	% \end{equation}
+	% %
+	% es equivalente al sistema de ecuaciones
+	% \begin{equation}
+		% \label{eq:chino:dos}
+		% % \begin{aligned}
+			% f(x) \,\equiv\,a\tmodulo[m_1]\dispand
+			% f(x) \,\equiv\,a\tmodulo[m_2]\dispstop
+		% % \end{aligned}
+		% % %
+	% \end{equation}
+	% %
+	% Adem\'as, si $\cal R$, $\cal R_1$ y $\cal R_2$ son, respectivamente,
+	% sistemas completos de representantes de las clases m\'odulo $m$,
+	% $m_1$ y $m_2$, entonces hay una biyecci\'on
+	% \begin{displaymath}
+		% \begin{aligned}
+			% & \big\{x\in\cal R\,:\,f(x)\equiv a\tmodulo[m]\big\}
+				% \,\simeq\, \\
+			% & \qquad
+			% \big\{x_1\in\cal R_1\,:\,
+				% f(x_1)\equiv a\tmodulo[m_1]\big\}
+			% \,\times\,
+			% \big\{x_2\in\cal R_2\,:\,
+				% f(x_2)\equiv a\tmodulo[m_2]\big\}
+		% \end{aligned}
+		% %
+	% \end{displaymath}
+	% %
+	% dada por $x\mapsto (x_1,x_2)$, donde $x_1$ y $x_2$ est\'an
+	% determinados por:
+	% \begin{displaymath}
+		% % \begin{aligned}
+			% x \,\equiv\,x_1\tmodulo[m_1]\dispand
+			% x \,\equiv\,x_2\tmodulo[m_2]\dispstop
+		% % \end{aligned}
+		% % %
+	% \end{displaymath}
+	% %
+\end{coroChino}
+
+\begin{proof}
+	Cada soluci\'on $x\in\Enteros$ de $f(x)\equiv a\tmodulo[m]$
+	da lugar a una soluci\'on de $f(x)\equiv a\tmodulo[m_1]$ y a
+	una soluci\'on de $f(x)\equiv a\tmodulo[m_2]$ (el mismo entero sirve).
+	En la otra direcci\'on,
+	cada par de soluciones $x_1,x_2\in\Enteros$ m\'odulo $m_1$ y
+	m\'odulo $m_2$, respectivamente, es decir, enteros que satisfacen
+	$f(x_1)\equiv a\tmodulo[m_1]$ y $f(x_2)\equiv a\tmodulo[m_2]$,
+	dan lugar a un $x\in\Enteros$ que verifica
+	$x\equiv x_1\tmodulo[m_1]$ y $x\equiv x_2\tmodulo[m_2]$.
+	Dicho entero es \'unico m\'odulo $m$ (\teoname~\ref{teo:chino})
+	y verifica $f(x)\equiv a\tmodulo[m]$ (tambi\'en por
+	\teoname~\ref{teo:chino}, aplicado al entero $f(x)$).
+\end{proof}
 
 \begin{obsChino}\label{obs:chino:coro}
 	Dado que, en un sistema de representantes, los representantes se
@@ -108,50 +383,88 @@ este enunciado.
 	las soluciones m\'odulo $m_2$.
 \end{obsChino}
 
-\begin{proof}
-	\dots
-\end{proof}
+\begin{ejemChino}\label{ejem:chino:polinomial:quince}
+	La ecuaci\'on $x^2+x+7\equiv 0\tmodulo[15]$ no tiene soluci\'on.
+	Por el Teorema chino del resto, la congruencia es equivalente al
+	sistema
+	\begin{displaymath}
+		x^2+x+7\,\equiv\,0\tmodulo[3]\dispand
+		x^2+x+7\,\equiv\,0\tmodulo[5]
+		\dispstop
+	\end{displaymath}
+	%
+	Ahora, $7\equiv 1\tmodulo[3]$ y $7\equiv 2\tmodulo[5]$.
+	Si bien $x^2+x+1\equiv 0\tmodulo[3]$ tiene como (\'unica)
+	soluci\'on m\'odulo $3$ a $x=1$, la
+	congruencia $x^2+x+2\equiv 0\tmodulo[5]$ no tiene soluci\'on
+	con $x\in\Enteros$.
+	En consecuencia, $N(15)=N(3)N(5)=1\cdot 0=0$.
+\end{ejemChino}
 
-\begin{coroChino}\label{coro:chino:varios}
-	Sean $\lista m r\in\Enteros$ tales que $\mcd{m_i,m_j}=1$
-	para todo par $1\leq i<j\leq r$. Entonces, para
-	$\lista a r\in\Enteros$, el sistema de congruencias
+\begin{ejemChino}\label{ejem:chino:polinomial:veinticiete}
+	Vimos que $x^2+x+7\equiv 0\tmodulo[3]$ tiene una \'unica
+	soluci\'on m\'odulo $3$ ?`Cu\'antas soluciones m\'odulo $189$ hay?
+	En primer lugar, factorizamos $63=9\cdot 7$ y resolvemos
+	las congruencias m\'odulo $9$ y m\'odulo $7$ por separado.
+	Dado que hay soluciones m\'odulo $3$, \emph{es posible que haya}
+	soluciones m\'odulo $9$.
+
+	Sea $f(x)=x^2+x+7$. Sabemos que los $x\in\Enteros$ tales que
+	$f(x)\equiv 0\tmodulo[9]$ deben ser $x\equiv 1\tmodulo[3]$.
+	Mirando m\'odulo $9$, las distintas posibilidades son
+	$x=1$, $x=4$ y $x=7$. Efectivamente,
+	$f(1)\equiv f(4)\equiv f(7)\equiv 0\tmodulo[9]$.
+	Con lo cual, $N(9)=3$.
+	Por otro lado, si $x\in\Enteros$, se cumple que
+	$f(x)\equiv x^2+x\tmodulo[7]$. Entonces, como $7$ es primo,
+	$f(x)\equiv 0\tmodulo[7]$ tiene exactamente dos soluciones
+	m\'odulo $7$: $0$ y $6\equiv -1$. O sea, $N(7)=2$.
+	As\'{\i}, $N(63)=3\cdot 2=6$. Las seis soluciones m\'odulo $63$
+	vienen dadas por resolver los seis sistemas siguientes:
 	\begin{displaymath}
 		\begin{aligned}
-			x & \,\equiv\,a_1\modulo[m_1] \dispcomma \\
-			& \vdots
-			x & \,\equiv\,a_r\modulo[m_r]
+			\left\{
+			\begin{array}{r@{\,\equiv\,}l}
+				x & 1 \tmodulo[9] \dispand \\[5pt]
+				x & 0 \tmodulo[7] \dispcomma
+			\end{array}
+			\right.
+			\left\{
+			\begin{array}{r@{\,\equiv\,}l}
+				x & 4 \tmodulo[9] \dispand \\[5pt]
+				x & 0 \tmodulo[7] \dispcomma
+			\end{array}
+			\right.
+			\left\{
+			\begin{array}{r@{\,\equiv\,}l}
+				x & 7 \tmodulo[9] \dispand \\[5pt]
+				x & 0 \tmodulo[7] \dispcomma
+			\end{array}
+			\right. \\
+			\left\{
+			\begin{array}{r@{\,\equiv\,}l}
+				x & 1 \tmodulo[9] \dispand \\[5pt]
+				x & 6 \tmodulo[7] \dispcomma
+			\end{array}
+			\right.
+			\left\{
+			\begin{array}{r@{\,\equiv\,}l}
+				x & 4 \tmodulo[9] \dispand \\[5pt]
+				x & 6 \tmodulo[7] \dispcomma
+			\end{array}
+			\right.
+			\left\{
+			\begin{array}{r@{\,\equiv\,}l}
+				x & 7 \tmodulo[9] \dispand \\[5pt]
+				x & 6 \tmodulo[7] \dispstop
+			\end{array}
+			\right.
 		\end{aligned}
 		%
 	\end{displaymath}
 	%
-	admite una \'unica soluci\'on m\'odulo el producto
-	$m_1\cdots m_r$.
-\end{coroChino}
-
-\begin{coroChino}\label{coro:chino:varios:coro}
-	Sea $f\in\polinomios\Enteros$ y sea $m\in\Enteros$.
-	Si $m=m_1\cdots m_r$ es una factorizaci\'on de $m$ con
-	$\mcd{m_i,m_j}=1$ para todo par $1\leq i<j\leq r$, entonces
-	la ecuaci\'on de congruencia
-	\begin{displaymath}
-		f(x)\,\equiv\, a\modulo[m]
-	\end{displaymath}
-	%
-	es equivalente al sistema de ecuaciones
-	\begin{displaymath}
-		\begin{aligned}
-			f(x) & \,\equiv\, a\modulo[m_1] \dispcomma \\
-			& \vdots \\
-			f(x) & \,\equiv\, a\modulo[m_r] \dispstop
-		\end{aligned}
-		%
-	\end{displaymath}
-	%
-	Adem\'as, las soluciones m\'odulo $m$ est\'an en biyecci\'on
-	con el producto cartesiano de las soluciones m\'odulo $m_i$,
-	para cada $1\leq i\leq r$.
-\end{coroChino}
+	Las soluciones son: $28$, $49$, $7$, $55$, $13$ y $34$.
+\end{ejemChino}
 
 \subsection*{Ejercicios}
 \input{./tex/divisibilidad-y-congruencia/ejercicios-chino.tex}
