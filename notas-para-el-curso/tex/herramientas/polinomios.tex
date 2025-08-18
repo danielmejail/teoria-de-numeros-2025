@@ -28,10 +28,10 @@ En esta secci\'on, salvo aclaraci\'on, ``anillo'' querr\'a decir
 	subanillos que satisfacen:
 	$\Enteros\subset\Racionales\subset\Reales\subset\Complejos$.
 	Los subconjuntos $\EnterosGauss$, $\EnterosEisenstein$ y
-	$\polinomios\Enteros{\sqrt{-6}}$ tambi\'en son subanillos de
+	$\polinomios[\sqrt{-6}]\Enteros$ tambi\'en son subanillos de
 	$\Complejos$, pero ninguno de ellos est\'a contenido en $\Reales$.
-	El anillo $\polinomios\Enteros{\sqrt 6}$ --definido de manera
-	an\'aloga a $\polinomios\Enteros{\sqrt{-6}}$-- es un subanillo de
+	El anillo $\polinomios[\sqrt{-6}]\Enteros$ --definido de manera
+	an\'aloga a $\polinomios[\sqrt{-6}]\Enteros$-- es un subanillo de
 	$\Reales$ (pero no de $\Racionales$).
 \end{ejemPolinomios}
 
@@ -59,7 +59,7 @@ En esta secci\'on, salvo aclaraci\'on, ``anillo'' querr\'a decir
 	\quedacomoejercicio.
 	En particular, el subconjunto
 	\begin{displaymath}
-		\polinomios B a\,=\,\big\{b_0+b_1a+\,\cdots\,+b_ma^m\,:\,
+		\polinomios[a] B\,=\,\big\{b_0+b_1a+\,\cdots\,+b_ma^m\,:\,
 			m\text{ natural o } 0\text{ y }
 			\lista[0] b{m}\in B\big\}
 	\end{displaymath}
@@ -72,14 +72,14 @@ En esta secci\'on, salvo aclaraci\'on, ``anillo'' querr\'a decir
 	Una \emph{expresi\'on polinomial en $a$ con coeficientes en $B$}
 	es un elemento de $A$ del tipo \eqref{eq:polinomios:expresiones}.
 	El \emph{anillo de expresiones polinomiales en $a$ con coeficientes %
-	en $B$} es el subanillo $\polinomios B a\subset A$.
+	en $B$} es el subanillo $\polinomios[a] B\subset A$.
 \end{defPolinomios}
 
 \begin{ejemPolinomios}\label{ejem:polinomios:expresiones}
 	Si $\sqrt{-6}\in\Complejos$ es un n\'umero complejo que cumple que
 	$\sqrt{-6}^2=-6$, entonces el subanillo de expresiones polinomiales
 	en $\sqrt{-6}$ con coeficientes en $\Enteros$ coincide con el
-	anillo $\polinomios \Enteros{\sqrt{-6}}$
+	anillo $\polinomios[\sqrt{-6}] \Enteros$
 	\quedacomoejercicio.
 \end{ejemPolinomios}
 
@@ -121,7 +121,7 @@ En esta secci\'on, salvo aclaraci\'on, ``anillo'' querr\'a decir
 	Sean $B$ un anillo, $A,C$ anillos del cual $B$ es subanillo y
 	$x\in A$ y $c\in C$ elementos.
 	Si $x$ es trascendente sobre $B$, existe una \'unica funci\'on
-	$f:\,\polinomios B x\rightarrow C$ tal que
+	$f:\,\polinomios[x] B\rightarrow C$ tal que
 	\begin{displaymath}
 		f(b)\,=\,b\text{ para todo }b\in B
 			\quad\text{y}\quad f(x)\,=\,c
@@ -133,16 +133,16 @@ En esta secci\'on, salvo aclaraci\'on, ``anillo'' querr\'a decir
 		\text{ ,}
 	\end{displaymath}
 	%
-	siempre que $u,v\in\polinomios B x$. La imagen de esta funci\'on
-	es igual a $\polinomios B c$.
+	siempre que $u,v\in\polinomios[x] B$. La imagen de esta funci\'on
+	es igual a $\polinomios[c] B$.
 \end{teoPolinomios}
 
 \begin{proof}
 	Veamos, primero, que puede existir a lo sumo una funci\'on con
-	estas propiedades. Todo elemento de $\polinomios B x$ se puede
+	estas propiedades. Todo elemento de $\polinomios[x] B$ se puede
 	expresar como $b_0+b_1x+\,\cdots\,+b_mx^m$, donde $m$ es natural o
 	$0$ y $b_i\in B$ para cada $i$. Entonces, si
-	$f:\,\polinomios B x\rightarrow C$ tiene las
+	$f:\,\polinomios[x] B\rightarrow C$ tiene las
 	propiedades del enunciado y $p=b_0+b_1x+\,\cdots\,+b_mx^m$ es una
 	expresi\'on polinomial en $x$ con coeficientes en $B$, $f(p)$ es
 	igual a
@@ -159,15 +159,15 @@ En esta secci\'on, salvo aclaraci\'on, ``anillo'' querr\'a decir
 	\end{equation}
 	%
 	En palabras, una funci\'on
-	$f:\,\polinomios B x\rightarrow C$ que respeta la
+	$f:\,\polinomios[x] B\rightarrow C$ que respeta la
 	suma y el producto y es la identidad en $B$ est\'a determinada
 	por su valor en $x$. Aun no hemos usado que $x$ es trascendente.
 	El hecho de que $x\in A$ sea trascendente sobre $B$ es equivalente
-	a que cada elemento de $\polinomios B x$ se puede expresar de a lo
+	a que cada elemento de $\polinomios[x] B$ se puede expresar de a lo
 	sumo una \'unica manera como expresi\'on polinomial en $x$ con
 	coeficientes en $B$. Con esto y la ecuaci\'on~%
 	\eqref{eq:polinomios:trascendente} en mente, definimos la siguiente
-	funci\'on: si $p=b_0+b_1x+\,\cdots\,+b_mx^m\in\polinomios B x$,
+	funci\'on: si $p=b_0+b_1x+\,\cdots\,+b_mx^m\in\polinomios[x] B$,
 	\begin{displaymath}
 		% f\big(b_0+b_1x+\,\cdots\,+b_mx^m\big) \,=\,
 		f(p)\,:=\,
@@ -185,12 +185,12 @@ En esta secci\'on, salvo aclaraci\'on, ``anillo'' querr\'a decir
 	Sean $B$ un anillo, $A,C$ anillos del cual $B$ es subanillo y
 	$x\in A$ e $y\in C$ elementos trascendentes. Por el \teoname~%
 	\ref{teo:polinomios:trascendente}, existen \'unicas funciones
-	$f:\,\polinomios B x\rightarrow\polinomios B y$ y
-	$g:\,\polinomios B y\rightarrow\polinomios B x$ que respetan la suma
+	$f:\,\polinomios[x] B\rightarrow\polinomios[y] B$ y
+	$g:\,\polinomios[y] B\rightarrow\polinomios[x] B$ que respetan la suma
 	y el producto y tales que $f(b)=g(b)=b$ para todo $b\in B$ y
-	$f(x)=y$ y $g(y)=x$. En particular, $fg=\id[{\polinomios B y}]$ y
-	$gf=\id[{\polinomios B x}]$. Es decir, desde un punto de vista
-	algebraico, los anillos $\polinomios B x$ y $\polinomios B y$ son
+	$f(x)=y$ y $g(y)=x$. En particular, $fg=\id[{\polinomios[y] B}]$ y
+	$gf=\id[{\polinomios[x] B}]$. Es decir, desde un punto de vista
+	algebraico, los anillos $\polinomios[x] B$ y $\polinomios[y] B$ son
 	indistinguibles.
 	Esta estructura com\'un es la % del anillo
 	de polinomios en una indeterminada con coeficientes en $B$.
@@ -223,10 +223,10 @@ En esta secci\'on, salvo aclaraci\'on, ``anillo'' querr\'a decir
 % \subsection{El grado de un polinomio}%
 	% \label{subsec:grado}
 \begin{defPolinomios}\label{def:polinomios:grado}
-	El \emph{grado} de un polinomio $p\in\polinomios B x$, $p\neq 0$,
+	El \emph{grado} de un polinomio $p\in\polinomios[x] B$, $p\neq 0$,
 	es el m\'aximo $k\geq 0$ tal que $b_k\neq 0$ en la expresi\'on
 	polinomial $p=b_0+b_1x+\,\cdots\,+b_mx^m$.
-	Al polinomio $0\in\polinomios B x$, lo llamamos el
+	Al polinomio $0\in\polinomios[x] B$, lo llamamos el
 	\emph{polinomio nulo} y no le asignamos grado.
 \end{defPolinomios}
 
@@ -244,7 +244,7 @@ En particular, $d_{m+n}=b_mc_n$ y, si $pq\neq 0$, entonces
 $\grado(pq)\leq\grado(p)+\grado(q)$; podr\'{\i}a ocurrir que $d_{m+n}=0$.
 
 \begin{ejemPolinomios}\label{ejem:polinomios:grado}
-	Sean $p,q\in\polinomios{\Enterosmod[6]} x$ los polinomios
+	Sean $p,q\in\polinomios[x]{\Enterosmod[6]}$ los polinomios
 	$p=2x+1$ y $q=3x+5$, entonces
 	\begin{displaymath}
 		pq\,=\,(2x+1)\,(3x+5)\,=\,(2\cdot 3)\,x^2+
@@ -259,7 +259,7 @@ $\grado(pq)\leq\grado(p)+\grado(q)$; podr\'{\i}a ocurrir que $d_{m+n}=0$.
 \end{ejemPolinomios}
 
 \begin{defPolinomios}\label{def:polinomios:coeficientes}
-	Si $p\in\polinomios B x$ es un polinomio distinto del polinomio
+	Si $p\in\polinomios[x] B$ es un polinomio distinto del polinomio
 	nulo de grado $\grado(p)=m\geq 0$, su \emph{coeficiente principal}
 	es el coeficiente $b_m$ en la expresi\'on
 	$p=b_0+b_1x+\,\cdots\,+b_mx^m$; su \emph{t\'ermino independiente}
@@ -281,14 +281,14 @@ $\grado(pq)\leq\grado(p)+\grado(q)$; podr\'{\i}a ocurrir que $d_{m+n}=0$.
 
 \begin{teoPolinomios}\label{teo:polinomios:algoritmo}
 	Sea $B$ un anillo (conmutativo con unidad $1\neq 0$) y sean
-	$f,g\in\polinomios B x$ polinomios en una indeterminada.
+	$f,g\in\polinomios[x] B$ polinomios en una indeterminada.
 	Si el coeficiente principal de $g$ es una unidad en $B$, entonces
 	\begin{enumerate}[(A)]
 		\item\label{item:teo:polinomios:algoritmo:1}
 			$g\mid f$ y existe un \'unico polinomio
-			$q\in\polinomios B x$ tal que $f=qg$, o bien
+			$q\in\polinomios[x] B$ tal que $f=qg$, o bien
 		\item\label{item:teo:polinomios:algoritmo:2}
-			existen \'unicos polinomios $q,r\in\polinomios B x$
+			existen \'unicos polinomios $q,r\in\polinomios[x] B$
 			tales que $f=qg+r$ y $\grado(r)<\grado(g)$.
 	\end{enumerate}
 	%
@@ -323,9 +323,9 @@ $\grado(pq)\leq\grado(p)+\grado(q)$; podr\'{\i}a ocurrir que $d_{m+n}=0$.
 			los polinomios en una indeterminada con
 			coeficientes en $k$ forman un dominio euclidiano;
 		\item\label{item:coro:polinomios:algoritmo:raices}
-			si $f\in\polinomios k x$ es un polinomio no nulo
+			si $f\in\polinomios[x] k$ es un polinomio no nulo
 			y $a\in k$, entonces $a$ es una ra\'{\i}z de $f$,
-			si y s\'olo si $x-a$ divide a $f$ en $\polinomios k x$;
+			si y s\'olo si $x-a$ divide a $f$ en $\polinomios[x] k$;
 		\item\label{item:coro:polinomios:algoritmo:raices:bis}
 			en particular, si $\grado(f)=m\geq 0$, $f$ tiene,
 			a lo sumo, $m$ ra\'{\i}ces distintas en $k$;

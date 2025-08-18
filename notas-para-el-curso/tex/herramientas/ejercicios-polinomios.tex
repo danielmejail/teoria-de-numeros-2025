@@ -10,18 +10,18 @@
 \end{ejerPolinomios}
 
 \begin{ejerPolinomios}
-	Probar que el subanillo $\polinomios \Enteros{\sqrt 2}\subset\Reales$
+	Probar que el subanillo $\polinomios[\sqrt 2]\Enteros\subset\Reales$
 	de expresiones polinomiales en $\sqrt 2$ con coeficientes en
 	$\Enteros$ es, como conjunto, igual al subconjunto de elementos
 	de la forma $a+b\sqrt 2$ donde $a,b\in\Enteros$.
-	Hacer lo an\'alogo con $\polinomios \Enteros{\sqrt 3}$.
+	Hacer lo an\'alogo con $\polinomios[\sqrt 3]\Enteros$.
 \end{ejerPolinomios}
 
 \begin{ejerPolinomios}
 	Mostrar que no existe ninguna funci\'on
 	\begin{math}
-		f:\,\polinomios\Enteros{\sqrt 2}\rightarrow
-			\polinomios\Enteros{\sqrt 3}
+		f:\,\polinomios[\sqrt 2]\Enteros\rightarrow
+			\polinomios[\sqrt 3]\Enteros
 	\end{math}
 	% tal que $f(1)=1$ y que \emph{respete la suma y el producto}, es decir,
 	% tal que
@@ -31,20 +31,20 @@
 		% \text{ ,}
 	% \end{displaymath}
 	% %
-	% siempre que $u,v\in\polinomios\Enteros{\sqrt 2}$.
+	% siempre que $u,v\in\polinomios[\sqrt 2]\Enteros$.
 	tal que $f(1)=1$ y que respete la suma y el producto.
 \end{ejerPolinomios}
 
 \begin{ejerPolinomios}
 	Describir los elementos del anillo de expresiones polinomiales
-	$\polinomios\Enteros{\frac 1{2}}$ ?`Es $\frac 1{2}$ trascendente
+	$\polinomios[\frac 1{2}]\Enteros$ ?`Es $\frac 1{2}$ trascendente
 	sobre $\Enteros$? ?`Existe un polinomio m\'onico (coeficiente
-	principal igual a $1$) $p\in\polinomios\Enteros x$ tal que
+	principal igual a $1$) $p\in\polinomios[x]\Enteros$ tal que
 	$p\big(\frac 1{2}\big)=0$?
 \end{ejerPolinomios}
 
 \begin{ejerPolinomios}\label{ejer:polinomios:grado}
-	Sean $p,q\in\polinomios\Enteros x$ los polinomios
+	Sean $p,q\in\polinomios[x]\Enteros$ los polinomios
 	$p=3x^5-2x^3+x^2-5x-1$ y $q=2x^4-3x^2-x+5$. Determinar:
 	\begin{enumerate}[(i)]
 		\item\label{item:ejer:polinomios:grado:i}
@@ -56,7 +56,7 @@
 		\item\label{item:ejer:polinomios:grado:iv}
 			el coeficiente de $x^{10}$ en $pq$;
 		\item\label{item:ejer:polinomios:grado:v}
-			si existe un polinomio $t\in\polinomios\Enteros x$
+			si existe un polinomio $t\in\polinomios[x]\Enteros$
 			tal que $p=tq$;
 		\item\label{item:ejer:polinomios:grado:vi}
 			si existen enteros $m,n$ tales que $p^n=q^m$.
@@ -65,9 +65,9 @@
 \end{ejerPolinomios}
 
 \begin{ejerPolinomios}
-	Sean $p,q\in\polinomios\Enteros x$ los polinomios
+	Sean $p,q\in\polinomios[x]\Enteros$ los polinomios
 	$p=x^3-2x+3$ y $q=2x^5-5x^4+3x^3+2x^2$. Hallar polinomios
-	$t,r\in\polinomios\Enteros x$ tales que $q=tp+r$ con $r=0$ o
+	$t,r\in\polinomios[x]\Enteros$ tales que $q=tp+r$ con $r=0$ o
 	$\grado(r)<3$.
 \end{ejerPolinomios}
 
@@ -76,41 +76,41 @@
 	\begin{enumerate}[(i)]
 		\item\label{item:ejer:polinomios:grado:bis:i}
 			Calcular los grados de $p^2$, $pq$ y $q-h$,
-			donde $p,q,h\in\polinomios{\simEnterosmod[4]} x$ son
+			donde $p,q,h\in\polinomios[x]{\simEnterosmod[4]}$ son
 			los polinomios $p=1+2x$, $q=1+2x+3x^2$ y $h=2-x+x^2$.
 		\item\label{item:ejer:polinomios:grado:bis:i}
 			?`Existen polinomios
-			$t,s\in\polinomios{\simEnterosmod[4]} x$, ambos
+			$t,s\in\polinomios[x]{\simEnterosmod[4]}$, ambos
 			no nulos, tales que $ts=0$?
 		\item\label{item:ejer:polinomios:grado:bis:i}
 			?`Existen polinomios
-			$t\in\polinomios{\simEnterosmod[4]} x$ tales que
+			$t\in\polinomios[x]{\simEnterosmod[4]}$ tales que
 			$t^n=0$ para alg\'un $n\geq 0$, pero $t\neq 0$?
 		\item\label{item:ejer:polinomios:grado:bis:i}
-			?`Existen en $\polinomios{\simEnterosmod[4]} x$
+			?`Existen en $\polinomios[x]{\simEnterosmod[4]}$
 			polinomios inversibles de grado mayor que $0$?
 	\end{enumerate}
 	%
 \end{ejerPolinomios}
 
 \begin{ejerPolinomios}
-	Si $A$ es un dominio \'{\i}ntegro y $p,q\in\polinomios A x$ son
+	Si $A$ es un dominio \'{\i}ntegro y $p,q\in\polinomios[x] A$ son
 	polinomios distintos del polinomio nulo, entonces
 	$\grado(pq)=\grado(p)+\grado(q)$. Probar que $A$ es un dominio
-	\'{\i}ntegro, si y s\'olo si $\polinomios A x$ lo es.
+	\'{\i}ntegro, si y s\'olo si $\polinomios[x] A$ lo es.
 \end{ejerPolinomios}
 
 \begin{ejerPolinomios}
 	Si $A$ es un dominio \'{\i}ntegro, entonces los polinomios
-	inversibles en $\polinomios A x$ son exactamente los elementos
+	inversibles en $\polinomios[x] A$ son exactamente los elementos
 	inversibles en $A$, es decir, los polinomios de grado $0$ que son
 	unidades de $A$.
 \end{ejerPolinomios}
 
 \begin{ejerPolinomios}
 	Determinar los polinomios inversibles en
-	$\polinomios{\simEnterosmod[4]} x$ y en
-	$\polinomios{\simEnterosmod[5]} x$.
+	$\polinomios[x]{\simEnterosmod[4]}$ y en
+	$\polinomios[x]{\simEnterosmod[5]}$.
 \end{ejerPolinomios}
 
 \begin{ejerPolinomios}\label{ejer:polinomios:divisibilidad}
@@ -120,13 +120,13 @@
 
 \begin{ejerPolinomios}\label{ejer:polinomios:irreducibles}
 	Si $k$ es un cuerpo, dar una definici\'on de primo (polinomios
-	irreducibles) en $\polinomios k x$ y enunciar y demostrar algunas
+	irreducibles) en $\polinomios[x] k$ y enunciar y demostrar algunas
 	de sus propiedades.
 \end{ejerPolinomios}
 
 \begin{ejerPolinomios}\label{ejer:polinomios;mcd}
 	El \emph{m\'aximo com\'un divisor} entre dos polinomios no nulos
-	$f,g\in\polinomios k x$ con coeficientes en un cuerpo $k$ se define
+	$f,g\in\polinomios[x] k$ con coeficientes en un cuerpo $k$ se define
 	como el polinomio \emph{m\'onico} (coeficiente principal igual a $1$)
 	de grado m\'aximo que divide a ambos.
 	\begin{enumerate}[(i)]
@@ -136,12 +136,12 @@
 			existen polinomios $p$ y $q$ tales que $h=fp+gq$.
 		\item\label{ejer:polinomios:mcd:equivalencias}
 			Probar que las siguientes afirmaciones sobre un
-			polinomio $h\in\polinomios k x$ son equivalentes:
+			polinomio $h\in\polinomios[x] k$ son equivalentes:
 			\begin{enumerate}[(a)]
 				\item\label{ejer:polinomios:mcd:a}
 					$h$ es \emph{el} polinomio m\'onico
 					de grado m\'{\i}nimo de la forma
-					$h=fp+gq$ con $p,q\in\polinomios k x$;
+					$h=fp+gq$ con $p,q\in\polinomios[x] k$;
 				\item\label{ejer:polinomios:mcd:b}
 					$h$ es m\'onico, es divisor com\'un
 					de $f$ y de $g$ y es divisible por
@@ -158,8 +158,8 @@
 \begin{ejerPolinomios}\label{ejer:polinomios:enteros}
 	?`C\'omo se adapta la noci\'on de primo (ver \ejername~%
 	\ref{ejer:polinomios:irreducibles}) al anillo de polinomios con
-	coeficientes enteros $\polinomios\Enteros x$?
+	coeficientes enteros $\polinomios[x]\Enteros$?
 	?`Tiene sentido hablar de m\'aximo com\'un divisor en
-	$\polinomios\Enteros x$? ?`Se verifica la identidad de B\'ezout?
+	$\polinomios[x] \Enteros$? ?`Se verifica la identidad de B\'ezout?
 \end{ejerPolinomios}
 
