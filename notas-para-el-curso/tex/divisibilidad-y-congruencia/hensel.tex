@@ -127,6 +127,84 @@ la congruencia $f(x)\equiv 0\tmodulo[p^{k+1}]$.
 	$x\equiv 217,409\tmodulo[625]$.
 \end{ejemHensel}
 
+\begin{obsHensel}\label{obs:hensel:taylor}
+	El procedimiento empleado en el \ejemname~%
+	\ref{ejem:hensel:cinco} para conseguir las soluciones
+	m\'odulo potencias de $5$ a partir de las soluciones
+	m\'odulo $5$ se puede resumir de la siguiente manera.
+	Dado $f\in\polinomios\Enteros$,
+	\begin{equation}
+		\label{eq:hensel:taylor}
+		f(a+p^jt)\,\equiv\,f(a)\,+\,p^jt\,f'(a)
+			\modulo[p^{j+1}]
+		\dispcomma
+	\end{equation}
+	%
+	donde $f'$ denota el polinomio derivado de $f$
+	\quedacomoejercicio.%
+	\hint{
+		Aplicando el desarrollo de Taylor:
+		\begin{displaymath}
+			f(a+p^jt)\,=\,f(a)+p^jt\,f'(a)
+				+p^{2j}t^2\,f''(a)/2
+				+p^{3j}t^3\,f'''(a)/3!
+				+\,\cdots\,+
+				p^{nj}t^n\,f^{(n)}(a)/n!
+			\dispcomma
+		\end{displaymath}
+		%
+		si $n=\grado(f)$. Lo \'unico que hay que
+		ver es que cada t\'ermino $f^{(k)}(a)/k!$
+		es un n\'umero entero.
+		Pero, en el caso particular en que $f(x)=cx^n$,
+		derivando $k$ veces, se ve que
+		\begin{math}
+			f^{(k)}(a)=c\,\tfrac{n!}{(n-k)!}\,a^{n-k}
+		\end{math}.
+	}
+	Luego, dada una soluci\'on m\'odulo $p^j$, buscamos
+	$t\in\{0,\,1,\,\dots,\,p-1\}$ que haga que se verifique
+	\eqref{eq:hensel:taylor}.
+	Ahora bien, en lugar de buscar a fuerza bruta los valores
+	de $t$ que hacen esto, podemos intentar despejarlo de la
+	congruencia; con respecto a la variable $t$,
+	\eqref{eq:hensel:taylor} es una ecuaci\'on lineal de
+	congruencia. Asumiendo que $f(a)\equiv 0\tmodulo[p^j]$
+	--es decir, que $x\equiv a$ es una soluci\'on m\'odulo $p^j$--
+	la condici\'on sobre $t$ es equivalente a
+	\begin{equation}
+		\label{eq:hensel:pre}
+		t\,f'(a)\,\equiv\,-\frac{f(a)}{p^j}\modulo[p]
+		\dispstop
+	\end{equation}
+	%
+	La fracci\'on $f(a)/p^j\in\Enteros$, pues $p^j\mid f(a)$,
+	por hip\'otesis ?`Qu\'e condiciones garantizan que
+	podemos hallar $t$ que resuelva \eqref{eq:hensel:pre}?
+	?`Cu\'antas posibilidades hay?
+\end{obsHensel}
+
+\begin{teoHensel}[Lema de Hensel]
+	Sea $f\in\polinomios\Enteros$ y sea $a\in\Enteros$ tal
+	que $f(a)\equiv 0\tmodulo[p^j]$.
+	Entonces, si $f'(a)\neq 0\tmodulo[p]$, existe un \'unico
+	$t$ m\'odulo $p$ tal que
+	$f(a+p^t)\equiv 0\tmodulo[p^{j+1}]$.
+\end{teoHensel}
+
+En definitiva, si $f(a)\equiv 0\tmodulo[p^j]$,
+existe una \'unica clase $x$ m\'odulo $p^{j+1}$
+tal que
+\begin{itemize}
+	\item $f(x)\equiv 0\tmodulo[p^{j+1}]$ y
+	\item $x\equiv a\tmodulo[p^j]$.
+\end{itemize}
+%
+O sea, en este caso, cada soluci\'on m\'odulo $p^j$
+da lugar a (``se levanta a'') una \'unica soluci\'on
+m\'odulo $p^{j+1}$
+?`Qu\'e pasa si $f'(a)\equiv 0\tmodulo[p]$?
+
 \subsection*{Ejercicios}
 \input{./tex/divisibilidad-congruencia/ejercicios-hensel.tex}
 
