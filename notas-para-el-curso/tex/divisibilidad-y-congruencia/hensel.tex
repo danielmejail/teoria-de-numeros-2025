@@ -1,0 +1,132 @@
+\theoremstyle{plain}
+\newtheorem{teoHensel}{\teoname}[section]
+
+\theoremstyle{definition}
+\newtheorem{ejemHensel}[teoHensel]{\ejemname}
+
+%-------------
+
+El \teorema~\ref{teo:chino} nos permite reducir el
+problema de resolver una congruencia al caso en el
+que el m\'odulo de la congruencia es una potencia de
+un n\'umero primo. En esta secci\'on el Lema de Hensel
+nos dar\'a condiciones suficientes para ``levantar
+soluciones'', es decir, empezando con una soluci\'on
+a una congruencia $f(x)\equiv 0\tmodulo[p^k]$,
+$f\in\polinomios\Enteros$, conseguir una soluci\'on a
+la congruencia $f(x)\equiv 0\tmodulo[p^{k+1}]$.
+
+\begin{ejemHensel}\label{ejem:hensel:cinco}
+	La congruencia $x^2-x+3\equiv 0\tmodulo[5]$ tiene dos
+	soluciones: $x\equiv 2$ y $x\equiv 4\tmodulo[5]$.
+	Busquemos soluciones m\'odulo $25$. Sea $f(x)=x^2-x+3$.
+	Si $x\in\Enteros$ cumple $f(x)\equiv 0\tmodulo[25]$,
+	en particular, $f(x)\equiv 0\tmodulo[5]$, con lo cual,
+	debe ser $x\equiv 2$ o bien $x\equiv 4\tmodulo[5]$.
+	Es decir, las posibles soluciones a la congruencia
+	m\'odulo $25$ son:
+	\begin{displaymath}
+		x\,\equiv\,2,\,7,\,12,\,17,\,22\modulo[25]
+		\dispcomma
+	\end{displaymath}
+	%
+	correspondientes a $x\equiv 2\tmodulo[5]$, y
+	\begin{displaymath}
+		x\,\equiv\,4,\,9,\,14,\,19,\,24\modulo[25]
+		\dispcomma
+	\end{displaymath}
+	%
+	correspondientes a $x\equiv 4\tmodulo[5]$.
+	No todas estas clases son soluci\'on.
+	Lo que necesitamos es calcular la clase de $f(x)$
+	m\'odulo $25$, para cada una de las diez posibilidades.
+	Para simplificar la cuenta, observamos lo siguiente:
+	entre las operaciones que tenemos que realizar est\'a
+	$x^2$ para distintos valores de $x$ que difieren en
+	m\'ultiplos de $5$. Ahora, si $a,t\in\Enteros$,
+	\begin{displaymath}
+		\begin{aligned}
+			(a+5t)^2 & \,=\,a^2+2\cdot a5t+25t^2
+				\,\equiv\,a^2+10at\tmodulo[25]
+				\dispand \\
+			f(a+5t) & \,\equiv\,
+				a^2+10xt-(a+5t)+3 \,=\,
+				(a^2-a+3) + 5t\,(2a-1)
+			\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	En particular, tenemos que calcular $f(x+5t)$ para
+	$a=2,4$ y $t=0,1,2,3,4$.
+	Para estos valores obtenemos la \tablename~%
+	\ref{tab:hensel:cinco}.
+	\begin{table}
+		\centering
+		\begin{tabular}{c|ccccc|ccccc}
+			$a$ & $2$ & & & &
+				& $4$ & & & & \\
+			$t$ & $0$ & $1$ & $2$ & $3$ & $4$
+				& $0$ & $1$ & $2$ & $3$ & $4$ \\
+			$f(a+5t)\tmodulo[25]$ & $5$ & $20$ & $10$ & $0$ & $15$
+				& $15$ & $0$ & $10$ & $20$ & $5$
+		\end{tabular}
+		%
+		\caption{
+			Valores de $f(x)$ m\'odulo $25$ con
+			$x\equiv 2,4\tmodulo[5]$.
+		}\label{tab:hensel:cinco}
+	\end{table}
+	%
+	Las soluciones a la congruencia $f(x)\equiv 0\tmodulo[25]$
+	son, entonces $x\equiv 17,9\tmodulo[25]$.
+
+	Si queremos las soluciones a la congruencia
+	$f(x)\equiv 0\tmodulo[125]$, las posibilidades van a ser
+	\begin{displaymath}
+		x\,\equiv\,17,\,42,\,67,\,92,\,117\modulo[125]
+		\dispcomma
+	\end{displaymath}
+	%
+	correspondientes a $x\equiv 17\tmodulo[25]$, y
+	\begin{displaymath}
+		x\,\equiv\,9,\,34,\,59,\,84,\,109\modulo[125]
+		\dispcomma
+	\end{displaymath}
+	%
+	correspondientes a $x\equiv 9\tmodulo[25]$.
+	Nuevamente, necesitamos calcular $f(a+25t)$ con
+	$a=17,9$ y $t=0,1,2,3,4$. Pero%
+	\footnote{
+		Podr\'{\i}amos decir m\'odulo $625$,
+		pero, en ese caso, $t$ deber\'{\i}a recorrer
+		los valores de $0$ a $24$ para considerar
+		todas las clases m\'odulo $625$
+		correspondientes a cada clase m\'odulo $25$.
+	}
+	\begin{displaymath}
+		f(a+25t)\,=\,(a+25t)^2-(a+25t)+3\,=\,
+			(a^2-a+3)+25t\,(2a-1)+25^2t^2\,\equiv\,
+			(a^2-a+3)+25t\,(2a-1)\tmodulo[125]
+	\end{displaymath}
+	%
+	Las soluciones m\'odulo $125$ se obtienen con los pares
+	$(a,t)\in\{(17,3),(9,1)\}$, o sea,
+	$x\equiv 92,34\tmodulo[125]$.
+	Para obtener las soluciones m\'odulo $625$, repetimos el
+	procedimiento y notamos que
+	\begin{displaymath}
+		f(a+125t)\,\equiv\,f(a)+125t\,f'(a)\modulo[625]
+		\dispstop
+	\end{displaymath}
+	%
+	Calculando las clases m\'odulo $625$ de $f(a+125t)$
+	para $a=92,34$ y $t=0,1,2,3,4$, encontramos que las
+	soluciones se consiguen con los pares
+	$(a,t)\in\{(92,1),(34,3)\}$, o sea,
+	$x\equiv 217,409\tmodulo[625]$.
+\end{ejemHensel}
+
+\subsection*{Ejercicios}
+\input{./tex/divisibilidad-congruencia/ejercicios-hensel.tex}
+
