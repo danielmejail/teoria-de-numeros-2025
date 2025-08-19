@@ -136,35 +136,35 @@
 		$b'=b/\mcd{b,c}$ y $c'=c/\mcd{b,c}$; notar que $b'$ y $c'$
 		son coprimos.
 	}
-	Generalizar a una cantidad arbitraria de enteros
-	(ver el \ejername~\ref{ejer:divisibilidad:mcd:iterado}).
+	% Generalizar a una cantidad arbitraria de enteros
+	% (ver el \ejername~\ref{ejer:divisibilidad:mcd:iterado}).
 \end{ejerDivisibilidad}
 
-\begin{ejerDivisibilidad}\label{ejer:divisibilidad:mcd:iterado}
-	Extender la noci\'on de m\'aximo com\'un divisor a enteros
-	$\lista b{n}$, $n\geq 1$. Probar:
-	\begin{enumerate}[(i)]
-		\item\label{item:ejer:mcd:bezout:bis}
-			el an\'alogo del \teoname~\ref{teo:mcd:bezout};
-		\item\label{item:ejer:mcd:propiedades:bis}
-			propiedades an\'alogas a las del \teoname~%
-			\ref{teo:mcd:propiedades} (en particular, probar que
-			\begin{math}
-				\mcd{\lista b{n}}=\mcd{b_{\sigma 1},%
-					\,\dots,\,b_{\sigma n}}
-			\end{math},
-			para toda permutaci\'on $\sigma$ de
-			$\{1,\,\dots,\,n\}$);
-		\item\label{item:ejer:mcd:iterado}
-			que
-			\begin{math}
-				\mcd{\lista b{n}}=\mcd{%
-					\mcd{\lista b{n-1}},b_n}=
-				\mcd{\mcd{\lista b{j}},\mcd{\lista[j+1] b{n}}}
-			\end{math}.
-	\end{enumerate}
-	%
-\end{ejerDivisibilidad}
+% \begin{ejerDivisibilidad}\label{ejer:divisibilidad:mcd:iterado}
+	% Extender la noci\'on de m\'aximo com\'un divisor a enteros
+	% $\lista b{n}$, $n\geq 1$. Probar:
+	% \begin{enumerate}[(i)]
+		% \item\label{item:ejer:mcd:bezout:bis}
+			% el an\'alogo del \teoname~\ref{teo:mcd:bezout};
+		% \item\label{item:ejer:mcd:propiedades:bis}
+			% propiedades an\'alogas a las del \teoname~%
+			% \ref{teo:mcd:propiedades} (en particular, probar que
+			% \begin{math}
+				% \mcd{\lista b{n}}=\mcd{b_{\sigma 1},%
+					% \,\dots,\,b_{\sigma n}}
+			% \end{math},
+			% para toda permutaci\'on $\sigma$ de
+			% $\{1,\,\dots,\,n\}$);
+		% \item\label{item:ejer:mcd:iterado}
+			% que
+			% \begin{math}
+				% \mcd{\lista b{n}}=\mcd{%
+					% \mcd{\lista b{n-1}},b_n}=
+				% \mcd{\mcd{\lista b{j}},\mcd{\lista[j+1] b{n}}}
+			% \end{math}.
+	% \end{enumerate}
+	% %
+% \end{ejerDivisibilidad}
 
 % \begin{ejerDivisibilidad}
 	% En el Algoritmo de Euclides (\ejername~%
@@ -195,4 +195,18 @@
 	% \end{enumerate}
 	% %
 % \end{ejerDivisibilidad}
+
+\begin{ejerDivisibilidad}
+	Con $a,b,c,d,u,v,m,n\in\Enteros$, probar las siguientes
+	afirmaciones:
+	\begin{enumerate}[(i)]
+		\item si $ad-bc\in\{\pm 1\}$, $u=am+bn$ y $v=cm+dn$,
+			entonces $\mcd{u,v}=\mcd{m,n}$;
+		\item si $\mcd{u,v}=1$, entonces $\mcd{u+v,u-v}\in\{1,2\}$;
+		\item si $u=am+bn$ y $v=cm+dn$, entonces
+			$\mcd{u,v}$ divide al producto
+			$\mcd{m,n}\,(ad-bc)$.
+	\end{enumerate}
+	%
+\end{ejerDivisibilidad}
 
