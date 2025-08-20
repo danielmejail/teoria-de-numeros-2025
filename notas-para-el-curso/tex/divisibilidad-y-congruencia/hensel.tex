@@ -2,11 +2,13 @@
 \newtheorem{teoHensel}{\teoname}[section]
 
 \theoremstyle{definition}
+\newtheorem{defHensel}[teoHensel]{\defname}
+\newtheorem{obsHensel}[teoHensel]{\obsname}
 \newtheorem{ejemHensel}[teoHensel]{\ejemname}
 
 %-------------
 
-El \teorema~\ref{teo:chino} nos permite reducir el
+El \teoname~\ref{teo:chino} nos permite reducir el
 problema de resolver una congruencia al caso en el
 que el m\'odulo de la congruencia es una potencia de
 un n\'umero primo. En esta secci\'on el Lema de Hensel
@@ -15,6 +17,7 @@ soluciones'', es decir, empezando con una soluci\'on
 a una congruencia $f(x)\equiv 0\tmodulo[p^k]$,
 $f\in\polinomios\Enteros$, conseguir una soluci\'on a
 la congruencia $f(x)\equiv 0\tmodulo[p^{k+1}]$.
+En esta secci\'on $p$ denota n\'umeros primos.
 
 \begin{ejemHensel}\label{ejem:hensel:cinco}
 	La congruencia $x^2-x+3\equiv 0\tmodulo[5]$ tiene dos
@@ -50,15 +53,15 @@ la congruencia $f(x)\equiv 0\tmodulo[p^{k+1}]$.
 				\,\equiv\,a^2+10at\tmodulo[25]
 				\dispand \\
 			f(a+5t) & \,\equiv\,
-				a^2+10xt-(a+5t)+3 \,=\,
+				a^2+10at-(a+5t)+3 \,=\,
 				(a^2-a+3) + 5t\,(2a-1)
 			\dispstop
 		\end{aligned}
 		%
 	\end{displaymath}
 	%
-	En particular, tenemos que calcular $f(x+5t)$ para
-	$a=2,4$ y $t=0,1,2,3,4$.
+	En particular, tenemos que calcular $f(a+5t)$ para
+	$a=2,4$ y $0\leq t\leq 4$.
 	Para estos valores obtenemos la \tablename~%
 	\ref{tab:hensel:cinco}.
 	\begin{table}
@@ -80,7 +83,6 @@ la congruencia $f(x)\equiv 0\tmodulo[p^{k+1}]$.
 	%
 	Las soluciones a la congruencia $f(x)\equiv 0\tmodulo[25]$
 	son, entonces $x\equiv 17,9\tmodulo[25]$.
-
 	Si queremos las soluciones a la congruencia
 	$f(x)\equiv 0\tmodulo[125]$, las posibilidades van a ser
 	\begin{displaymath}
@@ -96,7 +98,7 @@ la congruencia $f(x)\equiv 0\tmodulo[p^{k+1}]$.
 	%
 	correspondientes a $x\equiv 9\tmodulo[25]$.
 	Nuevamente, necesitamos calcular $f(a+25t)$ con
-	$a=17,9$ y $t=0,1,2,3,4$. Pero%
+	$a=17,9$ y $0\leq t\leq 4$. Pero%
 	\footnote{
 		Podr\'{\i}amos decir m\'odulo $625$,
 		pero, en ese caso, $t$ deber\'{\i}a recorrer
@@ -105,9 +107,12 @@ la congruencia $f(x)\equiv 0\tmodulo[p^{k+1}]$.
 		correspondientes a cada clase m\'odulo $25$.
 	}
 	\begin{displaymath}
-		f(a+25t)\,=\,(a+25t)^2-(a+25t)+3\,=\,
-			(a^2-a+3)+25t\,(2a-1)+25^2t^2\,\equiv\,
-			(a^2-a+3)+25t\,(2a-1)\tmodulo[125]
+		\begin{aligned}
+			f(a+25t) & \,=\,(a+25t)^2-(a+25t)+3\,=\,
+				(a^2-a+3)+25t\,(2a-1)+25^2t^2 \\
+			& \,\equiv\, (a^2-a+3)+25t\,(2a-1)\tmodulo[125]
+		\end{aligned}
+		%
 	\end{displaymath}
 	%
 	Las soluciones m\'odulo $125$ se obtienen con los pares
@@ -121,7 +126,7 @@ la congruencia $f(x)\equiv 0\tmodulo[p^{k+1}]$.
 	\end{displaymath}
 	%
 	Calculando las clases m\'odulo $625$ de $f(a+125t)$
-	para $a=92,34$ y $t=0,1,2,3,4$, encontramos que las
+	para $a=92,34$ y $0\leq t\leq 4$, encontramos que las
 	soluciones se consiguen con los pares
 	$(a,t)\in\{(92,1),(34,3)\}$, o sea,
 	$x\equiv 217,409\tmodulo[625]$.
@@ -184,27 +189,263 @@ la congruencia $f(x)\equiv 0\tmodulo[p^{k+1}]$.
 	?`Cu\'antas posibilidades hay?
 \end{obsHensel}
 
-\begin{teoHensel}[Lema de Hensel]
+\begin{teoHensel}[Lema de Hensel]\label{teo:hensel}
 	Sea $f\in\polinomios\Enteros$ y sea $a\in\Enteros$ tal
 	que $f(a)\equiv 0\tmodulo[p^j]$.
-	Entonces, si $f'(a)\neq 0\tmodulo[p]$, existe un \'unico
-	$t$ m\'odulo $p$ tal que
-	$f(a+p^t)\equiv 0\tmodulo[p^{j+1}]$.
+	Si $f'(a)\neq 0\tmodulo[p]$, entonces existe un \'unico
+	% $0\leq t\leq p-1$ tal que $f(a+p^jt)\equiv 0\tmodulo[p^{j+1}]$.
+	% En particular, existe uno \'unico
+	% \begin{enumerate}[(i)]
+		% \item\label{item:hensel:mejora}
+			% $f(x)\equiv 0\tmodulo[p^{j+1}]$ y
+		% \item\label{item:hensel:consistencia}
+			% $x\equiv a\tmodulo[p^j]$.
+	% \end{enumerate}
+	% %
+	$x\equiv a\tmodulo[p^j]$ tal que $f(x)\equiv 0\tmodulo[p^{j+1}]$.
 \end{teoHensel}
 
-En definitiva, si $f(a)\equiv 0\tmodulo[p^j]$,
-existe una \'unica clase $x$ m\'odulo $p^{j+1}$
-tal que
-\begin{itemize}
-	\item $f(x)\equiv 0\tmodulo[p^{j+1}]$ y
-	\item $x\equiv a\tmodulo[p^j]$.
-\end{itemize}
-%
-O sea, en este caso, cada soluci\'on m\'odulo $p^j$
-da lugar a (``se levanta a'') una \'unica soluci\'on
-m\'odulo $p^{j+1}$
+O sea, en este caso, cada soluci\'on m\'odulo $p^j$ da lugar a
+(``se levanta a'') una \'unica soluci\'on m\'odulo $p^{j+1}$
 ?`Qu\'e pasa si $f'(a)\equiv 0\tmodulo[p]$?
 
+\begin{proof}
+	Dado que $p\nmid f'(a)$, podemos hallar $u\in\Enteros$
+	tal que $f'(a)\,u\equiv 1\tmodulo[p]$ y, entonces,
+	el valor de $t$ que verifica \eqref{eq:hensel:pre} est\'a
+	un\'{\i}vocamente determinado: es
+	$t\equiv -\frac{f(a)}{p^j}\,u\tmodulo[p]$.
+	Esto determina $t$ en el rango $0\leq t\leq p-1$ y
+	$x=a+p^jt$.
+\end{proof}
+
+\begin{ejemHensel}\label{ejem:hensel:cinco:singular}
+	Siguiendo con el \ejemname~\ref{ejem:hensel:cinco},
+	sea $g(x)=x^3+2x+3=(x+1)\,f(x)$.
+	Si buscamos ra\'{\i}ces m\'odulo $5$, es decir,
+	soluciones a $g(x)\equiv 0\tmodulo[5]$, encontramos
+	las mismas que para $f$: $x\equiv 2,4\tmodulo[5]$ son
+	las \'unicas soluciones m\'odulo $5$. Pero, en cierto
+	sentido, $x\equiv 4\tmodulo[5]$ es una ra\'{\i}z doble,
+	porque es ra\'{\i}z de $f$ m\'odulo $5$ y tambi\'en es
+	ra\'{\i}z del factor $x+1$ m\'odulo $5$.
+	Esto concuerda con que, en este caso, $g'(4)\equiv 0\tmodulo[5]$.%
+	\footnote{
+		Notemos que, por la regla del producto,
+		\begin{displaymath}
+			g'(x)\,=\,(x+1)\,f'(x)\,+\,f(x)
+			\dispstop
+		\end{displaymath}
+		%
+	}
+	De hecho, $g'(4)=50\equiv 0\tmodulo[25],\,\not\equiv 0\tmodulo[125]$.
+	Por otro lado, como $g'(2)\not\equiv 0\tmodulo[5]$,
+	podemos aplicar el \teoname~\ref{teo:hensel} para levantar (y de
+	manera \'unica) la soluci\'on $x=2$ m\'odulo $5$ a una soluci\'on
+	para cada potencia de $5$. El problema est\'a en $x=4$.
+	Si hay soluciones m\'odulo $25$, $125$, \dots, entonces ellas
+	deber\'an seguir siendo, igual que antes, congruentes con
+	$2$ o con $4$ m\'odulo $5$. De acuerdo con el comentario
+	anterior, s\'olo tenemos que concentramos en buscar
+	soluciones congruentes ``arriba de $4$'', es decir,
+	soluciones m\'odulo $25$, $125$, \dots que sean congruentes
+	con $4$ m\'odulo $5$.
+	El siguiente diagrama muestra las soluciones a $g(x)\equiv 0$
+	m\'odulo algunas potencias de $5$.
+	\begin{displaymath}
+		\begin{tikzcd}[column sep=.01pt, row sep=small]
+			& 15409 & 31034 & 46659 & 62284 & 77909 & &
+				& 15624 & 31249 & 46874 & 62499 & 78124 \\
+			& 2909 & 6034 & 9159 & 12284 & 15409
+				\arrow[ullll,-]
+				\arrow[ulll,-]
+				\arrow[ull,-]
+				\arrow[ul,-]
+				\arrow[u,-] & &
+				& 3124 & 6249 & 9374 & 12499 & 15624
+				\arrow[ullll,-]
+				\arrow[ulll,-]
+				\arrow[ull,-]
+				\arrow[ul,-]
+				\arrow[u,-] \\
+			& 409 & 1034 & 1659 & 2284 & 2909
+				\arrow[ullll,-]
+				\arrow[ulll,-]
+				\arrow[ull,-]
+				\arrow[ul,-]
+				\arrow[u,-] & &
+				& 624 & 1249 & 1874 & 2499 & 3124
+				\arrow[ullll,-]
+				\arrow[ulll,-]
+				\arrow[ull,-]
+				\arrow[ul,-]
+				\arrow[u,-] \\
+			& 34 & 159 & 284 & 409
+				\arrow[ulll,-]
+				\arrow[ull,-]
+				\arrow[ul,-]
+				\arrow[u,-]
+				\arrow[ur,-] & 534 & &
+				& 124 & 249 & 374 & 499 & 624
+				\arrow[ullll,-]
+				\arrow[ulll,-]
+				\arrow[ull,-]
+				\arrow[ul,-]
+				\arrow[u,-] \\
+			& 9 & 34
+				\arrow[ul,-]
+				\arrow[u,-]
+				\arrow[ur,-]
+				\arrow[urr,-]
+				\arrow[urrr,-]
+				& 59 & 84 & 109 & &
+				& 24 & 49 & 74 & 99 & 124
+				\arrow[ullll,-]
+				\arrow[ulll,-]
+				\arrow[ull,-]
+				\arrow[ul,-]
+				\arrow[u,-] \\
+			4 & & & 9
+				\arrow[ull,-]
+				\arrow[ul,-]
+				\arrow[u,-]
+				\arrow[ur,-]
+				\arrow[urr,-]
+				& & & 14 & 19 & & & 24 
+				\arrow[ull,-]
+				\arrow[ul,-]
+				\arrow[u,-]
+				\arrow[ur,-]
+				\arrow[urr,-] \\
+			& & & & & & 4
+				\arrow[ullllll,-]
+				\arrow[ulll,-]
+				\arrow[u,-]
+				\arrow[ur,-]
+				\arrow[urrrr,-]
+		\end{tikzcd}
+		%
+				%
+		% \caption{
+			% Soluciones a $g(x)\equiv 0\tmodulo[5^j]$
+			% para $1\leq j\leq ***$, $x\equiv 4\tmodulo[5]$,
+			% agrupadas por clase de congruencia.
+		% }\label{tab:hensel:cinco:singular}
+	\end{displaymath}
+	%
+	Que la ra\'{\i}z sea ``doble'' se puede ver reflejado
+	en que hay dos ramas por donde se levantan de la ra\'{\i}z
+	$4$ m\'odulo $5$. Notemos que, cada vez que una soluci\'on
+	m\'odulo $5^j$ se levanta a una soluci\'on m\'odulo $5^{j+1}$,
+	se levanta de exactamente cinco maneras distintas:
+	son las clases congruentes m\'odulo $5^j$ con la soluci\'on.
+	Esto sucede a partir de $j=3$. Por ejemplo, $9$ es soluci\'on
+	$5^3$ y la soluci\'on $9$ m\'odulo $5^2$ se levanta de cinco
+	maneras a soluciones m\'odulo $5^3$. Otro ejemplo, $34$ es
+	soluci\'on m\'odulo $5^3$ y m\'odulo $5^4$ y se levanta a
+	cinco soluciones m\'odulo $5^4$ congruentes con $34$ m\'odulo
+	$5^3$. Para $9$ y $24$ (y todas las soluciones construidas
+	a partir de ellas) $5\mid g'(9)$ pero $25\nmid g'(9)$, y
+	$5\mid g'(24)$ pero $25\nmid g'(24)$.
+	Para ver el contraste, las soluciones congruentes con $2$
+	m\'odulo $5$ progresan de la siguiente manera:
+	\begin{displaymath}
+		\begin{tikzcd}[row sep=small]
+			62717 \\
+			217 \arrow[u,-] \\
+			217 \arrow[u,-] \\
+			217 \arrow[u,-] \\
+			92 \arrow[u,-] \\
+			17 \arrow[u,-] \\
+			2 \arrow[u,-]
+		\end{tikzcd}
+		%
+		\dispstop
+	\end{displaymath}
+	%
+\end{ejemHensel}
+
+Para poder enunciar el resultado que generaliza el \teoname~\ref{teo:hensel},
+necesitamos introducir algo de notaci\'on.
+
+\begin{defHensel}\label{def:valuacion}
+	Si $p$ es un n\'umero primo y $x\in\Enteros\setmin\{0\}$,
+	la \emph{valuaci\'on de $x$ en $p$}
+	(o \emph{valuaci\'on $p$-\'adica de $x$}) es la m\'axima potencia
+	de $p$ que divide a $x$.
+\end{defHensel}
+
+\begin{obsHensel}\label{obs:valuacion}
+	La valuaci\'on en $p$ define una funci\'on
+	\begin{math}
+		\valuacion=\valuacion[p]:\,
+			\Enteros\setmin\{0\}\rightarrow\Enteros
+	\end{math}.%
+	\footnote{
+		De hecho, es posible extender esta funci\'on
+		a $\Unidades\Racionales$.
+	}
+	Que $\valuacion(x)=k$ quiere decir que $x\equiv 0\tmodulo[p^k]$,
+	pero $x\not\equiv 0\tmodulo[p^{k+1}]$.
+\end{obsHensel}
+
+\begin{teoHensel}\label{teo:hensel:plus}
+	Sea $f\in\polinomios\Enteros$ y sea $a\in\Enteros$ tal que
+	$f(a)\equiv 0\tmodulo[p^j]$.
+	Si $k=\valuacion[p](f'(a))<j/2$, entonces
+	\begin{enumerate}[(i)]
+		\item\label{item:hensel:plus:mejora}
+			existe un \'unico $x\equiv a\tmodulo[p^{j-k}]$
+			tal que $f(x)\equiv 0\tmodulo[p^{j+1}]$,
+			sin embargo,
+		\item\label{item:hensel:plus:perdida}
+			todo $b\equiv a\tmodulo[p^{j-k}]$ cumple
+			$f(b)\equiv 0\tmodulo[p^j]$ y
+			$\valuacion[p](f'(b))=k$.
+	\end{enumerate}
+	%
+\end{teoHensel}
+
+\begin{ejemHensel}\label{ejem:hensel:cinco:singular:recap}
+	En el \ejemname~\ref{ejem:hensel:cinco:singular},
+	con $a=9$, $\valuacion(g'(9))=1$ y $j=3$. Entonces,
+	todos los enteros $\equiv 9\tmodulo[5^2]$ son
+	soluci\'on m\'odulo $5^3$ tambi\'en
+	(\eqref{item:hensel:plus:perdida}) y s\'olo uno de ellos,
+	$34$, es tal que $g(34)\equiv 0\tmodulo[5^4]$.
+\end{ejemHensel}
+
+\begin{proof}
+	Si $b\equiv a\tmodulo[p^{j-k}]$, entonces $b=a+p^{j-k}t$.
+	Aplicando el desarrollo de Taylor a $f$,
+	\begin{displaymath}
+		f(b)\,\equiv\,f(a)\,+\,p^{j-k}t\,f'(a)\modulo[p^{2\,(j-k)}]
+		\dispstop
+	\end{displaymath}
+	%
+	Por hip\'otesis, $2\,(j-k)\geq j+1$, con lo cual,
+	deducimos que, si $f(a)\equiv 0\tmodulo[p^j]$, entonces
+	$f(b)$ es divisible por $p^j$ tambi\'en.
+	Podemos, en ese caso, dividir por $p^j$ y obtener la congruencia
+	\begin{displaymath}
+		\frac{f(b)}{p^j}\,\equiv\,\frac{f(a)}{p^j}\,+\,
+			\frac{f'(a)}{p^k}\,t\modulo[p]
+		\dispstop
+	\end{displaymath}
+	%
+	Dado que $p\nmid\frac{f'(a)}{p^k}$, existe
+	$u\in\Enteros$ tal que $\frac{f'(a)}{p^k}\,u\equiv 1\tmodulo[p]$
+	y, por lo tanto, $t$ queda un\'{\i}vocamente determinado
+	de manera que $0\leq t\leq p-1$ y $b=a+p^{j-k}t$ sea soluci\'on
+	m\'odulo $p^{j+1}$. En cuanto a la valuaci\'on de $f'(b)$,
+	como $f'$ tambi\'en es un polinomio con coeficientes enteros,
+	$b\equiv a\tmodulo[p^{j-k}]$ implica
+	$f'(b)\equiv f'(a)\tmodulo[p^{j-k}]$.
+	Como $j-k\geq k+1$, tambi\'en se deduce que
+	$f'(b)\equiv f'(a)\tmodulo[p^{k+1}]$ y, as\'{\i},
+	$\valuacion(f'(b))=\valuacion(f'(a))$.
+\end{proof}
+
 \subsection*{Ejercicios}
-\input{./tex/divisibilidad-congruencia/ejercicios-hensel.tex}
+\input{./tex/divisibilidad-y-congruencia/ejercicios-hensel.tex}
 
