@@ -1,0 +1,248 @@
+\theoremstyle{plain}
+\newtheorem{teoLineales}{\teoname}[section]
+\newtheorem{coroLineales}[teoLineales]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{defLineales}[teoLineales]{\defname}
+\newtheorem{ejemLineales}[teoLineales]{\ejemname}
+\newtheorem{obsLineales}[teoLineales]{\obsname}
+
+%-------------
+
+En esta secci\'on estudiamos la resolubilidad de ecuaciones del estilo:
+\begin{equation}
+	\label{eq:lineales}
+	a_1x_1+\,\cdots\,+a_rx_r\,=\,n
+	\dispstop
+\end{equation}
+%
+En general supondremos que $n$ y los coeficientes $\lista a r\in\Enteros$.
+Empezamos generalizando la noci\'on de m\'aximo com\'un divisor
+(\defname~\ref{def:mcd}).
+
+\begin{defLineales}\label{def:lineales:mcd}
+	Dado un subconjunto $S\subset\Enteros$ tal que
+	$S\setmin\{0\}\neq\varnothing$, el \emph{m\'aximo com\'un %
+	divisor de $S$} es el m\'as grande de todos los divisores
+	comunes de los elementos de $S$.
+	Lo denotamos $\mcd{S}$.
+\end{defLineales}
+
+\begin{obsLineales}\label{obs:lineales:mcd:existe}
+	Si $S$ contiene alg\'un entero no nulo, cualquier divisor
+	com\'un de los elementos de $S$ es, en particular, un divisor
+	de dicho entero y, por lo tanto, est\'a acotado. Existe,
+	en ese caso un m\'aximo com\'un divisor.
+\end{obsLineales}
+
+\begin{obsLineales}\label{obs:lineales:mcd}
+	Si $S=\{b,c\}$, entonces el m\'aximo com\'un divisor de $S$
+	coincide con el m\'aximo com\'un divisor de $b$ y de $c$,
+	seg\'un la \defname~\ref{def:mcd}.
+\end{obsLineales}
+
+\begin{teoLineales}\label{teo:lineales:bezout}
+	Si $S=\{\lista a r\}\subset\Enteros$, $a_1\neq 0$, y $g=\mcd{S}$,
+	entonces existen $\lista x r\in\Enteros$ tales que
+	\begin{displaymath}
+		a_1x_1+\,\cdots\,+a_rx_r\,=\,g
+		\dispstop
+	\end{displaymath}
+	%
+	Adem\'as, si definimos inductivamente
+	$c_1=a_1$ y $c_i=\mcd{c_{i-1},a_i}$, entonces $g=c_r$.
+\end{teoLineales}
+
+% La demostraci\'on consiste en, primero, probar que $c_r$ es el MCD
+% y, luego, probar la expresi\'on como combinaci\'on (inducci\'on y caso
+% $r=2$.
+
+\begin{ejemLineales}\label{ejem:lineales:bezout}
+	Con $S=\{42,105,15,11\}$, $\mcd{S}=1$.
+	En este caso,
+	\begin{displaymath}
+		\begin{aligned}
+			c_1 & \,=\, 42 \dispcomma \\
+			c_2 & \,=\,\mcd{c_1,105}\,=\,21
+				\,=\,42\cdot 3\,+\,105\cdot (-1) \dispcomma \\
+			c_3 & \,=\,\mcd{c_2,15}\,=\,3
+				\,=\,21\cdot 3\,+\,15\cdot (-4) \dispand \\
+			c_4 & \,=\,\mcd{c_3,11}\,=\,1
+				\,=\,3\cdot 4\,+\,11\cdot (-1) \dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Entonces,
+	\begin{displaymath}
+		1\,=\,42\cdot 36+105\cdot(-12)+15\cdot (-16)+11\cdot(-1)
+		\dispstop
+	\end{displaymath}
+	%
+\end{ejemLineales}
+
+% \begin{proof}
+	% Si $r=1$, no hay nada que probar. Si $r=2$, la afirmaci\'on
+	% es, esencialmente, el \teoname~\ref{teo:mcd:bezout}.
+	% Inductivamente, existe $B\in\Mat((r-1)\times(r-1),\Enteros)$
+	% tal que
+	% \begin{displaymath}
+		% (\lista a r)\,
+		% \begin{bmatrix}
+			% B & \phantom 0 \\
+			% \phantom 0 & 1
+		% \end{bmatrix} \,=\, (0,\,\dots,\,0,\,c,\,a_r)
+		% \dispcomma
+	% \end{displaymath}
+	% %
+	% donde $c=\mcd{\lista a{r-1}}$. Resta acomodar los \'ultimos dos
+	% coeficientes. Por el caso $r=2$, sabemos que existe
+	% $B'\in\Mat(2\times 2,\Enteros)$ tal que
+	% \begin{displaymath}
+		% (0,\,\dots,\,0,\,c,\,a_r)\,
+		% \begin{bmatrix}
+			% \Id[r-2] & \phantom 0 \\
+			% \phantom 0 & B'
+		% \end{bmatrix} \,=\, (0,\,\dots,\,0,\,0,\,d)
+		% \dispcomma
+	% \end{displaymath}
+	% %
+	% donde $d=\mcd{c,a_r}$.
+% \end{proof}
+
+\begin{coroLineales}\label{coro:lineales:caracterizacion}
+	Sea $S\subset\Enteros$, $S\setmin\{0\}\neq\varnothing$.
+	Las siguientes propiedades sobre un natural $g$ son equivalentes:
+	\begin{enumerate}[(a)]
+		\item\label{item:coro:lineales:caracterizacion:a}
+			$g$ es el menor natrural de la forma
+			$\sum_a\,ax_a$ con $a\in S$, $x_a\in\Enteros$
+			y $x_a=0$ para todos salvo finitos $a$;
+		\item\label{item:coro:lineales:caracterizacion:b}
+			$g$ es divisor com\'un de los elementos de $S$
+			y es divisible por cualquier otro divisor com\'un;
+		\item\label{item:coro:lineales:caracterizacion:c}
+			$g$ es el m\'aximo com\'un divisor de $S$.
+	\end{enumerate}
+	%
+\end{coroLineales}
+
+\begin{coroLineales}\label{coro:lineales:bezout:resolubilidad}
+	Si $n,\,\lista a r\in\Enteros$, no todos nulos la ecuaci\'on
+	\eqref{eq:lineales} tiene soluci\'on con $\lista x r\in\Enteros$,
+	si y s\'olo si $\mcd{\lista a r}\mid n$.
+\end{coroLineales}
+
+\begin{teoLineales}\label{teo:lineales:resolubilidad}
+	Sean $\lista a r\in\Enteros$, no todos nulos, y sea
+	$g=\mcd{\lista a r}$. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:lineales:resolubilidad:matriz}
+			existe una matriz $C\in\Mat(r\times r,\Enteros)$
+			tal que $\det(C)=\pm 1$ y
+			\begin{displaymath}
+				(\lista a r)\,C\,=\,(0,\,\dots,\,0,\,g)
+				\quad\text{y ,}
+			\end{displaymath}
+			%
+		\item\label{item:lineales:resolubilidad:soluciones}
+			si $c_i$ denota la $i$-\'esima columna de $C$ y
+			$N\in\Enteros$, el vector
+			$x=\trnsp{(\lista x r)}\in\Enteros^r$ es soluci\'on
+			de $\sum_i\,a_ix_i=Ng$, si y s\'olo si existen
+			$\lista m{r-1}\in\Enteros$ tales que
+			\begin{displaymath}
+				x=\sum_{i=1}^{r-1}\,m_ic_i\,+\,Nc_r
+				\dispstop
+			\end{displaymath}
+			%
+	\end{enumerate}
+	%
+\end{teoLineales}
+
+% \begin{proof}
+	% \dots
+% \end{proof}
+
+\begin{ejemLineales}\label{ejem:lineales:resolubilidad:matriz}
+	Siguiendo con el \ejemname~\ref{ejem:lineales:bezout},
+	para hallar la matriz $C$ correspondiente, procedemos
+	recursivamente. Empezamos con una matriz $2\times 2$
+	que haga que $(42,105)$ pase a ser $(0,21)$:
+	\begin{displaymath}
+		(42,105,15,11)\,
+		\begin{bmatrix}
+			-5 & 3 & & \\
+			2 & -1 & & \\
+			& & 1 & \\
+			& & & 1
+		\end{bmatrix} \,=\, (0,21,15,11)
+		\dispstop
+	\end{displaymath}
+	%
+	Seguimos con una que transforme $(21,15)$ en $(0,3)$:
+	\begin{displaymath}
+		(0,21,15,11)\,
+		\begin{bmatrix}
+			1 & & & \\
+			& -5 & 3 & \\
+			& 7 & -4 & \\
+			& & & 1
+		\end{bmatrix} \,=\, (0,0,3,11)
+		\dispstop
+	\end{displaymath}
+	%
+	Finalmente, buscamos una que lleve $(3,11)$ en $(0,1)$:
+	\begin{displaymath}
+		(0,0,3,11)\,
+		\begin{bmatrix}
+			1 & & & \\
+			& 1 & & \\
+			& & -11 & 4 \\
+			& & 3 & -1
+		\end{bmatrix} \,=\, (0,0,0,1)
+		\dispstop
+	\end{displaymath}
+	%
+	En definitiva,
+	\begin{displaymath}
+		(42,105,15,11)\,
+		\begin{bmatrix}
+			-5 & -15 & -99 & 36 \\
+			2 & 5 & 33 & -12 \\
+			& 7 & 44 & -16 \\
+			& & 3 & -1
+		\end{bmatrix} \,=\, (0,0,0,1)
+		\dispstop
+	\end{displaymath}
+	%
+\end{ejemLineales}
+
+\begin{ejemLineales}\label{ejem:lineales:resolubilidad:soluciones}
+	Para terminar con el \ejemname~%
+	\ref{ejem:lineales:resolubilidad:matriz},
+	dado que $\mcd{42,105,15,11}=1$, dado $N\in\Enteros$,
+	las soluciones a la ecuaci\'on
+	\begin{displaymath}
+		42\,x+105\,y+15\,z+11\,w\,=\,N
+	\end{displaymath}
+	%
+	son los vectores
+	\begin{displaymath}
+		\begin{bmatrix} x \\ y \\ z \\ w \end{bmatrix} \,=\,
+			\begin{bmatrix}
+				-5 & -15 & -99 & 36 \\
+				2 & 5 & 33 & -12 \\
+				& 7 & 44 & -16 \\
+				& & 3 & -1
+			\end{bmatrix}\,
+			\begin{bmatrix} m \\ n \\ \tilde n \\ N \end{bmatrix}
+		\dispcomma
+	\end{displaymath}
+	%
+	con $m,n,\tilde n\in\Enteros$.
+\end{ejemLineales}
+
+\subsection*{Ejercicios}
+\input{./tex/divisibilidad-y-congruencia/ejercicios-lineales.tex}
+
