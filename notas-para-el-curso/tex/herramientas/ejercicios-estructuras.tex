@@ -115,3 +115,169 @@
 	$\EnterosEisenstein$.
 \end{ejerEuclidianos}
 
+% \begin{ejerEuclidianos}\label{ejer:euclidianos:raiz-de-dos}
+	% El objetivo de este ejercicio es resolver la ecuaci\'on
+	% \begin{equation}
+		% \label{eq:euclidianos:raiz-de-dos}
+		% y^2\,-\,2x^2\,=\,1
+		% \dispcomma
+	% \end{equation}
+	% %
+	% con $x,y\in\Enteros$, darle sentido a las soluciones y describir
+	% cierta estructura impl\'{\i}cita en el conjunto de soluciones.
+	% \begin{enumerate}[(i)]
+		% \item\label{item:euclidianos:raiz-de-dos:no-hay-racionales}
+			% Probar que la \'unica soluci\'on a $y^2=2x^2$ con
+			% $x,y\in\Enteros$ es $x=y=0$.
+		% \item\label{item:euclidianos:raiz-de-dos:asintota}
+			% Probar que la hip\'erbola $y^2=2x^2+1$ es
+			% asint\'otica a la recta $y=\sqrt 2x$.
+		% \item\label{item:euclidianos:raiz-de-dos:hay-racionales}
+			% Probar que la hip\'erbola del \'{\i}tem~%
+			% \eqref{item:euclidianos:raiz-de-dos:asintota}
+			% tiene puntos con coordenadas enteras: $(0,\pm1)$
+			% son dos; mostrar que hay otros (exhibir un ejemplo).
+		% \item\label{item:euclidianos:raiz-de-dos:producto}
+			% Mostrar que es posible ``multiplicar'' dos
+			% soluciones a la ecuaci\'on~%
+			% \eqref{eq:euclidianos:raiz-de-dos}:
+			% si $(u,v)$ y $(U,V)$ son soluciones, entonces
+			% \begin{equation}
+				% \label{eq:euclidianos:raiz-de-dos:producto}
+				% (u,v)\cdot(U,V)\,:=\,
+					% (uV+vU,2uU+vV)
+			% \end{equation}
+			% %
+			% tambi\'en es una soluci\'on;
+			% comparar con el producto de los n\'umeros
+			% \begin{displaymath}
+				% \big(u\sqrt 2+v\big)\,\big(U\sqrt 2+V\big)
+			% \end{displaymath}
+			% %
+		% \item\label{item:euclidianos:raiz-de-dos:producto:ejemplos}
+			% ?`Qu\'e pasa si $(u,v)=(0,\pm 1)$?
+			% ?`Qu\'e pasa si $(u,v)=(2,3)$ y $(U,V)=(-2,3)$?
+		% \item\label{item:euclidianos:raiz-de-dos:inversos}
+			% Mostrar que toda soluci\'on a la ecuaci\'on~%
+			% \eqref{eq:euclidianos:raiz-de-dos} tiene un
+			% ``inverso'': si $(u,v)$ es una soluci\'on, existe
+			% una soluci\'on $(U,V)$ tal que
+			% $(u,v)\cdot (U,V)=(0,1)$.
+		% \item\label{item:euclidianos:raiz-de-dos:soluciones}
+			% Sea $(x_n,y_n)=(2,3)^n$ ($n\geq 1$). Probar que,
+			% si $(u,v)$ es soluci\'on de
+			% \eqref{eq:euclidianos:raiz-de-dos} con
+			% $u,v\in\Enteros$ positivos, entonces $(u,v)=(x_n,y_n)$
+			% para alg\'un $n\geq 1$.%
+			% \hint{
+				% Hacer inducci\'on en $u$. El caso $u=1$
+				% es trivialmente cierto, porque no hay
+				% soluciones con $u=1$, y el caso $u=2$ es
+				% cierto, porque corresponde a $(2,3)=(x_1,y_1)$.
+				% Si $u>2$, considerar
+				% $(u_1,v_1)=(-2,3)\cdot (u,v)$.
+			% }
+		% \item\label{item:euclidianos:raiz-de-dos:grupo}
+			% Concluir de lo anterior que el conjunto
+			% \begin{displaymath}
+				% \big\{(x,y)\in\Enteros^2\,:\,y^2-2x^2=1\big\}
+			% \end{displaymath}
+			% %
+			% es un grupo abeliano; probar que es isomorfo
+			% a un subgrupo de
+			% $\Unidades{\polinomios[\sqrt 2]\Enteros}$.
+		% \item\label{item:euclidianos:raiz-de-dos:isomorfo}
+			% Probar las siguientes f\'ormulas para la sucesi\'on
+			% $(x_n,y_n)$ del \'{\i}tem~%
+			% \eqref{item:euclidianos:raiz-de-dos:soluciones}:
+			% para $n\geq 1$,
+			% \begin{displaymath}
+				% x_n\sqrt 2+y_n \,=\,
+					% \big(2\sqrt 2+3\big)^n
+					% \dispand
+				% \begin{bmatrix}
+					% x_n \\ y_n
+				% \end{bmatrix} \,=\,
+					% \begin{bmatrix}
+						% 3 & 2 \\ 4 & 3
+					% \end{bmatrix}^n\,
+					% \begin{bmatrix}
+						% 0 \\ 1
+					% \end{bmatrix}
+				% \dispstop
+			% \end{displaymath}
+			% %
+		% \item\label{item:euclidianos:raiz-de-dos:crecimiento}
+			% Probar que, si $n>1$,
+			% \begin{displaymath}
+				% x_n\,>\,\big(2\sqrt 2+3)^{n-1}\,x_1
+			% \end{displaymath}
+			% %
+			% y concluir que $x_n\to\infty$.
+		% \item\label{item:euclidianos:raiz-de-dos:aproxima}
+			% Probar que, si $(x,y)$ es soluci\'on de
+			% \eqref{eq:euclidianos:raiz-de-dos} con $x,y>0$,
+			% entonces
+			% \begin{displaymath}
+				% \left|\frac y x-\sqrt 2\right|\,<\,
+					% \frac 1{2\sqrt 2 x^2}
+				% \dispstop
+			% \end{displaymath}
+			% %
+		% \item\label{item:euclidianos:raiz-de-dos:aproxima:bis}
+			% Probar que, si $x,y\in\Enteros$, $x,y>0$ y se
+			% cumple $\big|y/x-\sqrt 2\big|<1/2x^2$, entonces
+			% $y^-2x^2=\pm 1$.%
+			% \hint{
+				% Usar las cotas:
+				% \begin{displaymath}
+					% \left|y-\sqrt 2x\right|\,<\,\frac 1{2x}
+					% \dispand
+					% \left|y+\sqrt 2x\right|\,<\,2y+\frac 1{2x}
+				% \end{displaymath}
+				% %
+				% y multiplicar.
+			% }
+			% Rec\'{\i}procamente, probar que, si
+			% $\big|y^2-2x^2\big|=1$ con $x,y\in\Enteros$, $x,y>0$,
+			% entocnes $\big|y/x-\sqrt 2\big|<1/2x^2$.
+		% \item\label{item:euclidianos:raiz-de-dos:todas}
+			% Probar que $(1,1)$ es soluci\'on de
+			% $y^2-2x^2=-1$, que $(1,1)^2=(2,3)$ y que, por lo tanto,
+			% toda soluci\'on de
+			% \begin{displaymath}
+				% y^2\,-\,2x^2\,=\,\pm 1
+			% \end{displaymath}
+			% %
+			% con $x,y\in\Enteros$, $x,y>0$, es de la forma
+			% $(1,1)^n$ para alg\'un $n\geq 1$.
+	% \end{enumerate}
+	% %
+	% En definitiva, tenemos cuatro interpretaciones distintas
+	% del mismo objeto:
+	% \begin{itemize}
+		% \item soluciones enteras a la ecuaci\'on $y^2-2x^2=1$;
+		% \item subgrupo de la unidades de
+			% $\polinomios[\sqrt 2]\Enteros$;
+		% \item subgrupo de matrices $\sbmatrix{ 3 & 2 \\ 4 & 3 }^n$,
+			% $n\in\Enteros$;
+		% \item aproximaciones racionales a $\sqrt 2$.
+	% \end{itemize}
+	% %
+	% % \begin{displaymath}
+	% % \begin{tikzcd}
+		% % \big\{(x,y)\in\Enteros^2\,:\,y^2-2x^2=1\big\}
+			% % \arrow[r] &
+			% % \Unidades{\polinomios[\sqrt 2]\Enteros}
+				% % \arrow[d] \\
+		% % \left\{\begin{bmatrix} 3 & 2 \\ 4 & 3 \end{bmatrix}^n\,:\,
+				% % n\in\Enteros\right\} \arrow[u] &
+			% % \big\{\text{aproximaciones racionales a }\sqrt 2\big\}
+	% % \end{tikzcd}
+	% % %
+	% % \dispstop
+	% % \end{displaymath}
+	% % %
+% \end{ejerEuclidianos}
+
+
