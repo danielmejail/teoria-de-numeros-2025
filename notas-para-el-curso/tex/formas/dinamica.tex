@@ -1,0 +1,143 @@
+\subsection{Formas definidas positivas como puntos en el semiplano de Poincar\'e}
+En la teor\'{\i}a de reducci\'on de formas cuadr\'aticas definidas,
+dos transformaciones fueron de gran utilidad:
+\begin{displaymath}
+	S\,=\,\begin{bmatrix} & -1 \\ 1 & \end{bmatrix}\dispand
+	T\,=\,\begin{bmatrix} 1 & 1 \\ & 1 \end{bmatrix}
+		\dispcomma
+\end{displaymath}
+%
+as\'{\i} tambi\'en como las potencias $T^h=\sbmatrix{ 1 & h \\ & 1 }$.
+Todas ellas son transformaciones propias. Y, m\'as aun,
+\begin{displaymath}
+	\SL(2,\Enteros)\,=\,\generado{S,T}
+	\dispcomma
+\end{displaymath}
+%
+con lo cual, el proceso de reducci\'on de formas cuadr\'aticas definidas
+positivas se puede describir enteramente con las matrices $S$ y $T$.%
+\footnote{
+	De hecho, las matrices $\pm\Id$ act\'uan trivialmente en el conjunto
+	de formas cuadr\'aticas. El grupo que est\'a actuando es, en realidad,
+	$\PSL(2,\Enteros)=\SL(2,\Enteros)/\{\pm\Id\}$.
+	Las matrices $\pm\Id$ son las \'unicas que act\'uan trivialmente,
+	pero hay otras que tienen ``puntos fijos'': por ejemplo,
+	la matriz $\gamma=\sbmatrix{ & -1 \\ 1 & 1 }$ y la forma
+	$f=\binaria{1,1,1}$ cumplen $f\cdot\gamma=f$.
+}
+Dada $f=\binaria{a,b,c}$ de discriminante $D=b^2-4ac<0$ y $a>0$, definimos
+\begin{displaymath}
+	\tau\,=\,\tau_f\,:=\,\frac{-b+\sqrt D}{2a}
+	\dispcomma
+\end{displaymath}
+%
+donde $\sqrt{D}:=\sqrt{-1}\,\sqrt{|D|}$, $\sqrt{-1}$ es una ra\'{\i}z
+cuadrada de $-1$ prefijada y $\sqrt{|D|}$ es la ra\'{\i}z cuadrada positiva
+de $|D|$.
+El n\'umero $\tau$ es un n\'umero complejo, pero, m\'as precisamente,
+pertenece al semiplano complejo superior
+\begin{displaymath}
+	\semiplano\,=\,\big\{z\in\Complejos\,:\,\Imag(z)>0\big\}
+	\dispcomma
+\end{displaymath}
+%
+donde, si $z=x+y\sqrt{-1}$, entonces $\Imag(z)=y$.
+Notemos que, si $f$ y $g$ son formas definidas positivas
+de igual discriminante $D$, entonces
+\begin{displaymath}
+	\tau_f\,=\,\tau_g\dispiff f\,=\,g\dispstop
+\end{displaymath}
+%
+Ahora bien, si $f$ es una forma definida positiva y
+$\gamma\in\SL(2,\Enteros)$, el punto $\tau_{f\cdot\gamma}$
+correspondiente a la forma definida positiva $f\cdot\gamma$ est\'a dado por
+\quedacomoejercicio:%
+\hint{
+	Multiplicando y dividiendo por el conjugado del denominador,
+	\begin{displaymath}
+		\frac{s\tau-q}{-r\tau+p}\,=\,
+		\frac{s\tau-q}{-r\tau+p}\,
+			\frac{\lconj{-r\tau+p}}{\lconj{-r\tau+p}}
+		\dispcomma
+	\end{displaymath}
+	%
+	pero
+	\begin{math}
+		\lconj{-r\tau+p}=-r\conj\tau+p=
+			-r\,\Big(\frac{-b-\sqrt D}{2a}\Big)+p
+	\end{math}. Usar las f\'ormulas~%
+	\eqref{eq:definiciones:equivalencia:coeficientes}
+	para los coeficientes de $f\cdot\gamma$.
+}
+\begin{equation}
+	\label{eq:definidas:accion:punto}
+	\tau_{f\cdot\gamma}\,=\,\frac{s\tau_f-q}{-r\tau_f+p}
+	\dispcomma
+\end{equation}
+%
+si $\gamma=\sbmatrix{ p & q \\ r & s }$; la matriz
+$\sbmatrix{ s & -q \\ -r & p }$ es la \emph{matriz adjunta de $\gamma$},
+igual a $\det(\gamma)\,\gamma^{-1}$.
+Esto define una acci\'on \emph{a derecha} en $\semiplano$ por
+transformaciones de M\"obius, que es consistente con que la acci\'on en
+el conjunto de formas sea a derecha.
+Finalmente, las condiciones $|b|\leq a\leq c$ en la
+\defname~\ref{def:reducidas} se traducen, en t\'erminos de $\tau$, en las
+siguientes condiciones:
+\begin{equation}
+	\label{eq:reducidas:semiplano}
+	\big|\Real(\tau)\big| \,=\,
+		\bigg|\frac{-b}{2a}\bigg|\,\leq\,\frac 1 2
+		\dispand
+	|\tau|^2 \,=\,\tau\,\conj\tau\,=\,\frac c a\,\geq\,1
+	\dispstop
+\end{equation}
+%
+El proceso de reducci\'on se puede ilustrar de la siguiente manera:
+empezando con $\tau=\tau_f$, aplicar $T^h$ ($h\in\Enteros$) para que
+$\tau\cdot T^h$ caiga en la banda $\big|\Real\big|\leq 1/2$;
+si $|\tau|\geq 1$, listo; si no, aplicar $\tau\cdot S$ y repetir el
+paso anterior. Eventualmente, este proceso termina \quedacomoejercicio.%
+\hint{
+	Si $\gamma=\sbmatrix{ p & q \\ r & s }$, entonces
+	% \begin{displaymath}
+		% \frac{\Imag(\tau_{f\cdot\gamma})}{\Imag(\tau_f)}\,=\,
+			% \frac a {f(p,r)}
+		% \dispstop
+	% \end{displaymath}
+	% %
+	% Pero, si $a_0=\min\{f(x,y)\,:\,x,y\in\Enteros\}$, entonces
+	% $a/f(p,r)\leq a/a_0$. As\'{\i},
+	% \begin{displaymath}
+		% \Imag(\tau_{f\cdot\gamma})\,\leq\,\frac a {a_0}\,\Imag(\tau_f)
+		% \dispstop
+	% \end{displaymath}
+	% %
+	% Discreto en compacto 
+	\begin{displaymath}
+		\Imag(\tau_{f\cdot\gamma})\,=\,
+			\frac{\Imag(\tau_f)}{|-r\tau_f+p|^2}
+		\dispstop
+	\end{displaymath}
+	%
+	Como $p$ y $r$ no pueden ser ambos nulos, $|-r\tau_f+p|$ alcanza
+	un m\'{\i}nimo, hay s\'olo finitos pares $(p,r)$ tales que
+	$|-r\tau+p|<1$ y las posibles $\gamma\in\SL(2,\Enteros)$ tales que
+	$\Imag(\tau\cdot\gamma)>\Imag(\tau)$ son de la forma
+	\begin{displaymath}
+		\gamma\,=\,\begin{bmatrix} p & q+tp \\ r & s+tr \end{bmatrix}
+	\end{displaymath}
+	%
+	para una catntidad finita de posibles pares $(p,r)$. El valor de
+	$t$ var\'{\i}a en $\Enteros$ pero eligiendo un \'unico par $(q,s)$
+	por cada par $(p,r)$, de manera que $ps-qr=1$.
+	Pero s\'olo  para finitos valores de $t\in\Enteros$,
+	valdr\'a que $\big|\Real(\tau\cdot\gamma)\big|\leq 1/2$.
+	Adem\'as, si $|\tau|<1$, entonces
+	\begin{displaymath}
+		\Imag(\tau\cdot S)\,=\,\frac{\Imag(\tau)}{|\tau|^2}\,>\,
+			\Imag(\tau)
+		\dispstop
+	\end{displaymath}
+	%
+}

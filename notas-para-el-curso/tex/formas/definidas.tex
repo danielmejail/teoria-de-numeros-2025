@@ -26,22 +26,22 @@ iguales). Por otro lado, la funci\'on
 determina una biyecci\'on entre el conjunto de formas definidas positivas
 y el conjunto de formas definidas negativas. Adem\'as, esta
 correspondencia tambi\'en respeta la relaci\'on de equivalencia
-(estricta): si dos formas $f$ y $g$ son (estrictamente) equivalentes,
+(propia): si dos formas $f$ y $g$ son (propiamente) equivalentes,
 entonces las formas $-f$ y $-g$ tambi\'en lo son.
 De esta manera, podemos concentrarnos en una de las dos partes;
 elegimos concentrarnos en las formas definidas positivas.
 
 El objetivo de esta secci\'on, entonces, es describir una manera de
 determinar si dos formas cuadr\'aticas \emph{definidas positivas}
-son estrictamente equivalentes.
+son propiamente equivalentes.
 La idea es, en primer lugar, definir una noci\'on de representante
-``can\'onico'' para cada clase de equivalencia estricta; \'estos
-ser\'an las ``formas reducidas''. Cada clase de equivalencia estricta
+``can\'onico'' para cada clase de equivalencia propia; \'estos
+ser\'an las ``formas reducidas''. Cada clase de equivalencia propia
 contiene exactamente una forma reducida. Luego, necesitamos una manera
 de ``conectar'', de pasar de una forma cuadr\'atica definida positiva
 al representante can\'onico de su clase; diremos que ``reducimos'' la
 forma cuadr\'atica. Finalmente, para poder comparar dos formas, determinar
-si son equivalentes estrictamente, o no, bastar\'a con reducirlas y
+si son equivalentes propiamente, o no, bastar\'a con reducirlas y
 compararlas: la clase ser\'a la misma, si y s\'olo si tienen la misma
 forma reducida.
 
@@ -53,7 +53,7 @@ Hay, sin embargo, una teor\'{\i}a de reducci\'on de formas indefinidas.
 Pero tiene otras caracter\'{\i}sticas.
 
 \begin{lemaReducidas}\label{lema:reducidas}
-	Cada clase de equivalencia estricta de formas cuadr\'aticas
+	Cada clase de equivalencia propia de formas cuadr\'aticas
 	de discriminante no cuadrado
 	contiene, al menos, un representante $\binaria{a,b,c}$ que cumple
 	$|b|\leq |a|\leq |c|$.
@@ -96,7 +96,7 @@ Pero tiene otras caracter\'{\i}sticas.
 	%
 	entonces la forma $f$ cumple:
 	\begin{itemize}
-		\item es estrictamente equivalente a $f'$ y,
+		\item es propiamente equivalente a $f'$ y,
 			por lo tanto, a $f_0$,
 		\item su primer coeficiente sigue siendo $a$,
 			es decir, $f=\binaria{a,b,c}$ para ciertos
@@ -115,7 +115,7 @@ Pero tiene otras caracter\'{\i}sticas.
 \end{proof}
 
 % \begin{teoReducidas}\label{teo:reducidas:numero}
-	% El n\'umero de clases estrictas de formas cuadr\'aticas
+	% El n\'umero de clases propias de formas cuadr\'aticas
 	% de discriminante dado es finito.
 % \end{teoReducidas}
 % 
@@ -124,7 +124,7 @@ Pero tiene otras caracter\'{\i}sticas.
 % \end{proof}
 
 \begin{lemaReducidas}\label{lema:reducidas:definidas}
-	Cada clase de equivalencia estricta de formas cuadr\'aticas
+	Cada clase de equivalencia propia de formas cuadr\'aticas
 	definidas positivas contiene, al menos, un representante que
 	cumple
 	\begin{displaymath}
@@ -142,7 +142,7 @@ Pero tiene otras caracter\'{\i}sticas.
 	cuadr\'atica definida postiva. Entonces, $a_0,c_0>0$.
 	Podemos suponer, por el \lemaname~\ref{lema:reducidas}, que
 	$|b_0|\leq a_0\leq c_0$. Ahora, si $a_0=c_0$ pero $b_0<0$,
-	obtenemos una forma estrictamente equivalente con $a=a_0=c=c_0$ y
+	obtenemos una forma propiamente equivalente con $a=a_0=c=c_0$ y
 	$b=|b_0|\geq 0$ definiendo:
 	\begin{displaymath}
 		f_0(y,-x)\,=\,a_0y^2\,+\,b_0y(-x)\,+\,c_0(-x)^2\,=\,
@@ -150,7 +150,7 @@ Pero tiene otras caracter\'{\i}sticas.
 		\dispstop
 	\end{displaymath}
 	%
-	Si $b_0=-a_0$, obtenemos una forma estrictamente equivalente con
+	Si $b_0=-a_0$, obtenemos una forma propiamente equivalente con
 	$a=b=a_0$ y $c=c_0$ definiendo:
 	\begin{displaymath}
 		\begin{aligned}
@@ -195,16 +195,16 @@ Pero tiene otras caracter\'{\i}sticas.
 
 \begin{teoReducidas}\label{teo:reducidas}
 	Toda forma cuadr\'atica primitiva definida positiva es
-	estrictamente equivalente a una \'unica forma reducida.
+	propiamente equivalente a una \'unica forma reducida.
 \end{teoReducidas}
 
 \begin{proof}
 	Lo \'unico que falta probar es que cada clase de equivalencia
-	estricta contiene \emph{a lo sumo} una forma reducida.
+	propia contiene \emph{a lo sumo} una forma reducida.
 	Sean, entonces, $f=\binaria{a,b,c}$ y $f_1=\binaria{a_1,b_1,c_1}$
 	dos formas cuadr\'aticas de discriminante $D<0$, ambas reducidas
 	en el sentido de la \defname~\ref{def:reducidas}.
-	Probaremos que, si $f$ y $f_1$ son estrictamente equivalentes,
+	Probaremos que, si $f$ y $f_1$ son propiamente equivalentes,
 	entonces deben ser iguales.
 	Sin p\'erdida de generalidad, podemos asumir que $a\geq a_1$.	
 
@@ -278,7 +278,7 @@ los resultados de la \S~\ref{sec:representaciones}.
 	$p$ debe ser reducida. Pero si $p$ es representado por
 	una forma definida positiva de discriminante $D$, entonces,
 	cambiando dicha forma por una (la) forma reducida y
-	(estrictamente) equivalente a ella, vemos que $p$ es
+	(propiamente) equivalente a ella, vemos que $p$ es
 	representado por una forma reducida.
 \end{proof}
 
@@ -294,7 +294,7 @@ El siguiente resultado refina el \coroname~\ref{coro:representaciones}.
 
 % \begin{defReducidas}\label{def:reducidas:numero}
 	% Denominaremos \emph{clases} de formas cuadr\'aticas a las
-	% clases de equivalencia estricta en el conjunto de formas
+	% clases de equivalencia propia en el conjunto de formas
 	% cuadr\'aticas binarias enteras. Dado $D\equiv 0,1\tmodulo[4]$,
 	% el \emph{n\'umero de clases} de formas de discriminante $D$
 	% es la cantidad de clases de formas cuadr\'aticas
@@ -304,7 +304,7 @@ El siguiente resultado refina el \coroname~\ref{coro:representaciones}.
 		% para una justificaci\'on de por qu\'e s\'olo
 		% consideramos clases de formas primitivas.
 		% % Ver tambi\'en el \ejername~%
-		% % \ref{ejer:definiciones:propiamente}.
+		% % \ref{ejer:definiciones:primitivamente}.
 	% }
 	% de discriminante $D$; lo denotamos $\nClases(D)$.
 % \end{defReducidas}

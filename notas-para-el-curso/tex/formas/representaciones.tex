@@ -9,9 +9,9 @@
 
 %-------------
 
-\begin{lemaRepresentaciones}\label{lema:representaciones:propiamente}
-	Una forma $f$ representa propiamente un entero $m$, si y s\'olo
-	si $f$ es estrictamente equivalente a una forma del tipo
+\begin{lemaRepresentaciones}\label{lema:representaciones:primitivamente}
+	Una forma $f$ representa primitivamente un entero $m$, si y s\'olo
+	si $f$ es propiamente equivalente a una forma del tipo
 	$\binaria{m,B,C}$, $B,C\in\Enteros$.
 \end{lemaRepresentaciones}
 
@@ -24,12 +24,12 @@
 	\eqref{eq:definiciones:equivalencia:cambio}. En particular,
 	$a_1=f(p,r)=m$. Rec\'{\i}procamente, notamos que cualquier
 	forma del tipo $\binaria{m,B,C}$, $B,C\in\Enteros$, representa
-	propiamente a $m$ v\'{\i}a $(1,0)$.
+	primitivamente a $m$ v\'{\i}a $(1,0)$.
 \end{proof}
 
 \begin{lemaRepresentaciones}\label{lema:representaciones:primitiva}
 	Sea $D\equiv 0,1\tmodulo[4]$ y sea $m\in\Enteros$,
-	$\mcd{m,2D}=1$. Entonces, $m$ es representado propiamente
+	$\mcd{m,2D}=1$. Entonces, $m$ es representado primitivamente
 	por \emph{alguna} forma primitiva de discriminante $D$,
 	si y s\'olo si $D$ es un residuo cuadr\'atico m\'odulo $m$.
 \end{lemaRepresentaciones}
@@ -43,11 +43,11 @@
 	en particular, $D\equiv b^2\tmodulo[4m]$ (porque $m$ es impar;
 	$\mcd{m,4}=1$). Esto quiere decir que existe $c\in\Enteros$ tal
 	que $D=b^2-4mc$. Ahora, la forma $f=\binaria{m,b,c}$ representa
-	propiamente a $m$ (v\'{\i}a $(1,0)$) y su discriminante es igual a
-	$D$ y, adem\'as, $f$ es primitiva, porque $\mcd{m,D}=1$.
-	Rec\'{\i}procamente, si $m$ es representado propiamente por
+	primitivamente a $m$ (v\'{\i}a $(1,0)$) y su discriminante es
+	igual a $D$ y, adem\'as, $f$ es primitiva, porque $\mcd{m,D}=1$.
+	Rec\'{\i}procamente, si $m$ es representado primitivamente por
 	una forma $f$ de discriminante $D$, por el \lemaname~%
-	\ref{lema:representaciones:propiamente}, $f$ es (estrictamente)
+	\ref{lema:representaciones:primitivamente}, $f$ es (propiamente)
 	equivalente a una forma del tipo $f_1=\binaria{m,B,C}$,
 	$B,C\in\Enteros$. Pero, entonces,
 	\begin{math}
@@ -59,7 +59,7 @@
 \begin{teoRepresentaciones}\label{teo:representaciones}
 	Sea $D\equiv 0,1\tmodulo[4]$ y sea $p$ un primo positivo impar
 	que no divide a $D$. Entonces, $p$ es representado
-	% (propiamente)
+	% (primitivamente)
 	por \emph{alguna} forma cuadr\'atica primitiva de discriminante
 	$D$, si y s\'olo si $\chi(p)=1$, donde $\chi$ es la funci\'on del
 	\lemaname~\ref{lema:ecuacion:kronecker}.
@@ -76,7 +76,7 @@
 	\label{coro:representaciones}
 	Sea $n\in\Enteros$, $n\neq 0$, y sea $p$ un primo positivo
 	impar que no divide a $n$. Entonces, $p$ es representado
-	% (propiamente)
+	% (primitivamente)
 	por una forma primitiva de discriminante $-4n$,
 	% si y s\'olo si $\tlegendre{-n} p=1$.
 	si y s\'olo si $p$ es un divisor primo de $x^2+ny^2$,
@@ -108,7 +108,7 @@ Introducimos, adem\'as, la siguiente notaci\'on:%
 }
 \begin{itemize}
 	\item $\Clases(D)$ denota el conjunto de clases de
-		equivalencia estricta de formas gaussianas de
+		equivalencia propia de formas gaussianas de
 		discriminante $D$ y
 	\item $\nClases(D)$ denota el cardinal del conjunto
 		$\Clases(D)$.

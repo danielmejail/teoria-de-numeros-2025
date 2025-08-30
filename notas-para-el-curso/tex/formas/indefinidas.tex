@@ -72,47 +72,21 @@ decimos que $f$ es equivalente a $g$; si $\det(\gamma)=1$, son
 propiamente equivalentes y, si $\det(\gamma)=-1$, son impropiamente
 equivalentes.
 
-En la teor\'{\i}a de reducci\'on de formas cuadr\'aticas definidas,
-dos transformaciones fueron de gran utilidad:
-\begin{displaymath}
-	S\,=\,\begin{bmatrix} & -1 \\ 1 & \end{bmatrix}\dispand
-	T\,=\,\begin{bmatrix} 1 & 1 \\ & 1 \end{bmatrix}
-		\dispcomma
-\end{displaymath}
-%
-as\'{\i} tambi\'en como las potencias $T^h=\sbmatrix{ 1 & h \\ & 1 }$.
-Todas ellas son transformaciones propias. Y, m\'as aun,
-\begin{displaymath}
-	\SL(2,\Enteros)\,=\,\generado{S,T}
-	\dispcomma
-\end{displaymath}
-%
-con lo cual, el proceso de reducci\'on de formas cuadr\'aticas definidas
-positivas se puede describir enteramente con las matrices $S$ y $T$.%
-\footnote{
-	De hecho, las matrices $\pm\Id$ act\'uan trivialmente en el conjunto
-	de formas cuadr\'aticas. El grupo que est\'a actuando es, en realidad,
-	$\PSL(2,\Enteros)=\SL(2,\Enteros)/\{\pm\Id\}$.
-	Las matrices $\pm\Id$ son las \'unicas que act\'uan trivialmente,
-	pero hay otras que tienen ``puntos fijos'': por ejemplo,
-	la matriz $\gamma=\sbmatrix{ & -1 \\ 1 & 1 }$ y la forma
-	$f=\binaria{1,1,1}$ cumplen $f\cdot\gamma=f$.
-}
 El resultado principal de \S~\ref{sec:definidas} es que:
 \begin{itemize}
 	\item existe un conjunto finito de ``formas reducidas'',
-	\item actuando por las matrices $S$ y $T$, podemos empujar
-		una forma cuadr\'atica definida positiva hacia
-		este conjunto, y
+	\item actuando por transformaciones propias,
+		podemos empujar una forma cuadr\'atica definida positiva
+		dentro de este conjunto, pero
 	\item no es posible pasar de una forma reducida a otra mediante
-		las matrices $S$ y $T$.%
+		transformaciones propias.%
 		\footnote{
 			Aunque s\'{\i} talvez mendiante alguna
 			transformaci\'on impropia; precisamente, mediante
 			$\sbmatrix{ 1 & \\ & -1 }$.
 		}
-	\item En particular, dos formas definidas postivas son estrictamente
-		equivalentes, si y s\'olo si son estrictamente equivalentes
+	\item En particular, dos formas definidas postivas son propiamente
+		equivalentes, si y s\'olo si son propiamente equivalentes
 		a una misma forma reducida.
 \end{itemize}
 %
