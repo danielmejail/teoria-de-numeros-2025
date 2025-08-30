@@ -13,3 +13,107 @@ determinar la clase de equivalencia propia de una forma cuadr\'atica
 indefinida, que tenga el papel que juega la teor\'{\i}a de reducci\'on
 de formas cuadr\'aticas definidas estudiada en la \S~\ref{sec:definidas}.
 
+\subsection{Preliminares}
+En la relaci\'on de equivalencia entre formas cuadr\'aticas est\'a
+impl\'{\i}cita cierta ``din\'amica'', la acci\'on de un grupo,
+$\GL(2,\Enteros)$, actuando por cambio de variables.
+M\'as en general, podemos considerar la siguiente operaci\'on:
+dada una forma cuadr\'atica binaria con coeficientes enteros,
+$g=\binaria{a,b,c}$, y una matriz con coeficientes enteros,
+$\gamma=\sbmatrix{ p & q \\ r & s }$, definimos una nueva
+% \emph{funci\'on}
+forma cuadr\'atica
+\begin{equation}
+	\label{eq:formas:accion}
+	\big(g\cdot\gamma\big)(x,y)\,:=\,g(px+qy,rx+sy)
+	\dispstop
+\end{equation}
+%
+La expresi\'on \eqref{eq:formas:accion} define una forma cuadr\'atica:
+si llamamos $f=g\cdot\gamma$, entonces $f$ es un polinomio en las variables
+$x$ e $y$ y sus coeficientes y discriminante est\'an dados por las
+f\'ormulas de la \obsname~\ref{obs:definiciones:equivalencia:invariantes}.
+% :
+% \begin{displaymath}
+	% f(x,y) \,=\,a\,(px+qy)^2+b\,(px+qy)\,(rx+sy)+c\,(rx+sy)^2
+% \end{displaymath}
+% %
+% y $f=\binaria{a',b',c'}$, donde
+% \begin{displaymath}
+	% \begin{aligned}
+		% a' & \,=\,ap^2+bpr+cr^2\,=\,g(p,r)\dispcomma \\
+		% b' & \,=\,2apq+b\,(ps+qr)+2crs\dispand \\
+		% c' & \,=\,aq^2+bqs+cs^2\,=\,g(q,s)\dispstop
+	% \end{aligned}
+	% %
+% \end{displaymath}
+% %
+% El discriminante de la forma $f$ es igual a
+% \begin{displaymath}
+	% \discriminante(f)\,=\,(ps-qr)^2\,\discriminante(g)
+	% \dispstop
+% \end{displaymath}
+%
+% Podr\'{\i}amos omitir la condici\'on de que $\gamma$ tenga coeficientes
+% enteros; por ejemplo, podr\'{\i}amos considerar todas las matrices
+% inversibles con coeficientes en $\Racionales$.
+% Pero, en ese caso, la forma cuadr\'atica $g\cdot\gamma$ podr\'{\i}a
+% tener coeficientes no enteros.
+
+Si las formas $f$ y $g$ est\'an relacionadas por $f=g\cdot\gamma$
+con $\gamma\in\Mat(2\times 2,\Enteros)$, Gauss hubiese dicho que
+\emph{$f$ est\'a incluida en $g$} o que \emph{$g$ implica $f$};
+adem\'as, hubiese dicho que la transformaci\'on $g\mapsto g\cdot\gamma$
+es una \emph{transfomaci\'on propia}, si $\det(\gamma)>0$, y que
+es una \emph{transformaci\'on impropia}, si $\det(\gamma)<0$.
+\cite[\S~157]{Gauss}
+Si $\det(\gamma)=\pm 1$, entonces $\gamma\in\GL(2,\Enteros)$ y
+decimos que $f$ es equivalente a $g$; si $\det(\gamma)=1$, son
+propiamente equivalentes y, si $\det(\gamma)=-1$, son impropiamente
+equivalentes.
+
+En la teor\'{\i}a de reducci\'on de formas cuadr\'aticas definidas,
+dos transformaciones fueron de gran utilidad:
+\begin{displaymath}
+	S\,=\,\begin{bmatrix} & -1 \\ 1 & \end{bmatrix}\dispand
+	T\,=\,\begin{bmatrix} 1 & 1 \\ & 1 \end{bmatrix}
+		\dispcomma
+\end{displaymath}
+%
+as\'{\i} tambi\'en como las potencias $T^h=\sbmatrix{ 1 & h \\ & 1 }$.
+Todas ellas son transformaciones propias. Y, m\'as aun,
+\begin{displaymath}
+	\SL(2,\Enteros)\,=\,\generado{S,T}
+	\dispcomma
+\end{displaymath}
+%
+con lo cual, el proceso de reducci\'on de formas cuadr\'aticas definidas
+positivas se puede describir enteramente con las matrices $S$ y $T$.%
+\footnote{
+	De hecho, las matrices $\pm\Id$ act\'uan trivialmente en el conjunto
+	de formas cuadr\'aticas. El grupo que est\'a actuando es, en realidad,
+	$\PSL(2,\Enteros)=\SL(2,\Enteros)/\{\pm\Id\}$.
+	Las matrices $\pm\Id$ son las \'unicas que act\'uan trivialmente,
+	pero hay otras que tienen ``puntos fijos'': por ejemplo,
+	la matriz $\gamma=\sbmatrix{ & -1 \\ 1 & 1 }$ y la forma
+	$f=\binaria{1,1,1}$ cumplen $f\cdot\gamma=f$.
+}
+El resultado principal de \S~\ref{sec:definidas} es que:
+\begin{itemize}
+	\item existe un conjunto finito de ``formas reducidas'',
+	\item actuando por las matrices $S$ y $T$, podemos empujar
+		una forma cuadr\'atica definida positiva hacia
+		este conjunto, y
+	\item no es posible pasar de una forma reducida a otra mediante
+		las matrices $S$ y $T$.%
+		\footnote{
+			Aunque s\'{\i} talvez mendiante alguna
+			transformaci\'on impropia; precisamente, mediante
+			$\sbmatrix{ 1 & \\ & -1 }$.
+		}
+	\item En particular, dos formas definidas postivas son estrictamente
+		equivalentes, si y s\'olo si son estrictamente equivalentes
+		a una misma forma reducida.
+\end{itemize}
+%
+
