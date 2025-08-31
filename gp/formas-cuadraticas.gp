@@ -77,7 +77,7 @@ vecino(f) = {
 	return ( [A,B,C] );
 }
 
-formas(D) = {
+reducidas_definidas(D) = {
 	/* returns the complete list of reduced primitive
 	 * positive definite binary quadratic forms of
 	 * discriminant D
@@ -111,16 +111,53 @@ formas(D) = {
 	return ( L );
 }
 
-clases(D) = {
-	return ( length(formas(D)) );
-}
-
-
 print_vecinos_up_to(f,N) = {
 	local ( g = f );
 	printp(g);
 	for ( i = 1, N, g = vecino(g); printp(g) );
 }
-
+/*
 f = [1,1,-4];
 print_vecinos_up_to(f,9);
+*/
+
+reducidas_indefinidas(D) = {
+	local ( d = floor(sqrt(D)) );
+	local ( amin = 1 ); \\ ceil((sqrt(D) - d) / 2) );
+	local ( amax = d ); \\ floor((sqrt(D) + d) / 2) );
+	local ( a, b, c );
+	local ( L = List([]) );
+	for ( a = amin, amax, \
+		local ( bmin = ceil(abs(sqrt(D)-abs(2*a))) );
+		local ( bmax = d );
+		for ( b = bmin, bmax, \
+			\\ printp([a,b]);
+			if ( Mod(b,2) == Mod(D,2) && \
+				Mod(b,4*a)^2 == Mod(D,4*a), \
+				local ( c = (b^2 - D) / 4 / a );
+				listput(L, [a,b,c]);
+			 );
+		);
+	);
+	return ( L );
+}
+/*
+D = 29;
+reducidas_indefinidas(D);
+*/
+
+reducidas(D) = {
+	if ( Mod(D,4) == 0 || Mod(D,4) == 1, \
+		if ( D < 0, return ( reducidas_definidas(D) ) );
+		if ( D > 0, return ( reducidas_indefinidas(D) ) );
+	);
+}
+
+clases(D) = {
+	if ( Mod(D,4) == 0 || Mod(D,4) == 1, \
+		if( D < 0, return ( length(reducidas(D)) ) );
+		\\ if ( D > 0, return ( 2 * length(reducidas(D)) ) );
+	);
+}
+
+

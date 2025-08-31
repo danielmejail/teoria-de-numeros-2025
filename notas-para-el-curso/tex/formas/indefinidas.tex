@@ -1,9 +1,11 @@
 \theoremstyle{plain}
 \newtheorem{teoIndefinidas}{\teoname}[section]
 \newtheorem{lemaIndefinidas}[teoIndefinidas]{\lemaname}
+\newtheorem{coroIndefinidas}[teoIndefinidas]{\coroname}
 
 \theoremstyle{definition}
 \newtheorem{defIndefinidas}[teoIndefinidas]{\defname}
+\newtheorem{obsIndefinidas}[teoIndefinidas]{\obsname}
 \newtheorem{ejemIndefinidas}[teoIndefinidas]{\ejemname}
 
 %-------------
@@ -13,7 +15,7 @@ determinar la clase de equivalencia propia de una forma cuadr\'atica
 indefinida, que tenga el papel que juega la teor\'{\i}a de reducci\'on
 de formas cuadr\'aticas definidas estudiada en la \S~\ref{sec:definidas}.
 
-\subsection{Preliminares}
+% \subsection{Preliminares}\label{subsec:indefinidas:preliminares}
 En la relaci\'on de equivalencia entre formas cuadr\'aticas est\'a
 impl\'{\i}cita cierta ``din\'amica'', la acci\'on de un grupo,
 $\GL(2,\Enteros)$, actuando por cambio de variables.
@@ -72,22 +74,297 @@ decimos que $f$ es equivalente a $g$; si $\det(\gamma)=1$, son
 propiamente equivalentes y, si $\det(\gamma)=-1$, son impropiamente
 equivalentes.
 
-El resultado principal de \S~\ref{sec:definidas} es que:
+La teor\'{\i}a de reducci\'on de formas definidas positivas de
+\S~\ref{sec:definidas} se puede resumir en que
 \begin{itemize}
-	\item existe un conjunto finito de ``formas reducidas'',
-	\item actuando por transformaciones propias,
+	\item[(\ejername~\ref{ejer:reducidas:numero})]
+		existe un conjunto finito de ``formas reducidas'',
+	\item[(\lemaname~\ref{lema:reducidas})]
+		actuando por transformaciones propias,
 		podemos empujar una forma cuadr\'atica definida positiva
 		dentro de este conjunto, pero
-	\item no es posible pasar de una forma reducida a otra mediante
+	\item[(\teoname~\ref{teo:reducidas})]
+		no es posible pasar de una forma reducida a otra mediante
 		transformaciones propias.%
 		\footnote{
 			Aunque s\'{\i} talvez mendiante alguna
 			transformaci\'on impropia; precisamente, mediante
 			$\sbmatrix{ 1 & \\ & -1 }$.
 		}
-	\item En particular, dos formas definidas postivas son propiamente
-		equivalentes, si y s\'olo si son propiamente equivalentes
-		a una misma forma reducida.
+	% \item En particular, dos formas definidas postivas son propiamente
+		% equivalentes, si y s\'olo si son propiamente equivalentes
+		% a una misma forma reducida.
 \end{itemize}
 %
+En particular, hay un procedimiento finito que nos permite determinar
+si dos formas son equivalentes: hallar sus formas reducidas y compararlas.
+
+Si $D>0$ es un n\'umero real positivo, $\sqrt D$ denota la ra\'{\i}z
+cuadrada \emph{positiva}.
+
+\begin{obsIndefinidas}\label{obs:coeficientes:dos-de-tres}
+	Si $f=\binaria{a,b,*}$ es una forma cuadr\'atica de discriminante
+	$D$, entonces el coeficiente restante, $c$, est\'a determinado
+	por la relaci\'on $D=b^2-4ac$.
+\end{obsIndefinidas}
+
+\begin{defIndefinidas}\label{def:indefinidas:reducida}
+	Una forma indefinida $f=\binaria{a,b,c}$ de discriminante $D>0$
+	no cuadrado \emph{est\'a reducida} (o \emph{es una forma reducida}),
+	si sus coeficientes cumplen con las condiciones siguientes:
+	\begin{displaymath}
+		0\,<\,b\,<\,\sqrt D\dispand
+		\big|\sqrt D-|2a|\big|\,<\,b
+		\dispstop
+	\end{displaymath}
+	%
+\end{defIndefinidas}
+
+\begin{obsIndefinidas}\label{obs:indefinidas:reducida}
+	Como asumimos que $\sqrt D\not\in\Enteros$ (y, entonces,
+	$\sqrt D\not\in\Racionales$), podemos escribir las condiciones
+	de la \defname~\ref{def:indefinidas:reducida} simplemente como
+	\begin{displaymath}
+		0\,<\,\big|\sqrt D-|2a|\big|\,<\,b\,<\,\sqrt D
+		\dispstop
+	\end{displaymath}
+	%
+	Adem\'as, fijado $D>0$, hay finitas formas reducidas de
+	discriminante $D$ \quedacomoejercicio.
+\end{obsIndefinidas}
+
+\begin{lemaIndefinidas}\label{lema:vecina}
+	Sea $f=\binaria{a,b,c}$ una forma indefinida de discriminante
+	$D>0$ no cuadrado. Entonces, existe una \'unica forma indefinida
+	de discriminante $D$, $\binaria{a',b',c'}$, determinada por las
+	siguientes condiciones:
+	\begin{enumerate}[(i)]
+		\item\label{item:lema:vecina:primer}
+			$a'=c$ y
+		\item\label{item:lema:vecina:segundo}
+			$b'\equiv -b\tmodulo[2a']$ y
+			$\sqrt D-|2a'|<b'<\sqrt D$.
+	\end{enumerate}
+	%
+	Adem\'as, dicha forma es propiamente equivalente a $f$.
+\end{lemaIndefinidas}
+
+\begin{proof}
+	En cuanto a la \'ultima afirmaci\'on,
+	si $b+b'=2c\delta$, $\delta\in\Enteros$, entonces
+	\begin{displaymath}
+		\binaria{a',b',c'}\,=\, \binaria{c,-b,a}\cdot
+			\begin{bmatrix}
+				1 & \delta \\ & 1
+			\end{bmatrix}
+			\,=\,\binaria{a,b,c}\cdot
+				\begin{bmatrix}
+					& -1 \\ 1 &
+				\end{bmatrix}\,
+				\begin{bmatrix}
+					1 & \delta \\ & 1
+				\end{bmatrix}
+		\dispstop
+	\end{displaymath}
+	%
+	El valor de $c'$ es el que tenga que ser, de acuerdo con la
+	\obsname~\ref{obs:coeficientes:dos-de-tres}; conociendo $\delta$,
+	$c'=\delta^2c-\delta b+a$.
+\end{proof}
+
+\begin{defIndefinidas}\label{def:vecina}
+	Si $f$ es una forma indefinida de discriminante $D>0$ no cuadrado, la
+	forma indefinida de discriminante $D$ que queda determinada por las
+	condiciones del \lemaname~\ref{lema:vecina} se denomina \emph{forma %
+	vecina a la derecha de $f$} y la denotamos por $\rneigh f$.
+\end{defIndefinidas}
+
+A cada forma indefinida de discriminante positivo no cuadrado,
+le asociamos la sucesi\'on de vecinas: empezando por una forma $f$,
+definimos $\{f_n\}_{n\geq 0}$ por:
+\begin{displaymath}
+	f_0\,:=\,f\dispand f_n\,:=\,\rneigh f_{n-1}
+		\quad\text{(\phantom)si } n\geq 1\text{\phantom().}
+\end{displaymath}
+%
+($\rneigh^n f:=f_n$).
+Todos los elementos de la sucesi\'on son propiamente equivalentes a $f$.
+
+\begin{ejemIndefinidas}\label{ejem:vecina:cuarenta}
+	Sea $f=\binaria{2,8,3}$. Su discriminante es $D=40$. La forma
+	vecina a la derecha es igual $\rneigh f=\binaria{3,4,*}$.
+	Como $a'=c=3$, el valor de $b'$, el segundo coeficiente de 
+	$\rneigh f$, debe cumplir $b'\equiv -8\tmodulo[6]$ y estar en el
+	rango $\sqrt{40}-6<b'<\sqrt{40}$. Como $\piso{\sqrt{40}}=6$,
+	$b'=4$. Si queremos la sucesi\'on de formas vecinas, debemos
+	hallar $c'$. La condici\'on $(b')^2-4a'c'=b^2-4ac=40$ implica que
+	$c'=-2$. Los primeros t\'erminos de la sucesi\'on $\rneigh^n f$ son:
+	\begin{displaymath}
+		\begin{aligned}
+			\binaria{2,8,3}\dispcomma\quad &
+				\binaria{3,4,-2}\dispcomma\quad
+				\binaria{-2,4,3}\dispcomma\quad
+				\binaria{3,2,-3}\dispcomma \\
+			& \binaria{-3,4,2}\dispcomma\quad
+				\binaria{2,4,-3}\dispcomma\quad
+				\binaria{-3,2,3}\dispcomma \\
+			& \binaria{3,4,-2}\dispcomma\quad\dots
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+\end{ejemIndefinidas}
+
+\begin{ejemIndefinidas}\label{ejem:vecina:cuarenta:principal}
+	Sea $f=\binaria{1,0,-10}$. De nuevo, $\discriminante(f)=40$.
+	La sucesi\'on de vecinas de $f$ es:
+	\begin{displaymath}
+		\begin{aligned}
+			\binaria{1,0,-10}\dispcomma\quad
+				\binaria{-10,0,1}\dispcomma\quad &
+				\binaria{1,6,-1}\dispcomma\quad
+				\binaria{-1,6,1}\dispcomma \\
+			& \binaria{1,6,-1}\dispcomma\quad\dots
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+\end{ejemIndefinidas}
+
+\begin{ejemIndefinidas}\label{ejem:reducida:cuarenta}
+	Las formas $\binaria{1,0,-10}$, $\binaria{-10,0,1}$ y
+	$\binaria{2,8,3}$, todas de discriminante $40$,
+	no son reducidas. Las formas
+	$\binaria{1,6,-1}$, $\binaria{-1,6,1}$,
+	$\binaria{3,4,-2}$, $\binaria{-2,4,3}$, $\binaria{3,2,-3}$,
+	$\binaria{-3,4,2}$, $\binaria{2,4,-3}$ y $\binaria{-3,2,3}$
+	est\'an reducidas. Se puede probar que son todas las posibles
+	formas reducidas de discriminante $40$ \quedacomoejercicio.
+	Adem\'as, del \ejemname~\ref{ejem:vecina:cuarenta}, las \'ultimas
+	seis son propiamente equivalentes y, del \ejemname~%
+	\ref{ejem:vecina:cuarenta:principal}, las primeras dos son
+	propiamente equivalentes. As\'{\i}, hay, como mucho dos clases
+	de equivalencia propia ?`Hay una s\'ola? ?`Son, todas estas ocho
+	formas, propiamente equivalentes?
+	% ?`Y equivalentes a secas?
+\end{ejemIndefinidas}
+
+% \begin{obsIndefinidas}\label{obs:indefinidas:reducida:simetria}
+	% Si $\binaria{a,b,c}$ es una forma indefinida de discriminante
+	% no cuadrado reducida, entonces $\binaria{c,b,a}$ tambi\'en
+	% est\'a reducida: por un lado, asumiendo $0<\sqrt D<b$,
+	% la condici\'on $\big|\sqrt D-|2a|\big|<b$ se puede reescribir
+	% como $\sqrt D-b<|2a|<\sqrt D+b$;
+	% por otro, como $(2a)\,(2c)=(\sqrt D-b)\,(\sqrt D+b)$,
+	% vale que $|2a|\,|2c|=(\sqrt D-b)\,(\sqrt D+b)$, si
+	% $0<b<\sqrt D$.
+% \end{obsIndefinidas}
+% 
+% \begin{obsIndefinidas}\label{obs:indefinidas:reducida:signo}
+	% Si $\binaria{a,b,c}$ es una forma indefinida de discriminante
+	% no cuadrado reducida, entonces $b<\sqrt D$ y, por lo tanto, $ac<0$.
+% \end{obsIndefinidas}
+
+\begin{lemaIndefinidas}\label{lema:indefinidas:reducida}
+	Sea $\binaria{a,b,c}$ una forma indefinida de discriminante
+	positivo no cuadrado. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:lema:indefinidas:reducida:simetria}
+			la forma $\binaria{c,b,a}$ tambi\'en est\'a reducida;
+		\item\label{item:lema:indefinidas:reducida:signo}
+			se cumple $ac<0$.
+	\end{enumerate}
+	%
+\end{lemaIndefinidas}
+
+\begin{coroIndefinidas}\label{coro:indefinidas:reducidas}
+	Si $D\equiv 0,1\tmodulo[4]$, $D>0$, no cuadrado, entonces
+	la cantidad de formas reducidas de discriminante $D$ es par.
+	Adem\'as, para enumerar las formas reducidas, es suficiente
+	enumerar aquellas con $a>0$ y luego simetrizar.%
+	\footnote{
+		$\binaria{a,b,c}\mapsto\binaria{c,b,a}$.
+	}
+\end{coroIndefinidas}
+
+\begin{ejemIndefinidas}\label{ejem:reducidas:cinco}
+	Hay dos formas reducidas de discriminante $5$:
+	$\binaria{1,1,-1}$ y $\binaria{-1,1,1}$. Adem\'as, son
+	formas propiamente equivalentes: son vecinas.
+\end{ejemIndefinidas}
+
+\begin{ejemIndefinidas}\label{ejem:reducidas:veintinueve}
+	Hay ocho formas reducidas de discriminante $33$.
+	Adem\'as, empezando por $\binaria{1,5,-2}$ obtenemos la sucesi\'on
+	de formas vecinas
+	\begin{displaymath}
+		\binaria{1,5,-2}\dispcomma\quad
+			\binaria{-2,3,3}\dispcomma\quad
+			\binaria{3,3,-2}\dispcomma\quad
+			\binaria{-2,5,1}\dispcomma\quad
+			\binaria{1,5,-2}\dispcomma\quad\dots
+	\end{displaymath}
+	%
+	y, empezando por $\binaria{2,5,-1}$ obtenemos la sucesi\'on
+	\begin{displaymath}
+		\binaria{2,5,-1}\dispcomma\quad
+			\binaria{-1,5,2}\dispcomma\quad
+			\binaria{2,3,-3}\dispcomma\quad
+			\binaria{-3,3,2}\dispcomma\quad
+			\binaria{2,5,-1}\dispcomma\quad\dots
+	\end{displaymath}
+	%
+	A diferencia de lo que ocurre en el \ejemname~%
+	\ref{ejem:vecina:cuarenta} y en el \ejemname~%
+	\ref{ejem:vecina:cuarenta:principal} de formas de discriminante $40$,
+	las sucesiones de formas vecinas de discriminante $33$
+	\emph{no contienen} formas $\binaria{a,b,c}$ y $\binaria{-a,b,-c}$
+	simult\'aneamente.
+	% ; si $\binaria{a,b,c}$ es reducida,
+	% $\binaria{-a,b,-c}$ tambi\'en lo es, pero podr\'{\i}an
+	% no ser vecinas.
+\end{ejemIndefinidas}
+
+\begin{teoIndefinidas}\label{teo:indefinidas}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D>0$, no cuadrado. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:teo:indefinidas:vecina}
+			la operaci\'on $\rneigh$ induce una permutaci\'on
+			del conjunto (finito) de formas reducidas
+			de discriminante $D$;
+		\item\label{item:teo:indefinidas:reducida}
+			una forma de discriminante $D$ est\'a reducida,
+			si y s\'olo si existe $N\geq 1$ tal que $f_N=f$;
+		\item\label{item:teo:indefinidas:equivalencia}
+			dos formas de discriminante $D$ reducidas, $f$ y $g$,
+			son propiamente equivalentes, si y s\'olo si
+			existe $M\geq 0$ tal que $f_M=g$.
+	\end{enumerate}
+	%
+\end{teoIndefinidas}
+
+\begin{coroIndefinidas}\label{coro:indefinidas}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D>0$, no cuadrado y sea $f$ una
+	forma de discriminante $D$. Entonces,
+	\begin{enumerate}[(i)]
+		\item\label{item:coro:indefinidas:reduccion}
+			existe $m\geq 0$ tal que $f_m=\binaria{a,b,c}$
+			est\'a reducida y $|2a|<\sqrt D$;
+		\item\label{item:coro:indefinidas:orbita}
+			la sucesi\'on de formas vecinas $\{f_n\}_{n\geq 0}$
+			contiene s\'olo una cantidad finita de formas
+			distintas;
+		\item\label{item:coro:indefinidas:comparacion}
+			una forma de discriminante $D$, $g$, es propiamente
+			equivalente a $f$, si y s\'olo si existen
+			$M,N\geq 0$ tales que $f_M=g_N$.
+	\end{enumerate}
+	%
+	En particular, de \eqref{item:coro:indefinidas:reduccion},
+	se deduce que toda forma de discriminante $D$ es propiamente
+	equivalente a una forma reducida.
+\end{coroIndefinidas}
+
+\subsection*{Ejercicios}
+\input{./tex/formas/ejercicios-indefinidas.tex}
 
