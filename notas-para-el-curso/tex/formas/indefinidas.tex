@@ -325,45 +325,131 @@ Todos los elementos de la sucesi\'on son propiamente equivalentes a $f$.
 	% no ser vecinas.
 \end{ejemIndefinidas}
 
-\begin{teoIndefinidas}\label{teo:indefinidas}
-	Sea $D\equiv 0,1\tmodulo[4]$, $D>0$, no cuadrado. Entonces,
+% \begin{teoIndefinidas}\label{teo:indefinidas}
+	% Sea $D\equiv 0,1\tmodulo[4]$, $D>0$, no cuadrado. Entonces,
+	% \begin{enumerate}[(i)]
+		% \item\label{item:teo:indefinidas:vecina}
+			% la operaci\'on $\rneigh$ induce una permutaci\'on
+			% del conjunto (finito) de formas reducidas
+			% de discriminante $D$;
+		% \item\label{item:teo:indefinidas:reducida}
+			% una forma de discriminante $D$ est\'a reducida,
+			% si y s\'olo si existe $N\geq 1$ tal que $f_N=f$;
+		% \item\label{item:teo:indefinidas:equivalencia}
+			% dos formas de discriminante $D$ reducidas, $f$ y $g$,
+			% son propiamente equivalentes, si y s\'olo si
+			% existe $M\geq 0$ tal que $f_M=g$.
+	% \end{enumerate}
+	% %
+% \end{teoIndefinidas}
+% 
+% \begin{coroIndefinidas}\label{coro:indefinidas}
+	% Sea $D\equiv 0,1\tmodulo[4]$, $D>0$, no cuadrado y sea $f$ una
+	% forma de discriminante $D$. Entonces,
+	% \begin{enumerate}[(i)]
+		% \item\label{item:coro:indefinidas:reduccion}
+			% existe $m\geq 0$ tal que $f_m=\binaria{a,b,c}$
+			% est\'a reducida y $|a|<\sqrt D/2$;
+		% \item\label{item:coro:indefinidas:estabiliza}
+			% la sucesi\'on de formas vecinas $\{f_n\}_{n\geq 0}$
+			% contiene s\'olo una cantidad finita de formas
+			% distintas;
+		% \item\label{item:coro:indefinidas:comparacion}
+			% una forma de discriminante $D$, $g$, es propiamente
+			% equivalente a $f$, si y s\'olo si existen
+			% $M,N\geq 0$ tales que $f_M=g_N$.
+	% \end{enumerate}
+	% %
+	% En particular, de \eqref{item:coro:indefinidas:reduccion},
+	% se deduce que toda forma de discriminante $D$ es propiamente
+	% equivalente a una forma reducida.
+% \end{coroIndefinidas}
+
+\begin{lemaIndefinidas}\label{lema:indefinidas}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D>0$, no cuadrado.
 	\begin{enumerate}[(i)]
-		\item\label{item:teo:indefinidas:vecina}
-			la operaci\'on $\rneigh$ induce una permutaci\'on
-			del conjunto (finito) de formas reducidas
-			de discriminante $D$;
+		\item\label{item:lema:indefinidas:reduccion}
+			Si $f$ es una forma de discriminante $D$,
+			existe $m\geq 0$ tal que $f_m=\binaria{a,b,c}$
+			est\'a reducida y $|a|<\sqrt D/2$.
+		\item\label{item:lema:indefinidas:vecina}
+			La operaci\'on $\rneigh$ induce una permutaci\'on
+			del conjunto (finito) de formas reducidas de
+			discriminante $D$.
+	\end{enumerate}
+	%
+\end{lemaIndefinidas}
+
+\begin{proof}
+	Sea $f=\binaria{a,b,c}$ una forma indefinida de discriminante $D>0$
+	no cuadrado.
+	Sea $\{f_n\}_{n\geq 0}$ la sucesi\'on de formas vecias.
+	Por definici\'on, $a_{n+1}=c_n$, o, lo que es lo mismo,
+	podemos escribir $f_n=\binaria{a_n,b_n,a_{n+1}}$, para $n\geq 0$.
+	Como el conjunto de enteros positivos est\'a bien ordenado,
+	existen infinitos valores $m\geq 0$ tal que $|a_m|\leq |a_{m+1}|$.
+	Sin p\'erdida de generalidad, reemplazando $f$ por $f_m$
+	con $m\geq 1$, supongamos que $f$ satisface $|a|\leq |c|$ y
+	$\sqrt D-|2a|<b<\sqrt D$. Pero, entonces
+	\begin{displaymath}
+		0\,<\,\sqrt D-b\,<\,|2a|\,\leq\,|2c|\,=\,
+			\bigg|\frac{D-b^2}{2a}\bigg|\,<\,\big|\sqrt D+b\big|
+		\dispstop
+	\end{displaymath}
+	%
+	De estas desigualdades, deducimos que $b>0$, tambi\'en.
+	% ($0<\sqrt D-b<\big|\sqrt D+b\big|$).
+	En particuar, $b^2<D$ y
+	\begin{displaymath}
+		|2a|^2\,\leq\,|4ac|\,=\,D-b^2\,<\,D
+		\dispstop
+	\end{displaymath}
+	%
+	De esta manera, $|2a|<\sqrt D<\sqrt D+b$.
+	En definitiva, $\binaria{a,b,c}$ est\'a reducida y cumple con
+	$|a|<\sqrt D/2$. Esto prueba \eqref{item:lema:indefinidas:reduccion}.
+
+	En cuanto a \eqref{item:lema:indefinidas:vecina}, \dots
+\end{proof}
+
+\begin{teoIndefinidas}\label{teo:indefinidas:reducida}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D>0$, no cuadrado y sea $f$ una
+	forma de discriminante $D$.
+	\begin{enumerate}[(i)]
+		\item\label{item:teo:indefinidas:estabiliza}
+			La sucesi\'on $\{f_n\}_{n\geq 0}$ contiene s\'olo
+			una cantidad finita de formas distintas.
 		\item\label{item:teo:indefinidas:reducida}
-			una forma de discriminante $D$ est\'a reducida,
-			si y s\'olo si existe $N\geq 1$ tal que $f_N=f$;
-		\item\label{item:teo:indefinidas:equivalencia}
-			dos formas de discriminante $D$ reducidas, $f$ y $g$,
-			son propiamente equivalentes, si y s\'olo si
-			existe $M\geq 0$ tal que $f_M=g$.
+			La forma $f$ est\'a reducida,
+			si y s\'olo si existe $N\geq 1$ tal que $f_N=f$.
 	\end{enumerate}
 	%
 \end{teoIndefinidas}
 
-\begin{coroIndefinidas}\label{coro:indefinidas}
-	Sea $D\equiv 0,1\tmodulo[4]$, $D>0$, no cuadrado y sea $f$ una
-	forma de discriminante $D$. Entonces,
+\begin{proof}
+	\dots
+\end{proof}
+
+\begin{teoIndefinidas}\label{teo:indefinidas:comparacion}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D>0$, no cuadrado y
+	sean $f$ y $g$ formas de discriminante $D$.
 	\begin{enumerate}[(i)]
-		\item\label{item:coro:indefinidas:reduccion}
-			existe $m\geq 0$ tal que $f_m=\binaria{a,b,c}$
-			est\'a reducida y $|2a|<\sqrt D$;
-		\item\label{item:coro:indefinidas:orbita}
-			la sucesi\'on de formas vecinas $\{f_n\}_{n\geq 0}$
-			contiene s\'olo una cantidad finita de formas
-			distintas;
-		\item\label{item:coro:indefinidas:comparacion}
-			una forma de discriminante $D$, $g$, es propiamente
-			equivalente a $f$, si y s\'olo si existen
-			$M,N\geq 0$ tales que $f_M=g_N$.
+		\item\label{item:teo:indefinidas:comparacion:reducidas}
+			Si $f$ y $g$ est\'an reducidas, entonces
+			son propiamente equivalentes, si y s\'olo si
+			existe $M\geq 0$ tal que $f_M=g$.
+		\item\label{item:teo:indefinidas:comparacion}
+			En general, $f$ y $g$ son propiamente equivalentes,
+			si y s\'olo si existen $M,N\geq 0$ tales que
+			$f_M=g_N$.
 	\end{enumerate}
 	%
-	En particular, de \eqref{item:coro:indefinidas:reduccion},
-	se deduce que toda forma de discriminante $D$ es propiamente
-	equivalente a una forma reducida.
-\end{coroIndefinidas}
+\end{teoIndefinidas}
+
+\begin{proof}[\proofname~de~\eqref{item:teo:indefinidas:comparacion}]
+	Asumiendo \eqref{item:teo:indefinidas:comparacion:reducidas},
+	\dots
+\end{proof}
 
 \subsection*{Ejercicios}
 \input{./tex/formas/ejercicios-indefinidas.tex}
