@@ -33,3 +33,28 @@ lift_once(pol, s) = {
 	local ( t = lift(b^(-1) * (-lift(polevalua(pol, Mod(a,to))) / from)) );
 	return ( [a + from*t, p, j+1] );
 }
+
+lift_solutions(pol, L, from, upto) = {
+	/* in : {
+	 * pol : a polynomial given as a pair [f, indet];
+	 * L : a list of solutions to Mod(f(a),p^j)==0
+	 * (elements of L are s=[a,p,j]);
+	 * from, upto : nonnegative integers.
+	 * }
+	 * out : a list of solutions to Mod(f(x),p^upto)==0
+	 * such that Mod(x,p^from)==Mod(a,p^from) for some [a,p,j] in L.
+	 */
+	 local ( l = length(L) );
+	 local ( s, a, p );
+	 for ( j = from, upto, \
+		 for ( i = 0, l - 1, \
+		 	s = listpop(L);
+			a = s[1];
+			p = s[2];
+			for ( t = 0, p - 1, \
+			);
+		);
+	);
+	 return ( L );
+}
+

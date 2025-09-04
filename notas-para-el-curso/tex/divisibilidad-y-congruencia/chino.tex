@@ -102,7 +102,7 @@ de tales restricciones en simult\'aneo?
 	$x=5+7u$ con $u\equiv -6\tmodulo[11]$, o sea, $u=-6+11k$,
 	$k\in\Enteros$. Es decir, el conjunto soluci\'on es:
 	\begin{displaymath}
-		\big\{x=5+77k\,:\,k\in\Enteros\big\}
+		\big\{x=40+77k\,:\,k\in\Enteros\big\}
 		\dispstop
 	\end{displaymath}
 	%
@@ -360,17 +360,17 @@ a potencias.%
 \end{coroChino}
 
 \begin{proof}
-	Cada soluci\'on $x\in\Enteros$ de $f(x)\equiv a\tmodulo[m]$
-	da lugar a una soluci\'on de $f(x)\equiv a\tmodulo[m_1]$ y a
-	una soluci\'on de $f(x)\equiv a\tmodulo[m_2]$ (el mismo entero sirve).
+	Cada soluci\'on $x\in\Enteros$ de $f(x)\equiv 0\tmodulo[m]$
+	da lugar a una soluci\'on de $f(x)\equiv 0\tmodulo[m_1]$ y a
+	una soluci\'on de $f(x)\equiv 0\tmodulo[m_2]$ (el mismo entero sirve).
 	En la otra direcci\'on,
 	cada par de soluciones $x_1,x_2\in\Enteros$ m\'odulo $m_1$ y
 	m\'odulo $m_2$, respectivamente, es decir, enteros que satisfacen
-	$f(x_1)\equiv a\tmodulo[m_1]$ y $f(x_2)\equiv a\tmodulo[m_2]$,
+	$f(x_1)\equiv 0\tmodulo[m_1]$ y $f(x_2)\equiv 0\tmodulo[m_2]$,
 	dan lugar a un $x\in\Enteros$ que verifica
 	$x\equiv x_1\tmodulo[m_1]$ y $x\equiv x_2\tmodulo[m_2]$.
 	Dicho entero es \'unico m\'odulo $m$ (\teoname~\ref{teo:chino})
-	y verifica $f(x)\equiv a\tmodulo[m]$ (tambi\'en por
+	y verifica $f(x)\equiv 0\tmodulo[m]$ (tambi\'en por
 	\teoname~\ref{teo:chino}, aplicado al entero $f(x)$).
 \end{proof}
 
@@ -403,7 +403,7 @@ a potencias.%
 
 \begin{ejemChino}\label{ejem:chino:polinomial:veinticiete}
 	Vimos que $x^2+x+7\equiv 0\tmodulo[3]$ tiene una \'unica
-	soluci\'on m\'odulo $3$ ?`Cu\'antas soluciones m\'odulo $189$ hay?
+	soluci\'on m\'odulo $3$ ?`Cu\'antas soluciones m\'odulo $63$ hay?
 	En primer lugar, factorizamos $63=9\cdot 7$ y resolvemos
 	las congruencias m\'odulo $9$ y m\'odulo $7$ por separado.
 	Dado que hay soluciones m\'odulo $3$, \emph{es posible que haya}
