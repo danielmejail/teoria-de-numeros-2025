@@ -1,0 +1,65 @@
+\theoremstyle{plain}
+\newtheorem{teoMotivaReciprocidad}{\teoname}[section]
+\newtheorem{lemaMotivaReciprocidad}[teoMotivaReciprocidad]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{obsMotivaReciprocidad}[teoMotivaReciprocidad]{\obsname}
+
+%-------------
+
+El objetivo de esta parte ser\'a describir, dado un entero $D$,
+el conjunto de n\'umeros primos que son representados por alguna
+forma cuadr\'atica de discriminante $D$.
+El primer paso en esta direcci\'on se resume de la siguiente manera.
+
+\begin{obsMotivaReciprocidad}\label{obs:motiva-reciprocidad}
+	Sea $D\in\Enteros$, $D\equiv 0,1\tmodulo[4]$ y sea $p$
+	un primo (positivo) impar. Las afirmaciones siguientes
+	son equivalentes:
+	\begin{enumerate}[(a)]
+		\item\label{item:motiva-reciprocidad:representado}
+			existe una forma cuadr\'atica de discriminante
+			$D$ que representa $p$;
+		\item\label{item:motiva-reciprocidad:residuo}
+			la congruencia $x^2\equiv D\tmodulo[p]$ admite
+			una soluci\'on.
+	\end{enumerate}
+	%
+\end{obsMotivaReciprocidad}
+
+El siguiente resultado importante, es la Ley de Reciprocidad
+cuadr\'atica.
+
+\begin{lemaMotivaReciprocidad}\label{lema:motiva-reciprocidad}
+	Sean $p$ y $q$ primos (positivos) impares, distintos.
+	Entonces, la congruencia $x^2\equiv q\tmodulo[p]$
+	tiene soluci\'on, si y s\'olo si la congruencia
+	$x^2\equiv p\tmodulo[q]$ tiene soluci\'on,
+	salvo que $p\equiv q\equiv 3\tmodulo[4]$, en cuyo
+	caso, exactamente una de las dos congruencias
+	tiene soluci\'on.
+\end{lemaMotivaReciprocidad}
+
+En este contexto, podemos entender Reciprocidad como un lema
+t\'ecnico clave para probar el resultado definitivo.
+
+\begin{teoMotivaReciprocidad}\label{teo:motiva-reciprocidad}
+	Sea $a$ un entero no cuadrado. Entonces, existe un
+	morfismo sobreyectivo de grupos
+	$\chi:\,\Unidadesmod[4a]\rightarrow\{\pm 1\}$ con la
+	siguiente propiedad:
+	si $p$ es un primo (positivo) impar que no divide a $a$,
+	entonces la congruencia $x^2\equiv a\tmodulo[p]$ tiene
+	soluci\'on, si y s\'olo si $\chi(p)=1$.
+\end{teoMotivaReciprocidad}
+
+Una de las caracter\'{\i}sticas m\'as importantes del \teoname~%
+\ref{teo:motiva-reciprocidad} (o, mejor dicho, de la existencia de $\chi$)
+es que la condici\'on sobre el primo $p$ de que
+$x^2\equiv a\tmodulo[p]$ admita una soluci\'on se puede expresar como
+una condici\'on sobre la clase de congruencia de $p$ m\'odulo $4a$.
+Es decir, dados $p$ y $p'$ primos positivos impares que no dividen a $a$,
+si $p\equiv p'\tmodulo[4a]$, entonces $x^2\equiv a\tmodulo[p]$
+tiene soluci\'on, si y s\'olo si $x^2\equiv a\tmodulo[p']$ tiene soluci\'on.
+Esto es as\'{\i}, porque, si $p\equiv p'$, entonces $\chi(p)=\chi(p')$.
+
