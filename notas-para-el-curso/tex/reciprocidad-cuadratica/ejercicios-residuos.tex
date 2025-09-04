@@ -65,3 +65,107 @@
 	%
 \end{ejerResiduos}
 
+\begin{ejerResiduos}\label{ejer:residuos:generador}
+	Sea $p$ un primo impar y sea $g\in\Enteros$ tal que
+	$g^{p-1}\equiv 1\tmodulo[p]$, pero $g^k\not\equiv 1\tmodulo[p]$
+	para $1\leq k\leq p-2$.
+	Probar que $\tlegendre g p =-1$.
+\end{ejerResiduos}
+
+\begin{ejerResiduos}\label{ejer:residuos:minimo-noresiduo}
+	Sea $p$ un primo impar. Probar que el m\'{\i}nimo
+	entero positivo no residuo m\'odulo $p$ es un n\'umero primo.
+\end{ejerResiduos}
+
+\begin{ejerResiduos}\label{ejer:residuos:residuos-consecutivos}%
+	\hint{
+		Separar en los tres casos:
+		\begin{itemize}
+			\item $\tlegendre 2 p=1$,
+			\item $\tlegendre 5 p=1$ y
+			\item $\tlegendre 2 p=\tlegendre 5 p=-1$.
+		\end{itemize}
+		%
+	}
+	Probar que para todo primo impar $p\geq 7$, existe
+	$n\in\Enteros$, $1\leq n\leq 9$ tal que
+	\begin{displaymath}
+		\legendre n p \,=\,\legendre{n+1} p\,=\,1
+	\end{displaymath}
+	%
+\end{ejerResiduos}
+
+\begin{ejerResiduos}%
+	\hint{
+		Notar que existen $a,u\in\Enteros$ tales que
+		$2\mid a$, $1\leq a\leq p-1$ y $a^2=5+up$.
+		Separar en casos $5\nmid u$ y $5\mid u$.
+	}
+	Sea $p\neq 5$ un primo (positivo) impar, tal que
+	$\tlegendre 5 p=1$. Probar que, entonces,
+	$p\equiv\pm 1\tmodulo[5]$.
+\end{ejerResiduos}
+
+\begin{ejerResiduos}\label{ejer:residuos:gauss}
+	Dado un primo (positivo) impar $p$, definimos los conjuntos:
+	\begin{displaymath}
+		\begin{aligned}
+			RN & \,=\,
+				\cardinal{\Big\{ n\in\Enteros\,:\,1\leq n\leq p-2,\,\tlegendre n p=1,\,\tlegendre{n+1} p=-1\Big\}}
+				\dispcomma \\
+			RR & \,=\,
+				\cardinal{\Big\{ n\in\Enteros\,:\,1\leq n\leq p-2,\,\tlegendre n p=1,\,\tlegendre{n+1} p=1\Big\}}
+				\dispcomma \\
+			NR & \,=\,
+				\cardinal{\Big\{ n\in\Enteros\,:\,1\leq n\leq p-2,\,\tlegendre n p=-1,\,\tlegendre{n+1} p=1\Big\}}
+				\dispand \\
+			NN & \,=\,
+				\cardinal{\Big\{ n\in\Enteros\,:\,1\leq n\leq p-2,\,\tlegendre n p=-1,\,\tlegendre{n+1} p=-1\Big\}}
+				\dispstop
+		\end{aligned}
+		%
+	\end{displaymath}
+	%
+	Probar las siguientes afirmaciones.
+	\begin{enumerate}[(i)]
+		\item\label{item:residuos:gauss:i}
+			Se cumple que
+			\begin{displaymath}
+				RR+RN\,=\,\left\{
+					\begin{cases}
+						-1+(p-1)/2\dispcomma &
+							\text{si }
+							p\equiv 1\tmodulo[4]
+							\dispand \\
+						(p-1)/2\dispcomma &
+							\text{si }
+							p\equiv 3\tmodulo[4]
+							\dispstop
+					\end{cases}
+					%
+			\end{displaymath}
+			%
+			Demostrar f\'ormulas para
+			$NR+NN$, $RR+NR$ y para $RN+NN$.
+		\item\label{item:residuos:gauss:ii}
+			Se cumple que
+			$RR+NN-RN-NR=-1$.
+		\item\label{item:residuos:gauss:iii}
+			Se cumple que
+			\begin{displaymath}
+				(RR,RN,NR,NN)\,=\,
+					\begin{cases}
+						(x-1,x,x,x)\dispcomma &
+							\text{si }
+							p=4x+1\dispand \\
+						(x,x+1,x,x)\dispcomma &
+							\text{si }
+							p=4x+3\dispstop
+					\end{cases}
+					%
+			\end{displaymath}
+			%
+	\end{enumerate}
+	%
+\end{ejerResiduos}
+
