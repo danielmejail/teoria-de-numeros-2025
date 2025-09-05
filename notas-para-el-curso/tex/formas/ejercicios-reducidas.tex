@@ -1,9 +1,9 @@
 \theoremstyle{definition}
-\newtheorem{ejerReducidas}{\ejername}[section]
+\newtheorem{ejerDefinidas}{\ejername}[section]
 
 %-------------
 
-% \begin{ejerReducidas}
+% \begin{ejerDefinidas}
 	% Probar que, en la demostraci\'on del \teoname~%
 	% \ref{teo:reducidas:numero}, la cota para el coeficiente $a$ es:
 	% \begin{itemize}
@@ -11,9 +11,9 @@
 		% \item $a\leq \sqrt{|D|/3}$, si $D<0$.
 	% \end{itemize}
 	% %
-% \end{ejerReducidas}
+% \end{ejerDefinidas}
 
-\begin{ejerReducidas}\label{ejer:reducidas:numero}
+\begin{ejerDefinidas}\label{ejer:definidas:numero}
 	Sea $\binaria{a,b,c}$ una forma cuadr\'atica que verifica
 	$|b|\leq |a|\leq |c|$ y sea $D=b^2-4ac$ su discriminante.
 	Probar que,%
@@ -21,18 +21,18 @@
 		Ver el \ejemname~\ref{ejem:reducidas}.
 	}
 	\begin{enumerate}[(A)]
-		\item\label{ejer:reducidas:numero:indefinida}
+		\item\label{ejer:definidas:numero:indefinida}
 			si $D>0$, entonces $0\leq |a|\leq\sqrt{D/4}$ y que,
-		\item\label{ejer:reducidas:numer:definida}
+		\item\label{ejer:definidas:numer:definida}
 			si $D<0$, entonces $0<a\leq\sqrt{|D|/3}$.
 	\end{enumerate}
 	%
 	Concluir, como consecuencia del \lemaname~\ref{lema:reducidas},
 	que el n\'umero de clases de formas cuadr\'aticas de
 	discriminante no cuadrado es finito.
-\end{ejerReducidas}
+\end{ejerDefinidas}
 
-\begin{ejerReducidas}\label{ejer:reducidas:equivalencia}
+\begin{ejerDefinidas}\label{ejer:definidas:equivalencia}
 	Probar que $\binaria{a,b,c}$ es propiamente equivalente a
 	las formas:
 	\begin{displaymath}
@@ -43,18 +43,18 @@
 	Mostrar que $\binaria{a,b,c}$ y $\binaria{a,-b,c}$ son
 	equivalentes, pero no necesariamente propiamente equivalentes
 	(asumir que $D<0$).
-\end{ejerReducidas}
+\end{ejerDefinidas}
 
-\begin{ejerReducidas}\label{ejer:reducidas:equivalencia:caso}
+\begin{ejerDefinidas}\label{ejer:definidas:equivalencia:caso}
 	Probar que $\binaria{a,-a,c}$ y $\binaria{a,a,c}$ son
 	propiamente equivalentes.
 	% $(x+y,y)$
-\end{ejerReducidas}
+\end{ejerDefinidas}
 
-\begin{ejerReducidas}\label{ejer:reducidas:cota}
+\begin{ejerDefinidas}\label{ejer:definidas:cota}
 	Sea $f=\binaria{a,b,c}$ una forma cuadr\'atica. Probar que
 	\begin{enumerate}[(i)]
-		\item\label{item:ejer:reducidas:cota:i}
+		\item\label{item:ejer:definidas:cota:i}
 			si $|b|\leq a\leq c$, entonces
 			\begin{displaymath}
 				|f(x,y)|\,\geq\,
@@ -63,60 +63,41 @@
 				\disptext{y que}
 			\end{displaymath}
 			%
-		\item\label{item:ejer:reducidas:cota:ii}
+		\item\label{item:ejer:definidas:cota:ii}
 			si $|b|<a<c$,
 			las \'unicas representaciones primitivas
 			$f(x,y)=a$ son $(x,y)=(\pm 1,0)$ y
 			las \'unicas representaciones primitivas
 			$f(x,y)=c$ son $(x,y)=(0,\pm 1)$
-		\item\label{item:ejer:reducidas:cota:iii}
+		\item\label{item:ejer:definidas:cota:iii}
 			?`Qu\'e se puede decir en los casos $|b|=a<c$ y
 			$|b|<a=c$?
 	\end{enumerate}
 	%
-\end{ejerReducidas}
+\end{ejerDefinidas}
 
-\begin{ejerReducidas}
+\begin{ejerDefinidas}
 	Hallar condiciones sobre un primo impar $p$ que garantizan
 	que $p=x^2+ny^2$, para $n\in\{1,2,3,4,7\}$ (el caso
 	$n=7$ lo hicimos en el \ejemname~\ref{ejem:reducidas}).
-\end{ejerReducidas}
+\end{ejerDefinidas}
 
-\begin{ejerReducidas}
+\begin{ejerDefinidas}
 	Hallar la forma reducida propiamente equivalente a
 	$\binaria{126,74,13}$.
-\end{ejerReducidas}
+\end{ejerDefinidas}
 
-\begin{ejerReducidas}\label{ejer:reducidas:varios}
+\begin{ejerDefinidas}\label{ejer:definidas:varios}
 	Determinar las formas primitivas reducidas de discriminantes
 	$-20$, $-56$, $-3$, $-15$, $-24$, $-31$, $-52$.
-\end{ejerReducidas}
+\end{ejerDefinidas}
 
-\begin{ejerReducidas}\label{ejer:reducidas:representaciones}
-	Sea $p$ un n\'umero primo y sean $f$ y $f_1$ formas
-	cuadr\'aticas de igual discriminante que representan,
-	ambas, $p$. Probar que $f$ y $f_1$ son equivalentes
-	(pero no necesariamente propiamente equivalentes).
-\end{ejerReducidas}
-
-\begin{ejerReducidas}\label{ejer:reducidas:representaciones:bis}
+\begin{ejerDefinidas}\label{ejer:definidas:representaciones}
 	Probar que, si $f=ax^2+cy^2$ y $f_1$ es una forma
 	equivalente a $f$, entonces $f_1$ es propiamente
 	equivalente a $f$. Concluir que, si $f=x^2+ny^2$ y
 	$f_1$ es una forma reducida equivalente a $f$, entonces
 	$f_1=f$.
-\end{ejerReducidas}
+\end{ejerDefinidas}
 
-\begin{ejerReducidas}\label{ejer:reducidas:representaciones:bisbis}
-	Probar que, si $f$ es una forma de discriminante $D$ que
-	representa $1$, entonces $f$ es propiamente equivalente a
-	$\binaria{1,0,-D/4}$, si $D\equiv 0$, o a
-	$\binaria{1,1,(1-D)/4}$, si $D\equiv 1$.%
-	\hint{
-		Mostrar que toda forma $f$ es propiamente equivalente
-		a una forma $\binaria{a,b,c}$ donde $a$ es el
-		menor entero positivo primitivamente representado por $f$
-		y $|b|\leq a$.
-	}
-\end{ejerReducidas}
 

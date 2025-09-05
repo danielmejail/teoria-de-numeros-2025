@@ -1,0 +1,43 @@
+\theoremstyle{definition}
+\newtheorem{ejerRepresentaciones}{\ejername}[section]
+
+%-------------
+
+\begin{ejerRepresentaciones}\label{ejer:representaciones:kronecker}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D\neq 0$, y sea $p$
+	un n\'umero primo. Las siguientes afirmaciones
+	son equivalentes.%
+	\footnote{
+		El caso $p=2$ es especial.
+	}
+	\begin{enumerate}[(a)]
+		\item\label{item:ejer:representaciones:kronecker:representable}
+			Existe una forma cuadr\'atica de discriminante
+			$D$ que representa $p$.
+		\item\label{item:ejer:representaciones:kronecker:nucleo}
+			O bien $p\mid D$, o bien $p\nmid D$ y
+			$\varkronecker[D](p)=1$.
+	\end{enumerate}
+	%
+\end{ejerRepresentaciones}
+
+\begin{ejerRepresentaciones}\label{ejer:representaciones:equivalentes:primo}
+	Sea $p$ un n\'umero primo y sean $f$ y $f_1$ formas
+	cuadr\'aticas de igual discriminante que representan,
+	ambas, $p$. Probar que $f$ y $f_1$ son equivalentes
+	(pero no necesariamente propiamente equivalentes).
+\end{ejerRepresentaciones}
+
+\begin{ejerRepresentaciones}\label{ejer:representaciones:equivalentes:uno}
+	Probar que, si $f$ es una forma de discriminante $D$ que
+	representa $1$, entonces $f$ es propiamente equivalente a
+	$\binaria{1,0,-D/4}$, si $D\equiv 0$, o a
+	$\binaria{1,1,(1-D)/4}$, si $D\equiv 1$.%
+	\hint{
+		Mostrar que toda forma $f$ es propiamente equivalente
+		a una forma $\binaria{a,b,c}$ donde $a$ es el
+		menor entero positivo primitivamente representado por $f$
+		y $|b|\leq a$.
+	}
+\end{ejerRepresentaciones}
+
