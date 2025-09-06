@@ -100,4 +100,129 @@
 	$f_1=f$.
 \end{ejerDefinidas}
 
+\begin{ejerDefinidas}\label{ejer:definidas:menos-veinte}
+	En este \ejername estudiaremos represantabilidad por formas
+	de discriminante $-20$.
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:definidas:menos-veinte:i}
+			Sea $p\neq 2,5$ un n\'umero primo.
+			\begin{enumerate}[(a)]
+				\item Probar que $p$ es representado
+					por una forma de disriminante
+					$-20$, si y s\'olo si
+					$p\equiv 1,3,7,9\tmodulo[20]$.
+				\item Probar que $p$ es representado
+					por $x^2+5y^2$, si y s\'olo si
+					$p\equiv 1,9\tmodulo[20]$ y que
+					es representado por
+					$2x^2+2xy+3y^2$, si y s\'olo si
+					$p\equiv 3,7\tmodulo[20]$.
+			\end{enumerate}
+			%
+		\item\label{item:ejer:definidas:menos-veinte:ii}
+			Verificar la identidad
+			\begin{displaymath}
+				\big(2x^2+2xy+3y^2\big)\,
+				\big(2z^2+2zw+3w^2\big)\,=\,
+				\big(\big)^2\,+\,
+				5\,\big(\big)^2
+				\dispstop
+			\end{displaymath}
+			%
+		\item\label{item:ejer:definidas:menos-veinte:iii}
+			Si
+			\begin{math}
+				m=5^b\,
+				\big(p_1^{c_1}\,\cdots\,p_r^{c_r}\big)\,
+				\big(q_1^{d_1}\,\cdots\,q_s^{d_s}\big)\,
+				\big(u_1^{e_1}\,\cdots\,u_t^{e_t}\big)
+			\end{math}
+			es la factorizaci\'on de $m$ como producto de
+			primos a potencias, donde
+			$p_i\equiv 1,9\tmodulo[20]$,
+			$q_j\equiv 3,7\tmodulo[20]$,
+			la suma $d_1+\,\cdots\,+d_s$ es par y
+			los $e_k$ son pares, \emph{entonces}
+			$m$ es representado por $x^2+5y^2$.
+	\end{enumerate}
+	%
+\end{ejerDefinidas}
+
+\begin{ejerDefinidas}\label{ejer:definidas:menos-doce}
+	Sea $p\equiv 1\tmodulo[12]$ un primo.
+	\begin{enumerate}[(i)]
+		\item\label{item:ejer:definidas:menos-doce:i}
+			Probar que existen enteros $a,b,t,u>0$,
+			$a$ y $t$ impares, $b$ y $u$ pares, tales que
+			$p=a^2+b^2=t^2+3u^2$.
+		\item\label{item:ejer:definidas:menos-doce:ii}
+			Probar que, con la notaci\'on de
+			\eqref{item:ejer:definidas:menos-doce:i},
+			\begin{displaymath}
+				(-3)^{(p-1)/4}\,\equiv\,
+					(-1)^{(t-1)/2}\,\legendre 2 p\,
+						\legendre t 3
+						\modulo[p]
+				\dispstop
+			\end{displaymath}
+			%
+			% Probar que
+			% $\tlegendre t p =(-1)^{(t-1)/2}\,\tlegendre t 3$
+			% y que
+			% $\tlegendre u p = \tlegendre 2 p$.
+		\item\label{item:ejer:definidas:menos-doce:iii}
+			Probar que $3\mid a$ o $3\mid b$, pero no ambas.
+		\item\label{item:ejer:definidas:menos-doce:iv}
+			Probar que $(t+b)\,(t-b)=a^2-3u^2$.
+		\item\label{item:ejer:definidas:menos-doce:v}
+			Suponiendo que $3\mid b$, probar que
+			\begin{enumerate}[(a)]
+				\item $3\nmid t+b$,
+				\item
+					\begin{math}
+						\tlegendre t 3 =
+						\tlegendre{(t+b)} 3=
+						(-1)^{(t-1)/2}\,\tlegendre 2 p
+					\end{math} y
+				\item $(-3)^{(p-1)/4}\equiv 1\tmodulo[p]$.
+			\end{enumerate}
+			%
+		\item\label{item:ejer:definidas:menos-doce:vi}
+			Suponiendo que $3\mid a$, probar que
+			\begin{enumerate}[(a)]
+				\item
+					\begin{math}
+						-\tlegendre t 3=
+						\tlegendre{(t\pm b)} 3=
+						(-1)^{(t-1)/2}\,\tlegendre 2 p
+					\end{math},
+					eligiendo $\pm$ de manera que
+					$3\nmid t\pm b$, y
+				\item $(-3)^{(p-1)/4}\equiv -1\tmodulo[p]$.
+			\end{enumerate}
+			%
+		\item\label{item:ejer:definidas:menos-doce:vii}
+			Probar que $p\equiv 1\tmodulo[12]$, primo,
+			\begin{enumerate}[(A)]
+				\item es representado por $x^2+36y^2$,
+					si (y s\'olo si) la congruencia
+					$x^4\equiv -3\tmodulo[p]$ tiene
+					soluci\'on, o bien
+				\item es representado por $9x^2+4y^2$,
+					si (y s\'olo si) la congruencia
+					$x^4\equiv -3\tmodulo[p]$
+					\emph{no tiene} soluci\'on.
+			\end{enumerate}
+			%
+	\end{enumerate}
+	%
+	(Para el \'{\i}tem~\eqref{item:ejer:definidas:menos-doce:vii}
+	sirve conocer la estructura del grupo $\Unidadesmod[p]$,
+	es decir, que es \emph{c\'{\i}clico}; como $p\equiv 1\tmodulo[12]$,
+	la condici\'on $(-3)^{(p-1)/4}\equiv 1\tmodulo[p]$ equivale a
+	que $x^4\equiv -3\tmodulo[p]$ tenga soluci\'on (y, en el caso en que
+	tiene soluci\'on, tiene $4$ soluciones)).
+	% ?`Se puede concluir de esto que $-3$ no es una ra\'{\i}z primitiva
+	% m\'odulo $p$, si $p\equiv 1\tmodulo[12]$?
+\end{ejerDefinidas}
 
