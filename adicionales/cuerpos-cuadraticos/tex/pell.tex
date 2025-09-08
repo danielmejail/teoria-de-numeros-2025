@@ -1,0 +1,200 @@
+\theoremstyle{plain}
+\newtheorem{teoPell}{\teoname}[section]
+\newtheorem{lemaPell}[teoPell]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{obsPell}[teoPell]{\obsname}
+\newtheorem{ejemPell}[teoPell]{\ejemname}
+
+%-------------
+
+\subsection{Un ejemplo}\label{subsec:pell:dos}
+?`Qu\'e significa resolver la ecuaci\'on
+\begin{equation}
+	\label{eq:pell:dos:raiz}
+	z^2\,=\,2
+	\text{ ?}
+\end{equation}
+%
+Desde un punto de vista geom\'etrico, la soluci\'on de
+\eqref{eq:pell:dos:raiz} ``es'' la longitud de la diagonal de un
+cuadrado de lados de longitud $1$.
+La ecuaci\'on \eqref{eq:pell:dos:raiz} no tiene soluciones racionales.
+El argumento se puede separar en dos partes.
+Por un lado, el conjunto
+\begin{displaymath}
+	\big\{y\in\Enteros\,:\,y\geq 0,\,
+		z=x/y\text{ cumple }\eqref{eq:pell:dos:raiz} \big\}
+\end{displaymath}
+%
+tiene un primer elemento, o bien es vac\'{\i}o.
+Por otro, si $z=x/y$ cumple \eqref{eq:pell:dos:raiz}, entonces,
+por Factorizaci\'on \'unica, $2\mid x$, $4\mid 2y^2$ y $2\mid y$,
+y, as\'{\i}, $z=x'/y'$, con $x'=x/2$ e $y'=y/2$. Pero, entonces,
+$|y'|<|y|$.
+
+Aunque \eqref{eq:pell:dos:raiz} no tenga soluciones racionales,
+podemos buscar aproximaciones a una soluci\'on.
+En primer lugar, la resolubilidad de la ecuaci\'on \eqref{eq:pell:dos:raiz}
+con $z\in\Racionales$, equivale a la resolubilidad de
+\begin{equation}
+	\label{eq:pell:dos:raiz:bis}
+	x^2\,=\,2y^2
+\end{equation}
+%
+con $x,y\in\Enteros$ ($y\neq 0$). En el plano cartesiano real,
+\eqref{eq:pell:dos:raiz:bis} describe dos rectas:
+$x=y\sqrt 2$ y $x=-y\sqrt 2$, que se cortan en $(0,0)$.
+La ecuaci\'on
+\begin{equation}
+	\label{eq:pell:dos}
+	x^2-2y^2\,=\,1
+\end{equation}
+%
+describe una hip\'erbola que tiene a la recta $x=y\sqrt 2$ como
+as\'{\i}ntota. En particular, los pares $(x,y)$ que verifican
+\eqref{eq:pell:dos} se pueden interpretar como aproximaciones a
+$\sqrt 2$: si $x,y>0$ son soluciones a \eqref{eq:pell:dos}, entonces
+\begin{displaymath}
+	(x/y)^2\,-\,2\,=\,1/y^2
+	\dispstop
+\end{displaymath}
+%
+As\'{\i}, con $y\to\infty$, el valor $z=x/y$ tiende a $\sqrt 2$.
+La ventaja de \eqref{eq:pell:dos} por sobre \eqref{eq:pell:dos:raiz:bis}
+es que admite soluciones $x,y\in\Enteros$.
+
+Una soluci\'on a \eqref{eq:pell:dos} es $(x,y)=(1,0)$.
+Otra soluci\'on es $(x,y)=(3,2)$.
+Toda otra soluci\'on se puede ``deducir'' de esta \'ultima.
+Esto sugiere que deber\'{\i}a haber cierta estructura en el conjunto
+de soluciones a \eqref{eq:pell:dos} que explique este fen\'omeno.
+Se verifica la siguiente identidad:
+\begin{equation}
+	\label{eq:pell:dos:identidad}
+	(uU+2vV)^2\,-\,2\,(uV+vU)^2\,=\,
+		\big(u^2-2v^2\big)\,\big(U^2-2V^2\big)
+	\dispcomma
+\end{equation}
+%
+de lo que se deduce que,
+si $(u,v)$ y $(U,V)$ resuelven \eqref{eq:pell:dos},%
+\footnote{
+	Notar que no estamos diciendo nada acerca de ``d\'onde''
+	pueden tomar valores las inc\'ognitas $u$, $v$, $U$ y $V$.
+}
+entonces podemos construir una nueva soluci\'on:
+\begin{equation}
+	\label{eq:pell:dos:multiplicar}
+	(u,v)\cdot (U,V)\,=\,\big(uU+2vV,uV+vU\big)
+	\dispstop
+\end{equation}
+%
+Es decir, $(x,y):=(u,v)\cdot (U,V)$ tambi\'en es soluci\'on
+de \eqref{eq:pell:dos}.%
+\footnote{
+	Adem\'as, las coordenadas $x,y$ son funciones bilineales
+	de las coordenadas $u,v$ y $U,V$.
+}
+La operaci\'on \eqref{eq:pell:dos:multiplicar} verifica:
+\begin{displaymath}
+	\begin{aligned}
+		(u,v)\cdot (U,V) & \,=\,(U,V)\cdot (u,v)\dispcomma \\
+		(1,0)\cdot (U,V) & \,=\,(U,V)\dispcomma \\
+		(u,v)\cdot (1,0) & \,=\,(u,v)\dispcomma \\
+		(x,y)\cdot\big((u,v)\cdot (U,V)\big) & \,=\,
+			\big((x,y)\cdot (u,v)\big)\cdot (U,V)\dispand \\
+		(3,2)\cdot (3,-2) & \,=\,(1,0)\dispstop
+	\end{aligned}
+	%
+\end{displaymath}
+%
+
+\begin{teoPell}\label{teo:pell:dos}
+	Sea $(x_1,y_1)=(3,2)$ y, para $n>1$, definimos
+	$(x_n,y_n)=(3,2)\cdot (x_{n-1},y_{n-1})$.
+	\begin{enumerate}[(i)]
+		\item\label{item:pell:dos:soluciones}
+			Dados enteros $u,v>0$ tales que
+			$u^2-2v^2=1$, existe $n\geq 1$ tal que
+			$(u,v)=(x_n,y_n)$.
+		\item\label{item:pell:dos:matricial}
+			La sucesi\'on $(x_n,y_n)$ verifica
+			\begin{displaymath}
+				\begin{bmatrix}
+					x_n \\ y_n
+				\end{bmatrix}\,=\,
+				\begin{bmatrix}
+					3 & 4 \\ 2 & 3
+				\end{bmatrix}^n\,
+				\begin{bmatrix} 1 \\ 0 \end{bmatrix}
+				\dispstop
+			\end{displaymath}
+			%
+		\item\label{item:pell:dos:cuadratico}
+			La sucesi\'on $(x_n,y_n)$ verifica
+			\begin{displaymath}
+				x_n+y_n\sqrt 2\,=\,
+					(3+2\sqrt 2)^n
+				\dispstop
+			\end{displaymath}
+			%
+		\item\label{item:pell:dos:aproxima}
+			Dados enteros $x,y>0$ tales que $x^2-2y^2=1$,
+			se cumple
+			\begin{displaymath}
+				\left|\frac x y\,-\,\sqrt 2\right|\,<\,
+					\frac 1{2\sqrt 2 y^2}
+				\dispstop
+			\end{displaymath}
+			%
+		\item\label{item:pell:dos:aproxima:reciproca}
+			Dados enteros $x,y>0$ tales que $|x/y-\sqrt 2|<1/2y^2$,
+			se cumple $|x^2-2y^2|=1$. Rec\'{\i}procamente,
+			si $|x^2-2y^2|=1$, entonces $|x/y-\sqrt 2|<1/2y^2$.
+	\end{enumerate}
+	%
+\end{teoPell}
+
+\begin{proof}
+	En cuanto a \eqref{item:pell:dos:soluciones},
+	notamos que no hay soluciones con $v=1$ y que, con $v=2$,
+	la soluci\'on en enteros positivos es $(3,2)$. Si $(u,v)$ es
+	soluci\'on con $u>0$ y $v>2$, entonces
+	\begin{displaymath}
+		(3,-2)\cdot (u,v)\,=\,(3u-4v,3v-2u)
+		\dispstop
+	\end{displaymath}
+	%
+	Pero,
+	\begin{displaymath}
+		3v-2u\,=\,\frac{9v^2-4u^2}{3v+2u}\,=\,
+			\frac{v^2-4}{3v+2u}
+	\end{displaymath}
+	%
+	muestra que $0<3v-2u<v$ y $u^2=2v^2+1$ implica
+	$u>v\sqrt 2$, con lo que $3u-4v>(3\sqrt 2-4)\,v>0$.
+	Inductivamente, $(3,-2)\cdot(u,v)=(3,2)^n$.
+\end{proof}
+
+El \'{\i}tem \teoname~\ref{teo:pell:dos}~%
+\eqref{item:pell:dos:aproxima:reciproca}
+sugiere estudiar tambi\'en la ecuaci\'on
+\begin{equation}
+	\label{eq:pell:dos:negativa}
+	x^2\,-\,2y^2\,=\,-1
+	\dispstop
+\end{equation}
+%
+Se puede ver que $(1,1)$ es soluci\'on de \eqref{eq:pell:dos:negativa}.
+
+\begin{teoPell}\label{teo:pell:dos:negativa}
+	Dados enteros $u,v>0$ tales que $|u^2-2v^2|=1$, existe $n\geq 1$
+	tal que $(u,v)=(1,1)^n$.
+\end{teoPell}
+
+\begin{proof}
+	Se puede comprobar que $(3,2)=(1,1)^2$.
+\end{proof}
+
+\subsection{Existencia de soluciones}\label{subsec:pell:existencia}

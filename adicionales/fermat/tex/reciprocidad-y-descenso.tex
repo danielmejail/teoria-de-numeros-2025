@@ -1,5 +1,5 @@
 \theoremstyle{plain}
-\newtheorem{teoFermat}{\teoname}[section]
+\newtheorem{teoFermat}{\teoname}%[section]
 \newtheorem{lemaFermat}[teoFermat]{\lemaname}
 
 \theoremstyle{definition}
@@ -8,48 +8,48 @@
 
 %-------------
 
-Usando el lenguaje desarrollado en la \partname~%
-\ref{pt:divisibilidad-y-congruencia}, podemos expresar algunas de las
-conjeturas de Fermat: si $p$ es un primo impar,
-\begin{displaymath}
-	\begin{aligned}
-		p\,=\,x^2+y^2\text{ ,}\quad x,y\in\Enteros\text{ ,}
-			& \quad\text{si y s\'olo si}\quad
-			p\,\equiv\,1\tmodulo[4] \\
-		p\,=\,x^2+2y^2\text{ ,}\quad x,y\in\Enteros\text{ ,}
-			& \quad\text{si y s\'olo si}\quad
-			p\,\equiv\,1\text{ o }3\tmodulo[8] \\
-		p\,=\,x^2+3y^2\text{ ,}\quad x,y\in\Enteros\text{ ,}
-			& \quad\text{si y s\'olo si}\quad
-			p=3\text{ o }p\,\equiv\,1\tmodulo[3]
-		\text{ .}
-	\end{aligned}
-	%
-\end{displaymath}
-%
-Tambi\'en tenemos la siguiente conjetura, un poco distinta de las tres
-anteriores: si $p$ y $q$ son primos impares distintos,
-\begin{displaymath}
-	p\text{ y }q\,\equiv\,3\text{ o }7\tmodulo[20]
-		\quad\text{implica}\quad
-		pq\,=\,x^2+5y^2\text{ ,}\quad x,y\in\Enteros
-	\text{ .}
-\end{displaymath}
-%
-Todas estas afirmaciones est\'an relacionadas con el problema de representar
-un n\'umero en la forma $x^2+ny^2$. La primera demostraci\'on de las primeras
-tres afirmaciones parece haber sido encontrada por Euler alrededor de cien
-a\~nos despu\'es de que Fermat las enunciara. La cuarta fue demostrada m\'as
-tarde por Lagrange. Ver \cite[pp.~7--9]{Cox}.
+% Usando el lenguaje desarrollado en la \partname~%
+% \ref{pt:divisibilidad-y-congruencia}, podemos expresar algunas de las
+% conjeturas de Fermat: si $p$ es un primo impar,
+% \begin{displaymath}
+	% \begin{aligned}
+		% p\,=\,x^2+y^2\text{ ,}\quad x,y\in\Enteros\text{ ,}
+			% & \quad\text{si y s\'olo si}\quad
+			% p\,\equiv\,1\tmodulo[4] \\
+		% p\,=\,x^2+2y^2\text{ ,}\quad x,y\in\Enteros\text{ ,}
+			% & \quad\text{si y s\'olo si}\quad
+			% p\,\equiv\,1\text{ o }3\tmodulo[8] \\
+		% p\,=\,x^2+3y^2\text{ ,}\quad x,y\in\Enteros\text{ ,}
+			% & \quad\text{si y s\'olo si}\quad
+			% p=3\text{ o }p\,\equiv\,1\tmodulo[3]
+		% \text{ .}
+	% \end{aligned}
+	% %
+% \end{displaymath}
+% %
+% Tambi\'en tenemos la siguiente conjetura, un poco distinta de las tres
+% anteriores: si $p$ y $q$ son primos impares distintos,
+% \begin{displaymath}
+	% p\text{ y }q\,\equiv\,3\text{ o }7\tmodulo[20]
+		% \quad\text{implica}\quad
+		% pq\,=\,x^2+5y^2\text{ ,}\quad x,y\in\Enteros
+	% \text{ .}
+% \end{displaymath}
+% %
+% Todas estas afirmaciones est\'an relacionadas con el problema de representar
+% un n\'umero en la forma $x^2+ny^2$. La primera demostraci\'on de las primeras
+% tres afirmaciones parece haber sido encontrada por Euler alrededor de cien
+% a\~nos despu\'es de que Fermat las enunciara. La cuarta fue demostrada m\'as
+% tarde por Lagrange. Ver \cite[pp.~7--9]{Cox}.
 
 \begin{ejemFermat}\label{ejem:fermat}
 	Si $p=x^2+y^2$ con $x,y\in\Enteros$, entonces $p\equiv 1\tmodulo[4]$,
 	pues $x^2\equiv 0$ o $x^2\equiv 1$, dependiendo de si $x$ es par o
 	impar y, si $p$ es un primo impar, $x$ e $y$ deben tener distinta
 	paridad.
-	An\'alogamente, si $p=x^2+2y^2$, entonces $p\equiv 1\tmodulo[8]$ o
-	bien $p\equiv 3\tmodulo[8]$. Y, si $p=x^2+3y^2$, entonces
-	$p=3$ o bien $p\equiv 1\tmodulo[3]$. \quedacomoejercicio.
+	% An\'alogamente, si $p=x^2+2y^2$, entonces $p\equiv 1\tmodulo[8]$ o
+	% bien $p\equiv 3\tmodulo[8]$. Y, si $p=x^2+3y^2$, entonces
+	% $p=3$ o bien $p\equiv 1\tmodulo[3]$. \quedacomoejercicio.
 \end{ejemFermat}
 
 \begin{teoFermat}\label{teo:fermat}
@@ -231,8 +231,11 @@ Ahora s\'{\i}, probamos el paso de Descenso.
 \end{lemaFermat}
 
 \begin{proof}
-	Por hip\'otesis, $p-1=4k$, $k\in\Enteros$, y, entonces por el
-	\teoname~\ref{teo:congruencias:fermatito}, como $\eulerphi(p)=p-1$,
+	Por hip\'otesis, $p-1=4k$, $k\in\Enteros$,
+	% y,
+	entonces,
+	% por el \teoname~\ref{teo:congruencias:fermatito},
+	como $\eulerphi(p)=p-1$,
 	$x^{4k}\equiv 1\tmodulo[p]$, para todo $x\in\Enteros$ coprimo con $p$
 	(o sea, para todo $x\not\equiv 0\tmodulo[p]$), o, lo que es lo mismo,
 	$p\mid x^{4k}-1$. Pero $x^{4k}-1=(x^{2k}-1)\,(x^{2k}+1)$. Como $p$ es
@@ -250,20 +253,22 @@ Ahora s\'{\i}, probamos el paso de Descenso.
 	congruencia. Pero, como $2k<p$, existe $x\in\Enteros$ tal que
 	$x^{2k}-1\not\equiv 0\tmodulo[p]$ \quedacomoejercicio.%
 	\footnote{
-		Para dar una prueba de esto, se puede usar el resultado del
-		\ejername~\ref{ejer:fermat:soluciones:euler}.
-		Usando los resultados de la \S~\ref{sec:polinomios}, se
-		puede dar una demostraci\'on m\'as algebraica.
-		M\'as adelante, veremos otra demostraci\'on de que la
-		cantidad de soluciones distintas a una ecuaci\'on de
-		congruencia $f(x)\equiv 0\tmodulo[p]$ est\'a acotada por
-		el grado del polinomio $f$ (\lemaname~%
-		\ref{lema:residuos:polinomios}).
+		La cantidad de ra\'{\i}ces m\'odulo $p$ es, a lo sumo,
+		el grado del polinomio.
+		% Para dar una prueba de esto, se puede usar el resultado del
+		% \ejername~\ref{ejer:fermat:soluciones:euler}.
+		% Usando los resultados de la \S~\ref{sec:polinomios}, se
+		% puede dar una demostraci\'on m\'as algebraica.
+		% M\'as adelante, veremos otra demostraci\'on de que la
+		% cantidad de soluciones distintas a una ecuaci\'on de
+		% congruencia $f(x)\equiv 0\tmodulo[p]$ est\'a acotada por
+		% el grado del polinomio $f$ (\lemaname~%
+		% \ref{lema:residuos:polinomios}).
 	}
 	Entonces, debe ser $x^{2k}+1\equiv 0\tmodulo[p]$.
 	Obtenemos el resultado eligiendo $a=x^k$ y $b=1$.
 \end{proof}
 
-\subsection*{Ejercicios}
-\input{./tex/reciprocidad-cuadratica/ejercicios-fermat.tex}
+% \subsection*{Ejercicios}
+% \input{./tex/reciprocidad-cuadratica/ejercicios-fermat.tex}
 
