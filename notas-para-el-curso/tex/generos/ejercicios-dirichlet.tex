@@ -3,6 +3,26 @@
 
 %-------------
 
+\begin{ejerDirichlet}\label{ejer:dirichlet:sobreyectividad}
+	Sea $D\equiv 0,1\tmodulo[4]$. Probar que existe $m\in\Enteros$
+	tal que $\varkronecker[D](m)=-1$, es decir, la morfismo de grupos
+	$\varkronecker[D]:\,\Unidadesmod[D]\rightarrow\cuadratico$
+	es sobreyectivo.
+\end{ejerDirichlet}
+
+\begin{ejerDirichlet}\label{ejer:dirichlet:primos-representables}
+	Sea $D\equiv 0,1\tmodulo[4]$ y sea $c\in\Unidadesmod[D]$.
+	Probar que, si $p,q\in c$ son primos positivos impares,
+	entonces $p$ es representable por alguna forma de discriminante
+	$D$, si y s\'olo si $q$ es representable por alguna forma de
+	discriminante $D$.%
+	\hint{
+		Recordar que, para primos (positivos, impares, que no
+		dividen al discriminante $D$), ser representable equivale
+		a $\varkronecker[D](p)=1$.
+	}
+\end{ejerDirichlet}
+
 \begin{ejerDirichlet}\label{ejer:dirichlet:generos}
 	Para $D\in\{-24,-31,-52\}$, describir los g\'eneros de formas
 	cuadr\'aticas de discriminante $D$.
@@ -10,8 +30,8 @@
 	\begin{itemize}
 		\item el subconjunto $\Unidadesmod[D]\subset\Enterosmod[D]$,
 		\item el subgrupo $\ker(\chi)\subgrp\Unidadesmod[D]$,
-		\item las formas reducidas
-			(\ejername~\ref{ejer:reducidas:varios}),
+		\item las formas reducidas,
+			% (\ejername~\ref{ejer:reducidas:varios}),
 		\item las clases de congruencia m\'odulo $D$ representadas
 			por la \emph{forma principal}, es decir, por
 			$\binaria{1,0,-D/4}$, si $D\equiv 0\tmodulo[4]$,
