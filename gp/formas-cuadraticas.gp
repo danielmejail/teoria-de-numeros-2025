@@ -160,4 +160,42 @@ clases(D) = {
 	);
 }
 
+esta_reducida(f) = {
+	if ( discriminante(f) < 0, \
+		return ( esta_reducida_definida(f) ), \
+		return ( esta_reducida_indefinida(f) ) );
+}
+
+esta_reducida_definida(f) = {
+	return ( (-f[1] < f[2] && f[2] <= f[1] && f[1] < f[3]) || \
+		(0 <= f[2] && f[2] <= f[1] && f[1] == f[3]) );
+}
+
+esta_reducida_indefinida(f) = {
+	return ( 0 < f[2] && f[2] < sqrt(discriminante(f)) && abs(sqrt(discriminante(f)) - abs(2*f[1])) < f[2] );
+}
+
+reducir_definida(f) = {
+	local ( S = [0,1;-1,0] );
+	local ( T = [1,0;0,1] );
+	local ( h = 0 );
+	while ( ! es_reducida_definida(f), \
+		if ( abs(f[2]) > f[1], \
+			\\ find translation
+			h = floor(f[2]/2/f[1]);
+			T = [1,-h;0,1];
+			f = actuar(f,T) );
+		if ( f[1] > f[3], \
+			f = actuar(f,S) );
+	);
+	if ( f[2] == -f[1], f = actuar(f,[1,1;0,1]) );
+	if ( f[1] == f[3] && 0 > f[2], f = actuar(f,S) );
+	return ( f );
+}
+
+reducir_indefinida(f) = {
+	while ( ! esta_reducida_indefinida(f),
+		f = vecino(f) );
+	return ( f );
+}
 
