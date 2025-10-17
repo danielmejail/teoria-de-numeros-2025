@@ -1,0 +1,60 @@
+\theoremstyle{plain}
+\newtheorem{teoMotivaComposicion}{\teoname}[section]
+\newtheorem{lemaMotivaComposicion}[teoMotivaComposicion]{\lemaname}
+
+\theoremstyle{definition}
+\newtheorem{obsMotivaComposicion}[teoMotivaComposicion]{\obsname}
+
+%-------------
+
+En esta parte, veremos que el conjunto de clases de formas cuadr\'aticas
+posee estructura adicional.
+
+\begin{teoMotivaComposicion}\label{teo:motiva:composicion}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D\neq 0$.
+	El conjunto $\Clases(D)$ de clases de equivalencia propia
+	de formas cuadr\'aticas binarias primitivas de discriminante $D$
+	admite una estructura de grupo abeliano (finito) con la siguiente
+	propiedad: si $m_1,m_2\in\Enteros$ son representados por clases
+	$C_1,C_2\in\Clases(D)$, respectivamente, entonces el producto
+	$m_1m_2$ es representado por el producto de las clases, $C_1C_2$.
+\end{teoMotivaComposicion}
+
+Por otro lado, si $D\equiv 0,1\tmodulo[D]$, $D\neq 0$, el subconjunto
+de $\Unidadesmod(D)$ conformado por aquellas clases de congruencia
+m\'odulo $D$ que est\'an representadas por formas de discriminante
+$D$ constituye un subgrupo. Precisamente, dicho subgrupo es
+$\ker(\varkronecker[D])\subgrp\Unidadesmod(D)$.
+El \teoname~\ref{teo:motiva:composicion} sugiere que existe una
+relaci\'on entre el ahora \emph{grupo de clases} $\Clases(D)$ y
+el subgrupo $\ker(\varkronecker[D])$.
+
+Por \emph{otro} lado, dos formas primitivas de discriminante $D$
+pertenecen al mismo g\'enero, si representan enteros en una misma
+clase de congruencia m\'odulo $D$. Dicho de otra manera, si $f$ y $g$
+son formas primitivas que \emph{no pertenecen} al mismo g\'enero,
+entonces, ning\'un entero representado por $f$ es congruente
+m\'odulo $D$ con un entero representado por $g$. Esta observaci\'on
+nos permite asignarle inequ\'ivocamente, a cada clase de congruencia
+m\'odulo $D$ repersentable, el g\'enero de formas (primitivas) que la
+representan.
+
+El siguiente diagrama sintetiza el estado de situaci\'on:
+\begin{displaymath}
+	\begin{tikzcd}
+		& \ker(\varkronecker[D]) \arrow[r] \arrow[d] &
+			\Unidadesmod(D) \arrow[r,"{\varkronecker[D]}"] &
+			\cuadratico \\
+		\Clases(D) \arrow[r] & \big\{\text{g\'eneros}\big\} & &
+	\end{tikzcd}
+	%
+	\dispstop
+\end{displaymath}
+%
+En particular, si cada g\'enero de formas primitivas de discriminante $D$
+est\'a compuesto por una \'unica clase propia, entonces podemos decidir,
+dado un primo (impar, que no divide a $D$), si es representable
+por formas primitivas de discriminante $D$ y, en tal caso, exactamente
+qu\'e formas lo representan, mirando solamente su clase de congruencia
+m\'odulo $D$.
+
