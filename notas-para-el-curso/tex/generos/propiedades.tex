@@ -138,7 +138,51 @@
 	%
 
 	\begin{proof}[\proofname~de~\ref{item:lema:generos:nucleo}]
-		Para empezar, asumimos que $m>0$ \quedacomoejercicio.
+		Para empezar, asumimos que $m>0$ \quedacomoejercicio.%
+		\footnote{
+			Si $m=f(x,y)$, con $x,y\in\Enteros$,
+			considerar la funci\'on $g(u,v)=f(x+uD,y+vD)$.
+			Se cumple
+			% \begin{displaymath}
+				% g(u,v)\,=\,m\,+\,
+					% \Big((2ax+by)\,u+(2cy+bx)\,v\Big)\,D
+					% \,+\, f(u,v)\,D^2
+				% \dispstop
+			% \end{displaymath}
+			% %
+			% Entonces, con $f(u,v)=au^2+buv+cv^2$,
+			% \begin{displaymath}
+				% \begin{aligned}
+					% \partial_u\,g(u,v) & \,=\,
+						% \partial_u\,f(u,v)\,D^2\,+\,
+							% (2ax+by)\,D
+						% \,=\,(2au+bv)\,D^2\,+\,
+							% (2ax+by)\,D
+						% \dispcomma \\
+					% \partial_v\,g(u,v) & \,=\,
+						% \partial_v\,f(u,v)\,D^2\,+\,
+							% (2cy+bx)\,D
+						% \,=\,(2cv+bu)\,D^2\,+\,
+							% (2cy+bx)\,D
+					% \dispstop
+				% \end{aligned}
+				% %
+			% \end{displaymath}
+			% %
+			% As\'{\i},
+			\begin{displaymath}
+				\begin{vmatrix}
+					\partial_{uu}\,g & \partial_{uv}\,g \\
+					\partial_{vu}\,g & \partial_{vv}\,g
+				\end{vmatrix}\,(u,v)\,=\,
+				\begin{vmatrix}
+					2a & b \\ b & 2c
+				\end{vmatrix}\,D^4\,=\,-D^5
+				\dispstop
+			\end{displaymath}
+			%
+			En particular, si $D>0$, la hessiana es negativa.
+		}
 		Si $m=f(x,y)$ y $g=\mcd{x,y}$, entonces $g^2\mid m$ y
 		\begin{displaymath}
 			f(x/g,y/g)\,=\,m/g^2
