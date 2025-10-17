@@ -1,0 +1,124 @@
+\theoremstyle{plain}
+\newtheorem{teoMotivaGeneros}{\teoname}[section]
+\newtheorem{coroMotivaGeneros}[teoMotivaGeneros]{\coroname}
+
+\theoremstyle{definition}
+\newtheorem{obsMotivaGeneros}[teoMotivaGeneros]{\obsname}
+
+%-------------
+
+% A cada forma $f$ podemos asociarle el subconjunto de enteros
+% que ella representa:
+% \begin{displaymath}
+	% \Representados(f)\,=\,\big\{m\in\Enteros\,:\,
+		% m\text{ est\'a representado por } f\big\}
+	% \dispstop
+% \end{displaymath}
+% %
+% El subconjunto $\Representados(f)\subseteq\Enteros$ es un
+% invariante de la clase de equivalencia de $f$. Es decir,
+% si $f$ y $g$ son equivalentes, entonces
+% $\Representados(f)=\Representados(g)$.
+% 
+Dado $D\equiv 0,1\tmodulo[4]$, $D\neq 0$, un entero
+$m$ (impar, coprimo con $D$) est\'a representado
+(primitivamente) por alguna forma cuadr\'atica de
+discriminante $D$, si y s\'olo $D$ es un residuo
+cuadr\'atico m\'odulo $4m$. Si $m=p>0$ es primo,
+entonces esto equivale tambi\'en a que
+$\varkronecker[D](p)=\tlegendre D p=1$.
+
+\begin{obsMotivaGeneros}\label{obs:motiva:generos}
+	Si $p$ es un primo positivo impar que no divide
+	a $D$ y $p$ es representable por alguna forma
+	cuadr\'atica primitiva de discriminante $D$,
+	entonces todo primo positivo impar
+	$q\equiv p\tmodulo[D]$ tambi\'en es
+	representable por alguna forma primitiva
+	de discriminante $D$.
+\end{obsMotivaGeneros}
+
+\begin{teoMotivaGeneros}[Dirichlet]\label{teo:motiva:generos}
+	Dados n\'umeros enteros coprimos $m$ y $D$, la
+	sucesi\'on
+	\begin{displaymath}
+		m\dispcomma\quad
+		m+D\dispcomma\quad
+		m+2 D\dispcomma\quad\dots
+	\end{displaymath}
+	%
+	contiene infinitos n\'umeros primos.
+\end{teoMotivaGeneros}
+
+% \'Este es el Teorema de Dirichlet sobre primos en
+% progresiones aritm\'eticas.
+En particular, el \teoname~\ref{teo:motiva:generos}
+implica que toda clase de congruencia $c\in\Unidadesmod(D)$
+contiene, al menos, un primo positivo impar. Esto
+tiene la siguiente consecuencia.
+
+\begin{coroMotivaGeneros}\label{coro:motiva:generos}
+	Si $c\in\Unidadesmod(D)$ es tal que
+	$\varkronecker[D](c)=1$, entonces $c$ es representable
+	por alguna forma cuadr\'atica (primitiva) de
+	discriminante $D$.
+\end{coroMotivaGeneros}
+
+Teniendo en cuenta el \coroname~\ref{coro:motiva:generos}
+y la \obsname~\ref{obs:motiva:generos}, asociamos, a una
+forma $f$ de discriminante $D$, el subconjunto de clase
+de congruencia m\'odulo $D$, coprimas con $D$,%
+\footnote{
+	Si $m\equiv n\tmodulo[D]$, entonces
+	$\mcd{m,D}=\mcd{n,d}$. En particular,
+	la noci\'on de que una clase de congruencia
+	m\'odulo $D$ sea coprima con $D$ est\'a bien
+	definida.
+}
+representadas por $f$:
+\begin{displaymath}
+	\copRepresentados(f)\,=\,
+		\big\{c\in\Unidadesmod(D)\,:\,
+		c\text{ est\'a representada por } f\big\}
+	\dispstop
+\end{displaymath}
+%
+
+?`Es cierto que, si $c\in\Unidadesmod(D)$ est\'a representada
+por alguna forma (primitiva) de discriminante $D$,
+\emph{entonces} $\varkronecker[D](c)=1$?
+La respuesta es que s\'{\i}.
+En particular, dada una forma primitiva $f$ de discriminante
+$D$, el subconjunto $\copRepresentados(f)$, en verdad, est\'a
+contenido en
+\begin{displaymath}
+	\ker(\varkronecker[D])\,=\,
+		\big\{c\in\Unidadesmod(D)\,:\,
+		\varkronecker[D](c)=1\big\}
+	\dispstop
+\end{displaymath}
+%
+Fijado un discriminante $D$,
+para cada $m\in\Enteros$, podemos preguntarnos qu\'e
+formas cuadr\'aticas
+% lo representan, qu\'e formas primitivas,
+% qu\'e formas de discriminante $D$ y qu\'e formas
+primitivas de discriminante $D$ lo representan.
+A cada entero le corresponder\'a un subconjunto de formas y,
+en realidad, un subconjunto de clases de formas.
+Este subconjunto podr\'{\i}a ser vac\'{\i}o.
+De la misma manera, fijado $D$, a cada clase de congruencia
+$c\in\Unidadesmod(D)$, le asociamos el subconjunto de aquellas
+clases de formas que la representan. Este subconjunto de
+formas constituye un \emph{g\'enero de formas cuadr\'aticas}.
+
+\begin{teoMotivaGeneros}\label{teo:motiva:generos:bis}
+	Sea $D\equiv 0,1\tmodulo[4]$, $D\neq 0$ y sea
+	$c\in\Unidadesmod(D)$. Si dos formas primitivas
+	$f$ y $g$ de discriminante $D$ representan $c$,
+	entonces $\copRepresentados(f)=\copRepresentados(g)$.
+\end{teoMotivaGeneros}
+
+Es decir, los subconjuntos $\copRepresentados(f)$ y
+$\copRepresentados(g)$ son iguales o disjuntos.
+
