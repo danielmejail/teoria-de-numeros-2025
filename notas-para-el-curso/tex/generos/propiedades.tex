@@ -46,44 +46,52 @@
 
 \begin{restatable}{lemaGenerosB}{lemaGenerosBCoclases}
 	\label{lema:generos}
-	Sea $D\equiv 0,1\tmodulo[4]$ y sea $f$ una forma
-	de discriminante $D$. Entonces,
+	Sea $D\equiv 0,1\tmodulo[4]$, $D\neq 0$, y sea
+	$f$ una forma gaussiana de discriminante $D$.%
+	\footnote{
+		Recordamos que esto significa que $f$ es
+		primitiva y, en el caso $D<0$, positiva.
+	}
+	Entonces,
 	\begin{enumerate}[(i)]
 		\item\label{item:lema:generos:principal}
 			los valores en $\Unidadesmod[D]$ representados por
 			el g\'enero principal constituyen un subgrupo
-			$H\subgrpeq\ker(\chi)$;
+			$H\subgrpeq\ker(\varkronecker)$;
 		\item\label{item:lema:generos:coclases}
 			los valores en $\Unidadesmod[D]$ representados por
 			el g\'enero de $f$ constituyen una coclase de $H$
-			en $\ker(\chi)$.
+			en $\ker(\varkronecker)$.
 	\end{enumerate}
 	%
 \end{restatable}
 
 \begin{teoGenerosB}\label{teo:generos}
-	Sea $D\equiv 0,1\tmodulo[4]$ y sea $H\subgrpeq\ker(\chi)$
-	como en el \lemaname~\ref{lema:generos}. Si $H'\subset\ker(\chi)$
-	es una coclase de $H$ en $\ker(\chi)$ y $p$ es un primo impar
+	Sea $D\equiv 0,1\tmodulo[4]$ y sea
+	$H\subgrpeq\ker(\varkronecker)$ como en el
+	\lemaname~\ref{lema:generos}.
+	Si $H'\subseteq\ker(\varkronecker)$ es una coclase de
+	$H$ en $\ker(\varkronecker)$ y $p$ es un primo impar
 	que no divide a $D$, entonces su clase de congruencia
-	$\clase p\in H'$, si y s\'olo si $p$ es representado por una forma
-	de discriminante $D$ perteneciente al g\'enero correspondiente a $H'$.
+	$\clase p\in H'$, si y s\'olo si $p$ es representado por
+	una forma de discriminante $D$ perteneciente al g\'enero
+	correspondiente a $H'$.
 \end{teoGenerosB}
 
 \begin{obsGenerosB}\label{obs:generos:correspondencia}
-	Dada una coclase $H'$ de $H$ en $\ker(\chi)$, las clases de
+	Dada una coclase $H'$ de $H$ en $\ker(\varkronecker)$, las clases de
 	congruencia contenidas en $H'$ son representadas por formas
-	de discriminante $D$ (pues $H'\subset\ker(\chi)$; ver el
+	de discriminante $D$ (pues $H'\subseteq\ker(\varkronecker)$; ver el
 	\coroname~\ref{coro:dirichlet}).
 	Dada una forma (primitiva) de discriminante $D$, $f$,
 	las clases en $\Unidadesmod[D]$ representadas por $f$
-	constituyen una coclase de $H$ en $\ker(\chi)$
+	constituyen una coclase de $H$ en $\ker(\varkronecker)$
 	(\lemaname~\ref{lema:generos}~\eqref{item:lema:generos:coclases}).
 	Existe, entonces, una biyecci\'on
 	\begin{displaymath}
 		\big(
 			\text{coclases de }
-			H\text{ en }\ker(\chi)
+			H\text{ en }\ker(\varkronecker)
 		\big)\,\simeq\,
 		\big(
 			\text{g\'eneros de formas primitivas %
@@ -105,115 +113,121 @@
 		\item\label{item:lema:generos:nucleo}
 			si $m\in\Enteros$, $\mcd{m,D}=1$, es tal que
 			$m=f(x,y)$ para alguna forma $f$ de discriminante
-			$D$, entonces $\clase m\in\ker(\chi)$;
-			% no asumimos que $m$ sea propiamente representado,
+			$D$, entonces $\clase m\in\ker(\varkronecker)$;
+			% no asumimos que $m$ sea primitivamente representado,
 			% ni que $f$ sea primitiva
 		\item\label{item:lema:generos:subgrupo}
-			si $H\subset\ker(\chi)$ denota el subconjunto de
+			si $H\subseteq\ker(\varkronecker)$ denota el subconjunto de
 			clases de congruencia m\'odulo $D$ representadas
 			en el g\'enero principal,
-			entonces $H$ es un subgrupo de $\ker(\chi)$;
+			entonces $H$ es un subgrupo de $\ker(\varkronecker)$;
 			% no asumimos que los elementos de $H$ sean
-			% propiamente representados en el g\'enero
+			% primitivamente representados en el g\'enero
 			% principal
 		\item\label{item:lema:generos:primitivas}
 			si $f$ es una forma \emph{primitiva} de discriminante
 			$D$ y $M\in\Enteros$, entonces existe, al menos,
-			un $k\in\Enteros$, $\mcd{k,M}=1$, propiamente
+			un $k\in\Enteros$, $\mcd{k,M}=1$, primitivamente
 			representado por $f$;
 		\item\label{item:lema:generos:coclases}
 			si $f$ es una forma primitiva de discriminante $D$,
 			entonces los valores en $\Unidadesmod[D]$
 			representados por $f$ constituyen una coclase de
-			$H$ en $\ker(\chi)$.
+			$H$ en $\ker(\varkronecker)$.
 	\end{enumerate}
 	%
 
 	\begin{proof}[\proofname~de~\ref{item:lema:generos:nucleo}]
+		Para empezar, asumimos que $m>0$ \quedacomoejercicio.
 		Si $m=f(x,y)$ y $g=\mcd{x,y}$, entonces $g^2\mid m$ y
 		\begin{displaymath}
 			f(x/g,y/g)\,=\,m/g^2
 		\end{displaymath}
 		%
 		es una representaci\'on propia de $m'=m/g^2$ por $f$.
-		Dado que $\chi$ es \emph{multiplicativo} y
+		Dado que $\varkronecker$ es \emph{multiplicativo} y
 		\emph{cuadr\'atico},%
 		\footnote{
 			``Multiplicativo'' quiere decir
-			$\chi(x\,y)=\chi(x)\,\chi(y)$, para todo par
-			$x,y\in\Enteros$,
+			\begin{math}
+				\varkronecker(x\,y)=
+					\varkronecker(x)\,\varkronecker(y)
+			\end{math},
+			para todo par $x,y\in\Enteros$,
 			``cuadr\'atico'' quiere decir que
-			$\chi(x)^2=1$ para todo $x\in\Enteros$,
-			o sea, $\chi(x)\in\{\pm 1\}$.
+			$\varkronecker(x)^2=1$ para todo $x\in\Enteros$,
+			o sea, $\varkronecker(x)\in\{\pm 1\}$.
 		}
 		\begin{displaymath}
-			\chi(m')\,=\,\chi(m)
+			\varkronecker(m')\,=\,\varkronecker(m)
 			\dispcomma
 		\end{displaymath}
 		%
 		as\'{\i} que podemos suponer que $m$ es representado
-		propiamente por $f$. Ahora, separamos en dos casos.
+		primitivamente por $f$. Ahora, separamos en dos casos.
 		Si $m$ es impar, por el \lemaname~%
 		\ref{lema:representaciones:primitiva}, existe
 		$\beta\in\Enteros$ tal que $D\equiv\beta^2\tmodulo[m]$.
 		Entonces, en este caso,
 		\begin{displaymath}
-			\chi(m)\,=\,\legendre D m\,=\,
-				\legendre{\beta^2} m\,=\,
-				\legendre \beta m^2\,=\,1
+			\varkronecker(m)\,=\,\jacobi D m\,=\,
+				\jacobi{\beta^2} m\,=\,
+				\jacobi \beta m^2\,=\,1
 			\dispstop
 		\end{displaymath}
 		%
-		Es decir, $\clase m\in\ker(\chi)$.
+		Es decir, $\clase m\in\ker(\varkronecker)$.
 		Si, en cambio, $m$ es par, entonces afirmamos:
 		\begin{enumerate}[{.}1]
 			\item\label{item:lema:generos:nucleo:i}
 				el discriminante es $D\equiv 1\tmodulo[8]$;
 			\item\label{item:lema:generos:nucleo:ii}
-				la clase $\clase m\in\ker(\chi)$.
+				la clase $\clase m\in\ker(\varkronecker)$.
 		\end{enumerate}
 		%
 		En cuanto a {.\ref{item:lema:generos:nucleo:i}},
 		si una forma $f$ de discriminante $D$ representa un
 		n\'umero par $m$, entonces $f$ es equivalente a
 		$mx^2+Bxy+Cy^2$ y $D=B^2-4mC\equiv B^2\tmodulo[8]$.
-		Como $D\equiv 1\tmodulo[4]$, se deduce que
-		$D\equiv 1\tmodulo[8]$ (es impar).
+		Como $D\equiv 1\tmodulo[4]$ (por ser coprimo con $m$,
+		que es par), se deduce que $D\equiv 1\tmodulo[8]$
+		(es impar).
 		En cuanto a \label{item:lema:generos:nucleo:ii},
 		como $D\equiv 1\tmodulo[8]$, se cumple que
 		\begin{displaymath}
-			\chi(2)\,=\,1
+			\varkronecker(2)\,=\,1
 			\dispstop
 		\end{displaymath}
 		%
 		Entonces, si $m=2^r m'$ con $m'$ impar, vale que
 		\begin{displaymath}
-			\chi(m)\,=\,\chi(m')
+			\varkronecker(m)\,=\,\varkronecker(m')
 			\dispstop
 		\end{displaymath}
 		%
 		Pero $D\equiv\beta^2\tmodulo[m]$ implica
 		$D\equiv\beta^2\tmodulo[m']$. Como $m'$ es impar,
 		\begin{displaymath}
-			\chi(m')\,=\,\legendre D{m'}\,=\,
-				\legendre \beta{m'}^2\,=\,1
+			\varkronecker(m')\,=\,\jacobi D{m'}\,=\,
+				\jacobi \beta{m'}^2\,=\,1
 			\dispstop
 		\end{displaymath}
 		%
 		% podemos concluir de esto que $m'$ es representado
-		% (propiamente) por una forma (primitiva) de
+		% (primitivamente) por una forma (primitiva) de
 		% discriminante $D$, pero no lo necesitamos
 	\end{proof}
 
 	\begin{proof}[\proofname~de~\ref{item:lema:generos:subgrupo}]
 		Por la parte~\ref{item:lema:generos:nucleo}, sabemos que
-		$H\subset\ker(\chi)$. Veamos que es subgrupo. Si $D=-4n$,
+		$H\subseteq\ker(\varkronecker)$.
+		Veamos que es subgrupo. Si $D=-4n$,
 		la forma principal es $\binaria{1,0,n}$ y, por el
 		\ejername~\ref{ejer:fermat:identidades}~%
 		\eqref{item:ejer:fermat:identidades},
 		el subconjunto $H$ es cerrado por multiplicaci\'on:
 		si $m,m'\in H$, entonces $mm'\in H$. Ahora, como
-		$\ker(\chi)$ ($\Unidadesmod[D]$) es un grupo finito
+		$\ker(\varkronecker)$ ($\Unidadesmod[D]$) es un grupo finito
 		(de torsi\'on), $H$ es un subgrupo.
 		Si $D\equiv 1\tmodulo[4]$, la forma principal es
 		$f_0:=\binaria{1,1,(1-D)/4}$, entonces
@@ -254,11 +268,11 @@
 		Como estamos asumiendo que $f$ es primitiva, el primo
 		escogido $p$ no puede dividir estos tres valores
 		simult\'aneamente. Obtenemos, de esta manera,
-		\emph{alg\'un} entero no divisible por $p$ y propiamente
+		\emph{alg\'un} entero no divisible por $p$ y primitivamente
 		representado por $f$.
 		Si, ahora, $M\in\Enteros$ (arbitrario), podemos elegir,
 		para cada primo $p\mid M$, un $k_p\in\Enteros$ no divisible
-		por $p$ y propiamente representado por $f$, es decir,
+		por $p$ y primitivamente representado por $f$, es decir,
 		existen $k_p$, $x_p$, $y_p$ tales que
 		\begin{displaymath}
 			k_p\,=\,f(x_p,y_p)\dispcomma\quad
@@ -279,7 +293,7 @@
 		$k\equiv k_p\tmodulo[p]$ y, por lo tanto,
 		$p$ no divide a $k$ y $\mcd{k,M}=1$.
 		Si $g:=\mcd{x,y}\geq 1$, dividiendo por $g^2$ a $x$ y a $y$,
-		el entero $k/g^2$ es coprimo con $M$ y propiamente
+		el entero $k/g^2$ es coprimo con $M$ y primitivamente
 		representado por $f$.
 	\end{proof}
 
@@ -288,8 +302,8 @@
 		$D=-4n$. Elegimos $M=D$. Si $f$ es una forma
 		primitiva discriminante $D$, podemos, por la parte
 		\ref{item:lema:generos:primitivas}, encontrar $a\in\Enteros$,
-		$\mcd{a,M}=1$, propiamente representado por $f$.
-		Por el \lemaname~\ref{lema:representaciones:propiamente},
+		$\mcd{a,M}=1$, primitivamente representado por $f$.
+		Por el \lemaname~\ref{lema:representaciones:primitivamente},
 		la forma $f$ es estrictamente equivalente a una forma
 		$f_1=\binaria{a,b,c}$ (con $a$ como primer coeficiente).
 		Dado que $f$ y $f_1$ representan los mismos enteros,
@@ -332,7 +346,7 @@
 		$f(x,y)\equiv c\tmodulo[4n]$.
 
 		Si $D\equiv 1\tmodulo[4]$, al igual que antes, podemos
-		encontrar $a$ coprimo con $|D|$ propiamente representado
+		encontrar $a$ coprimo con $|D|$ primitivamente representado
 		por $f$ y cambiar $f$ por una forma estrictamente
 		equivalente $\binaria{a,b,c}$. Asumiendo que
 		$f=\binaria{a,b,c}$ con $\mcd{a,D}=1$,
